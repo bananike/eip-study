@@ -1,0 +1,1685 @@
+{
+ "generated": "auto",
+ "days": [
+  {
+   "day": 7,
+   "date": "2026-05-18",
+   "subject": "4과목 프로그래밍 언어 활용",
+   "topic": "Java 객체지향 (상속·다형성·추상·캡슐·예외·컬렉션)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 정보처리기사 필기 2020~2024 반복 출제 — 정형 패턴",
+     "stem_md": "다음에서 설명하는 객체지향 구성 요소로 가장 적절한 것은?\n\n> 공통된 속성(Attribute)과 연산(Method)을 갖는 객체들의 집합으로, 객체를 생성하기 위한 틀(template) 역할을 한다.",
+     "options": [
+      "메소드(Method)",
+      "클래스(Class)",
+      "메시지(Message)",
+      "인스턴스(Instance)"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ② 클래스(Class)\n- 제공 해설: 공통 속성·연산을 갖는 객체의 집합 = 클래스. 객체를 만들어내는 틀 역할.\n- 오답 이유:\n  - ① 메소드: 객체의 연산(행위)을 정의하는 함수 자체.\n  - ③ 메시지: 객체 간 통신/메소드 호출 요청.\n  - ④ 인스턴스: 클래스로부터 실제로 생성된 객체(메모리에 적재된 실체)."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 정보처리기사 필기 2021~2023 반복 출제 — 정형 패턴",
+     "stem_md": "Java 언어의 접근 제어자(access modifier) 중, 동일 클래스 내부에서만 접근이 가능하고 다른 클래스(같은 패키지 포함)에서는 접근할 수 없는 것은?",
+     "options": [
+      "public",
+      "protected",
+      "default (package-private)",
+      "private"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④ private\n- 제공 해설: private는 동일 클래스 내부에서만 접근 가능.\n- 오답 이유:\n  - ① public: 어디서나 접근 가능 (제한 없음).\n  - ② protected: 동일 패키지 + 다른 패키지의 상속 자식 클래스에서 접근 가능.\n  - ③ default(package-private): 동일 패키지 내 모든 클래스에서 접근 가능."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 정보처리기사 필기 2020~2022 반복 출제 — 정형 패턴",
+     "stem_md": "Java의 기본 자료형(primitive type) 중 정수형(integer type)에 해당하지 않는 것은?",
+     "options": [
+      "byte",
+      "short",
+      "float",
+      "long"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③ float\n- 제공 해설: float는 4byte 실수형(부동소수점). 정수형은 byte/short/int/long.\n- 오답 이유:\n  - ① byte: 1byte 정수형.\n  - ② short: 2byte 정수형.\n  - ④ long: 8byte 정수형."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 정보처리기사 필기 2022~2024 — 코드 추적 정형 패턴",
+     "stem_md": "다음 Java 코드의 실행 결과로 옳은 것은?\n\n```java\nclass Parent {\n    void show() { System.out.print(\"A\"); }\n}\nclass Child extends Parent {\n    void show() { System.out.print(\"B\"); }\n}\npublic class Test {\n    public static void main(String[] args) {\n        Parent p = new Child();\n        p.show();\n    }\n}\n```",
+     "options": [
+      "A",
+      "B",
+      "AB",
+      "컴파일 오류"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ② B\n- 제공 해설: Parent 타입 참조 변수 p가 실제로는 Child 객체를 가리킨다(상향 형변환). Java의 메소드는 기본적으로 가상(virtual)이며 동적 바인딩되므로 실제 객체 타입(Child)의 show()가 호출되어 \"B\" 출력.\n- 오답 이유:\n  - ① A: 정적 바인딩 가정 시 답이지만, Java 일반 메소드는 동적 바인딩이 기본.\n  - ③ AB: 두 메소드가 모두 호출되지 않음. Parent의 show는 오버라이딩으로 가려짐.\n  - ④ 컴파일 오류: 상향 형변환은 묵시적 허용 → 오류 없음."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 정보처리기사 필기 2021~2023 — 예외처리 정형 패턴",
+     "stem_md": "Java의 예외 처리(exception handling)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "try 블록 내부에서 발생한 예외는 catch 블록에서 처리된다.",
+      "finally 블록은 예외 발생 여부와 관계없이 항상 실행된다.",
+      "하나의 try 블록에는 다중 catch 블록을 사용할 수 없다.",
+      "throw 키워드는 예외를 강제로 발생시킬 때 사용된다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③ (옳지 않은 것)\n- 제공 해설: 하나의 try 블록에 catch는 여러 개 사용할 수 있다(다중 catch). 발생한 예외 타입에 따라 분기 처리. ③의 진술이 잘못됨.\n- 오답 이유 (옳은 보기들):\n  - ① try 블록의 예외를 catch가 잡는다 — 옳음.\n  - ② finally는 예외 발생 여부와 무관하게 실행 — 옳음(단 System.exit() 등 예외).\n  - ④ throw는 예외 객체를 강제로 발생시킴 — 옳음."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 정보처리기사 필기 2020·2022 반복 출제 — 정형 패턴",
+     "stem_md": "객체지향의 4대 특성 중 다음 설명에 해당하는 것은?\n\n> 데이터(속성)와 그 데이터를 처리하는 함수(메소드)를 하나의 단위(클래스)로 묶고, 외부에서 내부 데이터에 직접 접근하지 못하도록 정보를 은닉(information hiding)하는 것.",
+     "options": [
+      "상속(Inheritance)",
+      "캡슐화(Encapsulation)",
+      "다형성(Polymorphism)",
+      "추상화(Abstraction)"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ② 캡슐화(Encapsulation)\n- 제공 해설: 데이터+메소드 묶음 + 정보 은닉 = 캡슐화. private 필드 + public getter/setter가 대표 패턴.\n- 오답 이유:\n  - ① 상속: 상위 클래스의 속성/연산을 하위 클래스가 물려받음.\n  - ③ 다형성: 같은 메시지(메소드 호출)가 객체 타입에 따라 다르게 동작.\n  - ④ 추상화: 공통 속성/기능을 추출해 단순화. 캡슐화의 \"묶음·은닉\"과 구분."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 정보처리기사 필기 2022~2024 — 추상클래스/인터페이스 비교 정형 패턴",
+     "stem_md": "Java의 인터페이스(interface)에 대한 설명으로 옳지 않은 것은? (Java 7 기준)",
+     "options": [
+      "인터페이스 내의 모든 메소드는 묵시적으로 public abstract이다.",
+      "인터페이스 내의 모든 필드는 묵시적으로 public static final이다.",
+      "클래스는 다중 상속(extends)은 불가능하지만 인터페이스는 다중 구현(implements)이 가능하다.",
+      "인터페이스 내부에는 일반(non-abstract) 메소드 본문을 자유롭게 정의할 수 있다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④ (옳지 않은 것)\n- 제공 해설: Java 7까지 인터페이스 내부에는 메소드 본문을 정의할 수 없다(모두 abstract). Java 8부터 default 메소드와 static 메소드로 본문 허용이 추가됐지만, \"자유롭게 정의 가능\"은 여전히 거짓. 문제 단서가 Java 7 기준이므로 명백히 거짓.\n- 오답 이유 (옳은 보기들):\n  - ① 인터페이스 메소드는 묵시적으로 public abstract — 옳음.\n  - ② 인터페이스 필드는 묵시적으로 public static final (상수) — 옳음.\n  - ③ 클래스 다중 상속 불가, 인터페이스 다중 구현 가능 — 옳음."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 정보처리기사 필기 2021~2023 — 오버로딩/오버라이딩 정형 패턴",
+     "stem_md": "Java에서 메소드 오버로딩(Overloading)의 조건으로 옳은 것은?",
+     "options": [
+      "메소드 이름, 매개변수 개수, 매개변수 타입이 모두 동일해야 한다.",
+      "메소드 이름은 같고, 매개변수의 개수 또는 타입이 달라야 한다.",
+      "상위 클래스의 메소드를 하위 클래스에서 동일 시그니처로 재정의해야 한다.",
+      "반환형(return type)만 다르면 오버로딩이 성립한다."
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ② 메소드 이름은 같고 매개변수 개수/타입이 달라야 함\n- 제공 해설: 오버로딩은 동일 클래스 내에서 같은 이름의 메소드를 매개변수 시그니처(개수·타입·순서)를 달리하여 정의하는 것.\n- 오답 이유:\n  - ① 모두 동일하면 중복 정의 컴파일 오류.\n  - ③ 상위→하위 동일 시그니처 재정의는 오버라이딩(Overriding).\n  - ④ 반환형만 달라서는 오버로딩 성립 안 함 (컴파일러가 호출 시점에 반환형으로 식별 불가)."
+    }
+   ]
+  },
+  {
+   "day": 8,
+   "date": "2026-05-19",
+   "subject": "4과목 프로그래밍 언어 활용",
+   "topic": "Python (자료형, 컬렉션, 제어문, 클래스)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 기출 유형 복원 — 2020년 3회 필기 set 자료형",
+     "stem_md": "다음 Python 코드의 실행 결과로 가장 알맞은 것은?\n```python\na = {'A', 'B', 'C', 'D'}\na.add('E')\na.add('A')\na.remove('B')\nprint(len(a))\n```",
+     "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 초기 a = {A,B,C,D} (원소 4개).\n- add('E') → {A,B,C,D,E} (5개).\n- add('A') → 이미 존재, 변화 없음 (set은 중복 불허).\n- remove('B') → {A,C,D,E} (4개).\n- len(a) = 4."
+    },
+    {
+     "n": 2,
+     "source": "출처: 기출 유형 복원 — 2021년 1회 필기 리스트 슬라이싱",
+     "stem_md": "다음 Python 코드의 출력 결과로 옳은 것은?\n```python\na = [10, 20, 30, 40, 50, 60, 70]\nprint(a[1:5:2])\n```",
+     "options": [
+      "[20, 40]",
+      "[20, 30, 40]",
+      "[20, 40, 60]",
+      "[10, 30, 50]"
+     ],
+     "answer": 0,
+     "explanation_md": "정답: ①\n- 슬라이싱 `a[start:stop:step]`. start=1, stop=5, step=2.\n- 인덱스 1(20) → 인덱스 3(40) → 인덱스 5는 stop 미포함이라 종료.\n- 결과: [20, 40]."
+    },
+    {
+     "n": 3,
+     "source": "출처: 기출 유형 복원 — 2022년 2회 필기 딕셔너리",
+     "stem_md": "다음 Python 코드의 실행 결과로 옳은 것은?\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\nd['b'] = 20\nd['d'] = 4\nprint(sum(d.values()))\n```",
+     "options": [
+      "10",
+      "25",
+      "28",
+      "30"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 초기 d = {'a':1, 'b':2, 'c':3}.\n- d['b'] = 20 → 키 b의 값을 2 → 20으로 갱신.\n- d['d'] = 4 → 새 키-값 추가.\n- 최종 values = [1, 20, 3, 4], sum = 28."
+    },
+    {
+     "n": 4,
+     "source": "출처: 기출 유형 복원 — 2022년 3회 필기 반복문/range",
+     "stem_md": "다음 Python 코드의 출력 결과로 옳은 것은?\n```python\nresult = 0\nfor i in range(1, 11, 2):\n    result += i\nprint(result)\n```",
+     "options": [
+      "20",
+      "25",
+      "30",
+      "55"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- range(1, 11, 2) → 1, 3, 5, 7, 9 (stop=11 미포함).\n- 합 = 1+3+5+7+9 = 25."
+    },
+    {
+     "n": 5,
+     "source": "출처: 기출 유형 복원 — 2023년 1회 필기 자료형 특성",
+     "stem_md": "Python 자료형에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "list는 가변(mutable) 자료형이며 순서를 가진다.",
+      "tuple은 불변(immutable) 자료형이며 인덱싱이 가능하다.",
+      "set은 중복을 허용하지 않으며 인덱싱이 가능하다.",
+      "dictionary는 키(key)의 중복을 허용하지 않는다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- ③ set은 순서가 없으므로 인덱싱(`s[0]`)이 불가능하다. 따라서 옳지 않음.\n- ① list: 가변, 순서 있음 → 옳음.\n- ② tuple: 불변, 인덱싱 가능 → 옳음.\n- ④ dictionary: key 중복 불가, value는 중복 가능 → 옳음."
+    },
+    {
+     "n": 6,
+     "source": "출처: 기출 유형 복원 — 2024년 1회 필기 식별자 규칙",
+     "stem_md": "Python 변수(식별자) 명명 규칙으로 옳지 않은 것은?",
+     "options": [
+      "영문자, 숫자, 언더스코어(_)를 사용할 수 있다.",
+      "첫 글자는 숫자로 시작할 수 없다.",
+      "대소문자를 구분하지 않는다.",
+      "예약어(keyword)는 변수명으로 사용할 수 없다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- ③ Python은 **대소문자를 구분**한다 (`Var` ≠ `var`). 따라서 옳지 않음.\n- ①, ②, ④는 모두 Python 식별자 규칙으로 옳음."
+    },
+    {
+     "n": 7,
+     "source": "출처: 기출 유형 복원 — 2023년 2회 필기 클래스/self",
+     "stem_md": "다음 Python 클래스 코드의 실행 결과로 옳은 것은?\n```python\nclass Cls:\n    cnt = 0\n    def __init__(self, v):\n        self.v = v\n        Cls.cnt += 1\n\na = Cls(10)\nb = Cls(20)\nc = Cls(30)\nprint(Cls.cnt, b.v)\n```",
+     "options": [
+      "1 10",
+      "2 20",
+      "3 20",
+      "3 30"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- `cnt`는 클래스 변수. 인스턴스 a, b, c가 생성될 때마다 `Cls.cnt += 1` 실행.\n- 따라서 Cls.cnt = 3.\n- `b.v`는 b 객체의 인스턴스 변수 v로 20.\n- 결과: `3 20`."
+    },
+    {
+     "n": 8,
+     "source": "출처: 기출 유형 복원 — 2024년 2회 필기 예외처리",
+     "stem_md": "다음 Python 코드의 출력 결과로 옳은 것은?\n```python\ntry:\n    x = 10 / 0\n    print(\"A\")\nexcept ZeroDivisionError:\n    print(\"B\")\nexcept Exception:\n    print(\"C\")\nfinally:\n    print(\"D\")\n```",
+     "options": [
+      "A",
+      "B D",
+      "C D",
+      "B C D"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- `10 / 0` 실행 시 ZeroDivisionError 발생.\n- 첫 except 절(ZeroDivisionError)이 매칭 → \"B\" 출력.\n- 두 번째 except(Exception)는 실행되지 않음.\n- finally는 예외 발생 여부와 무관하게 항상 실행 → \"D\" 출력.\n- 결과: `B`, `D` (두 줄)."
+    }
+   ]
+  },
+  {
+   "day": 9,
+   "date": "2026-05-20",
+   "subject": "4과목 프로그래밍 언어 활용",
+   "topic": "운영체제 — 프로세스/스레드·스케줄링·메모리·페이지 교체·교착상태",
+   "questions": [
+    {
+     "n": 1,
+     "source": "복원/유사 기출: 정보처리기사 필기 단골 출제 유형",
+     "stem_md": "프로세스 제어 블록(PCB, Process Control Block)에 포함되는 정보로 옳지 않은 것은?",
+     "options": [
+      "프로세스 식별자(PID)",
+      "프로세스 상태(Process State)",
+      "프로그램의 소스 코드(Source Code)",
+      "프로그램 카운터(Program Counter)"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답: ③ 프로그램의 소스 코드**\n- PCB는 운영체제가 프로세스를 관리하기 위해 유지하는 자료구조. 식별자(PID), 상태, 프로그램 카운터(PC), 레지스터 값, 우선순위, 스케줄링 정보, 메모리 정보(베이스/한계 레지스터, 페이지 테이블), 입출력 상태, 어카운팅 정보 등을 보관.\n- 소스 코드는 PCB가 아닌 디스크의 실행 파일 또는 메모리의 텍스트 영역에 존재. PCB에는 포함되지 않음.\n- ① PID, ② 프로세스 상태(생성/준비/실행/대기/종료), ④ 프로그램 카운터는 모두 PCB의 핵심 항목."
+    },
+    {
+     "n": 2,
+     "source": "복원/유사 기출: 비선점 스케줄링 분류 — 단골 출제",
+     "stem_md": "다음 중 비선점(Non-preemptive) 스케줄링 기법에 해당하지 않는 것은?",
+     "options": [
+      "FCFS (First Come First Served)",
+      "SJF (Shortest Job First)",
+      "HRN (Highest Response ratio Next)",
+      "RR (Round Robin)"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답: ④ RR (Round Robin)**\n- 비선점: FCFS, SJF, HRN, 우선순위(비선점), 기한부.\n- 선점: RR(시간 할당량 단위로 강제 회수), SRT(SJF의 선점 버전), 다단계 큐, 다단계 피드백 큐.\n- RR은 시간 할당량 만료 시 강제로 CPU를 회수하므로 대표적인 선점 기법."
+    },
+    {
+     "n": 3,
+     "source": "복원/유사 기출: SJF 평균 대기시간 계산",
+     "stem_md": "다음 4개의 프로세스가 동시에 도착하였을 때, 비선점 SJF 스케줄링을 적용한 경우 평균 대기시간은? (단위: ms)\n\n| 프로세스 | 실행시간 |\n|---|---|\n| P1 | 10 |\n| P2 | 4 |\n| P3 | 6 |\n| P4 | 8 |",
+     "options": [
+      "6.5",
+      "7.0",
+      "7.5",
+      "8.0"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답: ④ 8.0 ms**\n- SJF는 실행시간 짧은 순으로 정렬 → P2(4) → P3(6) → P4(8) → P1(10).\n- 대기시간:\n  - P2: 0\n  - P3: 4\n  - P4: 4+6 = 10\n  - P1: 4+6+8 = 18\n- 평균 = (0 + 4 + 10 + 18) / 4 = 32 / 4 = **8.0 ms**\n- 함정: ① 6.5는 FCFS(도착 순서대로 P1→P2→P3→P4)일 때 자주 등장하는 오답 분포가 아님. SJF는 반드시 실행시간 짧은 순으로 정렬 후 누적 대기 합산."
+    },
+    {
+     "n": 4,
+     "source": "복원/유사 기출: HRN 계산식 — 정보처리기사 빈출",
+     "stem_md": "HRN(Highest Response ratio Next) 스케줄링에서 우선순위를 계산하는 식으로 옳은 것은?",
+     "options": [
+      "서비스 시간 / 대기 시간",
+      "대기 시간 / 서비스 시간",
+      "(대기 시간 + 서비스 시간) / 서비스 시간",
+      "(대기 시간 + 서비스 시간) / 대기 시간"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답: ③ (대기 시간 + 서비스 시간) / 서비스 시간**\n- HRN 우선순위 = (대기시간 + 서비스시간) / 서비스시간 = 1 + (대기시간/서비스시간).\n- 값이 클수록 우선순위 높음. SJF가 긴 작업을 무한대기시키는 기아(Starvation)를 보완.\n- ② 대기시간/서비스시간 — HRN 변형으로 보이지만 표준 정의는 ③."
+    },
+    {
+     "n": 5,
+     "source": "복원/유사 기출: Round Robin 특징",
+     "stem_md": "라운드 로빈(Round Robin) 스케줄링에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "시간 할당량(Time Quantum) 단위로 CPU를 할당한다.",
+      "선점(Preemptive) 방식의 스케줄링 기법이다.",
+      "시간 할당량이 클수록 FCFS 방식에 가까워진다.",
+      "시간 할당량이 작을수록 문맥 교환(Context Switching) 오버헤드가 감소한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답: ④ 시간 할당량이 작을수록 문맥 교환 오버헤드가 감소한다.**\n- 반대다. 시간 할당량이 **작을수록 문맥 교환이 자주 일어나 오버헤드가 증가**.\n- 시간 할당량이 크면 FCFS와 유사, 너무 작으면 문맥 교환 비용 폭증.\n- ①, ②, ③은 모두 옳다."
+    },
+    {
+     "n": 6,
+     "source": "복원/유사 기출: 교착상태 4조건",
+     "stem_md": "교착상태(Deadlock)가 발생하기 위한 필요 조건이 아닌 것은?",
+     "options": [
+      "상호 배제(Mutual Exclusion)",
+      "점유와 대기(Hold and Wait)",
+      "선점(Preemption)",
+      "환형 대기(Circular Wait)"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답: ③ 선점(Preemption)**\n- 교착상태 4조건: 상호배제, 점유와대기, **비선점(No Preemption)**, 환형대기.\n- 선점이 아닌 **비선점**이 조건. ③은 정반대 표현으로 함정."
+    },
+    {
+     "n": 7,
+     "source": "공개 기출 패턴: FIFO 페이지 결함 계산 — q.fran.kr 등 다수 등장",
+     "stem_md": "3개의 페이지 프레임을 가진 주기억장치가 초기에 비어 있다. 다음과 같은 순서로 페이지가 참조될 때, FIFO 페이지 교체 알고리즘을 사용할 경우 페이지 부재(Page Fault) 발생 횟수는?\n\n참조 순서: 2, 3, 2, 1, 5, 2, 4, 5, 3, 2, 5, 2",
+     "options": [
+      "6회",
+      "7회",
+      "8회",
+      "9회"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답: ④ 9회**\n- 참조: 2, 3, 2, 1, 5, 2, 4, 5, 3, 2, 5, 2 (프레임 3개, FIFO)\n- FIFO 큐 추적 (왼쪽이 가장 오래된 페이지):\n\n| 단계 | 참조 | 큐 상태 | 부재? |\n|---|---|---|---|\n| 1 | 2 | [2] | O |\n| 2 | 3 | [2,3] | O |\n| 3 | 2 | [2,3] | hit |\n| 4 | 1 | [2,3,1] | O |\n| 5 | 5 | [3,1,5] (2 교체) | O |\n| 6 | 2 | [1,5,2] (3 교체) | O |\n| 7 | 4 | [5,2,4] (1 교체) | O |\n| 8 | 5 | [5,2,4] | hit |\n| 9 | 3 | [2,4,3] (5 교체) | O |\n| 10 | 2 | [2,4,3] | hit |\n| 11 | 5 | [4,3,5] (2 교체) | O |\n| 12 | 2 | [3,5,2] (4 교체) | O |\n\n- 부재 발생 단계: 1, 2, 4, 5, 6, 7, 9, 11, 12 → **총 9회**.\n- 함정 ②③: 8단계의 5는 큐에 그대로 있으므로 hit. 10단계의 2도 hit. 이 hit 두 번을 놓치면 11회로 계산되며, 잘못 hit 처리하면 7~8회로 떨어지는 분포."
+    },
+    {
+     "n": 8,
+     "source": "복원/유사 기출: 페이지 교체 알고리즘 종류",
+     "stem_md": "다음 중 가상기억장치의 페이지 교체 알고리즘에 해당하지 않는 것은?",
+     "options": [
+      "OPT (Optimal)",
+      "LRU (Least Recently Used)",
+      "LFU (Least Frequently Used)",
+      "SRT (Shortest Remaining Time)"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답: ④ SRT**\n- 페이지 교체 알고리즘: OPT, FIFO, LRU, LFU, NUR, SCR(2차 기회), MFU.\n- SRT(Shortest Remaining Time)는 **CPU 스케줄링** 알고리즘. 페이지 교체와 무관."
+    }
+   ]
+  },
+  {
+   "day": 10,
+   "date": "2026-05-21",
+   "subject": "4과목 프로그래밍 언어 활용",
+   "topic": "네트워크 — OSI 7계층·TCP/IP·IPv4/IPv6·라우팅 프로토콜",
+   "questions": [
+    {
+     "n": 1,
+     "source": "복원/유사 기출: OSI 7계층 빈출 — 네트워크 계층의 기능",
+     "stem_md": "OSI 7계층 모델에서 데이터 패킷의 경로(라우팅)를 결정하고 논리 주소(IP 주소)를 부여하는 계층은?",
+     "options": [
+      "데이터링크 계층(Data Link Layer)",
+      "네트워크 계층(Network Layer)",
+      "전송 계층(Transport Layer)",
+      "세션 계층(Session Layer)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "복원/유사 기출: OSI 계층 ↔ 장비 매칭",
+     "stem_md": "다음 중 OSI 7계층과 동작하는 네트워크 장비의 매칭이 옳지 않은 것은?",
+     "options": [
+      "1계층(물리) — 리피터(Repeater), 허브(Hub)",
+      "2계층(데이터링크) — 브리지(Bridge), 스위치(Switch)",
+      "3계층(네트워크) — 라우터(Router), L3 스위치",
+      "4계층(전송) — 게이트웨이(Gateway), 리피터"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "복원/유사 기출: TCP vs UDP 비교 — 정보처리기사 단골",
+     "stem_md": "TCP(Transmission Control Protocol)와 UDP(User Datagram Protocol)에 관한 설명으로 옳지 않은 것은?",
+     "options": [
+      "TCP는 연결지향형(connection-oriented), UDP는 비연결형(connectionless) 프로토콜이다.",
+      "TCP는 흐름 제어와 혼잡 제어를 수행하지만 UDP는 수행하지 않는다.",
+      "TCP 헤더 크기는 기본 20바이트, UDP 헤더 크기는 8바이트이다.",
+      "UDP는 신뢰성 있는 데이터 전송을 보장하며 패킷 순서를 보장한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "복원/유사 기출: IPv6 특징",
+     "stem_md": "IPv6에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "주소 길이는 128비트이며 16비트씩 8개의 필드를 콜론(:)으로 구분한다.",
+      "헤더 길이가 가변적이어서 옵션 처리가 매우 빠르다.",
+      "보안 기능(IPsec)이 기본으로 포함되어 있다.",
+      "유니캐스트(Unicast), 멀티캐스트(Multicast), 애니캐스트(Anycast)의 3가지 주소 유형을 지원한다."
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "복원/유사 기출: 서브넷 마스크와 호스트 수",
+     "stem_md": "IPv4 주소 192.168.10.0/26 네트워크에서 사용할 수 있는 호스트의 최대 수는?",
+     "options": [
+      "30",
+      "62",
+      "126",
+      "254"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "복원/유사 기출: 라우팅 프로토콜 분류",
+     "stem_md": "다음 중 IGP(Interior Gateway Protocol) 내부 라우팅 프로토콜에 해당하지 않는 것은?",
+     "options": [
+      "RIP(Routing Information Protocol)",
+      "OSPF(Open Shortest Path First)",
+      "IS-IS(Intermediate System to Intermediate System)",
+      "BGP(Border Gateway Protocol)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "복원/유사 기출: 응용 계층 프로토콜 포트 번호",
+     "stem_md": "응용 계층 프로토콜과 기본 포트 번호의 매칭이 옳지 않은 것은?",
+     "options": [
+      "HTTP — 80",
+      "HTTPS — 443",
+      "SMTP — 25",
+      "DNS — 53/TCP만 사용"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "복원/유사 기출: ARP / RARP / ICMP — 단골 키워드 구분",
+     "stem_md": "IP 주소(논리 주소)를 알고 있을 때 해당 호스트의 MAC 주소(물리 주소)를 알아내기 위해 사용되는 프로토콜은?",
+     "options": [
+      "ARP(Address Resolution Protocol)",
+      "RARP(Reverse ARP)",
+      "ICMP(Internet Control Message Protocol)",
+      "IGMP(Internet Group Management Protocol)"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    }
+   ]
+  },
+  {
+   "day": 11,
+   "date": "2026-05-22",
+   "subject": "소프트웨어 설계",
+   "topic": "생명주기·개발 방법론 (1과목)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 정처기 필기 유사 기출 (자주 출제 패턴, 2020~2024 반복)",
+     "stem_md": "다음 중 소프트웨어 생명주기 모형 중 **고전적 생명주기 모형**이라고도 하며, 한 단계가 끝나야만 다음 단계로 넘어가는 **선형 순차적** 모형은?",
+     "options": [
+      "프로토타입 모형 (Prototype Model)",
+      "폭포수 모형 (Waterfall Model)",
+      "나선형 모형 (Spiral Model)",
+      "RAD 모형 (Rapid Application Development)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "출처: 정처기 필기 2020년 통합 1·2회 유사",
+     "stem_md": "Boehm이 제안한 나선형 모형(Spiral Model)의 4가지 주요 활동을 **순서대로** 나열한 것은?",
+     "options": [
+      "계획 수립 → 고객 평가 → 위험 분석 → 개발 및 검증",
+      "계획 수립 → 위험 분석 → 개발 및 검증 → 고객 평가",
+      "위험 분석 → 계획 수립 → 개발 및 검증 → 고객 평가",
+      "위험 분석 → 개발 및 검증 → 계획 수립 → 고객 평가"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "출처: 정처기 필기 유사 기출 (2021·2022 반복 출제)",
+     "stem_md": "프로토타입 모형(Prototype Model)에 대한 설명으로 **틀린** 것은?",
+     "options": [
+      "사용자가 요구사항이나 결과물을 명확히 정의하기 어려울 때 유용하다.",
+      "실제 개발될 소프트웨어의 견본(시제품)을 만들어 최종 결과물을 예측한다.",
+      "폭포수 모형의 단점을 보완하기 위해 등장하였다.",
+      "한 번 만들어진 프로토타입은 그대로 최종 산출물로 사용되므로 폐기되지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "출처: 정처기 필기 2021년 1회 유사",
+     "stem_md": "다음 중 **V-모델(V-Model)**에 대한 설명으로 가장 적절한 것은?",
+     "options": [
+      "폭포수 모형에 **검증(Verification)과 확인(Validation)**을 강조한 모형이다.",
+      "위험 분석(Risk Analysis)을 핵심 활동으로 포함한다.",
+      "프로토타입을 반복적으로 개선하여 최종 산출물을 만든다.",
+      "4세대 언어(4GL)와 CASE 도구를 사용하여 90~120일 내 개발을 완료한다."
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "출처: 정처기 필기 2022년 2회 유사",
+     "stem_md": "애자일 소프트웨어 개발 선언(Agile Manifesto)의 **4가지 가치**에 해당하지 **않는** 것은?",
+     "options": [
+      "공정과 도구보다 **개인과 상호작용**을",
+      "포괄적인 문서보다 **작동하는 소프트웨어**를",
+      "계약 협상보다 **고객과의 협력**을",
+      "변화에 대응하기보다 **계획을 따르는 것**을"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "출처: 정처기 필기 2020년 3회·2023년 반복 출제",
+     "stem_md": "XP(eXtreme Programming)의 **5가지 핵심 가치(Value)**에 해당하지 **않는** 것은?",
+     "options": [
+      "의사소통(Communication)",
+      "단순성(Simplicity)",
+      "**문서화(Documentation)**",
+      "용기(Courage)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "출처: 정처기 필기 2024년 1회 유사",
+     "stem_md": "XP(eXtreme Programming)의 실천 방법(Practice)에 대한 설명으로 **틀린** 것은?",
+     "options": [
+      "페어 프로그래밍(Pair Programming): 두 명이 한 컴퓨터에서 함께 코드를 작성한다.",
+      "테스트 주도 개발(TDD): 테스트 케이스를 먼저 작성한 뒤 이를 통과하는 코드를 작성한다.",
+      "리팩토링(Refactoring): 기능을 변경하지 않고 코드 구조를 개선한다.",
+      "**계획 게임(Planning Game)**: 개발자 단독으로 일정과 우선순위를 결정한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "출처: 정처기 필기 2021년 3회 유사",
+     "stem_md": "스크럼(Scrum)에 대한 설명으로 **틀린** 것은?",
+     "options": [
+      "스프린트(Sprint)는 보통 **2~4주** 단위의 반복 개발 주기이다.",
+      "데일리 스크럼(Daily Scrum)은 매일 **15분 이내**로 진행하는 짧은 회의이다.",
+      "**스크럼 마스터(Scrum Master)**는 제품 요구사항을 결정하고 우선순위를 매기는 역할을 한다.",
+      "스프린트 회고(Sprint Retrospective)에서는 스프린트의 개선점을 점검한다."
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    }
+   ]
+  },
+  {
+   "day": 12,
+   "date": "2026-05-23",
+   "subject": "소프트웨어 설계",
+   "topic": "요구사항 분석 (1과목)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 정처기 필기 유사 기출 (2020~2024 반복 출제 패턴)",
+     "stem_md": "다음 중 **비기능 요구사항(Non-functional Requirements)**에 해당하지 **않는** 것은?",
+     "options": [
+      "시스템의 평균 응답시간은 3초 이내여야 한다.",
+      "시스템은 연간 99.9% 이상의 가용성을 보장해야 한다.",
+      "**사용자는 도서를 검색하고 대출 신청을 수행할 수 있어야 한다.**",
+      "모든 외부 통신은 TLS 1.2 이상으로 암호화되어야 한다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: ③의 \"도서를 검색하고 대출 신청을 수행할 수 있어야 한다\"는 시스템이 수행해야 할 **동작·기능**을 기술하므로 **기능 요구사항**이다. 비기능 요구사항은 시스템이 \"어떻게(How well)\" 동작해야 하는지를 규정한다.\n- 오답 이유:\n  - ① 응답시간 → **성능(Performance)** = 비기능\n  - ② 가용성(Availability) = 비기능\n  - ④ 암호화 / 보안(Security) = 비기능"
+    },
+    {
+     "n": 2,
+     "source": "출처: 정처기 필기 2021년 1회 유사",
+     "stem_md": "다음 중 요구공학(Requirements Engineering)의 일반적인 프로세스 **순서**로 옳은 것은?",
+     "options": [
+      "도출(Elicitation) → 분석(Analysis) → 명세(Specification) → 확인(Validation)",
+      "분석(Analysis) → 도출(Elicitation) → 명세(Specification) → 확인(Validation)",
+      "도출(Elicitation) → 명세(Specification) → 분석(Analysis) → 확인(Validation)",
+      "명세(Specification) → 도출(Elicitation) → 분석(Analysis) → 확인(Validation)"
+     ],
+     "answer": 0,
+     "explanation_md": "정답: ①\n- 제공 해설: 요구공학 프로세스의 표준 순서는 **도출(Elicitation) → 분석(Analysis) → 명세(Specification) → 확인(Validation)** 이며, 전 과정에 걸쳐 **관리(Management)**가 병행된다.\n- 오답 이유: 분석이 도출보다 먼저 올 수 없고, 명세는 분석 이후이며, 확인은 항상 마지막."
+    },
+    {
+     "n": 3,
+     "source": "출처: 정처기 필기 2020년 통합 1·2회 유사",
+     "stem_md": "자료 흐름도(DFD, Data Flow Diagram)의 구성요소가 **아닌** 것은?",
+     "options": [
+      "프로세스(Process)",
+      "자료 흐름(Data Flow)",
+      "자료 저장소(Data Store)",
+      "**자료 사전(Data Dictionary)**"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: DFD의 4구성요소는 **프로세스(원·둥근사각형), 자료흐름(화살표), 자료저장소(평행선·열린사각형), 외부엔티티(사각형)**이다. 자료 사전(Data Dictionary)은 DFD의 자료흐름·자료저장소에 등장하는 데이터를 정의·설명하는 **보완 도구**이며 DFD 자체의 구성요소가 아니다.\n- 오답 이유: ①②③ 모두 DFD의 구성요소."
+    },
+    {
+     "n": 4,
+     "source": "출처: 정처기 필기 2022년 1회 유사",
+     "stem_md": "자료 사전(Data Dictionary)에서 사용하는 표기 기호와 그 의미가 **잘못** 짝지어진 것은?",
+     "options": [
+      "`=` : 자료의 정의 (is composed of)",
+      "`+` : 자료의 연결 (and)",
+      "`{ }` : 자료의 반복 (iteration)",
+      "**`( )` : 자료의 선택 (selection)**"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: 자료사전에서 `( )`는 **자료의 생략(optional)**, `[ ]`가 **자료의 선택(selection)**이다. 이 둘을 바꿔치기하는 함정이 자주 출제된다.\n- 표기 기호 7종 (전체):\n  - `=` 자료의 정의 (is composed of)\n  - `+` 자료의 연결 (and)\n  - `( )` 자료의 생략 가능 (optional)\n  - `[ ]` 자료의 선택 (selection, OR)\n  - `{ }` 자료의 반복 (iteration)\n  - `**` 자료의 주석 (comment)\n  - `|` 선택 항목의 구분자"
+    },
+    {
+     "n": 5,
+     "source": "출처: 정처기 필기 2021년 3회 유사",
+     "stem_md": "HIPO(Hierarchy Input Process Output)의 도표 종류에 해당하지 **않는** 것은?",
+     "options": [
+      "가시적 도표 (Visual Table of Contents, VTOC)",
+      "총체적 도표 (Overview Diagram)",
+      "세부적 도표 (Detail Diagram)",
+      "**상태 전이 도표 (State Transition Diagram, STD)**"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: HIPO 3종 도표 = **가시적 도표(VTOC) / 총체적 도표(Overview) / 세부적 도표(Detail)**. 상태 전이 도표(STD)는 객체·시스템의 동적 모델링 기법으로 HIPO와 무관.\n- 오답 이유: ①②③ 모두 HIPO 3종 도표."
+    },
+    {
+     "n": 6,
+     "source": "출처: 정처기 필기 2023년 2회 유사",
+     "stem_md": "다음 중 **정형 명세 기법(Formal Specification)**에 해당하는 것은?",
+     "options": [
+      "**Z 명세 언어 (Z Notation)**",
+      "결정 테이블 (Decision Table)",
+      "유스케이스 다이어그램 (Use Case Diagram)",
+      "자료 흐름도 (DFD)"
+     ],
+     "answer": 0,
+     "explanation_md": "정답: ①\n- 제공 해설: 정형 명세(Formal Specification)는 수학·논리 기반으로 명확하고 무모순적 기술이 가능하며 대표 기법은 **Z, VDM(Vienna Development Method), Petri Net, CSP**이다.\n- 오답 이유:\n  - ② Decision Table: 비정형 명세 (표 기반)\n  - ③ Use Case Diagram: 비정형 명세 (UML, 도형 기반)\n  - ④ DFD: 비정형 명세 (도형 기반)"
+    },
+    {
+     "n": 7,
+     "source": "출처: 정처기 필기 2022년 3회 유사",
+     "stem_md": "요구사항 도출(Elicitation) 기법으로 가장 거리가 **먼** 것은?",
+     "options": [
+      "인터뷰 (Interview)",
+      "브레인스토밍 (Brainstorming)",
+      "프로토타이핑 (Prototyping)",
+      "**단위 테스트 (Unit Testing)**"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: 단위 테스트(Unit Testing)는 **구현·테스트 단계** 활동이며 요구사항 도출 기법이 아니다. 요구사항 도출 대표 기법: 인터뷰, 워크샵(JAD), 설문, 브레인스토밍, 프로토타이핑, 유스케이스, 관찰, 시나리오 분석, BPR.\n- 오답 이유: ①②③ 모두 표준 도출 기법."
+    },
+    {
+     "n": 8,
+     "source": "출처: 정처기 필기 2024년 1회 유사",
+     "stem_md": "요구사항 확인(Validation) 단계에서 사용되는 **검토(Review) 기법**에 해당하지 **않는** 것은?",
+     "options": [
+      "동료검토 (Peer Review)",
+      "워크스루 (Walkthrough)",
+      "인스펙션 (Inspection)",
+      "**리팩토링 (Refactoring)**"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: 요구사항 확인(Validation) 단계의 검토 기법은 **동료검토(Peer Review), 워크스루(Walkthrough), 인스펙션(Inspection)** 3종이다. 리팩토링(Refactoring)은 구현된 코드의 구조 개선이며 요구사항 검토 기법이 아니다.\n- 3종 검토 기법 차이:\n  - 동료검토: 비공식, 동료에게 설명\n  - 워크스루: 비공식, 검토 모임에서 작성자 주도 발표\n  - 인스펙션: **공식**, 체크리스트·역할(Moderator/Reader/Recorder) 기반, 결함 기록·추적"
+    }
+   ]
+  },
+  {
+   "day": 13,
+   "date": "2026-05-24",
+   "subject": "소프트웨어 설계",
+   "topic": "UML 다이어그램 13종 + SOLID 5원칙 (1과목)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 빈출 유형 — 정보처리기사 필기 다회 출제",
+     "stem_md": "다음 중 UML(Unified Modeling Language) 다이어그램에 해당하지 않는 것은?",
+     "options": [
+      "클래스 다이어그램(Class Diagram)",
+      "시퀀스 다이어그램(Sequence Diagram)",
+      "절차 다이어그램(Procedural Diagram)",
+      "유스케이스 다이어그램(Use Case Diagram)"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: UML 다이어그램은 크게 **구조(정적) 7종 + 행위(동적) 6종**으로 구성된다. **절차 다이어그램(Procedural Diagram)**은 UML 표준에 존재하지 않는 가공 용어로, \"순서도/흐름도\"를 닮은 함정 보기다.\n- 오답 이유: ① 클래스=대표 구조 다이어그램, ② 시퀀스=행위 다이어그램, ④ 유스케이스=행위 다이어그램. 모두 정식 UML."
+    },
+    {
+     "n": 2,
+     "source": "출처: 빈출 유형 — 정보처리기사 필기 다회 출제",
+     "stem_md": "다음 중 UML의 행위(Behavioral) 다이어그램에 속하지 않는 것은?",
+     "options": [
+      "유스케이스 다이어그램(Use Case Diagram)",
+      "시퀀스 다이어그램(Sequence Diagram)",
+      "활동 다이어그램(Activity Diagram)",
+      "배치 다이어그램(Deployment Diagram)"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: **배치(Deployment) 다이어그램**은 하드웨어 노드에 산출물(artifact)이 배치되는 물리적 구성을 나타내는 **구조 다이어그램**이다.\n- 오답 이유: ① 유스케이스, ② 시퀀스, ③ 활동은 모두 **행위 다이어그램**. (유스케이스는 행위로 분류됨에 유의)"
+    },
+    {
+     "n": 3,
+     "source": "출처: 빈출 유형 — 정보처리기사 필기 다회 출제",
+     "stem_md": "객체들 사이에 주고받는 메시지를 시간의 흐름(순서)에 따라 표현하는 동적 다이어그램은?",
+     "options": [
+      "클래스 다이어그램(Class Diagram)",
+      "시퀀스 다이어그램(Sequence Diagram)",
+      "컴포넌트 다이어그램(Component Diagram)",
+      "배치 다이어그램(Deployment Diagram)"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: **시퀀스 다이어그램**은 객체 간 메시지를 **생명선(Lifeline)과 시간 축**을 따라 순서대로 표현한다.\n- 오답 이유: ① 클래스=정적 구조, ③ 컴포넌트·④ 배치=구조 다이어그램으로 시간 흐름 표현 아님. (커뮤니케이션 다이어그램은 같은 정보를 \"객체 연관/링크\" 관점으로 표현 — 보기엔 없음)"
+    },
+    {
+     "n": 4,
+     "source": "출처: 빈출 유형 — 럼바우 분석, 정보처리기사 필기 다회 출제",
+     "stem_md": "럼바우(Rumbaugh)의 객체지향 분석 기법에서 시간의 흐름에 따른 객체의 상태 변화를 표현하는 **동적 모델링**에 사용되는 다이어그램은?",
+     "options": [
+      "객체 다이어그램(Object Diagram)",
+      "상태 다이어그램(State Diagram)",
+      "자료 흐름도(DFD, Data Flow Diagram)",
+      "E-R 다이어그램(Entity-Relationship Diagram)"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: 럼바우(OMT)의 **동적 모델링 = 상태 다이어그램**(상태 전이도)으로 시간/이벤트에 따른 객체 상태 변화를 표현.\n- 오답 이유: ① 객체 다이어그램·④ E-R 다이어그램 → **객체 모델링**, ③ 자료 흐름도(DFD) → **기능 모델링**. (암기: 객체=객체D/ERD, 동적=상태D, 기능=DFD)"
+    },
+    {
+     "n": 5,
+     "source": "출처: 2020년 3회(8월) 정보처리기사 필기",
+     "stem_md": "디자인 패턴(GoF) 중 행위(Behavioral) 패턴에 속하지 않는 것은?",
+     "options": [
+      "커맨드(Command) 패턴",
+      "옵저버(Observer) 패턴",
+      "프로토타입(Prototype) 패턴",
+      "상태(State) 패턴"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: **프로토타입(Prototype)**은 객체를 복제(clone)하여 생성하는 **생성(Creational) 패턴**이다.\n- 오답 이유: ① 커맨드, ② 옵저버, ④ 상태(State)는 모두 **행위(Behavioral) 패턴**. (생성 5종: 추상팩토리·빌더·팩토리메서드·프로토타입·싱글톤)"
+    },
+    {
+     "n": 6,
+     "source": "출처: 빈출 유형 — SOLID, 정보처리기사 필기 다회 출제",
+     "stem_md": "객체지향 설계 원칙(SOLID) 중 \"클래스(객체)는 단 하나의 책임만 가져야 하며, 변경의 이유도 오직 하나여야 한다\"는 원칙은?",
+     "options": [
+      "단일 책임 원칙(SRP, Single Responsibility Principle)",
+      "개방-폐쇄 원칙(OCP, Open-Closed Principle)",
+      "리스코프 치환 원칙(LSP, Liskov Substitution Principle)",
+      "의존 역전 원칙(DIP, Dependency Inversion Principle)"
+     ],
+     "answer": 0,
+     "explanation_md": "정답: ①\n- 제공 해설: **SRP(단일 책임 원칙)** — 클래스가 변경되어야 하는 이유는 단 하나여야 한다.\n- 오답 이유: ② OCP=확장개방/변경폐쇄, ③ LSP=자식의 부모 치환 가능, ④ DIP=추상에 의존."
+    },
+    {
+     "n": 7,
+     "source": "출처: 빈출 유형 — SOLID, 정보처리기사 필기 다회 출제",
+     "stem_md": "\"소프트웨어의 구성요소(클래스·모듈·함수)는 확장에는 열려 있고 변경에는 닫혀 있어야 한다\"는 객체지향 설계 원칙은?",
+     "options": [
+      "인터페이스 분리 원칙(ISP, Interface Segregation Principle)",
+      "개방-폐쇄 원칙(OCP, Open-Closed Principle)",
+      "리스코프 치환 원칙(LSP, Liskov Substitution Principle)",
+      "의존 역전 원칙(DIP, Dependency Inversion Principle)"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: **OCP(개방-폐쇄 원칙)** — \"확장에는 Open, 변경에는 Closed\". 새 기능 추가 시 기존 코드 수정 없이 확장.\n- 오답 이유: ① ISP=인터페이스 분리, ③ LSP=치환, ④ DIP=의존 역전. 모두 정의가 다름."
+    },
+    {
+     "n": 8,
+     "source": "출처: 빈출 유형 — 유스케이스 관계, 정보처리기사 필기 다회 출제",
+     "stem_md": "유스케이스 다이어그램에서 하나의 유스케이스를 수행할 때 다른 유스케이스가 **반드시 포함되어 함께 수행**되는 관계를 나타내는 스테레오타입(stereotype)은?",
+     "options": [
+      "≪extend≫",
+      "≪include≫",
+      "≪actor≫",
+      "≪interface≫"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: **≪include≫(포함)** — 기본 유스케이스 실행 시 포함 유스케이스가 **항상/반드시** 실행됨. 화살표: 기본 → 포함 유스케이스(점선).\n- 오답 이유: ① ≪extend≫=조건부 **선택적** 확장(화살표: 확장→기본), ③ ≪actor≫·④ ≪interface≫는 포함 관계 표기가 아님."
+    }
+   ]
+  },
+  {
+   "day": 14,
+   "date": "2026-05-25",
+   "subject": "소프트웨어 설계",
+   "topic": "디자인 패턴 GoF 23 (생성 5 / 구조 7 / 행위 11) (1과목)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 2020년 4회 필기 19번",
+     "stem_md": "GoF(Gang of Four)의 디자인 패턴 분류에 해당하지 않는 것은?",
+     "options": [
+      "생성(Creational) 패턴",
+      "구조(Structural) 패턴",
+      "행위(Behavioral) 패턴",
+      "추상(Abstract) 패턴"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: GoF 디자인 패턴은 **생성(Creational) 5 · 구조(Structural) 7 · 행위(Behavioral) 11**의 3가지 목적(purpose)으로만 분류된다. **\"추상(Abstract) 패턴\"이라는 분류는 존재하지 않는다.** (혼동 유발: \"추상 팩토리\"는 생성 패턴의 패턴명일 뿐, 분류명이 아님)\n- 오답 이유: ①②③ 모두 GoF의 정식 3분류."
+    },
+    {
+     "n": 2,
+     "source": "출처: 2020년 3회 필기 2번",
+     "stem_md": "객체를 생성하기 위한 인터페이스를 정의하여, 어떤 클래스의 인스턴스를 생성할지는 서브클래스(자식 클래스)가 결정하도록 하는 디자인 패턴은?",
+     "options": [
+      "싱글톤(Singleton) 패턴",
+      "팩토리 메서드(Factory Method) 패턴",
+      "어댑터(Adapter) 패턴",
+      "옵저버(Observer) 패턴"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: **팩토리 메서드(Factory Method)** — 객체 생성용 인터페이스(가상 생성 메서드)는 상위 클래스가 정의하고, **실제 어떤 구체 클래스를 인스턴스화할지는 서브클래스가 결정**하는 생성 패턴.\n- 오답 이유: ① 싱글톤=인스턴스 하나 보장(생성), ③ 어댑터=인터페이스 변환(구조), ④ 옵저버=상태변화 통보(행위). 모두 생성 위임과 무관."
+    },
+    {
+     "n": 3,
+     "source": "출처: 2020년 2회 필기",
+     "stem_md": "GoF의 디자인 패턴 중 행위(Behavioral) 패턴에 속하는 것은?",
+     "options": [
+      "빌더(Builder) 패턴",
+      "비지터(Visitor) 패턴",
+      "프로토타입(Prototype) 패턴",
+      "브리지(Bridge) 패턴"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: **비지터(Visitor)** 는 객체 구조를 변경하지 않고 새로운 연산을 추가할 수 있게 하는 **행위(Behavioral) 패턴**이다.\n- 오답 이유: ① 빌더·③ 프로토타입 → **생성** 패턴, ④ 브리지 → **구조** 패턴. (행위 패턴은 비지터뿐)"
+    },
+    {
+     "n": 4,
+     "source": "출처: 빈출 유형 — 디자인 패턴 분류, 정보처리기사 필기 다회 출제",
+     "stem_md": "GoF 디자인 패턴 중 생성(Creational) 패턴에 속하지 않는 것은?",
+     "options": [
+      "추상 팩토리(Abstract Factory) 패턴",
+      "빌더(Builder) 패턴",
+      "어댑터(Adapter) 패턴",
+      "싱글톤(Singleton) 패턴"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: **어댑터(Adapter)** 는 인터페이스 변환을 담당하는 **구조(Structural) 패턴**이므로 생성 패턴이 아니다.\n- 오답 이유: ① 추상 팩토리·② 빌더·④ 싱글톤은 모두 **생성 패턴(5종)**. (생성 5: 추상팩토리·빌더·팩토리메서드·프로토타입·싱글톤)"
+    },
+    {
+     "n": 5,
+     "source": "출처: 빈출 유형 — 싱글톤, 정보처리기사 필기 다회 출제",
+     "stem_md": "어떤 클래스의 인스턴스가 오직 하나만 생성되도록 보장하고, 그 인스턴스에 접근할 수 있는 전역적 접근점(global access point)을 제공하는 패턴은?",
+     "options": [
+      "프로토타입(Prototype) 패턴",
+      "싱글톤(Singleton) 패턴",
+      "빌더(Builder) 패턴",
+      "옵저버(Observer) 패턴"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: **싱글톤(Singleton)** — 클래스의 인스턴스를 단 하나만 생성하도록 제한하고, 전역에서 그 하나에 접근하는 지점을 제공하는 **생성 패턴**.\n- 오답 이유: ① 프로토타입=복제 생성, ③ 빌더=단계적 생성(둘 다 생성이나 정의 다름), ④ 옵저버=행위 패턴."
+    },
+    {
+     "n": 6,
+     "source": "출처: 빈출 유형 — 옵저버, 정보처리기사 필기 다회 출제",
+     "stem_md": "한 객체의 상태가 변경되면 그 객체에 의존하는 다른 객체들에게 자동으로 통보되어 갱신되도록, 객체 사이의 일대다(one-to-many) 의존 관계를 정의하는 패턴은?",
+     "options": [
+      "옵저버(Observer) 패턴",
+      "데코레이터(Decorator) 패턴",
+      "컴포지트(Composite) 패턴",
+      "스트래티지(Strategy) 패턴"
+     ],
+     "answer": 0,
+     "explanation_md": "정답: ①\n- 제공 해설: **옵저버(Observer)** — 주제(Subject)의 상태가 바뀌면 의존하는 옵저버들에게 **자동 통보·갱신**되는 **일대다 의존**을 정의하는 **행위 패턴**.\n- 오답 이유: ② 데코레이터·③ 컴포지트 → **구조** 패턴, ④ 스트래티지 → 행위지만 \"알고리즘 교체\"가 핵심(통보 아님)."
+    },
+    {
+     "n": 7,
+     "source": "출처: 빈출 유형 — 어댑터, 정보처리기사 필기 다회 출제",
+     "stem_md": "기존 클래스의 인터페이스를 클라이언트가 요구하는 다른 인터페이스로 변환하여, 호환되지 않던 클래스들이 함께 동작할 수 있도록 하는 구조(Structural) 패턴은?",
+     "options": [
+      "커맨드(Command) 패턴",
+      "이터레이터(Iterator) 패턴",
+      "어댑터(Adapter) 패턴",
+      "프로토타입(Prototype) 패턴"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: **어댑터(Adapter)** — 호환되지 않는 인터페이스를 클라이언트가 기대하는 형태로 **변환·중개**하는 **구조 패턴**. (기존 클래스 재사용 목적)\n- 오답 이유: ① 커맨드·② 이터레이터 → **행위** 패턴, ④ 프로토타입 → **생성** 패턴."
+    },
+    {
+     "n": 8,
+     "source": "출처: 빈출 유형 — 디자인 패턴 분류, 정보처리기사 필기 다회 출제",
+     "stem_md": "GoF 디자인 패턴 중 구조(Structural) 패턴에 속하지 않는 것은?",
+     "options": [
+      "어댑터(Adapter) 패턴",
+      "브리지(Bridge) 패턴",
+      "컴포지트(Composite) 패턴",
+      "커맨드(Command) 패턴"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: **커맨드(Command)** 는 요청을 객체로 캡슐화하는 **행위(Behavioral) 패턴**이므로 구조 패턴이 아니다.\n- 오답 이유: ① 어댑터·② 브리지·③ 컴포지트는 모두 **구조 패턴(7종)**. (구조 7: 어댑터·브리지·컴포지트·데코레이터·퍼사드·플라이웨이트·프록시)"
+    }
+   ]
+  },
+  {
+   "day": 15,
+   "date": "2026-05-26",
+   "subject": "소프트웨어 설계",
+   "topic": "아키텍처 패턴 + UI/UX + 인터페이스 설계(EAI/ESB/미들웨어) (1과목)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "다음 설명에 해당하는 소프트웨어 아키텍처 패턴은?\n\n> 시스템을 서브시스템 셋(데이터 처리, 사용자 화면, 제어 로직)으로 분리하여 상호 영향을 최소화한다. 화면을 담당하는 부분과 비즈니스 로직을 담당하는 부분이 분리되어 유지보수가 용이하다.",
+     "options": [
+      "파이프-필터(Pipe-Filter) 패턴",
+      "MVC(Model-View-Controller) 패턴",
+      "브로커(Broker) 패턴",
+      "마스터-슬레이브(Master-Slave) 패턴"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: 데이터(Model)·화면(View)·제어(Controller) 셋으로 분리하여 상호 영향을 줄이고 유지보수성을 높이는 것은 MVC 패턴이다.\n- 오답 이유: ① 파이프-필터는 데이터 스트림을 필터로 변환하는 구조 / ③ 브로커는 분산 컴포넌트 간 요청을 중개 / ④ 마스터-슬레이브는 작업을 분배하여 슬레이브가 처리."
+    },
+    {
+     "n": 2,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "파이프-필터(Pipe-Filter) 아키텍처 패턴에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "데이터 스트림을 필터를 거쳐 순차적으로 변환·처리한다.",
+      "필터 컴포넌트는 재사용성이 높고 새로운 필터로 교체·추가가 쉽다.",
+      "필터 간 데이터 이동에서 데이터 변환에 따른 오버헤드가 발생할 수 있다.",
+      "중앙 저장소(공유 데이터)를 두고 여러 컴포넌트가 동시에 접근하는 방식이다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: 파이프-필터는 데이터가 파이프를 따라 필터를 순차 통과하며 변환되는 구조이다. \"중앙 공유 저장소에 여러 컴포넌트가 동시 접근\"하는 것은 **블랙보드(Blackboard)** 패턴의 설명으로, 옳지 않다.\n- 오답 이유: ①②③ 모두 파이프-필터의 올바른 특징(순차 변환, 필터 재사용·교체 용이, 변환 오버헤드)."
+    },
+    {
+     "n": 3,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "소프트웨어 아키텍처 패턴에 해당하지 않는 것은?",
+     "options": [
+      "계층화(Layered) 패턴",
+      "클라이언트-서버(Client-Server) 패턴",
+      "팩토리 메서드(Factory Method) 패턴",
+      "이벤트-버스(Event-Bus) 패턴"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: 팩토리 메서드는 GoF **디자인 패턴(생성)** 으로 아키텍처 패턴이 아니다.\n- 오답 이유: ① 계층화 ② 클라이언트-서버 ④ 이벤트-버스는 모두 대표적 아키텍처 패턴."
+    },
+    {
+     "n": 4,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "사용자 인터페이스(UI) 설계의 기본 원칙에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "직관성 — 누구나 쉽게 이해하고 사용할 수 있어야 한다.",
+      "유효성 — 사용자의 목적을 정확하고 완벽하게 달성할 수 있어야 한다.",
+      "학습성 — 누구나 쉽게 배우고 익힐 수 있어야 한다.",
+      "유연성 — 정보의 중요도에 따라 화면을 단순·간결하게 구성해야 한다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: 유연성(Flexibility)은 \"사용자의 요구사항을 최대한 수용하고 오류를 최소화한다\"는 원칙이다. \"정보 중요도에 따라 단순·간결 구성\"은 유연성의 정의가 아니므로 옳지 않다.\n- 오답 이유: ①②③ 직관성·유효성·학습성의 정의는 모두 올바름."
+    },
+    {
+     "n": 5,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "다음 중 사용자 인터페이스(UI)의 유형에 대한 설명으로 옳은 것은?",
+     "options": [
+      "CLI(Command Line Interface)는 그래픽 아이콘을 마우스로 조작하는 방식이다.",
+      "GUI(Graphical User Interface)는 명령어를 텍스트로 입력하는 방식이다.",
+      "NUI(Natural User Interface)는 사용자의 말·행동(터치·제스처·음성) 등 자연스러운 동작으로 조작하는 방식이다.",
+      "OUI(Organic User Interface)는 키보드만으로 명령을 입력하는 방식이다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: NUI는 터치·제스처·음성 등 자연스러운 동작으로 조작하는 인터페이스로 옳다.\n- 오답 이유: ① CLI는 텍스트 명령어 입력(아이콘·마우스 ✗) / ② GUI는 그래픽 아이콘·마우스 조작(텍스트 명령 ✗) / ④ OUI는 모든 사물에 입출력이 통합된 유기적 인터페이스(키보드 전용 ✗)."
+    },
+    {
+     "n": 6,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "EAI(Enterprise Application Integration) 구축 유형 중 다음 설명에 해당하는 것은?\n\n> 애플리케이션을 1:1로 직접 연결하는 가장 기본적인 통합 방식으로, 솔루션 없이 구축 가능하나 연결 대상이 늘어나면 유지보수·재사용이 어렵다.",
+     "options": [
+      "Hub & Spoke",
+      "Message Bus(ESB 방식)",
+      "Point-to-Point",
+      "Hybrid"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: 1:1 직접 연결로 솔루션 없이 구축 가능하나 연결 대상 증가 시 유지보수·재사용이 어려운 방식은 Point-to-Point이다.\n- 오답 이유: ① Hub&Spoke는 중앙 허브 집중형 / ② Message Bus는 미들웨어(버스) 경유 / ④ Hybrid는 Hub&Spoke + Message Bus 혼합."
+    },
+    {
+     "n": 7,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "ESB(Enterprise Service Bus)에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "애플리케이션 간을 1:1로 직접 연결하여 결합도를 높이는 방식이다.",
+      "서비스 중심의 느슨한 결합(loosely coupled) 방식으로 메시지 기반 연계·통합을 지원한다.",
+      "하나의 허브 시스템에 모든 연결을 집중시키는 중앙 집중형 물리 장비이다.",
+      "데이터베이스와 응용 프로그램을 직접 연결하는 DB 접속 전용 미들웨어이다."
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: ESB는 서비스 중심의 느슨한 결합으로 메시지 기반 연계·통합을 지원하는 아키텍처(미들웨어 버스)이다.\n- 오답 이유: ① 1:1 직접 연결은 Point-to-Point(결합도 ↑) / ③ 중앙 집중 물리 허브는 Hub&Spoke 설명 / ④ DB 접속 전용 미들웨어는 ESB가 아님."
+    },
+    {
+     "n": 8,
+     "source": "출처: 빈출 유형 (다회 출제)",
+     "stem_md": "미들웨어(Middleware) 종류에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "MOM(Message Oriented Middleware) — 메시지 기반의 비동기형 메시지 전달을 지원한다.",
+      "RPC(Remote Procedure Call) — 원격 프로시저(함수)를 로컬 호출처럼 사용하게 한다.",
+      "TP-Monitor(Transaction Processing Monitor) — 트랜잭션을 처리·감시하며 안정적 운영을 보장한다.",
+      "WAS(Web Application Server) — 분산 객체 간 통신을 중계하는 객체 지향 미들웨어이다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: \"분산 객체 간 통신을 중계하는 객체 지향 미들웨어\"는 ORB(Object Request Broker)의 설명이다. WAS는 동적 웹 콘텐츠를 처리하는 웹 애플리케이션 서버이므로 ④는 옳지 않다.\n- 오답 이유: ①②③ MOM(비동기 메시지)·RPC(원격 함수 호출)·TP-Monitor(트랜잭션 처리·감시)는 모두 올바른 설명."
+    }
+   ]
+  },
+  {
+   "day": 16,
+   "date": "2026-05-27",
+   "subject": "3과목 데이터베이스 구축",
+   "topic": "DB 개요 · 스키마 3단계(외부/개념/내부) · ERD · 관계대수·해석",
+   "questions": [
+    {
+     "n": 1,
+     "source": "빈출 유형: 스키마 3단계 — 개념 스키마 정의",
+     "stem_md": "조직 전체의 관점에서 데이터베이스의 전체적인 논리적 구조를 정의하며, 모든 응용 프로그램과 사용자가 필요로 하는 데이터를 통합한 조직 전체의 데이터베이스 명세에 해당하는 스키마는?",
+     "options": [
+      "외부 스키마(External Schema)",
+      "개념 스키마(Conceptual Schema)",
+      "내부 스키마(Internal Schema)",
+      "서브 스키마(Sub Schema)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "빈출 유형: 데이터 독립성",
+     "stem_md": "데이터베이스의 내부 스키마(물리적 저장 구조)가 변경되더라도 개념 스키마나 응용 프로그램에 영향을 주지 않는 특성을 무엇이라 하는가?",
+     "options": [
+      "논리적 데이터 독립성(Logical Data Independence)",
+      "물리적 데이터 독립성(Physical Data Independence)",
+      "구조적 데이터 독립성(Structural Data Independence)",
+      "내용적 데이터 독립성(Content Data Independence)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "빈출 유형: DBMS 필수 기능 3종",
+     "stem_md": "DBMS의 필수 기능 중, 데이터의 정확성과 안전성을 유지하기 위해 무결성·보안·권한 검사·병행 제어 등을 담당하는 기능은?",
+     "options": [
+      "정의 기능(Definition Facility)",
+      "조작 기능(Manipulation Facility)",
+      "제어 기능(Control Facility)",
+      "회복 기능(Recovery Facility)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "빈출 유형: E-R 다이어그램 표기법",
+     "stem_md": "E-R(Entity-Relationship) 다이어그램의 기호 표기로 옳지 않은 것은?",
+     "options": [
+      "개체(Entity) — 사각형(□)",
+      "속성(Attribute) — 타원(○)",
+      "관계(Relationship) — 마름모(◇)",
+      "개체와 속성의 연결 — 점선(┄)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "빈출 유형: 순수 관계 연산자 vs 일반 집합 연산자",
+     "stem_md": "다음 중 관계대수(Relational Algebra)의 순수 관계 연산자(Pure Relational Operator)에 해당하지 않는 것은?",
+     "options": [
+      "Select(σ)",
+      "Project(π)",
+      "Join(⋈)",
+      "교차곱(Cartesian Product, ×)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "빈출 유형: 관계대수 vs 관계해석",
+     "stem_md": "관계대수(Relational Algebra)와 관계해석(Relational Calculus)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "관계대수는 원하는 결과를 얻기 위한 절차를 명시하는 절차적(procedural) 언어이다.",
+      "관계해석은 원하는 결과만 명시하는 비절차적(non-procedural) 언어이다.",
+      "관계해석은 수학의 술어 해석(Predicate Calculus)에 기반을 둔다.",
+      "관계대수와 관계해석은 표현 능력이 서로 달라 상호 변환이 불가능하다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "빈출 유형: SELECT(σ) vs PROJECT(π) 구분",
+     "stem_md": "관계대수에서 릴레이션을 대상으로 주어진 조건(Predicate)을 만족하는 튜플(행)들의 부분 집합을 추출하는 수평적(horizontal) 연산자는?",
+     "options": [
+      "Select(σ)",
+      "Project(π)",
+      "Join(⋈)",
+      "Division(÷)"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "빈출 유형: 관계 데이터 모델 용어",
+     "stem_md": "릴레이션(Relation)에서 속성(Attribute)의 개수를 의미하는 용어는?",
+     "options": [
+      "차수(Degree)",
+      "카디널리티(Cardinality)",
+      "도메인(Domain)",
+      "튜플(Tuple)"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    }
+   ]
+  },
+  {
+   "day": 17,
+   "date": "2026-05-28",
+   "subject": "3과목 데이터베이스 구축",
+   "topic": "정규화 — 1NF~BCNF·4NF·5NF · 함수 종속(FD) · 이상 현상",
+   "questions": [
+    {
+     "n": 1,
+     "source": "빈출 유형: 정규화의 목적",
+     "stem_md": "데이터베이스 정규화(Normalization)의 목적으로 가장 거리가 먼 것은?",
+     "options": [
+      "데이터의 중복(Redundancy)을 최소화한다.",
+      "삽입·삭제·갱신 이상(Anomaly)의 발생 가능성을 줄인다.",
+      "모든 질의(Query)의 검색 속도를 무조건 향상시킨다.",
+      "데이터 구조의 안정성과 일관성을 유지한다."
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "빈출 유형: 제1정규형(1NF)의 조건",
+     "stem_md": "릴레이션의 모든 속성(Attribute)이 더 이상 분해할 수 없는 원자값(Atomic Value)만으로 구성되어 있을 때 만족하는 정규형은?",
+     "options": [
+      "제1정규형(1NF)",
+      "제2정규형(2NF)",
+      "제3정규형(3NF)",
+      "보이스/코드 정규형(BCNF)"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "빈출 유형: 제2정규형(2NF) 도달 조건",
+     "stem_md": "제1정규형(1NF)을 만족하는 릴레이션에서 기본키에 대한 부분 함수 종속(Partial Functional Dependency)을 제거하면 만족하게 되는 정규형은?",
+     "options": [
+      "제1정규형(1NF)",
+      "제2정규형(2NF)",
+      "제3정규형(3NF)",
+      "보이스/코드 정규형(BCNF)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "빈출 유형: 제3정규형(3NF) 도달 조건",
+     "stem_md": "제2정규형(2NF)을 만족하는 릴레이션에서 기본키가 아닌 모든 속성이 기본키에 대해 이행적 함수 종속(Transitive Functional Dependency)되지 않도록 제거하면 만족하게 되는 정규형은?",
+     "options": [
+      "제1정규형(1NF)",
+      "제2정규형(2NF)",
+      "제3정규형(3NF)",
+      "제4정규형(4NF)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "빈출 유형: 보이스/코드 정규형(BCNF)의 정의",
+     "stem_md": "보이스/코드 정규형(BCNF, Boyce-Codd Normal Form)에 대한 설명으로 옳은 것은?",
+     "options": [
+      "릴레이션의 모든 속성이 원자값을 갖는 상태이다.",
+      "릴레이션의 모든 결정자(Determinant)가 후보키(Candidate Key)인 상태이다.",
+      "다치 종속(Multi-Valued Dependency)을 제거한 상태이다.",
+      "조인 종속(Join Dependency)을 제거한 상태이다."
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "빈출 유형: 정규화 단계 ↔ 제거 종속 매칭",
+     "stem_md": "정규화 단계와 각 단계에서 제거되는 대상의 연결로 옳지 않은 것은?",
+     "options": [
+      "제1정규형(1NF) — 원자값이 아닌(다중값) 속성 제거",
+      "제2정규형(2NF) — 부분 함수 종속 제거",
+      "제3정규형(3NF) — 이행적 함수 종속 제거",
+      "제4정규형(4NF) — 결정자이면서 후보키가 아닌 함수 종속 제거"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "빈출 유형: 이상 현상(Anomaly)의 종류",
+     "stem_md": "정규화가 충분하지 않은 릴레이션에서 발생할 수 있는 이상(Anomaly) 현상에 해당하지 않는 것은?",
+     "options": [
+      "삽입 이상(Insertion Anomaly)",
+      "삭제 이상(Deletion Anomaly)",
+      "갱신 이상(Update Anomaly)",
+      "검색 이상(Retrieval Anomaly)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "빈출 유형: 반정규화(De-normalization)",
+     "stem_md": "정규화된 데이터베이스에서 조회 성능 향상 등을 목적으로, 의도적으로 데이터의 중복을 허용하거나 테이블을 통합·분할·추가하는 기법은?",
+     "options": [
+      "정규화(Normalization)",
+      "반정규화(De-normalization)",
+      "무결성 제약(Integrity Constraint)",
+      "인덱싱(Indexing)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    }
+   ]
+  },
+  {
+   "day": 18,
+   "date": "2026-05-29",
+   "subject": "3과목 데이터베이스 구축",
+   "topic": "SQL — DDL/DML/DCL · 조인 · 서브쿼리 · 뷰(VIEW) · 인덱스(INDEX)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 2020년 1·2회 통합 필기",
+     "stem_md": "SQL의 명령어 중 DML(Data Manipulation Language)에 해당하지 않는 것은?",
+     "options": [
+      "SELECT",
+      "INSERT",
+      "UPDATE",
+      "ALTER"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "출처: 2020년 3회 필기",
+     "stem_md": "SQL의 명령을 사용 용도에 따라 DDL, DML, DCL로 구분할 경우, 다음 중 그 성격이 나머지 셋과 다른 것은?",
+     "options": [
+      "SELECT",
+      "UPDATE",
+      "INSERT",
+      "GRANT"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "출처: 2020년 4회 필기",
+     "stem_md": "DROP 명령에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "CASCADE 옵션을 사용하면 해당 테이블을 참조하는 다른 테이블의 데이터까지 함께 삭제된다.",
+      "RESTRICT 옵션을 사용하면 해당 테이블을 참조하는 다른 데이터가 있으면 삭제되지 않는다.",
+      "기본 테이블·뷰·인덱스 등 데이터베이스 객체를 제거할 때 사용한다.",
+      "DROP은 DCL에 해당하는 명령어이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "출처: 2021년 3회 필기",
+     "stem_md": "다음 SQL의 빈칸 ㉠에 들어갈 명령어로 옳은 것은?\n```\n㉠ SELECT ON STUDENT TO PARK;\n```\n(사용자 PARK에게 STUDENT 테이블에 대한 SELECT 권한을 부여)",
+     "options": [
+      "REVOKE",
+      "GRANT",
+      "COMMIT",
+      "DENY"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "출처: 2022년 1회 필기",
+     "stem_md": "뷰(VIEW)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "뷰는 가상 테이블이기 때문에 물리적으로 구현되어 있지 않다.",
+      "뷰는 데이터의 접근 제어를 통해 보안을 제공한다.",
+      "뷰는 자체 인덱스(INDEX)를 가질 수 있다.",
+      "뷰의 정의는 ALTER문을 이용하여 변경할 수 없다."
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "출처: 2020년 3회 필기",
+     "stem_md": "다음 중 인덱스(INDEX)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "인덱스의 추가·변경·삭제 명령어는 각각 CREATE, MODIFY, DROP이다.",
+      "인덱스는 검색 속도를 빠르게 하기 위한 보조 자료구조이다.",
+      "B-트리 인덱스는 가장 일반적으로 사용되는 인덱스 형태이다.",
+      "기본키(PRIMARY KEY)와 UNIQUE 키에는 자동으로 인덱스가 생성된다."
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "출처: 2021년 2회 필기",
+     "stem_md": "다음 SQL문을 실행한 결과로 옳은 것은?\n\n[STUDENT 테이블]\n| 학번 | 이름 | 학년 | 학과   |\n|------|------|------|--------|\n| 1001 | 홍길동 | 1   | 컴퓨터  |\n| 1002 | 임꺽정 | 2   | 컴퓨터  |\n| 1003 | 장길산 | 2   | 전자    |\n| 1004 | 강감찬 | 3   | 컴퓨터  |\n| 1005 | 이순신 | 3   | 전자    |\n\n```sql\nSELECT 학과, COUNT(*) AS 학과별인원\nFROM STUDENT\nGROUP BY 학과\nHAVING COUNT(*) >= 3;\n```",
+     "options": [
+      "(컴퓨터, 3)",
+      "(컴퓨터, 3), (전자, 2)",
+      "(전자, 2)",
+      "결과 없음"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "출처: 2022년 2회 필기",
+     "stem_md": "SQL의 JOIN에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "INNER JOIN은 조인 조건을 만족하는 행만 반환한다.",
+      "LEFT OUTER JOIN은 왼쪽 테이블의 모든 행을 결과에 포함한다.",
+      "CROSS JOIN은 두 테이블의 카티션 곱(Cartesian Product)을 반환한다.",
+      "NATURAL JOIN은 두 테이블에 동일한 이름의 컬럼이 없어도 모든 컬럼을 기준으로 조인한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    }
+   ]
+  },
+  {
+   "day": 19,
+   "date": "2026-05-30",
+   "subject": "3과목 데이터베이스 구축",
+   "topic": "트랜잭션 ACID · 격리수준 · 락(Lock) · 회복(Recovery) · 동시성 제어",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 2020년 3회 필기 빈출",
+     "stem_md": "트랜잭션의 특성(ACID)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "원자성(Atomicity): 트랜잭션 연산은 모두 반영되거나 전혀 반영되지 않아야 한다.",
+      "일관성(Consistency): 트랜잭션이 성공적으로 완료되면 데이터베이스는 일관된 상태를 유지해야 한다.",
+      "격리성(Isolation): 둘 이상의 트랜잭션이 동시에 실행될 때 한 트랜잭션의 중간 결과를 다른 트랜잭션이 참조할 수 있다.",
+      "지속성(Durability): 성공적으로 완료된 트랜잭션의 결과는 시스템에 영구히 반영되어야 한다."
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "출처: 2021년 2회 필기 빈출",
+     "stem_md": "트랜잭션의 상태 중 트랜잭션의 마지막 연산이 실행된 직후의 상태로, 모든 연산은 수행되었지만 모든 결과가 아직 데이터베이스에 반영되지 않은 상태는?",
+     "options": [
+      "활동(Active)",
+      "부분 완료(Partially Committed)",
+      "완료(Committed)",
+      "실패(Failed)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "출처: 2020년 4회 / 2022년 2회 빈출",
+     "stem_md": "로킹(Locking) 단위에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "로킹 단위가 크면 로크의 수가 적어져 관리(오버헤드)가 쉬워진다.",
+      "로킹 단위가 크면 병행성(Concurrency) 수준이 낮아진다.",
+      "로킹 단위가 작으면 로크의 수가 많아져 관리 오버헤드가 증가한다.",
+      "로킹 단위가 작으면 병행성 수준이 낮아진다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "출처: 2021년 3회 필기 빈출",
+     "stem_md": "다음 중 데이터베이스 회복(Recovery) 기법에 해당하지 않는 것은?",
+     "options": [
+      "즉시 갱신(Immediate Update)",
+      "지연 갱신(Deferred Update)",
+      "그림자 페이지(Shadow Paging)",
+      "타임스탬프 순서(Timestamp Ordering)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "출처: 2022년 1회 필기 빈출",
+     "stem_md": "병행 제어(Concurrency Control) 기법에 해당하지 않는 것은?",
+     "options": [
+      "로킹(Locking) 기법",
+      "타임스탬프(Timestamp) 기법",
+      "검증(낙관적, Optimistic) 기법",
+      "체크 포인트(Check Point) 기법"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "출처: 2020년 1·2회 통합 / 2024년 1회 빈출",
+     "stem_md": "로그(Log)를 이용한 즉시 갱신(Immediate Update) 회복 기법에 대한 설명으로 옳은 것은?",
+     "options": [
+      "트랜잭션이 완료(COMMIT)되기 전까지는 변경 내용을 데이터베이스에 반영하지 않는다.",
+      "트랜잭션 실패 시 REDO만 필요하고 UNDO는 필요 없다.",
+      "트랜잭션이 부분 완료된 후 완료 전이라도 변경 내용이 데이터베이스에 반영될 수 있으므로, 장애 발생 시 UNDO와 REDO가 모두 필요할 수 있다.",
+      "검사점(Checkpoint)이 필요 없는 회복 기법이다."
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "출처: 2023년 2회 필기 빈출",
+     "stem_md": "다음 중 트랜잭션 격리수준(Isolation Level)을 가장 낮은 수준에서 높은 수준의 순으로 옳게 나열한 것은?",
+     "options": [
+      "READ UNCOMMITTED < READ COMMITTED < REPEATABLE READ < SERIALIZABLE",
+      "READ COMMITTED < READ UNCOMMITTED < SERIALIZABLE < REPEATABLE READ",
+      "SERIALIZABLE < REPEATABLE READ < READ COMMITTED < READ UNCOMMITTED",
+      "READ COMMITTED < REPEATABLE READ < READ UNCOMMITTED < SERIALIZABLE"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "출처: 2022년 3회 필기 빈출",
+     "stem_md": "2단계 로킹 프로토콜(2-Phase Locking Protocol)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "확장(Growing) 단계에서는 새로운 로크(Lock)를 획득할 수 있으나 해제할 수는 없다.",
+      "축소(Shrinking) 단계에서는 보유 중인 로크를 해제할 수 있으나 새로 획득할 수는 없다.",
+      "2단계 로킹 프로토콜을 따르는 모든 스케줄은 직렬 가능(Serializable)함을 보장한다.",
+      "2단계 로킹 프로토콜은 교착 상태(Deadlock)가 절대 발생하지 않음을 보장한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    }
+   ]
+  },
+  {
+   "day": 20,
+   "date": "2026-05-31",
+   "subject": "데이터베이스 구축",
+   "topic": "DB 설계 단계 · 분산 DB 투명성 · NoSQL 4분류",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 2020년 1·2회 통합, 정보처리기사 필기 — 빈출",
+     "stem_md": "데이터베이스 설계 단계 중 물리적 설계 단계에서 수행되는 작업이 아닌 것은?",
+     "options": [
+      "저장 레코드 양식 설계",
+      "레코드 집중의 분석 및 설계",
+      "접근 경로(Access Path) 설계",
+      "트랜잭션 인터페이스 설계"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "출처: 2021년 3회, 정보처리기사 필기 — 빈출",
+     "stem_md": "분산 데이터베이스 시스템의 투명성(Transparency)에 해당하지 않는 것은?",
+     "options": [
+      "분할 투명성(Fragmentation Transparency)",
+      "응답 투명성(Response Transparency)",
+      "위치 투명성(Location Transparency)",
+      "중복 투명성(Replication Transparency)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "출처: 2022년 2회, 정보처리기사 필기 — 유사 기출",
+     "stem_md": "데이터베이스 설계 단계의 순서로 옳은 것은?",
+     "options": [
+      "요구 조건 분석 → 개념적 설계 → 논리적 설계 → 물리적 설계 → 구현",
+      "요구 조건 분석 → 논리적 설계 → 개념적 설계 → 물리적 설계 → 구현",
+      "개념적 설계 → 요구 조건 분석 → 논리적 설계 → 물리적 설계 → 구현",
+      "요구 조건 분석 → 개념적 설계 → 물리적 설계 → 논리적 설계 → 구현"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "출처: 2021년 2회, 정보처리기사 필기 — 유사 기출",
+     "stem_md": "데이터베이스 설계 중 개념적 설계 단계에서 수행되는 작업으로 가장 거리가 먼 것은?",
+     "options": [
+      "E-R 다이어그램 작성",
+      "트랜잭션 모델링",
+      "개념 스키마 모델링",
+      "트랜잭션 인터페이스 설계"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "출처: 2020년 3회, 정보처리기사 필기 — 빈출 변형",
+     "stem_md": "다음 중 NoSQL 데이터베이스의 특징으로 옳지 않은 것은?",
+     "options": [
+      "데이터 모델이 미리 정해져 있지 않아 스키마 유연성이 높다",
+      "수평적 확장(Scale-out)에 용이하다",
+      "비정형·반정형 데이터 처리에 적합하다",
+      "트랜잭션의 ACID 속성을 엄격하게 보장한다"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "출처: 2022년 1회, 정보처리기사 필기 — 유사 기출",
+     "stem_md": "다음 중 CAP 이론에서 제시한 분산 시스템의 세 가지 속성에 해당하지 않는 것은?",
+     "options": [
+      "일관성(Consistency)",
+      "가용성(Availability)",
+      "분할 내성(Partition Tolerance)",
+      "원자성(Atomicity)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "출처: 2023년 1회, 정보처리기사 필기 — 유사 기출",
+     "stem_md": "NoSQL 데이터베이스의 4가지 주요 유형과 대표 제품의 짝이 옳지 않은 것은?",
+     "options": [
+      "Key-Value 저장소 — Redis, DynamoDB",
+      "Document 저장소 — MongoDB, CouchDB",
+      "Column-family 저장소 — Cassandra, HBase",
+      "Graph 저장소 — MySQL, Oracle"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "출처: 2021년 1회, 정보처리기사 필기 — 빈출",
+     "stem_md": "분산 데이터베이스에서 \"사용자가 데이터의 저장 장소를 알 필요 없이 논리적인 명칭만으로 접근할 수 있는 성질\"을 의미하는 투명성은?",
+     "options": [
+      "분할 투명성(Fragmentation Transparency)",
+      "위치 투명성(Location Transparency)",
+      "중복 투명성(Replication Transparency)",
+      "장애 투명성(Failure Transparency)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    }
+   ]
+  },
+  {
+   "day": 21,
+   "date": "2026-06-01",
+   "subject": "정보시스템 구축관리",
+   "topic": "개발 방법론(CMMI/SPICE/V&V) · 비용 산정(LOC/COCOMO/FP/델파이/Putnam) · 일정(PERT/CPM/Gantt)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 2020년 8월 22일 정보처리기사 필기 — 빈출",
+     "stem_md": "프로젝트 일정 관리 시 사용하는 PERT 차트에 대한 설명에 해당하는 것은?",
+     "options": [
+      "각 작업들이 언제 시작하고 언제 종료되는지에 대한 일정을 막대 도표를 이용하여 표시한다.",
+      "시간선(Time Line) 차트라고도 한다.",
+      "수평 막대의 길이는 각 작업(Task)의 기간을 나타낸다.",
+      "작업들 간의 상호 관련성, 결정 경로, 경계 시간, 자원할당 등을 제시한다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: PERT는 작업 간 상호 관련성·결정 경로·경계 시간·자원 할당을 네트워크로 표현하는 차트다. 노드(작업)와 간선(선후관계)으로 구성되고, 각 작업에 낙관치/기대치/비관치를 기재하는 확률적 모형.\n- 오답 이유:\n  - ①②③: 모두 Gantt(간트) 차트의 설명. 막대 도표·시간선 차트·수평 막대 길이=작업 기간은 Gantt의 특징."
+    },
+    {
+     "n": 2,
+     "source": "출처: 2020년 6월 6일 정보처리기사 필기 — 빈출",
+     "stem_md": "Rayleigh-Norden 곡선의 노력 분포도를 이용한 프로젝트 비용 산정 기법은?",
+     "options": [
+      "Putnam 모형",
+      "COCOMO 모형",
+      "Function-Point 모형",
+      "LOC 모형"
+     ],
+     "answer": 0,
+     "explanation_md": "정답: ①\n- 제공 해설: Putnam 모형은 Rayleigh-Norden 곡선(시간 함수로 표현된 노력 분포)을 사용하는 대규모 프로젝트용 산정 기법. 자동화 도구로 SLIM이 있다.\n- 오답 이유:\n  - ②: COCOMO — Boehm이 제안, LOC 기반 수학적 모형.\n  - ③: Function-Point — 사용자 관점의 기능 단위(입력/출력/조회/파일/인터페이스) 수치화.\n  - ④: LOC — 원시 코드 라인 수의 낙관치·비관치·기대치로 산정하는 상향식."
+    },
+    {
+     "n": 3,
+     "source": "출처: 2021년 3회 정보처리기사 필기 — 빈출 변형",
+     "stem_md": "COCOMO 모델의 프로젝트 유형으로 거리가 먼 것은?",
+     "options": [
+      "Organic",
+      "Semi-detached",
+      "Embedded",
+      "Sequential"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: COCOMO 프로젝트 유형은 Organic(조직형) / Semi-detached(반분리형) / Embedded(내장형) 3종. Sequential은 COCOMO 분류에 없는 함정 보기.\n- 오답 이유: ①②③은 모두 정상 분류명.\n- 함정: Basic/Intermediate/Detailed는 \"COCOMO 모델 종류(발전형)\"이지 \"프로젝트 유형\"이 아니다. 두 개념을 섞어 묻는 변형 출제 다발."
+    },
+    {
+     "n": 4,
+     "source": "출처: 2022년 1회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "소프트웨어 비용 산정 기법 중 하향식(Top-down) 산정 기법에 해당하는 것은?",
+     "options": [
+      "LOC 기법",
+      "개발 단계별 인월수 기법",
+      "전문가 감정 기법 / 델파이 기법",
+      "COCOMO 모델"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: 하향식(Top-down)은 시스템 전체를 보고 추정 → 세부로 내려가는 방식. 전문가 감정·델파이 기법이 대표적. 델파이는 전문가 감정의 주관 편향을 다수 전문가 의견 종합으로 보완.\n- 오답 이유:\n  - ①: LOC — 상향식. 라인 수 추정으로 비용 산출.\n  - ②: 개발 단계별 인월수(Effort Per Task) — 상향식. LOC 보완 기법.\n  - ④: COCOMO — 수학적 산정(Boehm). 별도 분류로 보지만, 일부 교재에서는 \"상향식\"으로 분류."
+    },
+    {
+     "n": 5,
+     "source": "출처: 2021년 2회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "CPM(Critical Path Method) 네트워크에 대한 설명으로 가장 타당하지 않은 것은?",
+     "options": [
+      "노드와 간선으로 구성된 네트워크이다.",
+      "임계 경로는 가장 짧은 경로를 의미한다.",
+      "각 작업의 선후 관계와 소요 기간을 표시한다.",
+      "작업 일정을 단축할 때 우선 검토해야 할 경로를 식별할 수 있다."
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: CPM의 임계 경로(Critical Path)는 시작에서 종료까지 경로 중 가장 \"긴\" 경로다. 가장 긴 경로의 길이가 프로젝트 최단 완료 시간을 결정한다(병렬 경로 중 최장이 율속).\n- 오답 이유:\n  - ①③④: 모두 CPM의 옳은 설명. 노드/간선 네트워크, 선후 관계와 소요 기간 표시, 일정 단축 시 임계 경로 우선 검토.\n- 함정: \"가장 짧은\" / \"가장 긴\" 한 글자 차이로 오답 유도 빈번."
+    },
+    {
+     "n": 6,
+     "source": "출처: 2020년 3회 정보처리기사 필기 — 빈출",
+     "stem_md": "SPICE 모델의 프로세스 수행 능력 수준 단계가 아닌 것은?",
+     "options": [
+      "불완전(Incomplete) 단계",
+      "관리(Managed) 단계",
+      "정형(Formal) 단계",
+      "최적화(Optimizing) 단계"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: SPICE(ISO/IEC 15504) 능력 수준 6단계는 0 불완전(Incomplete) → 1 수행(Performed) → 2 관리(Managed) → 3 확립(Established) → 4 예측(Predictable) → 5 최적화(Optimizing). \"정형(Formal)\" 단계는 존재하지 않는 함정 보기.\n- 오답 이유: ①②④는 모두 실제 SPICE 단계명."
+    },
+    {
+     "n": 7,
+     "source": "출처: 2022년 2회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "CMMI(Capability Maturity Model Integration) 성숙도 5단계의 순서로 옳은 것은?",
+     "options": [
+      "초기(Initial) → 정의(Defined) → 관리(Managed) → 정량적 관리(Quantitatively Managed) → 최적화(Optimizing)",
+      "초기(Initial) → 관리(Managed) → 정의(Defined) → 정량적 관리(Quantitatively Managed) → 최적화(Optimizing)",
+      "초기(Initial) → 관리(Managed) → 정량적 관리(Quantitatively Managed) → 정의(Defined) → 최적화(Optimizing)",
+      "초기(Initial) → 정의(Defined) → 정량적 관리(Quantitatively Managed) → 관리(Managed) → 최적화(Optimizing)"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: CMMI 성숙도는 1 초기(Initial) → 2 관리(Managed) → 3 정의(Defined) → 4 정량적 관리(Quantitatively Managed) → 5 최적화(Optimizing). 정의(Defined) 이전에 관리(Managed)가 온다.\n- 오답 이유:\n  - ①: 관리와 정의 순서가 뒤바뀜.\n  - ③: 정량적 관리가 정의보다 앞에 오면 안 됨.\n  - ④: 관리 단계가 4단계로 가면 안 됨.\n- 함정: SPICE와 순서가 다름에 주의. SPICE는 2 관리 → 3 확립, CMMI는 2 관리 → 3 정의. 단계 명칭과 순서 모두 변별 필요."
+    },
+    {
+     "n": 8,
+     "source": "출처: 2023년 1회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "소프트웨어 검증(Verification)과 확인(Validation)에 대한 설명으로 옳은 것은?",
+     "options": [
+      "검증은 \"올바른 제품을 만들고 있는가\"를, 확인은 \"제품을 올바르게 만들고 있는가\"를 평가한다.",
+      "검증은 개발 단계 산출물이 그 단계의 초기 설정 조건을 만족하는지 평가하고, 확인은 최종 시스템이 명시된 요구사항을 만족하는지 평가한다.",
+      "검증과 확인은 동일한 개념이며 상호 교환적으로 사용 가능하다.",
+      "검증은 사용자가, 확인은 개발자가 수행하는 활동이다."
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: 검증(Verification)은 \"각 개발 단계의 산출물이 그 단계의 초기에 설정된 조건(명세)을 만족하는가\"를 평가. 확인(Validation)은 \"최종 산출물이 명시된 사용자 요구사항을 만족하는가\"를 평가.\n- 오답 이유:\n  - ①: 검증/확인 문구가 뒤바뀜. 올바른 짝은 검증=\"Are we building the product right?\" / 확인=\"Are we building the right product?\"\n  - ③: V&V는 명확히 구별되는 개념.\n  - ④: 수행 주체 기준으로 정의되는 개념이 아님."
+    }
+   ]
+  }
+ ]
+}
