@@ -1,10 +1,10 @@
 # 정보처리기사 필기 스터디 로그
 
-> 목표 시험일: **2026-08-07** · D-68
-> 진행: **Day 20/88** (23%)
+> 목표 시험일: **2026-08-07** · D-67
+> 진행: **Day 21/88** (24%)
 
 ## 진행도
-`█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` 20/88
+`█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` 21/88
 
 ## 88일 커리큘럼
 
@@ -36,10 +36,10 @@
 - [x] Day 17 - 정규화 (1NF~BCNF, 4NF, 5NF), 함수종속성
 - [x] Day 18 - SQL DDL/DML/DCL + 조인 + 서브쿼리 + 뷰 + 인덱스
 - [x] Day 19 - 트랜잭션 ACID + 격리수준 + 락 + 회복 + 동시성 제어
-- [x] **Day 20 - DB 설계 + 분산 DB(4투명성) + NoSQL** ← 오늘
+- [x] Day 20 - DB 설계 + 분산 DB(4투명성) + NoSQL
 
 #### 5과목 정보시스템 구축관리 (Day 21-25)
-- [ ] Day 21 - 개발 방법론(CMMI/SPICE) + 비용산정(LOC/COCOMO/FP/델파이) + 일정(PERT/CPM)
+- [x] **Day 21 - 개발 방법론(CMMI/SPICE/V&V) + 비용산정(LOC/COCOMO/FP/델파이/Putnam) + 일정(PERT/CPM/Gantt)** ← 오늘
 - [ ] Day 22 - IT 신기술 키워드 60+
 - [ ] Day 23 - 정보보안 기본 (대칭/비대칭/해시, 접근통제, 인증)
 - [ ] Day 24 - 네트워크 보안 (방화벽/IDS/IPS/VPN/DDoS/APT)
@@ -65,11 +65,11 @@
 - [ ] Day 86-88: 최종 정리
 
 ## 최근 기록 (최대 5개)
+- [Day 21](daily/2026-06-01.md) — 비용 산정 분류(하향식 전문가/델파이 ↔ 상향식 LOC/단계별 인월수 ↔ 수학적 COCOMO/Putnam/FP)·COCOMO 3유형(Organic/Semi-detached/Embedded)·Putnam ↔ Rayleigh-Norden ↔ SLIM·PERT(불확실/3점추정) vs CPM(임계경로) vs Gantt(막대)·CMMI 5단계·SPICE 6단계·V&V (5과목)
 - [Day 20](daily/2026-05-31.md) — DB 설계 5단계(요구→개념→논리→물리→구현)·분산 DB 6투명성(분할/위치/지역사상/중복/장애/병행)·CAP 이론·BASE·NoSQL 4분류(KV/Document/Column-family/Graph) (3과목)
 - [Day 19](daily/2026-05-30.md) — 트랜잭션 ACID 4특성·상태 5단계·로킹 단위 트레이드오프·회복 기법(즉시갱신/지연갱신/그림자페이지/검사점·UNDO/REDO)·동시성 제어 4기법·격리수준 4단계·2PL·데드락 4조건 (3과목)
 - [Day 18](daily/2026-05-29.md) — SQL 3분류(DDL/DML/DCL)·DROP CASCADE/RESTRICT·GRANT 문법·VIEW 특징(인덱스 없음·ALTER 불가)·INDEX(CREATE/DROP만)·JOIN 5종·GROUP BY/HAVING (3과목)
 - [Day 17](daily/2026-05-28.md) — 정규화 단계(도·부·이·결·다·조)·1NF~BCNF·4NF/5NF·함수 종속(완전/부분/이행)·이상 현상 3종·반정규화 (3과목)
-- [Day 16](daily/2026-05-27.md) — DB 개요·스키마 3단계(외부/개념/내부)·데이터 독립성·DBMS 3기능·ERD 기호·관계대수 순수연산(σπ⋈÷) vs 집합연산·관계해석 (3과목)
 
 ---
 자동 생성: 매일 새벽 4시 KST.
