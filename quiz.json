@@ -1904,6 +1904,118 @@
      "explanation_md": "정답: ②\n- 제공 해설: 비대칭키(공개키) 암호는 암호화/복호화 키가 다른 한 쌍(공개키·개인키)을 사용. RSA(소인수분해), ECC(타원곡선 이산대수), ElGamal(이산대수), DH(이산대수, 키교환), DSA(이산대수, 전자서명)가 대표.\n- 오답 이유:\n  - ①: DES, AES, SEED — 모두 대칭키 블록 암호.\n  - ③: MD5, SHA-256, HMAC — 해시 함수 / 메시지 인증 코드(암호화 아님).\n  - ④: ARIA, HIGHT, LEA — 모두 국산 대칭키 블록 암호.\n- 함정: 해시(MD5/SHA)는 암호화가 아닌 무결성 검증. HMAC은 해시 기반 MAC. \"비대칭\" 분류에서 제외."
     }
    ]
+  },
+  {
+   "day": 24,
+   "date": "2026-06-04",
+   "subject": "정보시스템 구축관리",
+   "topic": "네트워크 보안 (방화벽/IDS/IPS/VPN/DDoS/APT/SSL/TLS/IPSec)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 2021년 2회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "다음 설명에 해당하는 서비스 거부(DoS) 공격은?\n\n```\n- 공격자가 출발지 IP를 공격 대상의 IP로 위조(Spoofing)\n- 브로드캐스트 주소로 다량의 ICMP Echo Request 패킷 전송\n- 네트워크 내 모든 호스트가 ICMP Echo Reply를 공격 대상에 보내 트래픽 폭주\n- 직접 공격이 아닌 증폭(Amplification) 공격의 대표 사례\n```",
+     "options": [
+      "SYN Flooding",
+      "Smurf Attack",
+      "Land Attack",
+      "Teardrop Attack"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: Smurf 공격은 ICMP Echo Request 패킷의 출발지 IP를 공격 대상으로 위조(Spoofing)하고 브로드캐스트 주소로 송신해, 네트워크 내 모든 호스트가 공격 대상에게 ICMP Echo Reply를 보내도록 유도하는 증폭형 DoS. 대응: 라우터에서 Directed Broadcast 차단, ICMP 응답 제한.\n- 오답 이유:\n  - ①: SYN Flooding — TCP 3-way handshake의 SYN/ACK 응답에 ACK를 안 보내 백로그 큐 고갈. ICMP 아님.\n  - ③: Land Attack — 출발지·목적지 IP/포트를 동일하게 위조해 자기 루프 발생.\n  - ④: Teardrop — IP 단편화(Fragment) Offset 값을 겹치게 조작해 재조립 오류 유발.\n- 함정: \"ICMP + 브로드캐스트 + 출발지 위조\" 3박자 = Smurf. UDP Echo로 동일 패턴이면 Fraggle."
+    },
+    {
+     "n": 2,
+     "source": "출처: 2022년 1회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "TCP의 3-way handshake 과정의 취약점을 이용해 다량의 SYN 패킷을 보내고 SYN/ACK 응답에 대한 ACK를 보내지 않아 서버의 백로그 큐를 가득 채워 정상 접속을 차단하는 공격은?",
+     "options": [
+      "Smurf Attack",
+      "SYN Flooding",
+      "Ping of Death",
+      "Tear Drop"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: SYN Flooding은 TCP 3-way handshake(SYN → SYN/ACK → ACK)의 두 번째 단계에서 ACK를 응답하지 않아 서버의 백로그 큐(half-open 연결 큐)를 가득 채워 정상 사용자의 연결 요청을 거부시키는 공격. 대응: SYN Cookie, 백로그 큐 확장, 첫 RTT 타임아웃 단축.\n- 오답 이유:\n  - ①: Smurf — ICMP 브로드캐스트 증폭 공격.\n  - ③: Ping of Death — 65535바이트 초과 ICMP 패킷으로 재조립 오버플로 유발.\n  - ④: Tear Drop — IP Fragment Offset 조작.\n- 함정: 3-way handshake / 백로그 큐 / half-open 키워드 = SYN Flood."
+    },
+    {
+     "n": 3,
+     "source": "출처: 2020년 4회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "IPSec(IP Security)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "OSI 7계층 중 네트워크 계층(L3)에서 동작한다.",
+      "AH(Authentication Header)는 데이터 무결성과 인증을 제공하지만 기밀성은 제공하지 않는다.",
+      "ESP(Encapsulating Security Payload)는 기밀성, 무결성, 인증을 모두 제공할 수 있다.",
+      "IKE(Internet Key Exchange)는 데이터 패킷을 직접 암호화하는 기능을 담당한다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: IKE(Internet Key Exchange)는 SA(Security Association) 협상과 키 교환을 담당하는 키 관리 프로토콜이지, 데이터 패킷 자체를 암호화하지 않는다. 실제 패킷 암호화는 ESP가 수행. IKE는 ISAKMP + Oakley + SKEME 기반.\n- 오답 이유:\n  - ①: IPSec은 L3(네트워크 계층)에서 동작 — 옳음.\n  - ②: AH는 인증·무결성만 제공, 기밀성 X — 옳음.\n  - ③: ESP는 기밀성+무결성+인증 모두 가능 — 옳음.\n- 함정: AH(무결성), ESP(기밀성+무결성), IKE(키 교환) 역할 분리 필수. \"IKE가 암호화\" = 거짓."
+    },
+    {
+     "n": 4,
+     "source": "출처: 2021년 3회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "침입 탐지 시스템(IDS)과 침입 방지 시스템(IPS)의 차이로 옳은 것은?",
+     "options": [
+      "IDS는 인라인(In-line)으로 설치되어 트래픽을 직접 차단하고, IPS는 미러링된 트래픽을 분석만 한다.",
+      "IDS는 탐지 후 알림만 수행하고, IPS는 탐지된 공격 트래픽을 실시간으로 차단할 수 있다.",
+      "IDS는 시그니처 기반 탐지만 가능하고, IPS는 이상 탐지(Anomaly)만 가능하다.",
+      "IDS는 호스트 기반에서만 동작하고, IPS는 네트워크 기반에서만 동작한다."
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: IDS(Intrusion Detection System)는 트래픽 미러링으로 패킷을 복사받아 분석하고 탐지 시 알림만 수행하는 Passive 시스템. IPS(Intrusion Prevention System)는 트래픽 경로 위(in-line)에 설치되어 탐지된 공격을 실시간으로 차단하는 Active 시스템.\n- 오답 이유:\n  - ①: 정반대. IPS가 인라인, IDS가 미러링.\n  - ③: IDS·IPS 모두 시그니처 기반(오용 탐지)과 이상 탐지(Anomaly) 둘 다 사용 가능.\n  - ④: IDS·IPS 모두 호스트 기반(HIDS/HIPS), 네트워크 기반(NIDS/NIPS) 모두 존재.\n- 함정: IDS=탐지, IPS=차단. IPS는 지연 영향이 있어 고가용성·성능 설계 필요."
+    },
+    {
+     "n": 5,
+     "source": "출처: 2022년 3회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "다음 설명에 해당하는 공격 기법은?\n\n```\n- 특정 목표(정부·기업·기관)를 장기간에 걸쳐 은밀하게 침투·정찰·확산하는 지능형 지속 공격\n- 스피어 피싱·제로데이 취약점·악성코드를 복합적으로 활용\n- 단계: 정찰(Reconnaissance) → 침투(Initial Compromise) → 거점 확보(Foothold) → 권한 상승(Privilege Escalation) → 내부 정찰(Internal Recon) → 횡적 이동(Lateral Movement) → 목표 달성(Exfiltration)\n```",
+     "options": [
+      "DDoS (Distributed Denial of Service)",
+      "APT (Advanced Persistent Threat)",
+      "Drive-by Download",
+      "Watering Hole"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- 제공 해설: APT(Advanced Persistent Threat)는 특정 표적을 장기간 은밀하게 침투·정찰·확산하는 지능형 지속 공격. 스피어 피싱·제로데이·맞춤 악성코드를 결합. Kill Chain: 정찰 → 무기화 → 전달 → 익스플로잇 → 설치 → 명령·통제(C2) → 목표 달성.\n- 오답 이유:\n  - ①: DDoS — 다수 좀비로 대상 서비스 마비. 단기·트래픽 기반, 정보 탈취 목적 아님.\n  - ③: Drive-by Download — 사용자가 악성 사이트 방문만으로 악성코드 자동 설치되는 단발 공격.\n  - ④: Watering Hole — 표적이 자주 가는 사이트를 감염시켜 표적이 방문하길 기다리는 공격 (APT의 침투 수단 중 하나일 수는 있음).\n- 함정: \"장기간 + 은밀 + 특정 표적 + 복합 기법\" = APT. Watering Hole/Drive-by는 단일 기법으로 APT의 부분집합."
+    },
+    {
+     "n": 6,
+     "source": "출처: 2023년 1회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "SSL/TLS 프로토콜에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "전송 계층(L4)과 응용 계층(L7) 사이에서 동작하며 응용 계층 데이터를 암호화한다.",
+      "Handshake 단계에서 서버 인증서를 통한 서버 인증과 세션키 합의가 이루어진다.",
+      "POODLE 공격은 TLS 1.3의 키 교환 취약점을 이용한 공격이다.",
+      "HTTPS는 HTTP 위에 SSL/TLS를 적용한 프로토콜이다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 제공 해설: POODLE(Padding Oracle On Downgraded Legacy Encryption)은 SSL 3.0의 CBC 패딩 오라클 취약점을 악용하는 공격으로, TLS 연결을 SSL 3.0으로 다운그레이드한 뒤 암호문을 해독한다. TLS 1.3과 무관하며 TLS 1.3은 SSL/TLS 다운그레이드 공격을 차단하도록 설계됨.\n- 오답 이유:\n  - ①: SSL/TLS는 L4(전송)와 L7(응용) 사이 동작 — 옳음.\n  - ②: 핸드셰이크에서 인증서 검증·세션키 합의 — 옳음.\n  - ④: HTTPS = HTTP + SSL/TLS — 옳음.\n- 함정: POODLE = SSL 3.0 다운그레이드. BEAST = SSL 3.0/TLS 1.0 CBC IV. Heartbleed = OpenSSL Heartbeat 버퍼 오버리드. CVE 구별."
+    },
+    {
+     "n": 7,
+     "source": "출처: 2021년 1회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "방화벽(Firewall) 방식에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "패킷 필터링(Packet Filtering) 방화벽은 IP 주소, 포트 번호, 프로토콜 정보를 기반으로 필터링한다.",
+      "상태 기반(Stateful Inspection) 방화벽은 연결 상태 테이블을 유지하여 세션 단위로 패킷을 검사한다.",
+      "응용 게이트웨이(Application Gateway, Proxy) 방화벽은 응용 계층에서 동작하며 사용자 인증과 콘텐츠 검사가 가능하다.",
+      "패킷 필터링 방화벽은 응용 계층 페이로드를 분석하여 바이러스·악성코드를 탐지·차단할 수 있다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: 패킷 필터링 방화벽(1세대)은 L3/L4 헤더(IP, 포트, 프로토콜)만 검사하며 페이로드(데이터부)는 검사하지 않는다. 페이로드까지 검사해 악성코드를 탐지·차단하려면 DPI(Deep Packet Inspection)나 응용 게이트웨이, NGFW(차세대 방화벽)가 필요.\n- 오답 이유:\n  - ①: 패킷 필터링이 IP·포트·프로토콜 기반 — 옳음.\n  - ②: Stateful Inspection이 세션 테이블 유지 — 옳음.\n  - ③: 응용 게이트웨이(Proxy)가 L7 동작·사용자 인증 가능 — 옳음.\n- 함정: 1세대 패킷필터는 \"헤더만\" 본다. \"페이로드·바이러스 검사\" = NGFW/DPI/응용 게이트웨이."
+    },
+    {
+     "n": 8,
+     "source": "출처: 2023년 2회 정보처리기사 필기 — 유사 기출",
+     "stem_md": "무선 LAN 보안 프로토콜에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "WEP(Wired Equivalent Privacy)는 RC4 스트림 암호와 짧은 IV(24비트)를 사용해 보안 취약점이 있다.",
+      "WPA는 TKIP(Temporal Key Integrity Protocol)를 도입해 WEP의 키 재사용 문제를 보완하였다.",
+      "WPA2는 CCMP(AES 기반)를 표준으로 채택하여 WPA보다 강화된 보안을 제공한다.",
+      "WPA3는 RC4 알고리즘을 표준으로 사용하며, WPA2보다 키 길이가 짧아 성능이 우수하다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- 제공 해설: WPA3는 RC4가 아닌 AES 기반 GCMP/CCMP를 사용하며, 192비트 보안 모드(Enterprise)와 SAE(Simultaneous Authentication of Equals, 일명 Dragonfly) 키 합의로 오프라인 사전 공격을 차단한다. PMF(Protected Management Frame) 강제. RC4 사용은 WEP/WPA 시절 유물.\n- 오답 이유:\n  - ①: WEP는 RC4 + 24비트 IV로 IV 재사용 공격에 취약 — 옳음.\n  - ②: WPA는 TKIP 도입으로 WEP의 키 재사용 문제 보완 — 옳음.\n  - ③: WPA2는 CCMP(AES-128 기반)를 표준으로 채택 — 옳음.\n- 함정: WPA3 = AES + SAE + PMF. \"RC4 사용\", \"키 짧음\" = 거짓."
+    }
+   ]
   }
  ]
 }

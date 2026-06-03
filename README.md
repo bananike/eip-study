@@ -1,10 +1,10 @@
 # 정보처리기사 필기 스터디 로그
 
-> 목표 시험일: **2026-08-07** · D-65
-> 진행: **Day 23/88** (26%)
+> 목표 시험일: **2026-08-07** · D-64
+> 진행: **Day 24/88** (27%)
 
 ## 진행도
-`█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` 23/88
+`██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` 24/88
 
 ## 88일 커리큘럼
 
@@ -41,8 +41,8 @@
 #### 5과목 정보시스템 구축관리 (Day 21-25)
 - [x] Day 21 - 개발 방법론(CMMI/SPICE/V&V) + 비용산정(LOC/COCOMO/FP/델파이/Putnam) + 일정(PERT/CPM/Gantt)
 - [x] Day 22 - IT 신기술 키워드 60+ (블록체인/AI/IoT/클라우드/메타버스)
-- [x] **Day 23 - 정보보안 기본 (대칭/비대칭/해시, 접근통제, 인증)** ← 오늘
-- [ ] Day 24 - 네트워크 보안 (방화벽/IDS/IPS/VPN/DDoS/APT)
+- [x] Day 23 - 정보보안 기본 (대칭/비대칭/해시, 접근통제, 인증)
+- [x] **Day 24 - 네트워크 보안 (방화벽/IDS/IPS/VPN/DDoS/APT)** ← 오늘
 - [ ] Day 25 - 시스템·앱 보안 (OWASP Top10, SDLC 보안, 시큐어 코딩)
 
 ### Phase 2: 2회독 + 기출 집중 (Day 26-45)
@@ -65,11 +65,11 @@
 - [ ] Day 86-88: 최종 정리
 
 ## 최근 기록 (최대 5개)
+- [Day 24](daily/2026-06-04.md) — 네트워크 보안(방화벽 4세대 패킷필터/Stateful/Proxy/NGFW·IDS vs IPS(Passive/Active)·IPSec AH(무결성)/ESP(기밀+무결+인증)/IKE(키교환)·SSL/TLS 핸드셰이크·POODLE/BEAST/Heartbleed·DDoS(SYN Flood/Smurf/Fraggle/Land/Teardrop/Slowloris/DRDoS)·APT 7단계·WEP/WPA/WPA2/WPA3) (5과목)
 - [Day 23](daily/2026-06-03.md) — 정보보안 기본(대칭 DES/AES/SEED/ARIA/HIGHT/LEA/IDEA/RC4 ↔ 비대칭 RSA/ECC/ElGamal/DH/DSA·수학적 난제 소인수분해/이산대수/타원곡선·해시 MD5(128)/SHA-1(160)/SHA-256(256)/HAS-160·접근통제 MAC/DAC/RBAC/ABAC·Bell-LaPadula/Biba·CIA vs AAA) (5과목)
 - [Day 22](daily/2026-06-02.md) — IT 신기술 키워드(BaaS/SDDC/OTT/Wi-SUN·Mashup·Sqoop/Hive/Pig/Tajo·IaaS/PaaS/SaaS/DaaS·Digital Twin↔Metaverse·Edge/Fog/Grid·MapReduce·Beacon/Qubit·V2X) (5과목)
 - [Day 21](daily/2026-06-01.md) — 비용 산정 분류(하향식 전문가/델파이 ↔ 상향식 LOC/단계별 인월수 ↔ 수학적 COCOMO/Putnam/FP)·COCOMO 3유형(Organic/Semi-detached/Embedded)·Putnam ↔ Rayleigh-Norden ↔ SLIM·PERT(불확실/3점추정) vs CPM(임계경로) vs Gantt(막대)·CMMI 5단계·SPICE 6단계·V&V (5과목)
 - [Day 20](daily/2026-05-31.md) — DB 설계 5단계(요구→개념→논리→물리→구현)·분산 DB 6투명성(분할/위치/지역사상/중복/장애/병행)·CAP 이론·BASE·NoSQL 4분류(KV/Document/Column-family/Graph) (3과목)
-- [Day 19](daily/2026-05-30.md) — 트랜잭션 ACID 4특성·상태 5단계·로킹 단위 트레이드오프·회복 기법(즉시갱신/지연갱신/그림자페이지/검사점·UNDO/REDO)·동시성 제어 4기법·격리수준 4단계·2PL·데드락 4조건 (3과목)
 
 ---
 자동 생성: 매일 새벽 4시 KST.
