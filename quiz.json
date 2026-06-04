@@ -2016,6 +2016,118 @@
      "explanation_md": "정답: ④\n- 제공 해설: WPA3는 RC4가 아닌 AES 기반 GCMP/CCMP를 사용하며, 192비트 보안 모드(Enterprise)와 SAE(Simultaneous Authentication of Equals, 일명 Dragonfly) 키 합의로 오프라인 사전 공격을 차단한다. PMF(Protected Management Frame) 강제. RC4 사용은 WEP/WPA 시절 유물.\n- 오답 이유:\n  - ①: WEP는 RC4 + 24비트 IV로 IV 재사용 공격에 취약 — 옳음.\n  - ②: WPA는 TKIP 도입으로 WEP의 키 재사용 문제 보완 — 옳음.\n  - ③: WPA2는 CCMP(AES-128 기반)를 표준으로 채택 — 옳음.\n- 함정: WPA3 = AES + SAE + PMF. \"RC4 사용\", \"키 짧음\" = 거짓."
     }
    ]
+  },
+  {
+   "day": 25,
+   "date": "2026-06-05",
+   "subject": "정보시스템 구축관리",
+   "topic": "시스템·앱 보안 (버퍼오버플로우/접근통제/악성코드/Secure SDLC/SQLi·XSS·CSRF)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "출처: 2022년 4회 필기",
+     "stem_md": "다음에서 설명하는 정보보안 침해 공격 관련 용어는?\n\n```\n인터넷 사용자의 컴퓨터에 침입해 내부 문서 파일 등을 암호화해\n사용자가 열지 못하게 하고, 금전을 요구하는 악성 프로그램\n```",
+     "options": [
+      "Smishing",
+      "Ransomware",
+      "Phishing",
+      "XSS"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ② Ransomware\n- Ransom(몸값) + ware. 파일을 암호화하고 복호화 키 대가로 금전(주로 암호화폐) 요구.\n- 오답 ① Smishing: SMS + Phishing, 문자 메시지로 악성 링크 유도.\n- 오답 ③ Phishing: 정상 사이트로 위장한 가짜 사이트로 자격증명 탈취.\n- 오답 ④ XSS: 웹 페이지에 악성 스크립트 삽입."
+    },
+    {
+     "n": 2,
+     "source": "출처: 2021년 1회 필기",
+     "stem_md": "시스템 내의 정보는 오직 인가된 사용자만 수정할 수 있는 보안 요소는?",
+     "options": [
+      "기밀성(Confidentiality)",
+      "부인 방지(Non-repudiation)",
+      "가용성(Availability)",
+      "무결성(Integrity)"
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④ 무결성(Integrity)\n- \"인가된 사용자만 수정\" → 무결성. 비인가 변조 차단.\n- 오답 ① 기밀성: 인가된 사용자만 \"열람\" 가능 (Read).\n- 오답 ② 부인 방지: 송수신 사실 부인 불가 (전자서명 등).\n- 오답 ③ 가용성: 필요할 때 자원에 접근 가능."
+    },
+    {
+     "n": 3,
+     "source": "출처: 2023년 2회 필기 / 유사 기출",
+     "stem_md": "DDoS 공격과 관련한 설명으로 틀린 것은?",
+     "options": [
+      "자신의 IP 주소를 속이는 spoofing 기법을 사용한다.",
+      "Trinoo, TFN과 같은 도구가 사용된다.",
+      "일반적으로 공격은 DDoS 마스터(Master) - 좀비(Zombie) - 핸들러(Handler) - 에이전트(Agent) 순으로 이루어진다.",
+      "분산된 공격 지점에서 다수의 패킷을 발생시켜 서비스 가용성을 떨어뜨린다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- 정상 순서는 Attacker → Master(C&C) → Handler → Agent(Zombie) → Victim. 보기 ③의 \"Master - 좀비 - 핸들러 - 에이전트\"는 순서가 뒤섞임 (Zombie와 Agent를 분리하면서 핸들러를 뒤로 보냄).\n- 오답 ① IP Spoofing은 출발지 위조로 추적 회피, DDoS의 기본 기법.\n- 오답 ② Trinoo, TFN(Tribe Flood Network), Stacheldraht는 대표 DDoS 도구.\n- 오답 ④ 분산된 다수 좀비에서 트래픽 폭주 → 가용성 침해, DDoS 정의 그대로."
+    },
+    {
+     "n": 4,
+     "source": "출처: 2022년 2회 필기",
+     "stem_md": "SQL Injection 공격에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "사용자의 입력값을 검증하지 않는 경우에 발생한다.",
+      "데이터베이스의 데이터를 조작하거나 인증을 우회할 수 있다.",
+      "Prepared Statement(매개변수화 쿼리)를 사용하면 방어할 수 있다.",
+      "클라이언트 측 스크립트를 삽입하여 다른 사용자의 세션을 탈취하는 공격이다."
+     ],
+     "answer": 3,
+     "explanation_md": "정답: ④\n- ④는 XSS(Cross-Site Scripting)의 설명. SQLi와 XSS를 섞은 함정.\n- 오답 ① 입력값 미검증이 SQLi 근본 원인.\n- 오답 ② DB 데이터 조작·인증 우회는 SQLi의 대표 영향.\n- 오답 ③ Prepared Statement(파라미터 바인딩)는 SQLi의 가장 효과적 대응."
+    },
+    {
+     "n": 5,
+     "source": "출처: 2024년 1회 필기 / 유사 기출",
+     "stem_md": "다음에서 설명하는 접근 통제 모델은?\n\n```\n주체와 객체에 보안 등급(Security Label)을 부여하고,\n시스템이 강제적으로 등급을 비교해 접근 여부를 결정한다.\n대표적으로 Bell-LaPadula 모델이 있다.\n```",
+     "options": [
+      "DAC (Discretionary Access Control)",
+      "MAC (Mandatory Access Control)",
+      "RBAC (Role-Based Access Control)",
+      "ABAC (Attribute-Based Access Control)"
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ② MAC\n- 보안등급(Security Label) + 시스템 강제 + Bell-LaPadula → MAC.\n- 오답 ① DAC: 객체 소유자가 재량으로 권한 부여(Unix chmod, ACL).\n- 오답 ③ RBAC: 역할(Role) 기반 권한 할당, 조직 직무 변경에 유연.\n- 오답 ④ ABAC: 사용자/객체/환경 속성(Attribute) 기반."
+    },
+    {
+     "n": 6,
+     "source": "출처: 2021년 3회 필기",
+     "stem_md": "Secure SDLC에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "소프트웨어 개발 생명주기 전체 단계에 걸쳐 보안 활동을 수행한다.",
+      "대표 방법론으로 MS-SDL, Seven Touchpoints, CLASP, OWASP SAMM 등이 있다.",
+      "보안 활동은 코딩(구현) 단계에서만 집중적으로 수행된다.",
+      "요구사항·설계·구현·테스트·유지보수 단계에서 각각 보안 활동을 정의한다."
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③\n- Secure SDLC의 핵심은 \"전 생명주기 분산\". 코딩 단계만 집중은 틀림.\n- 오답 ① 요구사항~유지보수 전 단계 보안 활동 — 정의 그대로.\n- 오답 ② MS-SDL(Microsoft), Seven Touchpoints(McGraw), CLASP(OWASP), SAMM(OWASP) — 대표 4가지.\n- 오답 ④ 각 단계별 보안 산출물(위협 모델링·보안 설계 검토·정적 분석·동적 테스트·취약점 패치)."
+    },
+    {
+     "n": 7,
+     "source": "출처: 2022년 3회 필기 / 유사 기출",
+     "stem_md": "다음에서 설명하는 악성 프로그램은?\n\n```\n정상 프로그램으로 위장하여 사용자에게 설치되며,\n일단 실행되면 백도어 설치·정보 유출 등의 악성 행위를 한다.\n스스로 복제하지는 않는다.\n```",
+     "options": [
+      "Worm",
+      "Virus",
+      "Trojan Horse",
+      "Rootkit"
+     ],
+     "answer": 2,
+     "explanation_md": "정답: ③ Trojan Horse\n- 정상 프로그램 위장 + 자가복제 X + 백도어/정보유출 → Trojan.\n- 오답 ① Worm: 자가복제 O, 숙주 불필요, 네트워크 전파.\n- 오답 ② Virus: 자가복제 O, 숙주 필요.\n- 오답 ④ Rootkit: 침입 후 권한 유지·은닉 도구 모음."
+    },
+    {
+     "n": 8,
+     "source": "출처: 2023년 1회 필기 / 유사 기출",
+     "stem_md": "Cross-Site Scripting(XSS) 공격에 대한 방어 방법으로 가장 적절한 것은?",
+     "options": [
+      "데이터베이스 쿼리에 Prepared Statement를 적용한다.",
+      "입력값에 대한 HTML 특수문자(`<`, `>`, `&`, `\"`)를 이스케이프(escape) 처리한다.",
+      "패스워드 저장 시 단방향 해시 함수(SHA-256 등)를 사용한다.",
+      "세션 ID에 랜덤 토큰(CSRF Token)을 부여하여 함께 검증한다."
+     ],
+     "answer": 1,
+     "explanation_md": "정답: ②\n- XSS는 클라이언트 측 스크립트가 브라우저에서 실행되는 취약점. 출력 시 HTML 특수문자 이스케이프가 핵심 방어.\n- 오답 ① Prepared Statement → SQL Injection 방어.\n- 오답 ③ 단방향 해시 → 패스워드 안전 저장(Storage).\n- 오답 ④ CSRF Token → CSRF 방어."
+    }
+   ]
   }
  ]
 }
