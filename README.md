@@ -1,10 +1,10 @@
 # 정보처리기사 필기 스터디 로그
 
-> 목표 시험일: **2026-08-07** · D-63
-> 진행: **Day 25/88** (28%)
+> 목표 시험일: **2026-08-07** · D-62
+> 진행: **Day 26/88** (30%)
 
 ## 진행도
-`██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` 25/88
+`██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒` 26/88
 
 ## 88일 커리큘럼
 
@@ -43,10 +43,11 @@
 - [x] Day 22 - IT 신기술 키워드 60+ (블록체인/AI/IoT/클라우드/메타버스)
 - [x] Day 23 - 정보보안 기본 (대칭/비대칭/해시, 접근통제, 인증)
 - [x] Day 24 - 네트워크 보안 (방화벽/IDS/IPS/VPN/DDoS/APT)
-- [x] **Day 25 - 시스템·앱 보안 (버퍼오버플로우/접근통제/악성코드/Secure SDLC/SQLi·XSS·CSRF)** ← 오늘
+- [x] Day 25 - 시스템·앱 보안 (버퍼오버플로우/접근통제/악성코드/Secure SDLC/SQLi·XSS·CSRF)
 
 ### Phase 2: 2회독 + 기출 집중 (Day 26-45)
-- [ ] Day 26-29: 2과목 소프트웨어 개발
+- [ ] **Day 26 - 자료구조 심화 (스택 응용/큐/덱/트리 순회/BST·힙/그래프 표현)** ← 오늘
+- [ ] Day 27-29: 2과목 소프트웨어 개발 (알고리즘·정렬, 탐색·해시·그래프, 테스트)
 - [ ] Day 30-33: 4과목 프로그래밍 언어 활용
 - [ ] Day 34-37: 1과목 소프트웨어 설계 (전용 포맷)
 - [ ] Day 38-41: 3과목 데이터베이스 구축
@@ -65,11 +66,11 @@
 - [ ] Day 86-88: 최종 정리
 
 ## 최근 기록 (최대 5개)
+- [Day 26](daily/2026-06-06.md) — 자료구조 심화 2회독(중위→후위 변환(A+B*C-D/E → ABC*+DE/-)·후위 계산 스택 추적·트리 순회 4종(전위/중위/후위/레벨)·BST 평균 O(log n) 최악 O(n)·힙 완전이진트리+우선순위·인접행렬 O(V²) vs 인접리스트 O(V+E)·원형큐 (rear+1)%N·선형(스택/큐/덱/리스트) vs 비선형(트리/그래프)) (2과목) — Phase 2 시작
 - [Day 25](daily/2026-06-05.md) — 시스템·앱 보안(랜섬웨어·CIA(기밀/무결/가용)·DDoS 단계 Master/Handler/Agent·SQL Injection vs XSS·접근통제 DAC/MAC(Bell-LaPadula)/RBAC/ABAC·Secure SDLC(MS-SDL/Seven Touchpoints/CLASP/SAMM) 전 생명주기·악성코드 분류(Virus/Worm/Trojan/Rootkit/Backdoor/Ransom/Spyware/Keylogger)·XSS 방어 HTML 이스케이프·KISA 7대 보안약점) (5과목) — Phase 1 완료
 - [Day 24](daily/2026-06-04.md) — 네트워크 보안(방화벽 4세대 패킷필터/Stateful/Proxy/NGFW·IDS vs IPS(Passive/Active)·IPSec AH(무결성)/ESP(기밀+무결+인증)/IKE(키교환)·SSL/TLS 핸드셰이크·POODLE/BEAST/Heartbleed·DDoS(SYN Flood/Smurf/Fraggle/Land/Teardrop/Slowloris/DRDoS)·APT 7단계·WEP/WPA/WPA2/WPA3) (5과목)
 - [Day 23](daily/2026-06-03.md) — 정보보안 기본(대칭 DES/AES/SEED/ARIA/HIGHT/LEA/IDEA/RC4 ↔ 비대칭 RSA/ECC/ElGamal/DH/DSA·수학적 난제 소인수분해/이산대수/타원곡선·해시 MD5(128)/SHA-1(160)/SHA-256(256)/HAS-160·접근통제 MAC/DAC/RBAC/ABAC·Bell-LaPadula/Biba·CIA vs AAA) (5과목)
 - [Day 22](daily/2026-06-02.md) — IT 신기술 키워드(BaaS/SDDC/OTT/Wi-SUN·Mashup·Sqoop/Hive/Pig/Tajo·IaaS/PaaS/SaaS/DaaS·Digital Twin↔Metaverse·Edge/Fog/Grid·MapReduce·Beacon/Qubit·V2X) (5과목)
-- [Day 21](daily/2026-06-01.md) — 비용 산정 분류(하향식 전문가/델파이 ↔ 상향식 LOC/단계별 인월수 ↔ 수학적 COCOMO/Putnam/FP)·COCOMO 3유형(Organic/Semi-detached/Embedded)·Putnam ↔ Rayleigh-Norden ↔ SLIM·PERT(불확실/3점추정) vs CPM(임계경로) vs Gantt(막대)·CMMI 5단계·SPICE 6단계·V&V (5과목)
 
 ---
 자동 생성: 매일 새벽 4시 KST.
