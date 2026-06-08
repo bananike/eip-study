@@ -38,11 +38,13 @@ header .dday{font-size:12px;color:var(--unk);font-weight:600;white-space:nowrap}
 .iconbtn{background:var(--panel2);border:1px solid var(--border);color:var(--text);
   border-radius:7px;padding:7px 10px;font-size:13px;cursor:pointer;white-space:nowrap}
 .wrap{display:flex;max-width:1100px;margin:0 auto;gap:0}
-nav{width:200px;flex-shrink:0;border-right:1px solid var(--border);padding:10px;
-  height:calc(100vh - 49px);overflow-y:auto;position:sticky;top:49px}
+nav{width:200px;flex-shrink:0;border-right:1px solid var(--border);padding:10px 10px 96px;
+  height:calc(100vh - 49px);overflow-y:auto;overscroll-behavior:contain;position:sticky;top:49px}
 nav .dayitem{padding:9px 11px;border-radius:7px;cursor:pointer;font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:6px}
 nav .dayitem:hover{background:var(--panel)}
 nav .dayitem.active{background:var(--panel2);font-weight:600}
+nav .dayitem .dlabel{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+nav .dayitem .dlabel b{font-weight:700}
 nav .dayitem .badge{font-size:10px;padding:1px 6px;border-radius:9px;background:var(--okbg);color:var(--ok)}
 nav .dayitem .badge.partial{background:var(--unkbg);color:var(--unk)}
 main{flex:1;padding:18px 20px 80px;min-width:0}
@@ -236,7 +238,7 @@ function renderNav(){
     }
     const item = document.createElement("div");
     item.className = "dayitem"+(d.date===curDate?" active":"");
-    item.innerHTML = `<span>Day ${d.day} · ${d.subject.replace(/\d과목\s*/,'').slice(0,8)}</span>${badge}`;
+    item.innerHTML = `<span class="dlabel"><b>Day ${d.day}</b> · ${shortSubject(d.subject)}</span>${badge}`;
     item.onclick = ()=>{ selectDay(d.date); closeNavMobile(); };
     nav.appendChild(item);
   });
@@ -443,6 +445,15 @@ function setupResponsiveNav(){
 function closeNavMobile(){ if(window.innerWidth<=780) document.getElementById("nav").classList.remove("open"); }
 
 /* ---------- 유틸 ---------- */
+function shortSubject(s){
+  s = (s||"").replace(/^\d과목\s*/,"").trim();
+  const map={
+    "소프트웨어 설계":"SW설계","소프트웨어 개발":"SW개발",
+    "데이터베이스 구축":"DB구축","프로그래밍 언어 활용":"언어활용",
+    "정보시스템 구축관리":"시스템관리"
+  };
+  return map[s]||s;
+}
 function escapeHtml(s){ return (s||"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 /* ---------- 부팅 ---------- */
