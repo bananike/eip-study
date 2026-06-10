@@ -3360,6 +3360,118 @@
      "explanation_md": "**정답: ③ pnr**\n\n- `char *arr[3]`은 **문자열(=`char *`)의 배열**. arr[0]은 `\"apple\"`의 첫 글자 'a'를 가리킨다.\n- `arr[i][j]` = i번째 문자열의 j번째 문자(0-인덱스).\n- `arr[0][1]` = \"apple\"의 인덱스 1 = **'p'**\n- `arr[1][2]` = \"banana\"의 인덱스 2 = **'n'**\n- `arr[2][3]` = \"cherry\"의 인덱스 3 = **'r'**\n- 출력: `pnr`\n\n**오답 분석**\n- ① abc — 모두 인덱스 0으로 본 경우\n- ② apc — 'p' 'p' 'c'로 잘못 매핑\n- ④ aba — 인덱스 해석 오류\n\n> 핵심: `arr[i][j]`에서 i는 문자열 선택, j는 그 문자열 내 글자 인덱스(0부터). `\"apple\"` = `a`(0) `p`(1) `p`(2) `l`(3) `e`(4) `\\0`."
     }
    ]
+  },
+  {
+   "day": 31,
+   "date": "2026-06-11",
+   "subject": "4과목 프로그래밍 언어 활용",
+   "topic": "Java 객체지향 심화 — 상속·오버라이딩·다형성·생성자호출·추상/인터페이스·예외흐름·접근제어자·컬렉션 (Phase 2 2회독)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 정보처리기사 필기 2020·2022·2024 반복 — 상속/오버라이딩 + 동적바인딩 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 실행 결과로 옳은 것은?\n\n```java\nclass A {\n    public int x = 10;\n    public int getX() { return x; }\n}\nclass B extends A {\n    public int x = 20;\n    public int getX() { return x; }\n}\npublic class Test {\n    public static void main(String[] args) {\n        A a = new B();\n        System.out.println(a.x + \" \" + a.getX());\n    }\n}\n```",
+     "options": [
+      "10 10",
+      "10 20",
+      "20 10",
+      "20 20"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답: ② 10 20**\n\n- `A a = new B();` — 컴파일 타입은 A, 런타임 객체 타입은 B(자식).\n- `a.x` (**필드 접근**): **필드는 정적 바인딩** — 참조 변수의 **컴파일 타입(A)** 기준으로 결정 → A의 x인 **10**.\n- `a.getX()` (**메소드 호출**): **메소드는 동적 바인딩(Dynamic Dispatch)** — 실제 객체 타입(B)의 오버라이딩 메소드 실행 → B의 getX() = B.x = **20**.\n- 출력: `10 20`\n\n**오답 분석**\n- ① 10 10 — 메소드도 정적 바인딩으로 본 오류(자바는 메소드는 동적 바인딩)\n- ③ 20 10 — 필드와 메소드 결과를 바꿔 본 오류\n- ④ 20 20 — 필드도 동적 바인딩으로 본 오류(필드는 컴파일 타입 기준)\n\n> 핵심: **자바에서 필드는 컴파일 타입 기준(정적), 메소드는 런타임 객체 타입 기준(동적).**"
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 정보처리기사 필기 2021·2023·2024 반복 — 생성자 호출 순서 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 실행 결과로 옳은 것은? (생성자 호출 순서)\n\n```java\nclass Parent {\n    Parent() { System.out.print(\"P\"); }\n    Parent(int n) { System.out.print(\"p\" + n); }\n}\nclass Child extends Parent {\n    Child() { System.out.print(\"C\"); }\n    Child(int n) { this(); System.out.print(\"c\" + n); }\n}\npublic class Test {\n    public static void main(String[] args) {\n        new Child(5);\n    }\n}\n```",
+     "options": [
+      "PCc5",
+      "Pc5",
+      "p5Cc5",
+      "PCcC5"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답: ① PCc5**\n\n- `new Child(5)` → `Child(int n)` 생성자 호출.\n- `Child(int n)` 첫 줄에 `this()`가 있음 → **같은 클래스의 인자 없는 `Child()` 생성자 호출**.\n  - `Child()`의 첫 줄에는 명시적 호출이 없으므로 컴파일러가 **`super()` 암묵 삽입** → `Parent()` 실행 → `\"P\"` 출력.\n  - 이어서 `Child()` 본문 실행 → `\"C\"` 출력.\n- `this()` 호출이 끝나면 `Child(int n)` 본문의 나머지 실행 → `\"c\" + 5` 출력.\n- 최종 출력: `P` + `C` + `c5` = **`PCc5`**\n\n**오답 분석**\n- ② Pc5 — `this()`로 인한 `Child()` 호출(=Parent()→\"P\", \"C\" 출력)을 누락한 오류\n- ③ p5Cc5 — `Parent(int)`가 호출됐다고 본 오류(자식 → 부모 인자 자동 전달은 일어나지 않음)\n- ④ PCcC5 — \"C\"가 두 번 출력됐다고 본 오류\n\n> 핵심: **`this(...)`는 같은 클래스의 다른 생성자 호출, `super(...)`는 부모 생성자 호출. 첫 줄에 둘 다 없으면 컴파일러가 `super()` 암묵 삽입.**"
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 정보처리기사 필기 2020·2022·2023 반복 — 오버로딩(Overloading) 조건 정형 패턴",
+     "stem_md": "Java에서 메소드 오버로딩(Overloading)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "메소드 이름은 같아야 한다.",
+      "매개변수의 개수 또는 매개변수의 타입(자료형)이 달라야 한다.",
+      "반환형(return type)만 달라도 오버로딩이 성립한다.",
+      "접근 제어자나 예외 선언은 오버로딩 성립 여부와 무관하다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답: ③ 반환형만 달라도 오버로딩이 성립한다. (오답이라서 정답)**\n\n- ③이 **틀린 설명**. 자바 컴파일러는 오버로딩 여부를 **메소드 이름 + 매개변수 시그니처(개수·타입·순서)** 로만 판단하며, **반환형은 시그니처에 포함되지 않는다**. 따라서 반환형만 다른 두 메소드는 컴파일 에러.\n- ① ② ④는 모두 옳은 설명:\n  - ①: 같은 이름이어야 오버로딩\n  - ②: 매개변수 개수/타입 차이가 핵심 조건\n  - ④: 접근 제어자(public/private 등)나 throws 선언은 오버로딩 성립 여부에 영향 없음(다른 인자 시그니처면 OK)\n\n> 핵심: **반환형만 다른 메소드는 오버로딩 X. 매개변수 개수/타입/순서 중 하나는 달라야 한다.**"
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 정보처리기사 필기 2021·2023·2024 반복 — try/catch/finally + return 흐름 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 실행 결과로 옳은 것은? (예외 처리)\n\n```java\npublic class Test {\n    static int f() {\n        try {\n            return 1;\n        } catch (Exception e) {\n            return 2;\n        } finally {\n            System.out.print(\"F\");\n        }\n    }\n    public static void main(String[] args) {\n        System.out.print(f());\n    }\n}\n```",
+     "options": [
+      "1",
+      "F1",
+      "1F",
+      "F2"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답: ② F1**\n\n- `main`에서 `System.out.print(f());` — f() 호출 → 반환값을 받아서 출력. 단, f() 내부에도 출력문이 있으므로 흐름을 정확히 따라가야 함:\n  1) `f()` 진입 → try 블록의 `return 1` 평가 → **반환값 1을 임시 저장**(아직 호출자로 돌아가지 않음)\n  2) **finally 블록 실행** → `System.out.print(\"F\")` → 콘솔에 `F` 출력\n  3) 저장된 값 1을 main으로 반환\n  4) main의 `System.out.print(f())` → `1` 출력\n- 콘솔에 순서대로 찍힌 결과: `F` + `1` = **`F1`**\n\n**오답 분석**\n- ① 1 — finally가 실행 안 된다고 본 오류\n- ③ 1F — return이 즉시 반환되고 finally가 그 후 실행된다고 본 오류(실제는 finally가 반환 직전 실행)\n- ④ F2 — catch 블록이 실행됐다고 본 오류(예외 미발생)\n\n> 핵심: **try 안의 `return 값`은 평가 후 반환값을 임시 저장, finally를 먼저 실행한 다음에 반환. 따라서 finally의 출력이 먼저 콘솔에 찍힌다.**"
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 정보처리기사 필기 2020·2022·2024 반복 — 추상 클래스 / 인터페이스 비교 정형 패턴",
+     "stem_md": "Java 7 기준 추상 클래스(abstract class)와 인터페이스(interface)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "추상 클래스는 일반(non-abstract) 메소드와 추상 메소드를 모두 가질 수 있다.",
+      "인터페이스의 모든 메소드는 묵시적으로 `public abstract`이며 본문을 가질 수 없다.",
+      "인터페이스의 모든 필드는 묵시적으로 `public static final` 상수이다.",
+      "한 클래스는 여러 추상 클래스를 다중 상속(extends)할 수 있다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답: ④ 한 클래스는 여러 추상 클래스를 다중 상속할 수 있다. (오답이라서 정답)**\n\n- ④가 **틀린 설명**. 자바는 **클래스의 다중 상속을 금지**한다(extends 키워드는 단 하나의 클래스만 가능). 추상 클래스도 결국 클래스이므로 동일하게 단일 상속만 가능. 다중 상속이 필요하면 **인터페이스의 다중 구현(implements A, B, C)** 으로 우회한다.\n- ① ② ③은 모두 옳은 설명:\n  - ①: 추상 클래스는 일반 메소드 + 추상 메소드 혼재 가능\n  - ②: 인터페이스의 모든 메소드는 묵시적 `public abstract`(Java 7 기준, 본문 X)\n  - ③: 인터페이스의 모든 필드는 묵시적 `public static final` 상수\n\n> 핵심: **자바 클래스는 단일 상속만, 인터페이스만 다중 구현 가능. 추상 클래스 ≠ 인터페이스.**"
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 정보처리기사 필기 2021·2022·2024 반복 — static 변수 공유 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 실행 결과로 옳은 것은? (static 변수)\n\n```java\nclass Counter {\n    static int cnt = 0;\n    int local = 0;\n    Counter() { cnt++; local++; }\n}\npublic class Test {\n    public static void main(String[] args) {\n        Counter a = new Counter();\n        Counter b = new Counter();\n        Counter c = new Counter();\n        System.out.print(Counter.cnt + \" \" + c.local);\n    }\n}\n```",
+     "options": [
+      "1 1",
+      "3 1",
+      "3 3",
+      "1 3"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답: ② 3 1**\n\n- `static int cnt`: 클래스 전체가 공유하는 변수. 인스턴스가 늘 때마다 누적.\n  - `Counter a`: cnt = 1\n  - `Counter b`: cnt = 2\n  - `Counter c`: cnt = 3\n  - → `Counter.cnt` = **3**\n- `int local`: 각 인스턴스가 **독립적으로 보유하는 변수**. 생성자에서 0 → 1로 증가.\n  - 각 인스턴스의 local 값은 모두 1 (서로 영향 없음)\n  - → `c.local` = **1**\n- 출력: `3 1`\n\n**오답 분석**\n- ① 1 1 — cnt도 인스턴스마다 독립이라고 본 오류(static의 의미 누락)\n- ③ 3 3 — local도 static처럼 누적된다고 본 오류\n- ④ 1 3 — cnt와 local의 역할을 뒤바꿔 본 오류\n\n> 핵심: **`static` 변수 = 클래스에 1개(공유), 일반 인스턴스 변수 = 인스턴스마다 1개(독립).**"
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 정보처리기사 필기 2020·2023·2024 반복 — 다형성 + instanceof 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 실행 결과로 옳은 것은? (다형성/오버라이딩)\n\n```java\nclass Animal {\n    String sound() { return \"??\"; }\n}\nclass Dog extends Animal {\n    String sound() { return \"Woof\"; }\n}\nclass Cat extends Animal {\n    String sound() { return \"Meow\"; }\n}\npublic class Test {\n    public static void main(String[] args) {\n        Animal[] arr = { new Dog(), new Cat(), new Animal() };\n        for (Animal a : arr) System.out.print(a.sound() + \" \");\n    }\n}\n```",
+     "options": [
+      "?? ?? ??",
+      "Woof Meow ??",
+      "Woof Woof Woof",
+      "컴파일 오류"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답: ② Woof Meow ??**\n\n- 배열 `arr`는 컴파일 타입이 `Animal[]`이지만, 각 원소의 **런타임 객체 타입은 Dog, Cat, Animal**.\n- 향상된 for문에서 `a.sound()` 호출 시 **동적 바인딩** — 각 원소의 실제 타입에 정의된 sound() 호출.\n  - `new Dog()` → Dog.sound() = `\"Woof\"`\n  - `new Cat()` → Cat.sound() = `\"Meow\"`\n  - `new Animal()` → Animal.sound() = `\"??\"`(오버라이딩되지 않은 부모 메소드)\n- 출력: `Woof Meow ??`\n\n**오답 분석**\n- ① ?? ?? ?? — 모두 컴파일 타입(Animal) 기준으로 호출된다고 본 오류\n- ③ Woof Woof Woof — 첫 원소의 결과를 반복한 오류\n- ④ 컴파일 오류 — Animal[] 배열에 Dog/Cat를 넣는 것은 다형성으로 정상\n\n> 핵심: **다형성 + 동적 바인딩 = 부모 타입 배열에서도 실제 객체의 메소드가 호출된다.**"
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 정보처리기사 필기 2021·2023·2024 반복 — 컬렉션(HashMap) 동작 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 실행 결과로 옳은 것은? (컬렉션)\n\n```java\nimport java.util.HashMap;\npublic class Test {\n    public static void main(String[] args) {\n        HashMap<String, Integer> m = new HashMap<>();\n        m.put(\"A\", 1);\n        m.put(\"B\", 2);\n        m.put(\"A\", 3);\n        m.put(\"C\", 4);\n        System.out.print(m.size() + \" \" + m.get(\"A\"));\n    }\n}\n```",
+     "options": [
+      "3 1",
+      "3 3",
+      "4 3",
+      "4 1"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답: ② 3 3**\n\n- `HashMap<String, Integer>`은 **key 중복 불가**, 동일 key에 다른 value를 put하면 **이전 값 덮어쓰기**.\n  - `put(\"A\", 1)` → {A:1}\n  - `put(\"B\", 2)` → {A:1, B:2}\n  - `put(\"A\", 3)` → {A:3, B:2} (key \"A\"의 value가 1→3으로 갱신, size는 그대로 2)\n  - `put(\"C\", 4)` → {A:3, B:2, C:4}\n- `m.size()` = **3**(서로 다른 key 3개)\n- `m.get(\"A\")` = **3**(마지막에 put한 값으로 덮어써짐)\n- 출력: `3 3`\n\n**오답 분석**\n- ① 3 1 — A의 값이 처음 put한 1로 유지된다고 본 오류(HashMap은 덮어쓰기)\n- ③ 4 3 — 같은 key의 put을 별도 항목으로 카운트한 오류(중복 key는 size 증가 X)\n- ④ 4 1 — 위 두 오류가 함께 발생한 경우\n\n> 핵심: **HashMap은 같은 key로 put하면 value를 덮어쓴다. size는 고유 key 수.**"
+    }
+   ]
   }
  ]
 }
