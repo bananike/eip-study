@@ -3920,6 +3920,118 @@
      "explanation_md": "**정답 ③**\n- **DIP(Dependency Inversion Principle)** 정형 정의: \"**상위 모듈은 하위 모듈에 의존해서는 안 되며, 둘 다 추상화(인터페이스)에 의존해야 한다**\". 또한 \"**추상화는 세부사항(구체 클래스)에 의존해서는 안 되며, 세부사항이 추상화에 의존해야 한다**\".\n- **① 사용하지 않는 메서드에 의존 X** → **ISP** (Interface Segregation).\n- **② 자식이 부모를 완전히 대체** → **LSP** (Liskov Substitution).\n- **④ 단 하나의 책임 / 변경 이유 하나** → **SRP** (Single Responsibility).\n> 5문제 중 4문제가 SOLID 분류 매칭 패턴 — 보기 4개에 SOLID 정의를 흩뿌리는 형태가 다회 출제됨. 정의 ↔ 약어 1:1 매칭 통째 암기 필수."
     }
    ]
+  },
+  {
+   "day": 36,
+   "date": "2026-06-16",
+   "subject": "1과목 소프트웨어 설계",
+   "topic": "디자인 패턴 GoF 23 통합 심화 — 생성 5 / 구조 7 / 행위 11 (Phase 2 2회독)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 정처기 필기 2020년 4회 · 2022년 2회 반복 — GoF 분류 정형 패턴",
+     "stem_md": "GoF(Gang of Four) 디자인 패턴의 분류로 옳지 **않은** 것은?",
+     "options": [
+      "생성(Creational) 패턴",
+      "구조(Structural) 패턴",
+      "행위(Behavioral) 패턴",
+      "**추상(Abstract) 패턴**"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ 추상(Abstract) 패턴**\n- GoF 분류는 **생성(Creational) / 구조(Structural) / 행위(Behavioral)** 3가지뿐. **\"추상 패턴\"은 존재하지 않음** — 가짜 분류.\n- 함정 단골: \"추상 팩토리(Abstract Factory)\"라는 **패턴 이름**과 혼동을 노린 보기. Abstract Factory는 **생성 패턴**의 하나일 뿐, 분류명이 아님.\n- 동일 유형의 가짜 분류 보기: \"기본 패턴 / 변환 패턴 / 객체 패턴 / 클래스 패턴\" — 모두 GoF 분류 아님."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 정처기 필기 2021·2022·2024 반복 — 생성 패턴 분류 정형 패턴",
+     "stem_md": "다음 중 GoF 디자인 패턴의 **생성(Creational) 패턴**에 속하지 **않는** 것은?",
+     "options": [
+      "추상 팩토리(Abstract Factory)",
+      "빌더(Builder)",
+      "**데코레이터(Decorator)**",
+      "싱글톤(Singleton)"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③ 데코레이터(Decorator)**\n- **Decorator는 구조(Structural) 패턴**. 객체에 동적으로 기능(책임)을 첨가.\n- ① Abstract Factory / ② Builder / ④ Singleton — 모두 **생성** 패턴. 생성 5종 두음: **\"추·빌·팩·프·싱\"** (Abstract Factory / Builder / Factory Method / Prototype / Singleton).\n- 빈출 함정 후보 (생성으로 착각): **Adapter / Decorator / Proxy / Composite** — 모두 구조 패턴."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 정처기 필기 2020년 2회 · 2023년 반복 — 행위 패턴 식별 정형 패턴",
+     "stem_md": "다음 중 GoF 디자인 패턴의 **행위(Behavioral) 패턴**에 속하는 것은?",
+     "options": [
+      "빌더(Builder)",
+      "**비지터(Visitor)**",
+      "프로토타입(Prototype)",
+      "브리지(Bridge)"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② 비지터(Visitor)**\n- **Visitor는 행위(Behavioral) 패턴**. 구조를 변경하지 않고 새로운 연산을 추가(이중 디스패치).\n- ① Builder / ③ Prototype — **생성** 패턴 (두음 \"추·빌·팩·프·싱\"에 포함).\n- ④ Bridge — **구조** 패턴 (두음 \"어·브·컴·데·퍼·플·프\"에 포함).\n- 행위 11종 빈출: Observer / Strategy / State / Template Method / Command / Iterator / Visitor / Mediator / Memento / Chain of Responsibility / Interpreter."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 정처기 필기 2020·2022·2024 반복 — Singleton 정의 정형 패턴",
+     "stem_md": "다음 설명에 해당하는 디자인 패턴은?\n\n> 어떤 클래스의 인스턴스가 **오직 하나만** 생성되도록 보장하고, 그 인스턴스에 **전역적으로 접근(global access point)**할 수 있는 방법을 제공한다.",
+     "options": [
+      "프로토타입(Prototype)",
+      "**싱글톤(Singleton)**",
+      "빌더(Builder)",
+      "팩토리 메서드(Factory Method)"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② 싱글톤(Singleton)**\n- 정형 정의: **\"인스턴스 하나(only one)\" + \"전역 접근점(global access point)\"** 두 키워드가 동시에 나오면 무조건 Singleton.\n- ① Prototype — 원본을 **복제(clone)**해 새 인스턴스 생성(인스턴스 여러 개).\n- ③ Builder — 복잡한 객체를 **단계별 분리**해 생성(인스턴스 수와 무관).\n- ④ Factory Method — 서브클래스가 **인스턴스 종류를 결정**(인스턴스 1개 보장 X)."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 정처기 필기 2021·2023 반복 — Factory Method vs Abstract Factory 정형 패턴",
+     "stem_md": "다음 설명에 해당하는 디자인 패턴은?\n\n> 서로 **관련 있는 객체들의 집합(제품군, family of products)**을 생성하기 위한 인터페이스를 제공하며, **구체적인 클래스를 지정하지 않고도** 호환되는 객체군을 통째로 생성할 수 있게 한다.",
+     "options": [
+      "팩토리 메서드(Factory Method)",
+      "빌더(Builder)",
+      "**추상 팩토리(Abstract Factory)**",
+      "프로토타입(Prototype)"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③ 추상 팩토리(Abstract Factory)**\n- 정형 키워드: **\"관련 객체군(family of products) / 제품군 전체 / 호환 객체군 통째 생성\"** → Abstract Factory.\n- ① Factory Method — **단일 객체** 생성을 서브클래스에 위임(한 종류만).\n- ② Builder — **복잡한 객체를 단계별로** 분리하여 생성(절차 강조).\n- ④ Prototype — **원본 복제** 기반 생성.\n> 함정: Factory Method와 Abstract Factory를 같은 보기에 동시 배치하는 패턴이 다회 출제. **\"제품군 / 관련 객체들의 집합\"**이 보이면 Abstract Factory."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 정처기 필기 2020년 3회 · 2022·2024 반복 — Observer 정의 정형 패턴",
+     "stem_md": "다음 설명에 해당하는 디자인 패턴은?\n\n> 한 객체의 상태가 변경되면 그 객체에 의존하는 다른 모든 객체들에게 **자동으로 통보(notify)되어 갱신**되도록, 객체 사이에 **일대다(1:N) 의존 관계**를 정의한다. 발행-구독(publish-subscribe) 모델로도 알려져 있다.",
+     "options": [
+      "**옵저버(Observer)**",
+      "컴포지트(Composite)",
+      "스트래티지(Strategy)",
+      "데코레이터(Decorator)"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ① 옵저버(Observer)**\n- 정형 키워드: **\"1:N 의존 / 상태 변경 자동 통보(notify) / 발행-구독(pub-sub)\"** 세 가지가 동시에 나오면 Observer.\n- ② Composite — 트리(부분-전체) 동일 처리, 통보와 무관.\n- ③ Strategy — 알고리즘 교체, 통보와 무관.\n- ④ Decorator — 기능을 동적 첨가, 통보와 무관.\n> 함정: \"이벤트 리스너 / 게시-구독\" 같은 동의어로도 출제됨. 모두 Observer."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 정처기 필기 2021·2023·2024 반복 — Adapter vs Bridge 식별 정형 패턴",
+     "stem_md": "다음 중 디자인 패턴에 대한 설명으로 **틀린** 것은?",
+     "options": [
+      "**어댑터(Adapter)** 패턴은 호환되지 않는 인터페이스를 가진 클래스를 함께 동작하도록 **인터페이스를 변환**해 주는 구조 패턴이다.",
+      "**브리지(Bridge)** 패턴은 **추상(abstraction)과 구현(implementation)을 분리**하여 두 부분이 서로 **독립적으로 변화**할 수 있도록 하는 구조 패턴이다.",
+      "**프록시(Proxy)** 패턴은 다른 객체에 대한 **접근을 제어**하기 위해 그 객체의 **대리자(surrogate)**를 제공하는 구조 패턴이다.",
+      "**데코레이터(Decorator)** 패턴은 **객체의 생성 과정을 단계별로 분리**하여 동일한 생성 절차에서 서로 다른 표현을 만들 수 있는 **생성 패턴**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** (틀린 설명)\n- **Decorator(데코레이터)**는 **구조(Structural) 패턴**. \"객체에 동적으로 책임(기능)을 첨가\"하는 패턴. 보기에 적힌 \"생성 과정을 단계별로 분리\"는 **Builder(빌더)의 정의** — 분류·정의 모두 틀림.\n- ① Adapter — 정확. **인터페이스 변환**으로 호환되지 않던 클래스를 함께 동작시킴.\n- ② Bridge — 정확. **추상과 구현을 분리**하여 둘이 **독립적으로 변화**. Adapter와 자주 헷갈리지만, Adapter는 사후 변환, Bridge는 설계 시점 분리.\n- ③ Proxy — 정확. **대리자(surrogate)** 제공으로 **접근 제어**. 원격·가상·보호 프록시 3종.\n> 함정 핵심: Decorator·Adapter·Bridge·Proxy 모두 **구조 패턴**으로 같은 분류. 정의를 서로 섞어 끼워 넣는 패턴이 단골."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 정처기 필기 2022·2023·2024 반복 — Strategy vs Template Method 식별 정형 패턴",
+     "stem_md": "다음 설명에 해당하는 디자인 패턴은?\n\n> 동일 목적의 **알고리즘 군(family of algorithms)**을 각각 클래스로 캡슐화하여, 클라이언트가 **런타임에 알고리즘을 교체**해서 사용할 수 있도록 한다. 알고리즘 변경이 이를 사용하는 클라이언트와 **독립적**이다.",
+     "options": [
+      "**스트래티지(Strategy)**",
+      "템플릿 메서드(Template Method)",
+      "커맨드(Command)",
+      "상태(State)"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ① 스트래티지(Strategy)**\n- 정형 키워드: **\"알고리즘 군(family of algorithms) 캡슐화 + 런타임 교체 + 클라이언트와 독립\"** → Strategy.\n- ② Template Method — 알고리즘의 **골격(skeleton)을 상위 클래스에 고정**하고, 일부 단계만 서브클래스가 **오버라이드**. **상속 기반**(Strategy는 합성 기반).\n- ③ Command — 요청을 **객체로 캡슐화**(실행 취소·큐잉·로깅). \"알고리즘 교체\"가 아니라 \"요청 캡슐화\".\n- ④ State — 객체의 **내부 상태에 따라 행동 변경**. 구조는 Strategy와 유사하나, **상태 전이**가 핵심.\n> 함정: Strategy와 State는 클래스 다이어그램이 거의 동일 — 의도(intent)로만 구별. \"**런타임 알고리즘 교체**\"는 Strategy, \"**상태에 따른 행동 변경**\"은 State."
+    }
+   ]
   }
  ]
 }
