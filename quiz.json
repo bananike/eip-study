@@ -4368,6 +4368,118 @@
      "explanation_md": "**정답 ③ A → C는 이행 함수 종속(Transitive Dependency)이다.**\n- 주어진 종속: A → B, B → C → 합성으로 **A → C** (이행 함수 종속 정의 그대로).\n- **3NF가 제거 대상**으로 삼는 종속 형태.\n- ① A → B는 **완전 함수 종속**(A 전체로 B 결정). 부분 함수 종속은 복합키에서만 발생 — A가 단일 속성이므로 부분 종속 불가.\n- ② B → C는 **단순 함수 종속**. **다치 종속(MVD)**은 \"한 속성이 여러 독립값을 결정\"하는 4NF 대상이며, 표기 형식 자체가 다름(→→).\n- ④ A→B→C 이행 종속이 존재 → **3NF 위반**, 당연히 BCNF도 만족 못함.\n- 함수 종속 종류 판별의 정형 패턴: **단일키+추이 종속 = 이행** 1:1 매칭."
     }
    ]
+  },
+  {
+   "day": 40,
+   "date": "2026-06-20",
+   "subject": "3과목 데이터베이스 구축",
+   "topic": "SQL DDL/DML/DCL + 조인 + 서브쿼리 + 뷰 + 인덱스 (Phase 2 2회독 · 3과목 3일차)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 정처기 필기 2020년 3회 · 2022년 1회 · 2024년 2회 반복 — SQL 3분류 정형 패턴",
+     "stem_md": "다음 중 SQL의 **DDL(Data Definition Language)** 에 해당하지 **않는** 것은?",
+     "options": [
+      "CREATE",
+      "ALTER",
+      "DROP",
+      "**SELECT**"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ SELECT**\n- **DDL(Data Definition Language)** = **스키마·객체(테이블/뷰/인덱스)의 정의·변경·제거** 명령어. 두음 **\"정의\"**.\n- 표준 DDL: **CREATE / ALTER / DROP / TRUNCATE / RENAME** — 모두 객체 구조에 작용.\n- **SELECT는 DML(Data Manipulation Language)** — 데이터 **조회**가 본질. INSERT/UPDATE/DELETE와 한 묶음.\n- 시험 정형 함정: SELECT를 DDL에 끼워넣는 4지선다. **\"SELECT = DML\"** 1자 매칭으로 즉답."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 정처기 필기 2021년 2회 · 2023년 1회 · 2024년 3회 반복 — DELETE/TRUNCATE/DROP 비교 정형 패턴",
+     "stem_md": "다음 SQL 명령어에 대한 설명으로 가장 옳지 **않은** 것은?",
+     "options": [
+      "**DROP TABLE 학생;** — 테이블 구조와 데이터를 모두 제거한다.",
+      "**TRUNCATE TABLE 학생;** — 모든 행을 삭제하고 테이블 구조는 유지하며, ROLLBACK으로 복구할 수 없다(DDL).",
+      "**DELETE FROM 학생 WHERE 학번 = 1001;** — WHERE 조건에 해당하는 행만 삭제하며, ROLLBACK으로 복구 가능하다(DML).",
+      "**TRUNCATE TABLE 학생;** 명령은 **DML**에 속하며, COMMIT 없이 자동으로 트랜잭션이 종료되지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ TRUNCATE TABLE 학생; 명령은 DML에 속하며, COMMIT 없이 자동으로 트랜잭션이 종료되지 않는다.**\n- **TRUNCATE는 DDL** — 데이터를 일괄 삭제하지만 본질은 테이블 자료 영역 초기화(자료 페이지 해제). **Auto-COMMIT**으로 자동 종료 → **ROLLBACK 불가**.\n- ① **DROP TABLE**: 구조+데이터 모두 제거(DDL). ✔\n- ② **TRUNCATE TABLE**: 데이터만 일괄 제거, 구조 유지, ROLLBACK 불가(DDL). ✔\n- ③ **DELETE FROM … WHERE …**: 조건 행만 삭제, 트랜잭션 일부로 ROLLBACK 가능(DML). ✔\n- 함정 단골: TRUNCATE를 DML로 착각 / ROLLBACK 가능으로 착각. **TRUNCATE = DDL = ROLLBACK 불가 = Auto-COMMIT** 1자 매칭."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 정처기 필기 2020년 2회 · 2022년 3회 · 2024년 1회 반복 — SELECT 절 작성 순서 정형 패턴",
+     "stem_md": "SQL의 **SELECT 문 작성(기술) 순서**가 옳게 나열된 것은? (실행 순서가 아닌 SQL 문장 작성 순서)",
+     "options": [
+      "SELECT - WHERE - FROM - GROUP BY - HAVING - ORDER BY",
+      "**SELECT - FROM - WHERE - GROUP BY - HAVING - ORDER BY**",
+      "FROM - WHERE - SELECT - GROUP BY - HAVING - ORDER BY",
+      "SELECT - FROM - WHERE - HAVING - GROUP BY - ORDER BY"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② SELECT - FROM - WHERE - GROUP BY - HAVING - ORDER BY**\n- SQL **문장 작성 순서**(문법) = SELECT - FROM - WHERE - GROUP BY - HAVING - ORDER BY.\n- **실행(논리적 처리) 순서**는 다름: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY. 시험에 둘 다 출제되므로 문제 지문 **\"작성/기술\"** vs **\"실행/처리\"** 키워드 구분 필수.\n- ①은 SELECT가 WHERE보다 앞 → 정상이지만 WHERE-FROM 순서 뒤바뀜 함정.\n- ③은 실행 순서를 작성 순서로 착각하게 만드는 함정.\n- ④는 HAVING이 GROUP BY 앞 — **GROUP BY 없이 HAVING은 무의미**, 항상 GROUP BY 뒤."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 정처기 필기 2021년 1회 · 2023년 2회 · 2025년 1회 반복 — WHERE vs HAVING 정형 패턴",
+     "stem_md": "SQL의 **WHERE 절**과 **HAVING 절**에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "WHERE는 그룹화 후 그룹을 필터링하고, HAVING은 그룹화 전 행을 필터링한다.",
+      "WHERE 절에는 집계함수(SUM, AVG 등)를 사용할 수 있고, HAVING은 사용할 수 없다.",
+      "**WHERE는 그룹화 전 개별 행을 필터링(집계함수 사용 불가), HAVING은 GROUP BY 후 그룹을 필터링(집계함수 사용 가능)한다.**",
+      "WHERE와 HAVING은 기능이 완전히 동일하며 상호 대체 가능하다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③ WHERE는 그룹화 전 개별 행을 필터링(집계함수 사용 불가), HAVING은 GROUP BY 후 그룹을 필터링(집계함수 사용 가능)한다.**\n- **WHERE** = GROUP BY **이전**에 동작 → 개별 **행** 필터 → 집계함수 **사용 불가**.\n- **HAVING** = GROUP BY **이후**에 동작 → 그룹화된 결과(그룹) 필터 → 집계함수 **사용 가능**.\n- 예: `SELECT 학과, AVG(점수) FROM 성적 WHERE 점수>=60 GROUP BY 학과 HAVING AVG(점수)>=70;` — WHERE는 행, HAVING은 그룹 평균을 필터.\n- ① 시점 뒤바꿈, ② 집계함수 사용 가능 여부 뒤바꿈, ④ \"완전 동일·대체 가능\" → X (역할 분리).\n- 정형 함정: **시점/대상/집계함수 사용여부** 3가지 중 1~2개 뒤바꾸기. 표 한 줄 외우면 즉답."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 정처기 필기 2020년 1·4회 · 2022년 2회 · 2024년 3회 반복 — JOIN 종류 정형 패턴",
+     "stem_md": "다음 JOIN에 대한 설명 중 가장 옳지 **않은** 것은?",
+     "options": [
+      "**INNER JOIN** — 두 테이블의 조인 조건을 모두 만족하는 행만 결과에 포함한다(교집합).",
+      "**LEFT OUTER JOIN** — 왼쪽 테이블의 모든 행을 결과에 포함하고, 오른쪽에 매칭되는 행이 없으면 NULL로 채운다.",
+      "**FULL OUTER JOIN** — 두 테이블의 모든 행을 결과에 포함하고, 매칭되지 않는 부분은 NULL로 채운다(합집합).",
+      "**CROSS JOIN** — 두 테이블의 조인 조건을 만족하는 행만 모두 결합하며, 결과 행 수는 항상 두 테이블 행 수의 **합(m+n)** 과 같다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ CROSS JOIN — 두 테이블의 조인 조건을 만족하는 행만 모두 결합하며, 결과 행 수는 항상 두 테이블 행 수의 합(m+n)과 같다.**\n- **CROSS JOIN = 데카르트 곱(Cartesian Product)** — **조건 없이** 모든 조합 결합. 결과 행 수는 **m × n** (합 X, **곱** O).\n- ① INNER JOIN: 교집합. ✔\n- ② LEFT OUTER JOIN: 좌측 전체 + 우측 매칭(없으면 NULL). ✔\n- ③ FULL OUTER JOIN: 양측 모두 + 매칭 없는 부분 NULL. ✔\n- 함정 단골: **CROSS의 결과 수가 m+n** → X, **m×n**. \"조건을 만족하는 행만\" → X (조건 자체가 **없음**).\n- 표준 4지선다: CROSS의 행 수 공식(m+n vs m×n) 또는 정의(조건 있음 vs 없음)에서 1개만 뒤바꿈."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 정처기 필기 2021년 3회 · 2023년 3회 · 2025년 2회 반복 — 서브쿼리 연산자 정형 패턴",
+     "stem_md": "SQL 서브쿼리에서 사용되는 **다중행(Multiple-Row) 연산자**에 해당하지 **않는** 것은?",
+     "options": [
+      "IN",
+      "ANY (또는 SOME)",
+      "EXISTS",
+      "**= (등호)**"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ = (등호)**\n- **다중행 연산자**: 서브쿼리가 **여러 행** 반환할 때 사용 — **IN / ANY(SOME) / ALL / EXISTS** 4종.\n- **단일행 연산자**: =, <>, >, <, >=, <= 6종. 서브쿼리 결과가 **정확히 1행**일 때만 사용 가능.\n- ① IN — 다중행. ✔\n- ② ANY (또는 SOME) — 다중행 (\"**하나라도** 만족\"). ✔\n- ③ EXISTS — 다중행 (존재 여부, true/false만 반환). ✔\n- 단골 함정: \"=는 다중행\" → X. \"EXISTS는 단일행\" → X. \"ANY=모두 만족\" → X (ANY=하나라도, ALL=모두).\n- 정형 표현 즉답: **`> ANY (서브쿼리)`** = 서브쿼리 결과 중 **최솟값보다 크면** 참 / **`> ALL (서브쿼리)`** = **최댓값보다 커야** 참."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 정처기 필기 2020년 3회 · 2022년 1회 · 2024년 2회 반복 — 뷰(View) 특성 정형 패턴",
+     "stem_md": "관계형 데이터베이스의 **뷰(View)** 에 대한 설명으로 가장 옳지 **않은** 것은?",
+     "options": [
+      "뷰는 물리적으로 데이터를 저장하지 않는 **가상 테이블(Virtual Table)** 이다.",
+      "뷰는 CREATE VIEW로 생성하고 DROP VIEW로 제거하며, **ALTER VIEW**로 컬럼 구조를 직접 변경할 수 있다.",
+      "뷰가 그룹함수(SUM, AVG), DISTINCT, JOIN 등을 포함하면 일반적으로 **INSERT·UPDATE·DELETE가 제한**된다.",
+      "뷰는 보안성(원본 테이블의 일부 컬럼만 노출), 독립성, 편의성을 제공한다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② 뷰는 CREATE VIEW로 생성하고 DROP VIEW로 제거하며, ALTER VIEW로 컬럼 구조를 직접 변경할 수 있다.**\n- 표준 SQL에는 **ALTER VIEW로 뷰의 컬럼 구조를 변경하는 기능이 없음** — 재정의는 `CREATE OR REPLACE VIEW` 또는 DROP 후 재생성. (일부 DBMS의 ALTER VIEW는 권한/주석 변경 한정)\n- ① 뷰는 가상 테이블(데이터 미저장, 정의만 카탈로그에). ✔\n- ③ 그룹함수·DISTINCT·JOIN 등 포함 시 갱신 제한. ✔ — **기본키 미포함 뷰는 INSERT 불가**(NOT NULL 컬럼 값 채울 수 없음).\n- ④ 뷰의 장점(보안·독립성·편의성). ✔\n- 정형 함정 단골: **\"ALTER VIEW로 컬럼 추가/변경 가능\"** → **X**. 1자 매칭으로 즉답."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 정처기 필기 2021년 2회 · 2023년 1회 · 2025년 1회 반복 — 인덱스(Index) 특성 정형 패턴",
+     "stem_md": "관계형 데이터베이스의 **인덱스(Index)** 에 대한 설명으로 가장 옳지 **않은** 것은?",
+     "options": [
+      "인덱스는 검색(SELECT) 속도를 향상시키지만, 인덱스 자체의 유지 관리로 **INSERT·UPDATE·DELETE 성능은 저하**될 수 있다.",
+      "**B-Tree 인덱스**는 범위 검색(BETWEEN, <, >)에 효율적이며 RDBMS의 기본 인덱스 구조로 가장 널리 쓰인다.",
+      "**Hash 인덱스**는 등가 비교(=)에 매우 빠르지만 **범위 검색에는 적합하지 않다**.",
+      "인덱스는 별도 저장 공간을 차지하지 **않으며**, 무조건 많이 만들수록 모든 쿼리 성능이 향상된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ 인덱스는 별도 저장 공간을 차지하지 않으며, 무조건 많이 만들수록 모든 쿼리 성능이 향상된다.**\n- 인덱스는 **별도 자료구조(B-Tree/Hash/Bitmap)** 를 저장 → **추가 저장 공간 필요**.\n- 인덱스를 많이 만들면 **INSERT/UPDATE/DELETE 성능 저하**(인덱스도 함께 갱신해야 함) — \"무조건 향상\" **X**.\n- ① 검색 ↑ / 변경 ↓ — 정확한 trade-off 설명. ✔\n- ② B-Tree는 범위 검색 강함(균형 트리 구조, 인접 노드 탐색 효율) — RDBMS 기본. ✔\n- ③ Hash는 정확히 일치(=)에 O(1) 빠름, 범위 검색은 해시 특성상 부적합. ✔\n- 정형 함정 단골: **\"인덱스 무조건 많을수록 좋음\"** → X (변경 비용·저장 공간 증가). **\"인덱스는 저장 공간 차지 X\"** → X. 1자 매칭으로 즉답."
+    }
+   ]
   }
  ]
 }
