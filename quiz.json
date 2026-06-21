@@ -4592,6 +4592,118 @@
      "explanation_md": "**정답 ③ CAP 정리는 분산 시스템에서 Consistency·Availability·Partition tolerance의 3가지를 동시에 모두 만족할 수 있다고 본다.**\n- **CAP 정리(Brewer's Theorem)** 는 분산 시스템에서 **C·A·P 셋 중 동시에 최대 2가지만 보장 가능**, 셋 모두 동시 만족은 **불가능**하다고 본다(길버트·린치 증명).\n- 분산 환경에서 네트워크 분단(P)은 사실상 필수 가정 → 실제 선택은 **CP(일관성+분할내성)** vs **AP(가용성+분할내성)**.\n- ① NoSQL 4유형 분류(Key-Value / Document / Column-Family / Graph). ✔\n- ② MongoDB = JSON·BSON Document 유형 대표. ✔\n- ④ Neo4j = 노드+간선 Graph 유형 대표. ✔\n- 정형 함정: **\"CAP 셋을 모두 동시에 만족\"** → **X**(정의 자체와 정반대). 1자 즉답."
     }
    ]
+  },
+  {
+   "day": 42,
+   "date": "2026-06-22",
+   "subject": "5과목 정보시스템 구축관리",
+   "topic": "개발 방법론(CMMI/SPICE/V&V) + 비용 산정(LOC/COCOMO/FP/델파이/Putnam) + 일정 관리(PERT/CPM/Gantt) (Phase 2 2회독 · 5과목 시작)",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 정처기 필기 2020년 2회·2022년 3회·2024년 1회 반복 — 비용 산정 분류 정형 패턴",
+     "stem_md": "소프트웨어 비용 산정 기법의 **분류**에 관한 설명으로 가장 옳지 **않은** 것은?",
+     "options": [
+      "**하향식(Top-Down)** 산정 기법에는 **전문가 감정 기법**과 **델파이(Delphi) 기법**이 포함된다.",
+      "**상향식(Bottom-Up)** 산정 기법에는 **LOC(Line of Code) 기법**과 **개발 단계별 인월수(M/M) 기법**이 포함된다.",
+      "**수학적(Algorithmic)** 산정 기법에는 **COCOMO 모형, Putnam 모형, Function Point(FP) 모형**이 포함된다.",
+      "**델파이(Delphi) 기법**은 **상향식 산정 기법**으로, 개발자가 작성한 단위 모듈의 LOC를 합산하여 노력을 추정하는 방식이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ 델파이(Delphi) 기법 — 상향식 산정 기법으로, 개발자가 작성한 단위 모듈의 LOC를 합산하여 노력을 추정한다.**\n- **델파이(Delphi) 기법은 하향식(Top-Down) 산정 기법** — **전문가 감정 기법의 단점(개인 편향)을 보완**하기 위해 **여러 전문가의 익명 의견을 중재자(Coordinator)가 라운드로 수렴**하는 방식. LOC 합산과는 무관.\n- ① 하향식 = **전문가 감정 + 델파이**. ✔\n- ② 상향식 = **LOC + 단계별 인월수(M/M)**. ✔\n- ③ 수학적 = **COCOMO + Putnam + FP**. ✔\n- 정형 함정: **델파이를 상향식·수학적**으로 분류 / **LOC를 하향식**으로 분류 / **COCOMO를 상향식**으로 분류 — 모두 X. 분류 3대 그룹 1:1 매칭 즉답."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 정처기 필기 2021년 1회·2023년 2회·2025년 1회 반복 — LOC 노력 공식 계산형 정형 패턴",
+     "stem_md": "어떤 모듈의 **LOC 추정치**가 **낙관치 = 1,200 라인**, **기대치 = 1,500 라인**, **비관치 = 2,400 라인**일 때, **LOC 기법으로 산정한 추정 LOC**와 **개발자 1인당 월간 생산 LOC가 300 라인**일 경우 산정한 **노력(M/M)** 으로 옳은 것은?",
+     "options": [
+      "추정 LOC = **1,500** · 노력 = **5 M/M**",
+      "추정 LOC = **1,600** · 노력 = **약 5.33 M/M**",
+      "추정 LOC = **1,700** · 노력 = **약 5.67 M/M**",
+      "추정 LOC = **1,800** · 노력 = **6 M/M**"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③ 추정 LOC = 1,700 · 노력 = 약 5.67 M/M**\n- **추정 LOC** = (낙관치 + 4×기대치 + 비관치) / 6 = (1,200 + 4×1,500 + 2,400) / 6 = (1,200 + 6,000 + 2,400) / 6 = **10,200 / 6 = 1,700 라인**.\n- **노력(M/M)** = 추정 LOC ÷ 1인당 월 생산 LOC = **1,700 ÷ 300 ≈ 5.67 M/M**.\n- ① **1,500**: 단순히 기대치만 사용(공식 무시). X\n- ② **1,600**: 산술평균 (1,200 + 1,500 + 2,400) / 3 = 1,700인데 잘못 계산. X\n- ④ **1,800**: 가중치 잘못 적용(낙관·비관에 4 적용 등). X\n- 정형 계산 함정: **반드시 (a + 4m + b) / 6** — PERT 3점 추정과 동일 공식. 가중평균 분모 6 고정."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 정처기 필기 2020년 3회·2022년 2회·2024년 3회 반복 — COCOMO 유형 매칭 정형 패턴",
+     "stem_md": "**COCOMO(COnstructive COst MOdel)** 의 프로젝트 **유형(Mode)** 에 대한 설명으로 가장 옳지 **않은** 것은?",
+     "options": [
+      "**Organic(조직형)** — 일반 업무용 응용 소프트웨어로, **5만 라인 이하**의 소규모 프로젝트에 적합하다.",
+      "**Semi-detached(반결합형·중간형)** — 트랜잭션 처리·DBMS 등 **30만 라인 이하**의 중간 규모 프로젝트에 적합하다.",
+      "**Embedded(내장형)** — 신호 처리·실시간 OS·항공우주 등 **30만 라인 초과**의 복잡한 시스템에 적합하다.",
+      "**Functional(기능형)** — 사용자 요구 기능을 단위로 산정하며, **알브레히트(Albrecht)** 가 제안한 **Function Point** 기법과 동일한 COCOMO 유형이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ Functional(기능형) — 알브레히트 FP 기법과 동일한 COCOMO 유형이다.**\n- **COCOMO에 \"Functional\" 유형은 존재하지 않음**. COCOMO 유형(Mode)은 **Organic / Semi-detached / Embedded 3가지뿐**. Function Point는 **별개의 비용 산정 기법**으로 알브레히트가 제안한 **기능 기반·언어 독립적** 모형 — COCOMO와 무관.\n- ① **Organic**: 일반 업무용, **5만 라인 이하** 소규모. ✔\n- ② **Semi-detached**: 트랜잭션·DBMS·컴파일러, **30만 라인 이하**. ✔\n- ③ **Embedded**: 실시간 OS·항공우주, **30만 라인 초과**. ✔\n- 정형 함정: **Functional·Sequential·Procedural·Distributed** 같은 가짜 4번째 유형 끼워넣기 — 모두 X. COCOMO는 **유형 3 + 상세도 3(Basic·Intermediate·Detailed)** 고정."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 정처기 필기 2021년 2회·2023년 1회·2025년 2회 반복 — Putnam·FP 자동화도구 매칭 정형 패턴",
+     "stem_md": "소프트웨어 비용 산정 **수학적 기법**과 그 **자동화 도구(Tool)** 의 매칭으로 가장 옳지 **않은** 것은?",
+     "options": [
+      "**Putnam 모형** — **Rayleigh-Norden 곡선**의 노력 분포를 이용하며, 자동화 도구로 **SLIM(Software Life-cycle Management)** 을 사용한다.",
+      "**Function Point(FP)** — **알브레히트(Albrecht)** 가 제안하였고, 자동화 도구로 **ESTIMACS** 를 사용한다.",
+      "**COCOMO 모형** — **보엠(Boehm)** 이 제안하였으며, **LOC 기반** 노력·기간·인력을 산정하는 수학적 모형이다.",
+      "**델파이(Delphi) 기법** — **Rayleigh-Norden 곡선**을 기반으로 한 **수학적(Algorithmic) 산정 기법**으로, 자동화 도구로 **COCOMO II** 를 사용한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ 델파이(Delphi) 기법 — Rayleigh-Norden 곡선 기반 수학적 산정 기법으로, 자동화 도구 COCOMO II 를 사용한다.**\n- **델파이는 하향식 전문가 의견 수렴 기법**으로, **Rayleigh-Norden 곡선과 무관**하며 **자동화 도구 매칭 없음**. **Rayleigh-Norden 곡선 = Putnam 모형**, **자동화 도구 SLIM**.\n- ① **Putnam — Rayleigh-Norden + SLIM**. ✔\n- ② **FP — Albrecht 제안 + ESTIMACS**. ✔\n- ③ **COCOMO — Boehm 제안 + LOC 기반**. ✔\n- 정형 함정: **델파이를 수학적·Rayleigh 기반**으로 분류 → X. **SLIM·ESTIMACS·COCOMO II** 자동화 도구 1:1 매칭 외워 즉답."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 정처기 필기 2020년 4회·2022년 1회·2024년 2회 반복 — CMMI 5단계 순서 정형 패턴",
+     "stem_md": "**CMMI(Capability Maturity Model Integration)** 의 성숙도 **5단계 순서**가 옳은 것은?",
+     "options": [
+      "Initial(초기) → Defined(정의) → Managed(관리) → Quantitatively Managed(정량적 관리) → Optimizing(최적화)",
+      "**Initial(초기) → Managed(관리) → Defined(정의) → Quantitatively Managed(정량적 관리) → Optimizing(최적화)**",
+      "Initial(초기) → Managed(관리) → Quantitatively Managed(정량적 관리) → Defined(정의) → Optimizing(최적화)",
+      "Initial(초기) → Defined(정의) → Quantitatively Managed(정량적 관리) → Managed(관리) → Optimizing(최적화)"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② Initial(초기) → Managed(관리) → Defined(정의) → Quantitatively Managed(정량적 관리) → Optimizing(최적화)**\n- **CMMI 5단계 두음 \"초·관·정·정·최\"** 외워 즉답 — Initial(1) → **Managed(2)** → **Defined(3)** → Quantitatively Managed(4) → Optimizing(5).\n- **Managed가 Defined보다 먼저**(2단계 = 프로젝트 단위 관리 시작, 3단계 = 조직 표준 프로세스 정의·일관성).\n- ①·④: **Initial 다음에 Defined** 끼워넣음 — X(Initial 다음은 Managed).\n- ③: **Quantitatively Managed가 Defined보다 먼저** — X(Defined → Quantitatively Managed 순서).\n- 정형 함정: **Managed ↔ Defined 순서 뒤바꿈** 단골. \"**관리 먼저 → 정의**\" 두음 고정."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 정처기 필기 2021년 3회·2023년 3회·2025년 1회 반복 — SPICE 6단계 정형 패턴",
+     "stem_md": "**SPICE(ISO/IEC 15504)** 모델의 프로세스 수행 능력 **6단계** 에 해당하지 **않는** 것은?",
+     "options": [
+      "**불완전(Incomplete) 단계 — 0** 수준",
+      "**확립(Established) 단계 — 3** 수준",
+      "**정형(Formal) 단계**",
+      "**최적화(Optimizing) 단계 — 5** 수준"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③ 정형(Formal) 단계**\n- **SPICE에 \"정형(Formal)\" 단계는 존재하지 않음** — 가짜 항목. SPICE 6단계: **불완전(0) → 수행(1) → 관리(2) → 확립(3) → 예측(4) → 최적화(5)**.\n- ① **불완전(Incomplete) — 0** 수준. ✔ (SPICE만 0단계 보유)\n- ② **확립(Established) — 3** 수준. ✔\n- ④ **최적화(Optimizing) — 5** 수준. ✔\n- 정형 함정: **\"정형(Formal)\"·\"정의(Defined·CMMI 용어)\"·\"초기(Initial·CMMI 용어)\"** 같은 가짜·타 모델 용어 끼워넣기 — 모두 X. SPICE 두음 **\"불·수·관·확·예·최\"** 6단계 고정."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 정처기 필기 2020년 1회·2022년 2회·2024년 3회 반복 — V&V 정의 비교 정형 패턴",
+     "stem_md": "소프트웨어 **검증(Verification)** 과 **확인(Validation)** 에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "**검증(Verification)** = \"올바른 제품을 만들고 있는가(Building the **right** product)\" 평가, **확인(Validation)** = \"제품을 올바르게 만들고 있는가(Building the product **right**)\" 평가.",
+      "**검증(Verification)** = 개발 단계 산출물이 그 단계의 명세 조건을 만족하는지를 평가(개발자 관점), **확인(Validation)** = 최종 시스템이 사용자 요구사항을 만족하는지를 평가(사용자 관점).",
+      "검증과 확인은 동일한 개념이며 IEEE 표준에서도 상호 교환적으로 사용된다.",
+      "검증은 시스템 인수 단계에서 사용자가 수행하고, 확인은 단위 테스트 단계에서 개발자가 수행한다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② 검증(Verification) = 개발 단계 산출물이 그 단계의 명세 조건을 만족하는지를 평가(개발자 관점), 확인(Validation) = 최종 시스템이 사용자 요구사항을 만족하는지를 평가(사용자 관점).**\n- **Verification(검증)** = \"Building the **product right**\"(올바르**게** 만드는가) = **개발 단계 산출물 ↔ 명세** 일치 = **개발자 관점**.\n- **Validation(확인)** = \"Building the **right** product\"(올바**른** 제품 만드는가) = **최종 시스템 ↔ 사용자 요구사항** 일치 = **사용자 관점**.\n- ① 슬로건이 **정확히 뒤바뀜** — \"검증 = 올바른 제품\"·\"확인 = 올바르게 만들기\" → X.\n- ③ **별개 개념** — IEEE 표준에서도 명확히 구분(IEEE 1012 등). X\n- ④ 수행자·시점 뒤바뀜 — **검증은 개발자**(개발 전 과정), **확인은 사용자**(인수 단계). X\n- 정형 함정: 두 정의 슬로건 뒤바꿈 단골. **\"검증=right로 끝(부사·올바르게)\" / \"확인=right product(형용사·올바른)\"** 으로 외움."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 정처기 필기 2021년 2회·2023년 1회·2025년 2회 반복 — PERT/CPM/Gantt 비교 정형 패턴",
+     "stem_md": "프로젝트 **일정 관리 기법**에 대한 설명으로 가장 옳지 **않은** 것은?",
+     "options": [
+      "**PERT(Program Evaluation and Review Technique)** 는 **낙관치·기대치·비관치 3점 추정**을 사용하며, **불확실성이 높은** 프로젝트에 적합한 **확률적** 일정 모형이다.",
+      "**CPM(Critical Path Method)** 의 **임계 경로(Critical Path)** 는 네트워크상의 경로 중 **가장 긴 경로**를 의미하며, 프로젝트 일정을 단축할 때 **우선 검토 대상**이다.",
+      "**Gantt 차트(간트 차트)** 는 작업 일정을 **막대 도표**로 표시한 시간선 차트로, 각 작업의 시작·종료·소요 기간을 한눈에 보여준다.",
+      "CPM의 **임계 경로**는 네트워크상의 경로 중 **가장 짧은 경로**를 의미하며, 이 경로상의 작업은 **여유 시간(Slack)이 가장 많아** 일정 변경의 우선 대상이 된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ CPM의 임계 경로(Critical Path)는 네트워크상 가장 짧은 경로를 의미하며, 여유 시간(Slack)이 가장 많아 일정 변경 우선 대상이다.**\n- **임계 경로 = 네트워크상 가장 긴 경로** = 프로젝트 **최소 소요 시간** = **여유 시간(Slack/Float) = 0** — 한 작업이라도 지연되면 전체 일정 지연. 일정 단축 시 **우선 검토 대상**.\n- ① **PERT**: **3점 추정(낙관·기대·비관) + 확률적** + 불확실 프로젝트(R&D 등). ✔\n- ② **CPM**: 임계 경로 = **가장 긴 경로** + 일정 단축 우선 검토. ✔\n- ③ **Gantt 차트**: **막대 도표 시간선** + 작업 시작·종료·기간 시각화. ✔\n- 정형 함정: **\"임계 경로 = 가장 짧은 경로\"** → **X** (정반대). **\"임계 경로 작업은 여유 시간이 가장 많다\"** → X (여유 시간 = 0). **\"Gantt = 확률적 3점 추정\"** → X (Gantt는 시각화일 뿐 추정 기법 X). **임계 경로 = 가장 긴 경로 = Slack 0** 핵심 3박자."
+    }
+   ]
   }
  ]
 }

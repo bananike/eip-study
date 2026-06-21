@@ -1,10 +1,10 @@
 # 정보처리기사 필기 스터디 로그
 
-> 목표 시험일: **2026-08-07** · D-47
-> 진행: **Day 41/88** (47%)
+> 목표 시험일: **2026-08-07** · D-46
+> 진행: **Day 42/88** (48%)
 
 ## 진행도
-`██████████▒▒▒▒▒▒▒▒▒▒▒▒` 41/88
+`██████████▒▒▒▒▒▒▒▒▒▒▒▒` 42/88
 
 ## 88일 커리큘럼
 
@@ -61,8 +61,9 @@
 - [x] Day 38 - 3과목 DB 개론 + Key 7종 + 무결성 제약 (DBMS3기능/3단계스키마/후보·기본·대체·슈퍼·외래·유일·복합키/개체·참조·도메인·사용자정의 무결성/Chen ERD)
 - [x] Day 39 - 3과목 정규화(1NF~BCNF) + 함수 종속 + 이상현상 (도부이결다조/완전·부분·이행 FD/삽삭갱 Anomaly/BCNF 결정자=후보키)
 - [x] Day 40 - 3과목 SQL DDL/DML/DCL + 조인 + 서브쿼리 + 뷰 + 인덱스 (정조제/DROP·TRUNCATE·DELETE 비교/WHERE↔HAVING/JOIN5종 m×n/단일·다중행 연산자/뷰 ALTER 불가/인덱스 trade-off)
-- [ ] **Day 41 - 3과목 트랜잭션 ACID + 격리수준 + 락 + 회복 + 분산 DB + NoSQL (원일격영/상태5종/RU<RC<RR<S/Dirty·Non-Repeatable·Phantom 매트릭스/S·X-Lock+2PL/UNDO·REDO·검사점/4투명성/NoSQL 4유형 + CAP)** ← 오늘
-- [ ] Day 42-45: 5과목 정보시스템 구축관리
+- [x] Day 41 - 3과목 트랜잭션 ACID + 격리수준 + 락 + 회복 + 분산 DB + NoSQL (원일격영/상태5종/RU<RC<RR<S/Dirty·Non-Repeatable·Phantom 매트릭스/S·X-Lock+2PL/UNDO·REDO·검사점/4투명성/NoSQL 4유형 + CAP)
+- [ ] **Day 42 - 5과목 개발 방법론(CMMI/SPICE/V&V) + 비용 산정(LOC/COCOMO/FP/델파이/Putnam) + 일정(PERT/CPM/Gantt) (하·상·수 분류/LOC (a+4m+b)/6 공식/COCOMO 3유형 5만·30만 임계/Putnam-SLIM-Rayleigh/FP-Albrecht-ESTIMACS/CMMI 초·관·정·정·최/SPICE 불·수·관·확·예·최 0단계부터/V&V right product vs product right/임계경로=가장 긴 경로·Slack 0)** ← 오늘
+- [ ] Day 43-45: 5과목 신기술·보안
 
 ### Phase 3: 5개년 기출 회독 (Day 46-65)
 - [ ] Day 46-49: 2021년
@@ -77,6 +78,7 @@
 - [ ] Day 86-88: 최종 정리
 
 ## 최근 기록 (최대 5개)
+- [Day 42](daily/2026-06-22.md) — 5과목 개발 방법론 + 비용 산정 + 일정 관리 2회독 통합(**비용 산정 3분류 두음 "하·상·수"** 하향식(전문가 감정·**델파이 — 익명 라운드 + 중재자 의견 수렴**) / 상향식(LOC·단계별 인월수 M/M·표준 작업 분배) / 수학적(COCOMO·Putnam·Function Point) — **델파이를 상향식·수학적으로 분류** 단골 함정·**LOC 노력(M/M) 공식** 추정 LOC = **(낙관 + 4×기대 + 비관) / 6** (PERT 3점 추정 가중평균 동일) → 노력 = 추정 LOC ÷ 1인당 월 생산 LOC·**COCOMO 3유형** Organic(**5만 라인 이하**·일반 업무) / Semi-detached(**30만 라인 이하**·트랜잭션·DBMS·컴파일러) / Embedded(**30만 라인 초과**·실시간 OS·항공우주) + **3상세도** Basic/Intermediate/Detailed — **Functional·Sequential·Procedural** 가짜 4번째 유형 끼워넣기 단골·**수학적 기법 ↔ 자동화 도구 1:1 매칭** **Putnam — Rayleigh-Norden 곡선 + SLIM** / **FP — Albrecht 제안 + ESTIMACS** / **COCOMO — Boehm 제안 + LOC 기반** — 델파이에 자동화 도구 매칭은 X·**Function Point 5종 기능 단위** EI(외부입력) / EO(외부출력) / EQ(외부조회) / ILF(내부논리파일) / EIF(외부인터페이스파일) — **알브레히트 제안·언어 독립적·기능 기반**·**CMMI 5단계 두음 "초·관·정·정·최"** Initial(초기·1) → **Managed(관리·2)** → **Defined(정의·3)** → Quantitatively Managed(정량적 관리·4) → Optimizing(최적화·5) — **Managed ↔ Defined 순서 뒤바꿈**("Initial→Defined→Managed") 단골 오답·**SPICE(ISO/IEC 15504) 6단계 두음 "불·수·관·확·예·최"** Incomplete(불완전·0) → Performed(수행·1) → Managed(관리·2) → Established(확립·3) → Predictable(예측·4) → Optimizing(최적화·5) — **SPICE는 0단계부터** + **"정형(Formal)" 가짜 단계** 끼워넣기 단골·**CMMI(SEI·5단계·1~5) vs SPICE(ISO·6단계·0~5)** 모델 출처·시작단계 비교·**V&V 정의 1:1 매칭** **Verification(검증) = "Building the product right"(올바르게 만드는가) — 단계 산출물 ↔ 명세·개발자 관점** vs **Validation(확인) = "Building the right product"(올바른 제품 만드는가) — 최종 시스템 ↔ 요구사항·사용자 관점** — **두 슬로건 뒤바꿈** 단골 함정·**일정 관리 3종** PERT(3점 추정·**확률적**·불확실 R&D) / **CPM(임계 경로 = 가장 긴 경로 = Slack 0**·확정적·일정 단축 우선 검토) / Gantt(**막대 도표·시간선** 시각화) — **"임계 경로 = 가장 짧은 경로"·"임계 경로 작업 Slack 최대"** 정반대 진술 단골 오답) (5과목) — Phase 2 5과목 시작
 - [Day 41](daily/2026-06-21.md) — 3과목 트랜잭션 ACID + 격리수준 + 락 + 회복 + 분산 DB + NoSQL 2회독 통합(**ACID 4속성 두음 "원·일·격·영"** Atomicity(원자성·All-or-Nothing) / Consistency(일관성·전후 무결성 유지) / **Isolation(격리성·고립성·동시 트랜잭션 간 간섭 X — "중간 결과 자유 공유" 정의는 정반대 함정)** / Durability(영속성·COMMIT 결과 장애에도 영구 반영)·**트랜잭션 상태 5종 + 전이** Active(활동) → Partially Committed(부분완료) → Committed(완료) | Failed(실패) → Aborted(철회) — **Failed → Committed 전이는 불가능**(Failed는 UNDO 후 Aborted로만) 단골 함정·**격리수준 4단계 약→강** Read Uncommitted < Read Committed < Repeatable Read < **Serializable** — 강할수록 일관성↑ 동시성↓·**격리수준×이상현상 매트릭스** RU(Dirty·Non-Repeatable·Phantom 모두 발생) / RC(Dirty 차단) / RR(Dirty+Non-Repeatable 차단) / **Serializable(3개 모두 차단·Lost Update까지)**·**동시성 이상현상 3종 + Lost Update** Dirty Read(미커밋 데이터 읽기) / **Non-Repeatable Read(같은 행 값 변경·UPDATE+COMMIT)** vs **Phantom Read(같은 조건 행 개수 변경·INSERT/DELETE+COMMIT)** — "Non-Repeatable=행 개수"·"Phantom=값 변경" 정의 뒤바꿈 단골·**락(Lock) 2종 + 호환성** 공유락(S-Lock·읽기·S-S만 호환) / 배타락(X-Lock·쓰기·단독 보유) — S-X·X-S·X-X 비호환·**2단계 락 프로토콜(2PL)** 확장(Growing 락 획득만) → 축소(Shrinking 락 해제만) — **직렬 가능성(Serializability) 보장하나 Deadlock은 별도 발생 가능**("2PL이 Deadlock 방지" 단골 함정)·**회복(Recovery) 매트릭스** 즉시 갱신(UNDO+REDO 모두 필요) / **지연 갱신(REDO만 필요·UNDO 불필요)** / 검사점(Checkpoint·회복 시작점 — 회복 시간 **단축**·"길어진다" 단골 함정) / 그림자 페이징(페이지 사본·로그 불필요) / WAL(Write-Ahead Log) — REDO → UNDO 순서·**분산 DB 4(+1) 투명성** 위치(Location)·중복(Replication)·병행(Concurrency)·장애(Failure) (+분할 Fragmentation) — **"확장·성능·보안 투명성" 가짜 항목 끼워넣기 단골**·**NoSQL 4유형 + 대표 DBMS** Key-Value(Redis·DynamoDB) / Document(**MongoDB**·CouchDB) / Column-Family(Cassandra·HBase) / Graph(**Neo4j**)·**CAP 정리** Consistency·Availability·Partition tolerance — **셋 중 2개만 동시 만족 가능**("셋 모두 동시 만족 가능" 1자 즉답 함정) — 실무는 CP(HBase·MongoDB) vs AP(Cassandra·DynamoDB) 양자택일) (3과목) — Phase 2 3과목 마무리
 - [Day 40](daily/2026-06-20.md) — 3과목 SQL DDL/DML/DCL + 조인 + 서브쿼리 + 뷰 + 인덱스 2회독 통합(**SQL 3분류 두음 "정·조·제"** DDL(CREATE/ALTER/DROP/TRUNCATE) / DML(SELECT/INSERT/UPDATE/DELETE) / DCL(GRANT/REVOKE) — SELECT를 DDL에 끼워넣기 단골·**DROP vs TRUNCATE vs DELETE** DROP(구조+데이터·DDL·롤백X) / TRUNCATE(데이터만·DDL·롤백X·Auto-COMMIT) / DELETE(WHERE 조건부·DML·롤백O)·SELECT 절 작성 순서 "셀-프-웨-그-해-오"·WHERE(그룹화 전·집계함수 X) vs HAVING(그룹화 후·집계함수 O)·JOIN 5종 — CROSS는 m×n(곱) 아닌 m+n은 함정·서브쿼리 단일행(=) vs 다중행(IN/ANY/ALL/EXISTS)·뷰(가상 테이블·ALTER VIEW로 컬럼 변경 불가)·인덱스(검색↑/변경↓·B-Tree 범위·Hash 등가·Bitmap 저카디널리티)·GRANT WITH GRANT OPTION / REVOKE CASCADE·RESTRICT) (3과목) — Phase 2 3과목 3일차
 - [Day 39](daily/2026-06-19.md) — 3과목 정규화 + 함수 종속 + 이상현상 2회독 통합(**이상현상(Anomaly) 3종 두음 "삽·삭·갱"** 삽입(원치 않는 정보 함께 삽입·NULL 강제)/삭제(일부 삭제 시 원치 않는 정보까지 삭제)/갱신(중복 데이터 일부만 갱신·데이터 불일치) — **"검색 이상(Retrieval Anomaly)" 항목은 표준에 없음** 단골 함정·**정규화 3대 목적** 데이터 중복 최소화 / 이상현상 제거 / 데이터 무결성 향상 — **"검색 속도 향상"은 X**(오히려 조인 증가로 ↓ 가능) → 성능을 위해서는 **반정규화(De-normalization)** 별도 적용·**정규화 단계 두음 "도·부·이·결·다·조"** 1NF(**도**메인 원자값 — 반복그룹·다중값 X) / 2NF(**부**분 함수 종속 제거 = 완전 함수 종속 — 복합키일 때만 의미) / 3NF(**이**행 함수 종속 제거 — X→Y→Z 합성 X→Z 제거) / **BCNF(결**정자가 모두 후보키 — 3NF 강화형) / 4NF(**다**치 종속 MVD 제거) / 5NF(**조**인 종속 PJ/NF 제거)·**함수 종속 3종** 완전 함수 종속(X 전체로만 Y 결정·진부분집합으론 결정 못함) / **부분 함수 종속**(X의 일부로 Y 결정 가능·복합키에서만 발생·2NF가 제거) / **이행 함수 종속**(X→Y, Y→Z 합성 X→Z·3NF가 제거) / **결정자(Determinant)=X→Y의 X**(왼쪽이 결정자)·**1NF 핵심** 모든 도메인이 원자값(Atomic) — 전화번호 다중값 들어가면 1NF 위반·**2NF 핵심** 1NF + 모든 비주요 속성이 기본키에 완전 함수 종속 (복합키일 때만 의미·단일키는 자동 2NF)·**3NF 핵심** 2NF + 이행 함수 종속 제거 — 학번→학과→학과장 같은 추이 종속 분리·**BCNF 핵심** 3NF + **모든 결정자가 후보키** — 1자 표현 즉답형(시험 정형 표현)·**정규화 단계 순서 함정** BCNF 위치는 **3NF 다음, 4NF 이전** — 1NF→2NF→3NF→**BCNF**→4NF→5NF 위치 고정·**모든 BCNF는 자동 3NF** 그러나 역은 X (3NF지만 BCNF 아닌 경우 존재)·이행 함수 종속 판별 시 단일키+추이 = 이행 단골) (3과목) — Phase 2 3과목 2일차
