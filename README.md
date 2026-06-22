@@ -1,10 +1,10 @@
 # 정보처리기사 필기 스터디 로그
 
 > 목표 시험일: **2026-08-07** · D-46
-> 진행: **Day 42/88** (48%)
+> 진행: **Day 43/88** (49%)
 
 ## 진행도
-`██████████▒▒▒▒▒▒▒▒▒▒▒▒` 42/88
+`██████████▒▒▒▒▒▒▒▒▒▒▒▒` 43/88
 
 ## 88일 커리큘럼
 
@@ -62,8 +62,9 @@
 - [x] Day 39 - 3과목 정규화(1NF~BCNF) + 함수 종속 + 이상현상 (도부이결다조/완전·부분·이행 FD/삽삭갱 Anomaly/BCNF 결정자=후보키)
 - [x] Day 40 - 3과목 SQL DDL/DML/DCL + 조인 + 서브쿼리 + 뷰 + 인덱스 (정조제/DROP·TRUNCATE·DELETE 비교/WHERE↔HAVING/JOIN5종 m×n/단일·다중행 연산자/뷰 ALTER 불가/인덱스 trade-off)
 - [x] Day 41 - 3과목 트랜잭션 ACID + 격리수준 + 락 + 회복 + 분산 DB + NoSQL (원일격영/상태5종/RU<RC<RR<S/Dirty·Non-Repeatable·Phantom 매트릭스/S·X-Lock+2PL/UNDO·REDO·검사점/4투명성/NoSQL 4유형 + CAP)
-- [ ] **Day 42 - 5과목 개발 방법론(CMMI/SPICE/V&V) + 비용 산정(LOC/COCOMO/FP/델파이/Putnam) + 일정(PERT/CPM/Gantt) (하·상·수 분류/LOC (a+4m+b)/6 공식/COCOMO 3유형 5만·30만 임계/Putnam-SLIM-Rayleigh/FP-Albrecht-ESTIMACS/CMMI 초·관·정·정·최/SPICE 불·수·관·확·예·최 0단계부터/V&V right product vs product right/임계경로=가장 긴 경로·Slack 0)** ← 오늘
-- [ ] Day 43-45: 5과목 신기술·보안
+- [x] Day 42 - 5과목 개발 방법론(CMMI/SPICE/V&V) + 비용 산정(LOC/COCOMO/FP/델파이/Putnam) + 일정(PERT/CPM/Gantt) (하·상·수 분류/LOC (a+4m+b)/6 공식/COCOMO 3유형 5만·30만 임계/Putnam-SLIM-Rayleigh/FP-Albrecht-ESTIMACS/CMMI 초·관·정·정·최/SPICE 불·수·관·확·예·최 0단계부터/V&V right product vs product right/임계경로=가장 긴 경로·Slack 0)
+- [ ] **Day 43 - 5과목 IT 신기술 키워드 통합 (클라우드 IaaS/PaaS/SaaS/BaaS=Blockchain/블록체인·메타버스·디지털트윈·매시업/빅데이터 Hadoop·HDFS·MapReduce·Spark·Tajo=국산SQL·Sqoop=RDB↔Hadoop/무선통신 Zigbee·Beacon·Wi-SUN·NB-IoT·LTE-M/포그=중간계층·엣지=단말/큐비트·Memristor 4번째수동소자·DRM=저작권/OTT·N-Screen·IPTV·MVNO=알뜰폰·MNO=1차)** ← 오늘
+- [ ] Day 44-45: 5과목 보안 (정보보안 기본 + 네트워크·앱 보안)
 
 ### Phase 3: 5개년 기출 회독 (Day 46-65)
 - [ ] Day 46-49: 2021년
