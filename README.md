@@ -1,10 +1,10 @@
 # 정보처리기사 필기 스터디 로그
 
-> 목표 시험일: **2026-08-07** · D-44
-> 진행: **Day 44/88** (50%)
+> 목표 시험일: **2026-08-07** · D-43
+> 진행: **Day 45/88** (51%)
 
 ## 진행도
-`███████████▒▒▒▒▒▒▒▒▒▒▒` 44/88
+`███████████▒▒▒▒▒▒▒▒▒▒▒` 45/88
 
 ## 88일 커리큘럼
 
@@ -64,8 +64,8 @@
 - [x] Day 41 - 3과목 트랜잭션 ACID + 격리수준 + 락 + 회복 + 분산 DB + NoSQL (원일격영/상태5종/RU<RC<RR<S/Dirty·Non-Repeatable·Phantom 매트릭스/S·X-Lock+2PL/UNDO·REDO·검사점/4투명성/NoSQL 4유형 + CAP)
 - [x] Day 42 - 5과목 개발 방법론(CMMI/SPICE/V&V) + 비용 산정(LOC/COCOMO/FP/델파이/Putnam) + 일정(PERT/CPM/Gantt) (하·상·수 분류/LOC (a+4m+b)/6 공식/COCOMO 3유형 5만·30만 임계/Putnam-SLIM-Rayleigh/FP-Albrecht-ESTIMACS/CMMI 초·관·정·정·최/SPICE 불·수·관·확·예·최 0단계부터/V&V right product vs product right/임계경로=가장 긴 경로·Slack 0)
 - [x] Day 43 - 5과목 IT 신기술 키워드 통합 (클라우드 IaaS/PaaS/SaaS/BaaS=Blockchain/블록체인·메타버스·디지털트윈·매시업/빅데이터 Hadoop·HDFS·MapReduce·Spark·Tajo=국산SQL·Sqoop=RDB↔Hadoop/무선통신 Zigbee·Beacon·Wi-SUN·NB-IoT·LTE-M/포그=중간계층·엣지=단말/큐비트·Memristor 4번째수동소자·DRM=저작권/OTT·N-Screen·IPTV·MVNO=알뜰폰·MNO=1차)
-- [ ] **Day 44 - 5과목 정보보안 + 네트워크보안 통합 (대칭/비대칭키 분류·국산SEED·ARIA·HIGHT·LEA/해시 MD5=128·SHA-1=160·SHA-256·SHA-512·HAS-160=국산160/접근통제 MAC=강제·DAC=임의·RBAC=역할·ABAC=속성/AAA 인증·인가·과금+RADIUS·DIAMETER·TACACS+/인증3요소 지식·소유·존재+Kerberos=티켓·MIT/DoS SYN Flood·Smurf=ICMP브로드캐스트·Land=출발지=목적지·Teardrop=단편offset/사회공학 피싱·스미싱=SMS·파밍=DNS hosts/웹공격 SQLi·XSS·CSRF/방화벽L3·4·IDS수동·IPS능동·WAF L7·IPSec=L3·SSL=L4~7/DSA=서명전용·DH=키교환전용·MAC약어충돌·PKI=공개키X.509CA)** ← 오늘
-- [ ] Day 45: 5과목 앱·시스템 보안 (OWASP Top 10/Secure SDLC/BoF·Race Condition/SAST·DAST/SIEM·DLP·CC·ISMS-P)
+- [x] Day 44 - 5과목 정보보안 + 네트워크보안 통합 (대칭/비대칭키 분류·국산SEED·ARIA·HIGHT·LEA/해시 MD5=128·SHA-1=160·SHA-256·SHA-512·HAS-160=국산160/접근통제 MAC=강제·DAC=임의·RBAC=역할·ABAC=속성/AAA 인증·인가·과금+RADIUS·DIAMETER·TACACS+/인증3요소 지식·소유·존재+Kerberos=티켓·MIT/DoS SYN Flood·Smurf=ICMP브로드캐스트·Land=출발지=목적지·Teardrop=단편offset/사회공학 피싱·스미싱=SMS·파밍=DNS hosts/웹공격 SQLi·XSS·CSRF/방화벽L3·4·IDS수동·IPS능동·WAF L7·IPSec=L3·SSL=L4~7/DSA=서명전용·DH=키교환전용·MAC약어충돌·PKI=공개키X.509CA)
+- [x] **Day 45 - 5과목 앱·시스템 보안 통합 (BoF 4종 Stack·Heap·FormatString·Integer/대응 ASLR·DEP=NX·StackCanary/악성코드 11종 Virus숙주·Worm네트워크·Trojan위장·Rootkit은폐·Backdoor통로·Ransomware암호화·Spyware수집·Keylogger키입력·Adware광고·LogicBomb조건·APT표적/Secure SDLC 4모델 MS-SDL·MS / SevenTouchpoints·McGraw / CLASP·OWASP / SAMM·OWASP/KISA 시큐어코딩 7대 카테고리 입력검증·보안기능·시간상태·에러·코드오류·캡슐화·API오용/OWASP Top10 2021 A01~A10 SSRF신규/권한상승 수직·수평·SetUID·Rootkit시퀀스) — Phase 2 2회독 최종일** ← 오늘
 
 ### Phase 3: 5개년 기출 회독 (Day 46-65)
 - [ ] Day 46-49: 2021년
