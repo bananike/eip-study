@@ -5040,6 +5040,274 @@
      "explanation_md": "**정답: ①** — 지문 \"**일반 사용자 → root** 권한으로의 상승 + SetUID 악용 + 이후 Rootkit 설치\"는 **수직 권한상승(Vertical Privilege Escalation)** 의 정형 시나리오이다. 공격자는 일반 셸 획득 → 커널/SetUID 익스플로잇으로 root 권한 획득 → Rootkit으로 흔적 은폐의 **3단계 시퀀스**를 반복.\n- ②(수평 권한상승): 동일 권한 다른 사용자 자원 접근(다른 사용자 홈디렉터리 열람 등).\n- ③(세션 하이재킹): 인증 토큰·쿠키 탈취 — 권한 자체 상승이 아닌 **인증 가장**.\n- ④(사회공학): 기술적 취약점이 아닌 심리적 약점 악용(피싱·보이스피싱) — 단계 자체가 다른 공격 유형.\n- **함정**: **SetUID 비트 자체가 취약점은 아님**(passwd·ping 등 정상 운영에 필수). **잘못 설정된 SetUID 프로그램의 입력 검증 결함**이 수직 권한상승의 통로."
     }
    ]
+  },
+  {
+   "day": 46,
+   "date": "2026-06-26",
+   "subject": "Phase 3 기출회독",
+   "topic": "2021년 정보처리기사 필기 기출 (회독 1/4) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2021년 1회 1과목 — 비기능 요구사항 분류 정형 패턴",
+     "stem_md": "다음 중 **비기능 요구사항(Non-functional Requirements)** 에 해당하지 **않는** 것은?",
+     "options": [
+      "**성능 요구사항** — \"시스템은 동시 접속 사용자 1,000명을 평균 응답시간 3초 이내로 처리해야 한다.\"",
+      "**가용성 요구사항** — \"서비스는 연간 99.9% 이상의 가용성을 보장해야 한다.\"",
+      "**기능 요구사항** — \"회원가입 화면에서 사용자는 이메일·비밀번호·생년월일을 입력해 가입을 신청할 수 있어야 한다.\"",
+      "**보안 요구사항** — \"모든 사용자 인증 정보는 AES-256으로 암호화되어 저장되어야 한다.\""
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — ③ \"회원가입 화면에서 이메일·비밀번호·생년월일을 입력해 가입을 신청\"은 **시스템이 수행해야 하는 동작(WHAT)** 을 기술한 **기능 요구사항(Functional Requirements)**.\n- 비기능 요구사항은 **\"어떻게 동작해야 하는가(HOW WELL)\"** — 성능·가용성·보안·사용성·신뢰성·확장성·유지보수성·이식성 등 **품질 속성**을 다룸.\n- ①(성능)·②(가용성)·④(보안 — 비기능 측의 데이터 보호 품질 속성)은 모두 비기능에 해당. 단 **보안 요구사항은 기능·비기능 양쪽 표현 가능**한데, ④의 \"AES-256 암호화 저장\"은 **방법·품질 수준을 명시**해 비기능으로 분류.\n- 함정: \"비기능 = 보이지 않는 요구사항\"이 아니라, **품질·제약** 측면 요구사항."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2021년 2회 1과목 — UML 다이어그램 정적/동적 분류 정형 패턴",
+     "stem_md": "다음 중 **UML 정적(구조) 다이어그램**에 해당하지 **않는** 것은?",
+     "options": [
+      "**클래스 다이어그램(Class Diagram)** — 시스템의 클래스, 속성, 메서드 및 클래스 간의 관계를 표현.",
+      "**객체 다이어그램(Object Diagram)** — 특정 시점에서 객체들의 인스턴스와 그들 간의 관계를 표현.",
+      "**컴포넌트 다이어그램(Component Diagram)** — 소프트웨어 컴포넌트의 구조와 의존 관계를 표현.",
+      "**시퀀스 다이어그램(Sequence Diagram)** — 객체 간 메시지 전달 순서를 시간 흐름으로 표현하는 **동적(행위) 다이어그램**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — UML 2.x 14개 다이어그램은 **구조(정적) 7종 vs 행위(동적) 7종**으로 양분.\n- **구조(정적) 7**: 클래스·객체·컴포넌트·배치(Deployment)·복합체구조(Composite Structure)·패키지·**프로파일(Profile)**.\n- **행위(동적) 7**: 유스케이스·시퀀스·통신(Communication)·상태머신(State Machine)·활동(Activity)·**상호작용개요(Interaction Overview)**·**타이밍(Timing)**.\n- **시퀀스 다이어그램**은 객체 간 메시지 흐름을 **시간순**으로 표현 → **행위(동적)** → 정답.\n- 함정 단골: \"객체 다이어그램은 동적\" → X(정적이고, 특정 시점 스냅샷). \"배치 다이어그램은 동적\" → X(정적)."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2021년 3회 1과목 — GoF 디자인 패턴 분류 정형 패턴",
+     "stem_md": "다음 설명에 해당하는 **GoF 디자인 패턴 분류**로 가장 적절한 것은?\n\n> 객체의 **생성 과정을 캡슐화**하여 객체의 생성과 사용을 분리하는 패턴들의 집합으로, **Singleton, Factory Method, Abstract Factory, Builder, Prototype** 등이 여기에 속한다.",
+     "options": [
+      "**생성(Creational) 패턴** — 객체 생성 메커니즘을 다루며, 객체 생성 시점·방법을 캡슐화하는 5가지 패턴.",
+      "**구조(Structural) 패턴** — Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy 등 클래스·객체 결합을 다루는 7가지 패턴.",
+      "**행위(Behavioral) 패턴** — Observer, Strategy, Command, Iterator, State 등 객체 간 책임 분배·알고리즘을 다루는 11가지 패턴.",
+      "**아키텍처(Architectural) 패턴** — MVC, Layered, Pipe-Filter 등 시스템 전체 구조를 다루는 거시 단위 패턴(GoF 범위 외)."
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — GoF 23개 디자인 패턴 3분류 — **생성(Creational) 5 / 구조(Structural) 7 / 행위(Behavioral) 11**.\n- **생성 5**: Singleton(유일 인스턴스)·Factory Method(서브클래스가 생성)·Abstract Factory(관련 객체군 생성)·Builder(복합 객체 단계별 생성)·Prototype(원본 복제).\n- 구조 7: Adapter·Bridge·Composite·Decorator·Facade·Flyweight·Proxy.\n- 행위 11: Chain of Responsibility·Command·Interpreter·Iterator·Mediator·Memento·Observer·State·Strategy·Template Method·Visitor.\n- **객체 생성을 캡슐화**라는 키워드 → **생성 패턴**으로 즉답.\n- ④ 아키텍처 패턴(MVC·Layered 등)은 GoF 분류에 포함되지 않음 — 거시 규모 패턴."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2021년 1회·2회 1과목 — MVC 아키텍처 패턴 정형 패턴",
+     "stem_md": "**MVC(Model-View-Controller) 아키텍처 패턴**에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**Model**은 애플리케이션의 **데이터와 비즈니스 로직**을 담당하며, View나 Controller에 의존하지 않는다.",
+      "**View**는 **사용자에게 보여지는 화면(UI)** 을 담당하며, Model의 상태를 시각적으로 표현한다.",
+      "**Controller**는 **사용자 입력을 받아 Model을 갱신**하고, 결과를 표시할 View를 선택·제어한다.",
+      "**View는 Model과 직접 강하게 결합**되어야 하며, **Controller를 거치지 않고도** Model의 데이터를 자동으로 변경할 수 있다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — MVC의 핵심은 **3 요소의 분리·약결합(Loose Coupling)**.\n- Model: 데이터·비즈니스 로직.\n- View: UI(화면).\n- Controller: 사용자 입력 → Model 갱신 → View 선택.\n- ④ \"View가 Model과 직접 강하게 결합\"·\"Controller를 거치지 않고 변경\"은 **MVC가 추구하는 분리 원칙에 정면 위배**.\n- 다만 **MVC 변형(MVP·MVVM)** 에서는 View-Model 결합 방식이 다른데, 이는 MVC가 아니라 별도 패턴.\n- ①·②·③은 MVC 정의 그대로."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2021년 2회 2과목 — 스택(Stack) 활용 사례 정형 패턴",
+     "stem_md": "다음 중 **스택(Stack) 자료구조의 활용 사례**로 가장 적절하지 **않은** 것은?",
+     "options": [
+      "**함수 호출 시 복귀 주소(Return Address) 저장** — 함수 호출/반환을 위한 콜 스택(Call Stack) 관리.",
+      "**수식의 후위 표기법(Postfix) 계산 및 중위→후위 변환** — 연산자 우선순위 처리.",
+      "**깊이 우선 탐색(DFS: Depth-First Search)** — 그래프·트리 탐색 시 방문 경로 저장.",
+      "**운영체제의 라운드 로빈(Round Robin) 프로세스 스케줄링** — 시간 할당량(Time Quantum)에 따른 **FIFO 순환 처리(큐 자료구조)**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **스택(LIFO) vs 큐(FIFO)** 활용 사례 구분.\n- 스택: 함수 호출 콜스택, 후위 표기법 계산·변환, 괄호 검사, DFS(재귀/명시적 스택), 백트래킹, 인터럽트 처리, Undo 기능.\n- **큐**: BFS, 프로세스 스케줄링(특히 **Round Robin** = 시간할당량 후 큐 뒤로), 프린터 작업 대기열, 메시지 큐.\n- ④ 라운드 로빈은 **준비 큐(Ready Queue)** 에서 FIFO로 시간할당량씩 처리 → **큐 자료구조** → 정답."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2021년 3회 2과목 — 정렬 알고리즘 평균 시간복잡도 정형 패턴",
+     "stem_md": "다음 정렬 알고리즘 중 **평균 시간복잡도가 O(n²)** 인 것은?",
+     "options": [
+      "**퀵 정렬(Quick Sort)** — 평균 O(n log n), 최악 O(n²).",
+      "**합병 정렬(Merge Sort)** — 평균·최악 모두 O(n log n).",
+      "**힙 정렬(Heap Sort)** — 평균·최악 모두 O(n log n).",
+      "**버블 정렬(Bubble Sort)** — 평균·최악 모두 O(n²), 인접 원소 교환 기반 단순 정렬."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정렬 알고리즘 시간복잡도 정형 표.\n- **O(n²) 평균**: 버블·선택·삽입(단순 정렬 3대장).\n- **O(n log n) 평균**: 퀵(최악 O(n²)·평균 O(n log n))·합병·힙·트리.\n- **O(n+k) 선형**: 계수(Counting)·기수(Radix)·버킷(Bucket) — 비교 기반 X.\n- ④ 버블 정렬은 인접 두 원소 비교·교환을 n-1 패스 반복 → O(n²).\n- 함정: \"퀵 정렬은 항상 O(n log n)\" → X(피벗 편향 시 최악 O(n²))."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2021년 1회 2과목 — 블랙박스/화이트박스 테스트 분류 정형 패턴",
+     "stem_md": "다음 중 **블랙박스 테스트(Black-box Testing) 기법**에 해당하지 **않는** 것은?",
+     "options": [
+      "**동등 분할(Equivalence Partitioning)** — 입력 영역을 동치 클래스로 나누어 대표값으로 테스트.",
+      "**경계값 분석(Boundary Value Analysis)** — 입력 경계 부근(최소·최대·바로 안팎)에서 결함이 자주 발생함을 이용.",
+      "**원인-결과 그래프(Cause-Effect Graphing)** — 입력 조건과 출력 결과의 논리적 관계를 그래프화하여 테스트 케이스 도출.",
+      "**기초 경로 시험(Basis Path Testing)** — 프로그램의 **순환 복잡도(Cyclomatic Complexity)** 를 이용해 독립 경로 수를 산출하는 **화이트박스** 기법."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **블랙박스(명세 기반) vs 화이트박스(구조 기반)** 분류.\n- **블랙박스**: 동등 분할·경계값 분석·원인-결과 그래프·결정 테이블·상태 전이·페어와이즈·오류 추정·비교(Comparison) 테스트.\n- **화이트박스**: 기초 경로(Basis Path)·조건 검사·반복 검사·데이터 흐름·문장·분기·조건·MC/DC 커버리지·**순환 복잡도(Cyclomatic Complexity)** 기반.\n- ④ \"순환 복잡도 → 독립 경로 수 산출\"은 **화이트박스(구조 기반)** 의 대표 기법.\n- 함정: \"원인-결과 그래프는 화이트박스\" → X(입력 조건↔출력 결과 논리는 명세 기반 → 블랙박스)."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2021년 2회·3회 2과목 — 형상관리(SCM) 도구 식별 정형 패턴",
+     "stem_md": "다음 중 **소프트웨어 형상관리(SCM: Software Configuration Management) 도구**에 해당하지 **않는** 것은?",
+     "options": [
+      "**Git** — 리누스 토르발즈가 개발한 분산형(DVCS) 형상관리 도구.",
+      "**Subversion(SVN)** — Apache 재단의 중앙집중형(CVCS) 형상관리 도구.",
+      "**Mercurial(Hg)** — 분산형 형상관리 도구로 Git과 유사한 모델.",
+      "**Jenkins** — **빌드·테스트·배포를 자동화하는 CI/CD(지속적 통합/배포) 도구**로, 형상관리 도구가 아니다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **SCM(형상관리) vs CI/CD(자동화)** 분류.\n- **SCM(Source Control / Version Control)**: Git·SVN·Mercurial·Perforce·CVS·ClearCase.\n- **CI/CD**: **Jenkins**·GitHub Actions·GitLab CI·Travis CI·CircleCI·ArgoCD·Spinnaker — **빌드·테스트·배포 파이프라인 자동화**.\n- ④ Jenkins는 SCM에 저장된 소스를 가져와 **자동 빌드·테스트·배포**하는 도구. **형상관리 도구 X**.\n- 함정: \"Git은 분산형이므로 형상관리 아님\" → X(Git이 가장 대표적 SCM)."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2021년 1회 3과목 — 정규화 단계별 정의 정형 패턴",
+     "stem_md": "**제2정규형(2NF)** 의 조건으로 가장 적절한 것은?",
+     "options": [
+      "모든 도메인이 **원자값(Atomic Value)** 이어야 한다 — 반복그룹·다중값 속성 금지.",
+      "**부분 함수 종속(Partial Functional Dependency)** 을 제거하여, 모든 비주요 속성이 기본키에 **완전 함수 종속**되어야 한다.",
+      "**이행 함수 종속(Transitive Functional Dependency)** 을 제거하여, X→Y→Z 형태의 추이 종속이 없어야 한다.",
+      "릴레이션의 **모든 결정자(Determinant)가 후보키**여야 한다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② — 2NF의 핵심 조건**.\n- 두음 **\"도·부·이·결·다·조\"**: 1NF(**도**메인 원자값) → 2NF(**부**분 함수 종속 제거) → 3NF(**이**행 함수 종속 제거) → BCNF(**결**정자=후보키) → 4NF(**다**치 종속 제거) → 5NF(**조**인 종속 제거).\n- ①은 1NF, ③은 3NF, ④는 BCNF.\n- **2NF는 복합키일 때만 의미**(단일 기본키는 자동으로 2NF). 비주요 속성이 기본키의 일부분에만 종속(부분 함수 종속)되는 상황을 제거."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2021년 2회 3과목 — DDL/DML/DCL 분류 정형 패턴",
+     "stem_md": "다음 중 **DDL(Data Definition Language)** 에 해당하지 **않는** SQL 명령어는?",
+     "options": [
+      "**CREATE** — 테이블·뷰·인덱스 등의 객체를 생성하는 DDL.",
+      "**ALTER** — 기존 테이블의 구조(컬럼 추가·변경·삭제)를 변경하는 DDL.",
+      "**DROP** — 테이블·뷰 등의 객체를 삭제하는 DDL.",
+      "**SELECT** — 테이블의 데이터를 조회하는 **DML(Data Manipulation Language)** 명령어."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — SQL 3분류 두음 **\"정·조·제\"**.\n- **DDL(정의)**: CREATE·ALTER·DROP·TRUNCATE·RENAME.\n- **DML(조작)**: SELECT·INSERT·UPDATE·DELETE·MERGE.\n- **DCL(제어)**: GRANT·REVOKE·(트랜잭션의 COMMIT·ROLLBACK·SAVEPOINT는 TCL로 별도 분류하기도 함).\n- ④ SELECT는 데이터 조회 → **DML**.\n- 함정: \"TRUNCATE는 DML이다\" → X(DDL, Auto-Commit, 롤백 불가)."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2021년 3회 3과목 — 트랜잭션 ACID 특성 매칭 정형 패턴",
+     "stem_md": "**트랜잭션의 ACID 특성** 중 다음 설명에 해당하는 것은?\n\n> 트랜잭션 내의 모든 연산은 **전부 수행되어 데이터베이스에 반영되거나, 하나도 수행되지 않은 것처럼 취소(All-or-Nothing)** 되어야 한다.",
+     "options": [
+      "**원자성(Atomicity)** — 부분 실행을 허용하지 않으며, 실패 시 UNDO로 모든 변경을 되돌린다.",
+      "**일관성(Consistency)** — 트랜잭션 전·후 데이터베이스가 무결성 제약을 만족하는 상태를 유지한다.",
+      "**격리성/고립성(Isolation)** — 동시에 수행되는 여러 트랜잭션이 서로 간섭하지 않는다.",
+      "**지속성/영속성(Durability)** — COMMIT된 결과는 시스템 장애가 발생해도 영구히 보존된다."
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ① — ACID 원자성(Atomicity)**.\n- **두음 \"원·일·격·영\"**: 원자성·일관성·격리성(고립성)·영속성(지속성).\n- **원자성 = All-or-Nothing**: 부분 실행 불가, 실패 시 UNDO로 완전 복구.\n- 일관성: 트랜잭션 전·후 무결성 제약 유지.\n- 격리성: 동시 트랜잭션 간 간섭 차단(격리수준 RU<RC<RR<S).\n- 영속성: COMMIT 후 장애에도 결과 보존(REDO 로그).\n- 함정: \"원자성 = 동시성 제어\" → X(그건 격리성)."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2021년 1회·3회 3과목 — 뷰(View) 특성 정형 패턴",
+     "stem_md": "**뷰(View)** 에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "뷰는 **물리적으로 데이터를 저장하지 않는 가상 테이블**이며, 기본 테이블에 대한 SELECT 결과를 동적으로 보여준다.",
+      "뷰는 **CREATE VIEW** 문과 **SELECT** 질의를 이용해 정의하며, 사용자에게는 일반 테이블처럼 보인다.",
+      "뷰를 통해 **일부 컬럼·일부 행만 노출**하여 데이터 접근 권한을 제한하는 **보안 효과**를 얻을 수 있다.",
+      "뷰는 **항상 INSERT·UPDATE·DELETE 등 모든 갱신 연산이 자유롭게 가능**하며, ALTER VIEW로 정의된 컬럼을 자유롭게 변경할 수 있다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 뷰 갱신 제약.\n- 뷰는 가상 테이블·SELECT로 정의·보안성 향상까지는 모두 맞음.\n- ④ **모든 뷰가 INSERT/UPDATE/DELETE 자유 X** — **갱신 가능 뷰(Updatable View)** 조건 충족 시에만 가능. JOIN·GROUP BY·DISTINCT·집계함수·UNION 포함 뷰는 일반적으로 갱신 불가.\n- 또한 **ALTER VIEW로 컬럼 변경 불가** → 뷰는 DROP 후 재생성해야 컬럼 구조 변경(특정 DBMS는 CREATE OR REPLACE VIEW 지원)."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2021년 2회 4과목 — C 포인터 산술 정형 패턴",
+     "stem_md": "다음 C 프로그램의 출력 결과는?\n\n```c\n#include <stdio.h>\nint main(void) {\n    int a[5] = {1, 2, 3, 4, 5};\n    int *p = a;\n    printf(\"%d\", *(p+2) + *(p+3));\n    return 0;\n}\n```",
+     "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — `p = a`이므로 p는 a[0] 가리킴. `*(p+2) = a[2] = 3`, `*(p+3) = a[3] = 4`, **합 = 7** → ③.\n- 포인터 산술: `p+i`는 **i × sizeof(type)** 만큼 이동(int면 4바이트씩).\n- 배열명 a는 첫 원소 주소(a == &a[0])."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2021년 1회·3회 4과목 — Java 다형성(동적 바인딩) 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 출력 결과는?\n\n```java\nclass A {\n    public void print() { System.out.print(\"A\"); }\n}\nclass B extends A {\n    public void print() { System.out.print(\"B\"); }\n}\npublic class Main {\n    public static void main(String[] args) {\n        A obj = new B();\n        obj.print();\n    }\n}\n```",
+     "options": [
+      "A",
+      "B",
+      "AB",
+      "컴파일 오류"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② — Java 다형성·동적 바인딩**.\n- `A obj = new B();` — **참조형은 A, 실제 객체는 B**.\n- `obj.print()` 호출 시 **실행 시점(런타임)** 에 **실제 객체 타입(B)** 의 메서드가 호출되는 **동적 바인딩(Dynamic Binding) / 메서드 오버라이딩(Overriding)** → \"B\" 출력.\n- **변수 타입(컴파일 타임) ≠ 호출 메서드(런타임)** 가 다형성의 핵심.\n- 함정: \"참조 타입이 A이므로 A.print 호출\" → X(메서드는 동적 바인딩)."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2021년 2회 4과목 — Python 슬라이싱 정형 패턴",
+     "stem_md": "다음 Python 프로그램의 출력 결과는?\n\n```python\na = [1, 2, 3, 4, 5]\nprint(a[1:4])\n```",
+     "options": [
+      "[1, 2, 3]",
+      "[2, 3, 4]",
+      "[1, 2, 3, 4]",
+      "[2, 3, 4, 5]"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — Python 슬라이싱 `a[start:stop]`은 **start 포함·stop 미포함(반열린 구간)**.\n- `a = [1,2,3,4,5]`, `a[1:4]` → 인덱스 1·2·3 → `[2, 3, 4]`.\n- 함정 단골: \"인덱스 4까지 포함\" → X(stop은 미포함)."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2021년 1회·2회 4과목 — 페이지 교체 vs CPU 스케줄링 분류 정형 패턴",
+     "stem_md": "다음 중 **페이지 교체(Page Replacement) 알고리즘**에 해당하지 **않는** 것은?",
+     "options": [
+      "**FIFO(First In First Out)** — 메모리에 먼저 적재된 페이지부터 교체하는 페이지 교체 알고리즘.",
+      "**LRU(Least Recently Used)** — 최근에 가장 오랫동안 사용되지 않은 페이지를 교체하는 알고리즘.",
+      "**LFU(Least Frequently Used)** — 사용 빈도가 가장 낮은 페이지를 교체하는 알고리즘.",
+      "**SJF(Shortest Job First)** — 실행 시간(CPU Burst Time)이 가장 짧은 프로세스를 먼저 처리하는 **CPU 스케줄링** 알고리즘."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **메모리 관리(페이지 교체) vs 프로세스 관리(CPU 스케줄링)** 영역 구분.\n- **페이지 교체 알고리즘**: FIFO·LRU·LFU·**OPT(Optimal·Belady's MIN)**·NUR(Not Used Recently)·**Second Chance**·Clock(시계).\n- **CPU 스케줄링**: FCFS·**SJF(Shortest Job First)**·**SRTF**·우선순위·**RR(Round Robin)**·**MLQ/MLFQ**·HRN.\n- ④ SJF는 CPU Burst Time 최소 우선 → **CPU 스케줄링** → 정답.\n- 함정: \"FIFO는 페이지 교체에만 쓰임\" → X(CPU 스케줄링의 FCFS와 동일 개념)."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2021년 1회 5과목 — XP(eXtreme Programming) 핵심가치 정형 패턴",
+     "stem_md": "**XP(eXtreme Programming)** 의 **5가지 핵심 가치(Core Values)** 에 해당하지 **않는** 것은?",
+     "options": [
+      "**의사소통(Communication)** — 개발자·고객 간 지속적이고 빈번한 대화.",
+      "**단순성(Simplicity)** — 지금 필요한 만큼만 단순하게 설계·구현(YAGNI).",
+      "**피드백(Feedback)** — 짧은 반복 주기로 사용자·테스트의 피드백을 즉시 반영.",
+      "**문서화(Documentation)** — 모든 의사결정과 산출물을 상세 문서로 남기는 활동을 최우선 가치로 둔다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — XP 5가지 핵심 가치: **의사소통·단순성·피드백·용기(Courage)·존중(Respect)**.\n- **문서화는 XP 가치 X** — XP는 **\"동작하는 소프트웨어가 포괄적 문서화보다 우선\"** (애자일 선언문)을 따름. 다만 **필요한 문서는 작성**하되, 문서 자체를 최우선 가치로 두진 않음.\n- XP 12 실천법: Pair Programming·TDD·CI·Refactoring·Small Releases·Simple Design·On-site Customer·Collective Ownership·Coding Standards·40-Hour Week·Planning Game·Metaphor.\n- 함정: \"문서화는 XP의 가치이다\" → X."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2021년 2회 5과목 — 블록체인(Blockchain) 특성 정형 패턴",
+     "stem_md": "**블록체인(Blockchain)** 기술에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**P2P(Peer-to-Peer) 분산 네트워크**에서 거래 정보(블록)를 참여 노드들이 **분산 저장**한다.",
+      "**작업증명(PoW: Proof of Work), 지분증명(PoS: Proof of Stake)** 등의 **합의 알고리즘**으로 블록의 유효성을 검증한다.",
+      "각 블록은 **이전 블록의 해시값(Hash)** 을 포함해 **체인(Chain) 구조**를 형성하므로, 중간 블록의 위변조 시 이후 모든 블록의 해시가 깨진다.",
+      "**중앙 집중식 거래소(Centralized Authority)** 가 모든 거래를 단독으로 검증·승인하며, 참여 노드들은 거래 원장을 보유하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 블록체인의 핵심은 **탈중앙화(Decentralization)**.\n- ①②③은 모두 블록체인 정의·특성(P2P 분산·합의·해시 체인).\n- ④ \"중앙 집중식 거래소가 단독 검증\"은 블록체인의 **탈중앙화 원칙에 정면 위배** — 모든 노드가 원장(Distributed Ledger)을 공유·검증.\n- 블록체인 3대 특성: 분산성·투명성·불변성(Immutability — 해시 체인으로 위변조 즉시 탐지).\n- 함정: \"블록체인은 거래 속도가 빠르다\" → X(합의 비용·블록 생성 시간 때문에 일반적으로 중앙형보다 느림)."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2021년 3회 5과목 — OSI 7계층 기능 매칭 정형 패턴",
+     "stem_md": "**OSI 7계층** 중 다음 기능을 담당하는 계층은?\n\n> **논리적 주소(IP Address)** 를 이용한 **라우팅(Routing)** 과 **패킷 전달(Packet Forwarding)** 을 담당하며, 대표 프로토콜로 **IP, ICMP, ARP, RIP, OSPF, BGP** 등이 있다.",
+     "options": [
+      "**데이터링크 계층(Data Link Layer, Layer 2)** — MAC 주소 기반의 프레임 전송·오류 검출(이더넷, PPP).",
+      "**네트워크 계층(Network Layer, Layer 3)** — IP 주소 기반 라우팅 및 패킷 전달.",
+      "**전송 계층(Transport Layer, Layer 4)** — 종단 간(End-to-End) 신뢰성 있는 전송(TCP, UDP), 포트 번호.",
+      "**세션 계층(Session Layer, Layer 5)** — 세션 설정·유지·종료, 대화 제어(반이중·전이중)."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② — 네트워크 계층(Layer 3)**.\n- L1 물리: 비트 전송(케이블·허브·리피터).\n- L2 데이터링크: **MAC 주소**·프레임·오류 검출(이더넷·PPP·스위치·브리지).\n- **L3 네트워크: IP 주소·라우팅·패킷**(IP·ICMP·ARP·RIP·OSPF·BGP·라우터).\n- L4 전송: 종단 간 신뢰성·**포트 번호**·세그먼트(TCP·UDP).\n- L5 세션: 세션 설정·유지·종료.\n- L6 표현: 데이터 형식·암호화·압축(JPEG·MPEG·SSL/TLS).\n- L7 응용: 사용자 인터페이스(HTTP·FTP·SMTP·DNS·DHCP).\n- **\"라우팅+IP\" = L3** 즉답."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2021년 1회·2회 5과목 — 대칭/공개키 암호 분류 정형 패턴",
+     "stem_md": "다음 중 **공개키(비대칭키) 암호 알고리즘**에 해당하지 **않는** 것은?",
+     "options": [
+      "**RSA** — 큰 정수의 **소인수분해 문제의 어려움**에 기반한 대표적인 공개키 알고리즘(서명·키교환·암호화 모두 가능).",
+      "**ECC(Elliptic Curve Cryptography)** — **타원곡선 이산대수 문제**에 기반한 공개키 알고리즘으로, RSA 대비 짧은 키로 동일 강도 제공.",
+      "**ElGamal** — **이산대수 문제**에 기반한 공개키 알고리즘으로, 서명·암호화에 사용.",
+      "**AES(Advanced Encryption Standard)** — 미국 NIST가 DES를 대체해 채택한 **블록 암호 방식의 대칭키 알고리즘**(키 길이 128/192/256 bit)."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 대칭/공개키(비대칭) 분류.\n- **공개키(비대칭)**: RSA(소인수분해)·ECC(타원곡선)·**ElGamal**(이산대수)·**Diffie-Hellman**(키교환)·**DSA**(전자서명)·**Rabin**·**Knapsack**.\n- **대칭키**:\n  - **블록 암호**: **AES**(128/192/256)·DES(56)·3DES·SEED(국산·128)·ARIA(국산·128/192/256)·HIGHT(국산·64)·LEA(국산·128).\n  - **스트림 암호**: RC4·LFSR.\n- ④ AES는 대칭키 블록 암호 → 공개키 X → 정답.\n- 함정: \"DSA는 키 교환용\" → X(서명 전용·키 교환은 DH)."
+    }
+   ]
   }
  ]
 }
