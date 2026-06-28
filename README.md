@@ -1,10 +1,10 @@
 # 정보처리기사 필기 스터디 로그
 
-> 목표 시험일: **2026-08-07** · D-40
-> 진행: **Day 48/88** (55%)
+> 목표 시험일: **2026-08-07** · D-39
+> 진행: **Day 49/88** (56%)
 
 ## 진행도
-`████████████▒▒▒▒▒▒▒▒▒▒` 48/88
+`████████████▒▒▒▒▒▒▒▒▒▒` 49/88
 
 ## 88일 커리큘럼
 
@@ -68,7 +68,7 @@
 - [x] **Day 45 - 5과목 앱·시스템 보안 통합 (BoF 4종 Stack·Heap·FormatString·Integer/대응 ASLR·DEP=NX·StackCanary/악성코드 11종 Virus숙주·Worm네트워크·Trojan위장·Rootkit은폐·Backdoor통로·Ransomware암호화·Spyware수집·Keylogger키입력·Adware광고·LogicBomb조건·APT표적/Secure SDLC 4모델 MS-SDL·MS / SevenTouchpoints·McGraw / CLASP·OWASP / SAMM·OWASP/KISA 시큐어코딩 7대 카테고리 입력검증·보안기능·시간상태·에러·코드오류·캡슐화·API오용/OWASP Top10 2021 A01~A10 SSRF신규/권한상승 수직·수평·SetUID·Rootkit시퀀스) — Phase 2 2회독 최종일** ← 오늘
 
 ### Phase 3: 5개년 기출 회독 (Day 46-65)
-- [ ] Day 46-49: 2021년 ← **Day 48 진행 중 (3/4)**
+- [x] Day 46-49: 2021년 ← **2021년 회독 완료 (4/4)**
 - [ ] Day 50-53: 2022년
 - [ ] Day 54-57: 2023년
 - [ ] Day 58-61: 2024년
@@ -80,11 +80,10 @@
 - [ ] Day 86-88: 최종 정리
 
 ## 최근 기록 (최대 5개)
+- [Day 49](daily/2026-06-29.md) — **[Phase 3 기출회독] 2021년 정처기 필기 (회독 4/4 — 최종)** 5과목 균등 20문제(잔여 정형 영역 압축). **1과목**(미들웨어 5종 MOM/RPC/ORB/TP-Monitor/WAS — DBMS는 미들웨어 아님 / UI 4원칙 직·유·학·유(이식성 X) / 코드 설계 6종 순차·블록·십진·그룹분류·표의숫자·**연상=의미연상 약어**(난수 X) / CBD = 컴포넌트 재사용·독립성·교체가능) — **2과목**(큐 FIFO·rear삽/front삭·**덱=양쪽 끝**(한쪽만 X) / 동치분할=클래스 대표값 vs 경계값분석 / Git Flow 5종 master/develop/feature/release/**hotfix=master 분기 긴급수정**(develop 장기개발 X) / SOAP=XML 기반 — JSON 전용 아님) — **3과목**(E-R 표기 □◇○─ — **약한 개체 식별 관계=이중 마름모** / **BCNF = 3NF + 모든 결정자가 후보키** / **2PL은 직렬가능성 보장 ≠ 교착상태 방지**(deadlock 발생 가능) / 데이터 모델링 3단계 개념→논리→물리·정규화=논리·반정규화=물리) — **4과목**(C **strncpy(dest,src,3)** = 정확히 n바이트, **널 자동 추가 X** → "BCDAAAAAA" / Java 컬렉션 List·Set·Map·**Queue 인터페이스 존재**(LinkedList·PriorityQueue·ArrayDeque) / Python `[x*x for x in range(1,6) if x%2==0]` = **[4,16]** / TCP/IP 4 ↔ OSI 7: **네트워크액세스 = 데이터링크(2)+물리(1)** 두 계층 합산) — **5과목**(**COCOMO = LOC 기반**(FP 아님)·Organic 50KLOC↓·Semi 300KLOC↓·Embedded 300KLOC↑ / DDoS 4유형 SYN/UDP/ICMP/Smurf — **SQLi는 DDoS 아님**(데이터 변조형 웹 공격) / 클라우드 **3대 모델 = IaaS/PaaS/SaaS**(DaaS는 확장 모델) / **WAF = L7 응용계층 HTTP 검사**(L3 아님)·방화벽L3·4·IDS수동·IPS능동·UTM통합). Phase 3 4일차, 2021년 회독 완료. 내일 2022년 진입.
 - [Day 48](daily/2026-06-28.md) — **Phase 3 기출회독** 2021년 정처기 필기 (회독 3/4) 5과목 균등 20문제(**1과목 결합도 6단계** 약→강 **자·스·제·외·공·내**(자료 결합도 최약·이상) / **DFD 4구성요소** 프로세스·자료흐름·자료저장소·단말(제어흐름 X) / **HIPO 3종** 가시(VTOC)·총체(Overview)·세부(Detail) / **FP** = 알브레히트·언어독립·5종 EI/EO/EQ/ILF/EIF — **2과목 해시 충돌 4종** 개방주소법·체이닝·재해싱·이중해싱("버블 충돌" 가짜) / **Big-O = 점근 상한**·Big-Ω=하한·Big-Θ=상하한 동시 / **빌드 자동화** Jenkins/Maven/Gradle/Ant(JUnit은 테스트 프레임워크) / **인스펙션 = 모더레이터·체크리스트·공식** vs 워크스루=비공식 — **3과목 트랜잭션 상태 5종** 활동→부분완료→완료/실패→철회(Failed→Committed 불가) / **뷰 갱신 제약**(GROUP BY·DISTINCT·JOIN 포함 시 갱신 불가) / **상관 서브쿼리**(외부 행마다 반복 실행) vs 비상관(1회 실행) / **회복 기법** 즉시(UNDO+REDO)·지연(REDO만)·**그림자 페이징=로그 불필요**·검사점=회복 시간 단축 — **4과목 비트 연산** 0x0F&0x3A=0x0A·OR=0x3F·XOR=0x35 / **Java 예외** Checked=처리 필수 vs Unchecked=강제 X / **Python lambda+filter/map** [1,9,25] / **CSMA/CA=무선 LAN**(RTS/CTS·사전 회피) vs CSMA/CD=유선 이더넷 — **5과목 CMMI** "초·관·정·정·최"(Initial→Managed→Defined→Quantitatively Managed→Optimizing) vs CMM(Repeatable 포함)·SPICE(0~5) / **CC EAL1~7**(EAL1=기능 시험·EAL7=정형 검증) / **BCP/DRP의 RTO**(목표 복구 시간)·RPO(목표 복구 시점=백업 주기)·MTD·**RTO/RPO 0 강제 X** / **SSO 핵심** Kerberos(티켓·KDC)·SAML(XML)·OAuth/OIDC(SHA-256은 해시 함수)) (Phase 3) — 2021 회독 3/4
 - [Day 47](daily/2026-06-27.md) — **Phase 3 기출회독** 2021년 정처기 필기 (회독 2/4) 5과목 균등 20문제(**1과목 SOLID OCP**("확장 개방·수정 폐쇄") / 응집도 7단계 약→강 **우·논·시·절·통·순·기**(기능적 최강) / **럼바우 OMT 3단계**(객체·동적·기능) / **Singleton**(인스턴스 유일+전역 접근) — **2과목 중위 순회**(좌·루·우) / 화이트박스 커버리지 약→강 **문장→분기→조건→분기/조건→MC/DC→다중조건** / **이진 탐색 O(log n)** / **상향식=드라이버, 하향식=스텁** — **3과목 대체키**(후보키 중 PK로 안 뽑힌 나머지) / 이상 현상 3종 **삽입·삭제·갱신**("조회 이상" 함정) / 인덱스 단점(저장공간+DML 저하) / **관계대수** σSELECT(행)·πPROJECT(열)·⋈JOIN·÷DIVISION — **4과목 strlen vs sizeof**(HELLO → 5 vs 6 NULL 포함) / **Java 인터페이스 생성자·new 불가** / Python dict get(k, default) / **대기→실행 직접 전이 불가**(준비 거쳐야 함) — **5과목 Scrum 3역할** PO·SM·DevTeam(PM 아님) / IoT 무선 ZigBee·BLE·LoRa(HTTP/2 아님) / **SQLi 1순위 = Prepared Statement** / **RAID 6 = 이중 패리티 → 2개 복구**) (Phase 3) — 2021 회독 2/4
 - [Day 46](daily/2026-06-26.md) — **[Phase 3 기출회독] 2021년 정처기 필기 기출 (회독 1/4)** — 5과목 × 4문제 균등 20문제. 1과목(비기능 요구사항 분류 / UML 정적·동적 7+7 / GoF 3분류 / MVC 약결합) · 2과목(스택 vs 큐 활용 / 정렬 평균 O(n²) vs O(n log n) / 블랙박스 vs 화이트박스 / SCM vs CI/CD) · 3과목(2NF 부분 함수 종속 / DDL "정·조·제" / ACID 원자성 All-or-Nothing / 뷰 갱신 제약) · 4과목(C 포인터 산술 / Java 동적 바인딩 / Python 슬라이싱 반열린 구간 / 페이지 교체 vs CPU 스케줄링) · 5과목(XP 5가지 핵심가치 의·단·피·용·존 / 블록체인 탈중앙화 / OSI L3 네트워크 / 공개키 RSA·ECC·ElGamal·DH·DSA vs 대칭키 AES·DES·SEED·ARIA·HIGHT·LEA). Phase 3 1회독 첫날.
-- [Day 42](daily/2026-06-22.md) — 5과목 개발 방법론 + 비용 산정 + 일정 관리 2회독 통합(**비용 산정 3분류 두음 "하·상·수"** 하향식(전문가 감정·**델파이 — 익명 라운드 + 중재자 의견 수렴**) / 상향식(LOC·단계별 인월수 M/M·표준 작업 분배) / 수학적(COCOMO·Putnam·Function Point) — **델파이를 상향식·수학적으로 분류** 단골 함정·**LOC 노력(M/M) 공식** 추정 LOC = **(낙관 + 4×기대 + 비관) / 6** (PERT 3점 추정 가중평균 동일) → 노력 = 추정 LOC ÷ 1인당 월 생산 LOC·**COCOMO 3유형** Organic(**5만 라인 이하**·일반 업무) / Semi-detached(**30만 라인 이하**·트랜잭션·DBMS·컴파일러) / Embedded(**30만 라인 초과**·실시간 OS·항공우주) + **3상세도** Basic/Intermediate/Detailed — **Functional·Sequential·Procedural** 가짜 4번째 유형 끼워넣기 단골·**수학적 기법 ↔ 자동화 도구 1:1 매칭** **Putnam — Rayleigh-Norden 곡선 + SLIM** / **FP — Albrecht 제안 + ESTIMACS** / **COCOMO — Boehm 제안 + LOC 기반** — 델파이에 자동화 도구 매칭은 X·**Function Point 5종 기능 단위** EI(외부입력) / EO(외부출력) / EQ(외부조회) / ILF(내부논리파일) / EIF(외부인터페이스파일) — **알브레히트 제안·언어 독립적·기능 기반**·**CMMI 5단계 두음 "초·관·정·정·최"** Initial(초기·1) → **Managed(관리·2)** → **Defined(정의·3)** → Quantitatively Managed(정량적 관리·4) → Optimizing(최적화·5) — **Managed ↔ Defined 순서 뒤바꿈**("Initial→Defined→Managed") 단골 오답·**SPICE(ISO/IEC 15504) 6단계 두음 "불·수·관·확·예·최"** Incomplete(불완전·0) → Performed(수행·1) → Managed(관리·2) → Established(확립·3) → Predictable(예측·4) → Optimizing(최적화·5) — **SPICE는 0단계부터** + **"정형(Formal)" 가짜 단계** 끼워넣기 단골·**CMMI(SEI·5단계·1~5) vs SPICE(ISO·6단계·0~5)** 모델 출처·시작단계 비교·**V&V 정의 1:1 매칭** **Verification(검증) = "Building the product right"(올바르게 만드는가) — 단계 산출물 ↔ 명세·개발자 관점** vs **Validation(확인) = "Building the right product"(올바른 제품 만드는가) — 최종 시스템 ↔ 요구사항·사용자 관점** — **두 슬로건 뒤바꿈** 단골 함정·**일정 관리 3종** PERT(3점 추정·**확률적**·불확실 R&D) / **CPM(임계 경로 = 가장 긴 경로 = Slack 0**·확정적·일정 단축 우선 검토) / Gantt(**막대 도표·시간선** 시각화) — **"임계 경로 = 가장 짧은 경로"·"임계 경로 작업 Slack 최대"** 정반대 진술 단골 오답) (5과목) — Phase 2 5과목 시작
-- [Day 41](daily/2026-06-21.md) — 3과목 트랜잭션 ACID + 격리수준 + 락 + 회복 + 분산 DB + NoSQL 2회독 통합(ACID 원·일·격·영, 트랜잭션 상태 5종 Failed→Committed 불가, 격리수준 4단계 RU<RC<RR<S, 이상현상 Dirty/Non-Repeatable/Phantom, 락 S/X·2PL, 회복 즉시(UNDO+REDO)·지연(REDO만)·검사점·그림자페이징, 분산DB 4투명성, NoSQL 4유형, CAP 2/3) (3과목) — Phase 2 3과목 마무리
 
 ---
 자동 생성: 매일 새벽 4시 KST.
