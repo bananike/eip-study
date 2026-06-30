@@ -6380,6 +6380,274 @@
      "explanation_md": "**정답 ④** — **RSA·ECC**는 **비대칭키(공개키)** 알고리즘, **AES**는 **대칭키** 알고리즘이다. 보기 ④는 정확히 반대로 서술.\n- 함정: 대칭키 키개수 = n(n-1)/2, 비대칭키 키개수 = 2n. AES는 미국 NIST 표준 대칭키(128/192/256비트). RSA는 큰 소수 인수분해 어려움, ECC는 타원곡선 이산로그 어려움."
     }
    ]
+  },
+  {
+   "day": 51,
+   "date": "2026-07-01",
+   "subject": "Phase 3 기출회독",
+   "topic": "2022년 정보처리기사 필기 기출 (회독 2/4) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2022년 1회 1과목 — 요구공학(Requirements Engineering) 4단계 정형 패턴",
+     "stem_md": "다음 중 **요구공학(Requirements Engineering)** 의 단계 순서로 가장 옳은 것은?",
+     "options": [
+      "**도출(Elicitation) → 분석(Analysis) → 명세(Specification) → 검증(Validation)**",
+      "분석 → 도출 → 검증 → 명세",
+      "명세 → 도출 → 분석 → 검증",
+      "검증 → 분석 → 도출 → 명세"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — 요구공학(RE) 4단계 = **도출(Elicitation) → 분석(Analysis) → 명세(Specification) → 검증(Validation)**. 일부 교재는 **관리(Management)** 를 추가해 5단계로 본다.\n- 함정: 도출 기법 = 인터뷰·브레인스토밍·시나리오·프로토타이핑·관찰·설문 / 명세 산출물 = SRS(Software Requirements Specification)."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2022년 2회 1과목 — UML 다이어그램 13종 분류 정형 패턴",
+     "stem_md": "다음 중 UML 2.x의 **다이어그램 13종** 분류로 옳지 **않은** 것은?",
+     "options": [
+      "**구조(Structural) 다이어그램 6종** — 클래스(Class), 객체(Object), 컴포넌트(Component), 배치(Deployment), 복합 구조(Composite Structure), 패키지(Package).",
+      "**행위(Behavioral) 다이어그램 7종** — 유스케이스(Use Case), 활동(Activity), 상태머신(State Machine), 시퀀스(Sequence), 통신(Communication), 타이밍(Timing), 상호작용 개요(Interaction Overview).",
+      "**시퀀스 다이어그램**은 객체 간 **메시지 흐름을 시간 순서**로 보여주는 **상호작용(Interaction)** 다이어그램이다.",
+      "**클래스 다이어그램**은 **시간에 따른 객체의 상태 변화**를 표현하는 **행위 다이어그램**으로, 메시지 전달 순서를 나타낸다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **클래스 다이어그램**은 **구조(Structural) 다이어그램**으로 **시스템의 정적 구조**(클래스·속성·메서드·관계)를 표현. \"시간에 따른 상태 변화\"는 **상태머신 다이어그램**(행위 다이어그램).\n- 함정: UML 13종 = 구조 6(Class·Object·Component·Deployment·Composite Structure·Package) + 행위 7(Use Case·Activity·State Machine·Sequence·Communication·Timing·Interaction Overview)."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2022년 3회 1과목 — MVC(Model-View-Controller) 아키텍처 패턴 정형 패턴",
+     "stem_md": "다음 중 **MVC(Model-View-Controller)** 아키텍처 패턴에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**Model** — 애플리케이션의 **데이터·비즈니스 로직·상태**를 담당한다. DB·도메인 객체가 위치.",
+      "**View** — 사용자에게 **데이터를 표시**하는 UI 계층. Model의 변경을 구독(옵저버)해 갱신한다.",
+      "**Controller** — 사용자 입력을 받아 **Model을 갱신**하고 **View를 선택**해 응답을 구성한다.",
+      "View는 **DB에 직접 SQL을 실행**하고 **트랜잭션을 관리**하며, Model을 거치지 않고 Controller에 결과를 반환한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **View는 UI 표시**만 담당. **DB 접근·SQL·트랜잭션은 Model**의 책임. View가 직접 DB에 SQL을 실행하는 것은 **MVC 원칙 위반**이며 강한 결합을 만든다.\n- 함정: MVC = 표현(View)·로직(Controller)·데이터(Model) 분리. 변형 = MVP(Presenter)·MVVM(ViewModel·Two-way binding)."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2022년 1회 1과목 — 럼바우(Rumbaugh) OMT 분석 3모델 정형 패턴",
+     "stem_md": "다음 중 **럼바우(Rumbaugh)** 의 **객체지향 분석(OMT, Object Modeling Technique)** 3가지 모델링과 산출물 매칭으로 옳지 **않은** 것은?",
+     "options": [
+      "**객체(Object) 모델링** — **객체 다이어그램(클래스 다이어그램)** 으로 시스템의 **정적 구조**(객체·속성·관계)를 표현한다.",
+      "**동적(Dynamic) 모델링** — **상태 다이어그램(State Diagram)** 으로 시간 흐름에 따른 **객체의 상태 변화**를 표현한다.",
+      "**기능(Functional) 모델링** — **자료 흐름도(DFD, Data Flow Diagram)** 로 데이터의 **변환 과정**(입력→처리→출력)을 표현한다.",
+      "**럼바우 OMT는 단일 모델링만 사용**하며, 객체·동적·기능 모델링은 **부치(Booch) 기법**에서만 정의된 분류다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **럼바우(Rumbaugh)** 의 **OMT** = **객체(Object)·동적(Dynamic)·기능(Functional)** 3모델링 기법. **부치(Booch)는 다른 OO 분석 방법론**(클래스/객체/모듈/프로세스 다이어그램).\n- 함정: 객체 모델링 = 클래스/객체 다이어그램 / 동적 모델링 = 상태 다이어그램 / 기능 모델링 = DFD(자료 흐름도)."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2022년 2회 2과목 — 큐(Queue) 자료구조 정형 패턴",
+     "stem_md": "다음 중 **큐(Queue)** 에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**FIFO(First In First Out, 선입선출)** 구조로 한쪽 끝(rear)에서 삽입하고 반대쪽 끝(front)에서 삭제한다.",
+      "주요 연산은 **enqueue(삽입)·dequeue(삭제)·front(앞 조회)·isEmpty** 이다.",
+      "**BFS(너비 우선 탐색)**, **프린터 작업 대기열**, **CPU 라운드 로빈 스케줄링**, **메시지 큐(RabbitMQ·Kafka)** 등에 사용된다.",
+      "**LIFO(Last In First Out, 후입선출)** 구조이므로 한쪽 끝에서만 삽입·삭제가 일어나며, **DFS·함수 호출 스택**에 사용된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 큐는 **FIFO(선입선출)**. **LIFO·함수 호출 스택**은 **스택(Stack)** 의 특징. 어제 Day 50 문제 5(스택)와 반대 관점으로 묶이는 단골 함정.\n- 함정: 큐 응용 = BFS·프린터·라운드로빈·메시지 큐 / 스택 응용 = DFS·함수 호출·후위 표기·괄호 검사."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2022년 3회 2과목 — 이진트리 순회(Tree Traversal) 정형 패턴",
+     "stem_md": "다음 이진트리에 대한 **중위(Inorder) 순회** 결과로 옳은 것은?\n\n```\n        A\n       / \\\n      B   C\n     / \\   \\\n    D   E   F\n```",
+     "options": [
+      "A B D E C F (전위 Preorder)",
+      "**D B E A C F (중위 Inorder)**",
+      "D E B F C A (후위 Postorder)",
+      "A B C D E F (레벨순회 Level-order)"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② (D B E A C F)** — 중위(Inorder) = **왼쪽 → 루트 → 오른쪽**.\n  - A의 왼쪽 서브트리(B의 Inorder = D B E) → A → 오른쪽 서브트리(C의 Inorder = C F) = **D B E A C F**.\n- 함정: 전위(Preorder) = 루트→좌→우 = A B D E C F / 후위(Postorder) = 좌→우→루트 = D E B F C A / 레벨순회(BFS) = A B C D E F."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2022년 1회 2과목 — 블랙박스 테스트 동치분할 정형 패턴",
+     "stem_md": "다음 중 **블랙박스 테스트(Black-box Test)** 의 **동치 분할(Equivalence Partitioning)** 에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "프로그램의 **내부 구조·소스 코드**를 보고 **모든 명령문**이 실행되도록 테스트를 설계하는 화이트박스 기법이다.",
+      "입력 도메인을 **유사한 동작이 기대되는 그룹(동치 클래스)** 으로 분할하고 **각 그룹의 대표값 1개**로 테스트하는 블랙박스 기법이다.",
+      "분기의 **참·거짓** 결과가 모두 한 번 이상 실행되도록 하는 **분기(Branch) 커버리지** 기법이다.",
+      "입력의 **경계 부근(min, min-1, max, max+1)** 만 집중 테스트하는 **경계값 분석(BVA)** 기법이다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — **동치 분할(Equivalence Partitioning)** = 입력 도메인을 **유사 동작 그룹**으로 나눠 **그룹당 대표값 1개**로 테스트. 블랙박스 기법. ① 화이트박스, ③ 분기 커버리지(화이트박스), ④ 경계값 분석(블랙박스이지만 다른 기법).\n- 함정: 블랙박스 = 동치분할·경계값·결정테이블·원인결과그래프·페어와이즈·상태전이 / 화이트박스 = 기초경로·구문/분기/조건/MC/DC 커버리지."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2022년 2회 2과목 — 통합 테스트(Integration Test) 정형 패턴",
+     "stem_md": "다음 중 **통합 테스트(Integration Test)** 의 방식에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**빅뱅(Big-bang) 통합** — 모듈을 **한꺼번에 통합**해 테스트. 결함 위치 추적이 어려워 소규모에만 적합.",
+      "**하향식(Top-down) 통합** — 상위 모듈부터 통합하며 **스텁(Stub)** 으로 하위 모듈을 대체한다.",
+      "**상향식(Bottom-up) 통합** — 하위 모듈부터 통합하며 **드라이버(Driver)** 로 상위 모듈을 대체한다.",
+      "**샌드위치(Sandwich)** = 하향식·상향식을 **혼합**한 방식이며, 스텁·드라이버를 **모두 사용하지 않는** 순수 한 방향 접근법이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **Sandwich(혼합) 통합**은 하향식+상향식을 **동시 진행**해서 **스텁(Stub)·드라이버(Driver)를 모두 사용**한다. \"스텁·드라이버 모두 사용 안 함\"은 정의 위반.\n- 함정: Stub = 하위 모듈 대체(하향식) / Driver = 상위 모듈 대체(상향식). 회귀 테스트 = 변경 후 기존 기능 재검증."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2022년 3회 3과목 — 관계대수(Relational Algebra) 연산자 정형 패턴",
+     "stem_md": "다음 중 **관계대수(Relational Algebra)** 의 **순수 관계 연산자**와 기호 매칭으로 옳지 **않은** 것은?",
+     "options": [
+      "**셀렉트(Select, σ)** — 행(튜플) 단위로 조건에 맞는 튜플을 추출. 예) σ_나이>30(EMP).",
+      "**프로젝트(Project, π)** — 열(애트리뷰트) 단위로 지정한 속성만 추출. 예) π_이름,부서(EMP).",
+      "**조인(Join, ⨝)** — 공통 속성으로 두 릴레이션을 결합. 자연 조인·세타 조인·동등 조인·외부 조인 등.",
+      "**디비전(Division, ÷)** — **두 릴레이션의 합집합**을 구하는 연산이며 기호는 **∪(Union)** 와 동일하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **디비전(÷, Division)** 은 \"X 릴레이션이 Y의 모든 값에 대응하는 X 값을 추출\"하는 **나누기 연산**. **합집합(∪)** 과는 다른 연산이며, 기호도 ÷ vs ∪로 명확히 구분된다.\n- 함정: 순수 관계 연산자 = **Select(σ)·Project(π)·Join(⨝)·Division(÷)** / 일반 집합 연산자 = **합집합(∪)·교집합(∩)·차집합(−)·카티션곱(×)**."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2022년 1회 3과목 — 뷰(View) 특성 정형 패턴",
+     "stem_md": "다음 중 **뷰(View)** 에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "하나 이상의 **기본 테이블**로부터 유도된 **가상 테이블(Virtual Table)** 로, 자체 데이터를 저장하지 않는다.",
+      "**CREATE VIEW** 로 생성하고 **DROP VIEW** 로 제거한다. 정의를 직접 **ALTER VIEW** 로 수정하는 표준은 제한적이다.",
+      "뷰는 **보안(접근 제어)·논리적 독립성·복잡한 질의 단순화**에 유리하나, 일부 뷰는 **갱신(INSERT/UPDATE/DELETE) 제약**이 있다.",
+      "뷰는 항상 **자체적인 인덱스(B-Tree·Hash)** 를 가지며, **물리적인 디스크 공간**을 차지해 기본 테이블과 독립적으로 데이터를 저장한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **뷰는 가상 테이블**이며 **자체 데이터·물리적 디스크 공간을 갖지 않는다**. 매번 정의된 SELECT 문을 실행해 결과를 제공. **자체 인덱스는 없음**(머티리얼라이즈드 뷰는 예외).\n- 함정: 머티리얼라이즈드 뷰(Materialized View) = 실제 데이터를 디스크에 저장·인덱스 가능. 일반 View와 구분 필요."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2022년 2회 3과목 — 인덱스(Index) 종류 정형 패턴",
+     "stem_md": "다음 중 **데이터베이스 인덱스(Index)** 의 종류와 특성 매칭으로 옳지 **않은** 것은?",
+     "options": [
+      "**B-Tree 인덱스** — 가장 일반적인 인덱스. **균형 트리**로 **범위 검색(BETWEEN, <, >)** 과 **정렬**에 유리.",
+      "**Hash 인덱스** — **해시 함수**로 키를 버킷에 매핑. **= 등가 검색**은 매우 빠르나 **범위 검색에는 부적합**.",
+      "**Bitmap 인덱스** — 카디널리티(고유값 수)가 **낮은 컬럼**(성별·결혼여부 등)에 유리. **OLAP/DW**에서 자주 사용.",
+      "**B-Tree 인덱스**는 **카디널리티가 매우 낮은 컬럼**(성별·Y/N)에만 사용해야 하고, **범위 검색·정렬**에는 절대 사용할 수 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **B-Tree는 가장 범용적**인 인덱스로 **= 검색·범위 검색·정렬**에 모두 강하다. **카디널리티 낮은 컬럼에는 Bitmap이 유리**(B-Tree는 OK지만 비효율). \"B-Tree는 범위 검색 불가\"는 명백한 오류.\n- 함정: Hash = 등가만 강함, 범위 X / Bitmap = OLTP에 부적합(잠금·갱신 비용), DW·OLAP에 유리 / Composite Index = 컬럼 순서 중요."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2022년 3회 3과목 — 키(Key) 종류 정형 패턴",
+     "stem_md": "다음 중 관계형 DB의 **키(Key) 종류**에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**슈퍼키(Super Key)** — 튜플을 **유일하게 식별**할 수 있는 속성(들). 유일성만 만족(최소성 미보장).",
+      "**후보키(Candidate Key)** — 유일성 + **최소성**을 모두 만족하는 키. 기본키 후보 집합.",
+      "**기본키(Primary Key)** — 후보키 중 **하나를 선택**한 키. **NULL 불가·중복 불가**.",
+      "**외래키(Foreign Key)** — 자기 자신을 **유일하게 식별**하는 키로, **항상 NULL 불가**이며 다른 테이블 참조와 무관하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **외래키(Foreign Key)** 는 **다른 테이블의 기본키를 참조**하는 키. **자기 식별이 아니라 참조(관계)** 가 본질이며, **NULL 허용 가능**(참조 무결성에서 부분 NULL 허용).\n- 함정: 슈퍼키 ⊃ 후보키 ⊃ 기본키. 대체키(Alternate Key) = 후보키 중 기본키로 선택되지 않은 키. 외래키는 참조 무결성 보장."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2022년 1회 4과목 — Java 다형성(오버로딩 vs 오버라이딩) 정형 패턴",
+     "stem_md": "다음 Java 코드의 출력 결과로 가장 옳은 것은?\n\n```java\nclass Parent {\n    void show() { System.out.println(\"Parent\"); }\n    void show(int n) { System.out.println(\"Parent \" + n); }\n}\nclass Child extends Parent {\n    @Override\n    void show() { System.out.println(\"Child\"); }\n}\npublic class Main {\n    public static void main(String[] args) {\n        Parent p = new Child();\n        p.show();\n        p.show(10);\n    }\n}\n```",
+     "options": [
+      "Parent / Parent 10",
+      "Child / Child 10",
+      "**Child / Parent 10**",
+      "Parent / Child 10"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③ (Child / Parent 10)** — `Parent p = new Child()` → 실제 객체는 Child.\n  - `p.show()` → 오버라이딩(Override)된 메서드는 **동적 디스패치**(런타임에 실제 객체 메서드 호출) → **Child** 출력.\n  - `p.show(10)` → Child는 `show(int)`를 오버라이딩하지 않음 → 컴파일 타임에 Parent의 `show(int)` 결정 → **Parent 10** 출력.\n- 함정: 오버로딩(Overloading) = 컴파일 타임(같은 이름 다른 시그니처) / 오버라이딩(Overriding) = 런타임(같은 시그니처 재정의)."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2022년 2회 4과목 — Python 슬라이싱(Slicing) 정형 패턴",
+     "stem_md": "다음 Python 코드의 출력 결과로 가장 옳은 것은?\n\n```python\ns = \"abcdefg\"\nprint(s[1:5], s[::2], s[::-1])\n```",
+     "options": [
+      "abcde aceg gfedcba",
+      "**bcde aceg gfedcba**",
+      "bcde abcdefg gfedcba",
+      "bcdef bdf gfedcba"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② (bcde aceg gfedcba)** —\n  - `s[1:5]` = 인덱스 1~4(끝 미포함) = **\"bcde\"**.\n  - `s[::2]` = 처음부터 끝까지 2씩 = \"a c e g\" = **\"aceg\"**.\n  - `s[::-1]` = 역순 = **\"gfedcba\"**.\n- 함정: Python 슬라이싱 `s[start:stop:step]` — stop은 미포함(반열린 구간). step 음수면 역순."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2022년 3회 4과목 — OS 페이지 교체(Page Replacement) LRU 정형 패턴",
+     "stem_md": "페이지 프레임 수가 **3**이고 페이지 참조열이 **1, 2, 3, 1, 2, 4, 1, 2, 5** 일 때, **LRU(Least Recently Used)** 알고리즘으로 페이지를 교체한다면 **페이지 부재(Page Fault) 횟수**는 몇 번인가? (초기 프레임은 비어 있다고 가정)",
+     "options": [
+      "4",
+      "**5**",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② (5번)** — 페이지 프레임 3개, 참조열 `1, 2, 3, 1, 2, 4, 1, 2, 5`, LRU 시뮬레이션:\n\n| 참조 | 프레임 상태 (앞=MRU) | Fault? |\n|---|---|---|\n| 1 | [1] | ✅ (1) |\n| 2 | [2, 1] | ✅ (2) |\n| 3 | [3, 2, 1] | ✅ (3) |\n| 1 | [1, 3, 2] | (히트) |\n| 2 | [2, 1, 3] | (히트) |\n| 4 | [4, 2, 1] (3=LRU 추방) | ✅ (4) |\n| 1 | [1, 4, 2] | (히트) |\n| 2 | [2, 1, 4] | (히트) |\n| 5 | [5, 2, 1] (4=LRU 추방) | ✅ (5) |\n\n→ Page Fault 총 **5회**.\n- 함정: LRU vs FIFO 차이 = LRU는 \"가장 오래 사용 안 한\" / FIFO는 \"가장 먼저 들어온\". Belady's Anomaly는 FIFO에서만 발생."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2022년 1회 4과목 — IP 주소(IPv4 클래스 vs IPv6) 정형 패턴",
+     "stem_md": "다음 중 **IPv4·IPv6 주소 체계**에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**IPv4** 는 **32비트** 주소 체계로 약 **43억 개**(2^32) 주소를 표현하며, 점(.)으로 구분된 4개 옥텟으로 표기한다.",
+      "**IPv4 클래스** = A(0~127)·B(128~191)·C(192~223)·D(224~239 멀티캐스트)·E(240~255 예약).",
+      "**IPv6** 는 **128비트** 주소 체계로 약 **3.4×10^38 개** 주소를 표현하며, 콜론(:)으로 구분된 8개 16비트 블록(16진수)으로 표기한다.",
+      "**IPv6는 16비트 주소 체계**이며 **65536개 주소**만 표현할 수 있어 IPv4보다 주소 공간이 **더 좁다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **IPv6는 128비트** 주소(2^128 ≈ 3.4×10^38개)로 IPv4(32비트)보다 훨씬 큰 주소 공간 제공. \"16비트·65536개\"는 명백한 오류(16비트는 IPv6의 블록 1개 크기).\n- 함정: IPv6 표기 = 8개 16비트 그룹(콜론 구분), 16진수 / IPv4 사설망 = 10.x, 172.16~31.x, 192.168.x / IPv6 축약 = `::`로 연속 0 생략(1회만)."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2022년 2회 5과목 — SQL Injection 정형 패턴",
+     "stem_md": "다음 중 **SQL Injection** 공격과 **방어 기법**에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "공격자가 **사용자 입력값**에 **악성 SQL 구문**을 삽입해 인증 우회·데이터 탈취·DB 조작을 시도하는 **인젝션** 공격이다.",
+      "대표 패턴: `' OR '1'='1` 같은 **항상 참 조건**으로 WHERE 조건을 무력화하거나 **UNION SELECT**로 다른 테이블 노출.",
+      "방어 = **PreparedStatement(파라미터 바인딩)** ·**입력 검증(화이트리스트)** ·**최소 권한 원칙(DB 계정 분리)** ·**ORM 사용**.",
+      "방어를 위해 **모든 사용자 입력값을 그대로 SQL 문자열에 연결**해서 사용해야 하며, **PreparedStatement 사용은 권장되지 않는다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **PreparedStatement(파라미터 바인딩)** 는 SQL Injection 방어의 **정석**. \"그대로 문자열 연결\"은 오히려 **취약점을 만드는 안티패턴**.\n- 함정: 방어 = PreparedStatement·바인딩·입력 검증·최소 권한·ORM·WAF / 공격 패턴 = Boolean-based·Union-based·Error-based·Time-based Blind SQLi."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2022년 3회 5과목 — XSS(Cross-Site Scripting) 3종 정형 패턴",
+     "stem_md": "다음 중 **XSS(Cross-Site Scripting)** 의 3가지 유형에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**Stored(저장형) XSS** — 악성 스크립트가 **DB·게시판·댓글**에 **영구 저장**되어 다른 사용자가 페이지 조회 시 실행된다.",
+      "**Reflected(반사형) XSS** — URL 파라미터에 스크립트를 넣어 **즉시 반사**해 실행. 피싱 링크와 결합되는 경우가 많다.",
+      "**DOM-based XSS** — 서버를 거치지 않고 **클라이언트 측 JavaScript(DOM 조작)** 만으로 실행되는 XSS.",
+      "방어를 위해서는 **출력값 인코딩(escape)** ·**CSP 헤더**·**입력 검증**보다 **모든 사용자 입력을 HTML 그대로 출력**해야 하며, 인코딩은 보안에 해롭다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — XSS 방어의 핵심은 **출력 인코딩(HTML entity escape)** + **CSP(Content Security Policy)** + **입력 검증**. \"인코딩이 해롭다·그대로 출력\"은 정확히 반대.\n- 함정: XSS 방어 = HTML/JS/URL Encoding, CSP Header, HttpOnly Cookie(XSS로 쿠키 탈취 방지), Sanitization 라이브러리(DOMPurify) / OWASP Top 10에서는 A03 Injection 카테고리에 포함."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2022년 1회 5과목 — DRP(재해복구) / BCP(업무연속성) 정형 패턴",
+     "stem_md": "다음 중 **BCP(Business Continuity Plan, 업무 연속성 계획)** 와 **DRP(Disaster Recovery Plan, 재해 복구 계획)** 에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**BCP** 는 재해·장애 발생 시 **핵심 비즈니스 기능을 지속**하기 위한 **포괄적인 계획**으로, 인력·프로세스·IT 전체를 포함한다.",
+      "**DRP** 는 BCP의 **IT/시스템 복구** 부분에 집중한 하위 계획으로, 데이터 백업·복구 절차·대체 사이트 운영을 다룬다.",
+      "**RTO(Recovery Time Objective)** = 복구 목표 **시간**, **RPO(Recovery Point Objective)** = 복구 목표 **시점**(허용 가능한 데이터 손실 범위).",
+      "DRP는 BCP보다 **상위 개념**이며 인적·조직·외부 협력사 전체를 다루는 **경영 계획**이고, BCP는 단순한 **IT 백업 매뉴얼**일 뿐이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **BCP가 상위 개념**(경영·인력·프로세스·IT 전체), **DRP는 BCP의 IT 복구 하위 계획**. 보기 ④는 둘의 관계를 정확히 **반대로 서술**한 함정.\n- 함정: RTO(Recovery Time Objective) = 복구 시간 / RPO(Recovery Point Objective) = 복구 시점(허용 손실) / MTTR/MTBF 함께 등장. 대체 사이트 = Hot(상시)·Warm(부분)·Cold(최소) Site."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2022년 2회 5과목 — SSO/OAuth/SAML 인증 정형 패턴",
+     "stem_md": "다음 중 **SSO(Single Sign-On)** 와 관련된 **인증·인가 프로토콜**에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "**SSO(Single Sign-On)** — **한 번의 로그인**으로 여러 서비스를 사용할 수 있게 하는 인증 방식.",
+      "**OAuth 2.0** — **인가(Authorization)** 프레임워크. **Access Token** 발급으로 **제3자 앱의 자원 접근 권한**을 위임한다(예: Google 로그인 연동).",
+      "**SAML(Security Assertion Markup Language)** — **XML 기반** 인증·인가 표준. 주로 **기업 SSO**(IdP↔SP)에 사용.",
+      "**OAuth 2.0은 인증(Authentication) 표준**이며, **사용자 본인 확인**만을 위한 프로토콜이고 **자원 접근 권한 위임 기능은 없다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **OAuth 2.0은 인가(Authorization) 프레임워크**로 **자원 접근 권한 위임**이 본질. **인증(Authentication)** 은 **OpenID Connect(OIDC)** 가 OAuth 2.0 위에 얹은 표준이며, OAuth 단독은 인증 표준이 아니다.\n- 함정: SSO 구현 방식 = Kerberos·SAML(XML)·OAuth+OIDC(JSON·JWT) / OAuth 4 Role = Resource Owner·Client·Authorization Server·Resource Server."
+    }
+   ]
   }
  ]
 }
