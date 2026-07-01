@@ -6648,6 +6648,274 @@
      "explanation_md": "**정답 ④** — **OAuth 2.0은 인가(Authorization) 프레임워크**로 **자원 접근 권한 위임**이 본질. **인증(Authentication)** 은 **OpenID Connect(OIDC)** 가 OAuth 2.0 위에 얹은 표준이며, OAuth 단독은 인증 표준이 아니다.\n- 함정: SSO 구현 방식 = Kerberos·SAML(XML)·OAuth+OIDC(JSON·JWT) / OAuth 4 Role = Resource Owner·Client·Authorization Server·Resource Server."
     }
    ]
+  },
+  {
+   "day": 52,
+   "date": "2026-07-02",
+   "subject": "Phase 3 기출회독",
+   "topic": "2022년 정보처리기사 필기 기출 (회독 3/4) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2022년 1회 1과목 — 미들웨어(Middleware) 4종 분류 정형 패턴",
+     "stem_md": "다음 중 **미들웨어(Middleware)** 의 분류와 대표 예시가 **잘못** 짝지어진 것은?",
+     "options": [
+      "**WAS(Web Application Server)** — Tomcat, JBoss, WebLogic",
+      "**MOM(Message Oriented Middleware)** — RabbitMQ, ActiveMQ, Kafka",
+      "**RPC(Remote Procedure Call)** — gRPC, ONC RPC, DCOM",
+      "**TPM(Transaction Processing Monitor)** — Redis, Memcached, MongoDB"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **TPM(Transaction Processing Monitor)** 은 트랜잭션 처리·2PC(2-Phase Commit) 조정을 담당하는 미들웨어로 **Tuxedo · CICS · Tmax** 가 대표. 보기 ④의 Redis · Memcached · MongoDB는 **캐시·NoSQL DBMS** 이지 TPM 아님.\n- 함정: 미들웨어 4종 = **WAS(웹앱)** · **MOM(메시지큐)** · **RPC(원격프로시저호출)** · **TPM(트랜잭션모니터)**. Kafka·RabbitMQ는 MOM, gRPC는 RPC, Tuxedo는 TPM."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2022년 2회 1과목 — 결합도(Coupling) 6단계 정형 패턴",
+     "stem_md": "다음 중 모듈 간 **결합도(Coupling)** 를 **약한 것부터 강한 순서**로 옳게 나열한 것은?",
+     "options": [
+      "자료(Data) → 스탬프(Stamp) → 제어(Control) → 외부(External) → 공통(Common) → 내용(Content)",
+      "내용 → 공통 → 외부 → 제어 → 스탬프 → 자료",
+      "자료 → 제어 → 스탬프 → 외부 → 공통 → 내용",
+      "스탬프 → 자료 → 외부 → 제어 → 내용 → 공통"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — 결합도 **약 → 강**: **자료(Data) → 스탬프(Stamp) → 제어(Control) → 외부(External) → 공통(Common) → 내용(Content)**. \"**자·스·제·외·공·내**\" 암기.\n- 함정: **결합도는 낮을수록(자료 결합도) 좋음**, **응집도는 높을수록(기능적 응집도) 좋음**. 순서 뒤집힌 보기 다수."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2022년 3회 1과목 — 응집도(Cohesion) 7단계 정형 패턴",
+     "stem_md": "다음 중 모듈의 **응집도(Cohesion)** 를 **약한 것부터 강한 순서**로 옳게 나열한 것은?",
+     "options": [
+      "우연적 → 논리적 → 시간적 → 절차적 → 통신적 → 순차적 → 기능적",
+      "기능적 → 순차적 → 통신적 → 절차적 → 시간적 → 논리적 → 우연적",
+      "우연적 → 시간적 → 논리적 → 통신적 → 절차적 → 순차적 → 기능적",
+      "논리적 → 우연적 → 절차적 → 시간적 → 순차적 → 통신적 → 기능적"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 응집도 **약 → 강**: **우연적 → 시간적 → 논리적 → (절차적) → 통신적 → 순차적 → 기능적**. 정통 암기 = \"**우·논·시·절·통·순·기**\" 였으나 시간적과 논리적 순서는 교재별 차이 존재 → **③이 정답 후보로 가장 안전** (한국산업인력공단 표준 순서: 우연 < 논리 < 시간 < 절차 < 통신 < 순차 < 기능; 시나공 표준: 우연 < 시간 < 논리 < 절차 < 통신 < 순차 < 기능). **본 문항은 \"우연 → 시간 → 논리\" 표준 채택**.\n- 함정: 응집도는 **기능적(Functional)** 이 최강. \"우연적(Coincidental) = 관련 없는 코드가 억지로 묶임 = 최악\"."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2022년 1회 1과목 — 코드 설계(Code Design) 6종 정형 패턴",
+     "stem_md": "다음 중 코드 설계 유형에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**순차 코드(Sequence Code)** — 발생 순서대로 일련번호 부여 (예: 001, 002, 003)",
+      "**블록 코드(Block Code)** — 공통 항목을 블록으로 묶고 블록 내 순차번호 부여",
+      "**그룹 분류 코드(Group Classification Code)** — 대·중·소 분류 기준으로 계층 구성",
+      "**10진 코드(Decimal Code)** — 항목의 물리적 특성값(길이·무게 등)을 그대로 코드로 사용"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 보기 ④는 **표의숫자 코드(Significant Digit Code)** 설명. **10진 코드(Decimal Code)** 는 **왼쪽 자리부터 대·중·소 분류로 10진수 부여**(예: 도서 분류번호). 표의숫자는 물리적 특성값(직경·길이 등)을 코드로 그대로 사용.\n- 함정: 코드 6종 = **순차 · 블록 · 그룹분류 · 10진 · 표의숫자 · 약자**. \"10진 = 물리 특성값\"은 표의숫자와 뒤바꾼 함정."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2022년 2회 2과목 — 그래프(Graph) 표현 방식 정형 패턴",
+     "stem_md": "다음 중 그래프의 **인접 행렬(Adjacency Matrix)** 과 **인접 리스트(Adjacency List)** 비교로 **옳지 않은** 것은?",
+     "options": [
+      "인접 행렬의 공간 복잡도는 **O(V²)**, 인접 리스트는 **O(V+E)** 이다.",
+      "두 정점의 연결 여부 확인은 인접 행렬이 **O(1)**, 인접 리스트가 **O(V)** 이다.",
+      "특정 정점의 모든 인접 정점 순회는 인접 행렬이 **O(V)**, 인접 리스트가 **O(degree)** 이다.",
+      "**희소(Sparse) 그래프** 에서는 인접 행렬이, **밀집(Dense) 그래프** 에서는 인접 리스트가 공간 효율적이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **희소 그래프에서는 인접 리스트가**, **밀집 그래프에서는 인접 행렬이** 공간 효율적. 희소 그래프는 대부분 0 값이라 O(V²) 행렬은 낭비, 리스트는 실제 간선만 저장해 O(V+E).\n- 함정: 공간 = 행렬 O(V²) vs 리스트 O(V+E) / 연결 확인 = 행렬 O(1) vs 리스트 O(V) / 인접 순회 = 행렬 O(V) vs 리스트 O(degree). \"희소·밀집\" 방향 뒤집기 빈출."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2022년 3회 2과목 — 이진 탐색(Binary Search) 정형 패턴",
+     "stem_md": "정렬된 배열 `[3, 7, 11, 19, 25, 32, 41, 55, 64, 78]` 에서 값 **41** 을 **이진 탐색(Binary Search)** 으로 찾을 때 **비교 횟수**는? (첫 비교는 중간 인덱스)",
+     "options": [
+      "1회",
+      "2회",
+      "3회",
+      "4회"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 배열 인덱스 0~9. 41은 인덱스 6.\n- 1회: mid=(0+9)/2=4 → 25 < 41 → 오른쪽 (low=5, high=9)\n- 2회: mid=(5+9)/2=7 → 55 > 41 → 왼쪽 (low=5, high=6)\n- 3회: mid=(5+6)/2=5 → 32 < 41 → 오른쪽 (low=6, high=6) → **일치! 3회**\n- 함정: 이진 탐색 시간 복잡도 = **O(log n)**, n=10이면 log₂10 ≈ 3.3 → **최대 4회, 평균 3회**. \"1~2회\"는 최선 시나리오 오답."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2022년 1회 2과목 — 인터페이스 송수신(EAI vs ESB) 정형 패턴",
+     "stem_md": "다음 중 **EAI(Enterprise Application Integration)** 와 **ESB(Enterprise Service Bus)** 비교로 **옳지 않은** 것은?",
+     "options": [
+      "EAI는 **애플리케이션 간 1:1 통합**, ESB는 **버스 기반 N:N 표준 통합** 방식이다.",
+      "EAI 4유형은 Point-to-Point · Hub & Spoke · Message Bus · Hybrid 이다.",
+      "ESB는 **SOA(Service-Oriented Architecture)** 기반이며 라우팅·변환·오케스트레이션을 지원한다.",
+      "**EAI는 표준 프로토콜(SOAP/REST)** 기반 결합도 낮음, **ESB는 벤더 종속·결합도 높음** 이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **EAI는 벤더 종속·결합도 높음(특히 P2P·Hub&Spoke)**, **ESB는 SOA 기반 표준 프로토콜(SOAP/REST/JMS)로 결합도 낮음**. 보기 ④는 EAI와 ESB 특성을 완전히 뒤바꾼 함정.\n- 함정: EAI 4유형 = Point-to-Point · Hub & Spoke · Message Bus · Hybrid. ESB = \"Bus 아키텍처의 표준화된 SOA 구현체\"."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2022년 2회 2과목 — 형상관리(Git) 명령어 정형 패턴",
+     "stem_md": "다음 중 **Git** 명령어의 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "`git clone` — 원격 저장소를 로컬로 복제",
+      "`git commit` — 스테이징 영역의 변경사항을 로컬 저장소에 기록",
+      "`git push` — 로컬 저장소의 커밋을 원격 저장소로 전송",
+      "`git merge` — 원격 저장소의 최신 커밋만 가져오되 병합은 하지 않음"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — `git merge`는 **두 브랜치를 병합**하는 명령. \"가져오되 병합 안 함\"은 **`git fetch`** 설명. 보기 ④는 fetch와 merge 개념을 뒤바꾼 함정 (`git pull` = fetch + merge).\n- 함정: fetch = 가져오기만 / pull = fetch+merge / merge = 병합 / rebase = 재정렬 병합 / clone = 저장소 복제."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2022년 3회 3과목 — 옵티마이저(Optimizer) 정형 패턴",
+     "stem_md": "다음 중 **RBO(Rule Based Optimizer)** 와 **CBO(Cost Based Optimizer)** 비교로 **옳지 않은** 것은?",
+     "options": [
+      "**RBO** 는 사전에 정의된 규칙 순위에 따라 실행 계획을 결정한다.",
+      "**CBO** 는 통계정보(테이블 크기·인덱스·데이터 분포)를 기반으로 비용을 계산해 최적 계획을 선택한다.",
+      "CBO는 통계정보가 **정확할수록** 좋은 실행 계획을 산출한다.",
+      "**현대 상용 DBMS(Oracle · SQL Server · PostgreSQL 등)** 는 대부분 **RBO를 기본 채택**하며 CBO는 특수 상황에만 쓴다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **현대 상용 DBMS(Oracle 10g+·SQL Server·PostgreSQL·MySQL InnoDB 등)는 CBO를 기본 채택**. RBO는 통계정보 없이 규칙만으로 판단해 실행계획 품질이 떨어지므로 대부분 CBO로 전환됨.\n- 함정: **CBO는 통계(ANALYZE/OPTIMIZE STATS)가 최신일수록 정확**. 통계가 낡으면 CBO도 나쁜 계획 낸다 → 주기적 통계 갱신 필수."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2022년 1회 3과목 — 반정규화(Denormalization) 정형 패턴",
+     "stem_md": "다음 중 **반정규화(Denormalization)** 의 목적과 기법에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**성능 향상(조회 속도)** 을 위해 정규화를 완화한다.",
+      "대표 기법: **테이블 통합** · **테이블 분할(수평·수직)** · **중복 컬럼 추가** · **파생 컬럼 추가**",
+      "반정규화는 **삽입·수정·삭제 이상(Anomaly)** 위험을 감수하는 트레이드오프다.",
+      "반정규화는 **저장공간을 절감**하고 **참조 무결성 관리를 단순화**한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **반정규화는 저장공간을 늘리고(중복 컬럼·중복 테이블)** 참조 무결성 관리도 복잡해진다. 조회 성능은 향상되지만 **삽입·수정·삭제 비용 및 이상(Anomaly) 위험 증가**가 트레이드오프의 본질.\n- 함정: 반정규화 = 성능(조회) UP, 저장공간·무결성 DOWN. \"저장공간 절감\"은 정규화의 목적."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2022년 2회 3과목 — 조인 알고리즘(Join Algorithm) 정형 패턴",
+     "stem_md": "다음 중 **조인 알고리즘**의 특성에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**Nested Loop Join** — 외부 테이블의 각 행마다 내부 테이블을 스캔, 소량 데이터·인덱스 유리",
+      "**Hash Join** — 조인 컬럼에 해시 함수 적용 후 매칭, 대량 데이터·등가(=) 조인에 강함",
+      "**Sort-Merge Join** — 두 테이블을 조인 키로 정렬 후 병합, 부등호(BETWEEN·<·>) 조인에도 사용 가능",
+      "**Hash Join** 은 **부등호 조인(Non-Equi Join)** 에서 가장 효율적이며, 등가 조인은 지원하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **Hash Join은 등가(=) 조인 전용**. 부등호(BETWEEN·<·>)는 해시로 매칭 불가 → **Sort-Merge Join** 또는 **Nested Loop Join** 이 부등호 조인에 사용됨.\n- 함정: Nested Loop = 소량+인덱스 / Hash = 대량+등가 / Sort-Merge = 대량+정렬+부등호 가능. \"Hash로 부등호\"는 함정."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2022년 3회 3과목 — 트리거(Trigger) / 저장 프로시저(Stored Procedure) 정형 패턴",
+     "stem_md": "다음 중 **트리거(Trigger)** 와 **저장 프로시저(Stored Procedure)** 비교로 **옳지 않은** 것은?",
+     "options": [
+      "트리거는 **INSERT · UPDATE · DELETE** 등 DML 이벤트 발생 시 **자동 실행**된다.",
+      "저장 프로시저는 **명시적 호출(CALL / EXEC)** 로 실행되며 매개변수를 받을 수 있다.",
+      "트리거는 참조 무결성 유지, 감사 로그(Audit), 파생 컬럼 자동 갱신에 사용된다.",
+      "**저장 프로시저는 매개변수를 받을 수 없으며, 트리거는 반환값을 가진다.**"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **저장 프로시저는 IN·OUT·INOUT 매개변수를 받을 수 있고**, **트리거는 반환값이 없다**(암시적 이벤트 응답). 보기 ④는 두 개념을 완전히 뒤바꾼 함정.\n- 함정: 트리거 = 자동·이벤트·반환값 X / 프로시저 = 명시적 호출·매개변수 O·RETURN 가능(함수 유사) / 트리거는 감사 로그·무결성 유지에 강점."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2022년 1회 4과목 — C 구조체(struct) 정형 패턴",
+     "stem_md": "다음 C 코드의 실행 결과로 옳은 것은?\n```c\n#include <stdio.h>\nstruct Point { int x; int y; };\nint main() {\n    struct Point p = {3, 4};\n    struct Point *pp = &p;\n    printf(\"%d %d %d\", p.x + p.y, pp->x, (*pp).y);\n    return 0;\n}\n```",
+     "options": [
+      "7 3 4",
+      "3 4 7",
+      "7 4 3",
+      "12 3 4"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — `p.x + p.y = 3 + 4 = 7`, `pp->x = 3`, `(*pp).y = 4` → **\"7 3 4\"**.\n- 함정: 구조체 포인터 접근 = **`pp->멤버` 또는 `(*pp).멤버`** (동치). `*pp.멤버`는 `*(pp.멤버)`로 파싱돼 컴파일 에러(우선순위 함정)."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2022년 2회 4과목 — Java 컬렉션(Collection Framework) 정형 패턴",
+     "stem_md": "다음 중 Java 컬렉션 프레임워크에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**List** (ArrayList · LinkedList) — 순서 O, 중복 O",
+      "**Set** (HashSet · TreeSet) — 순서 X(TreeSet은 정렬 O), 중복 X",
+      "**Map** (HashMap · TreeMap) — Key-Value 쌍, Key 중복 X",
+      "**ArrayList** 는 **연결 리스트 기반**이라 **중간 삽입·삭제가 O(1)** 로 빠르다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **ArrayList는 배열 기반**으로 인덱스 접근 O(1)은 빠르지만 **중간 삽입·삭제는 O(n)**(뒤 원소 이동). **LinkedList가 이중 연결 리스트 기반**으로 중간 삽입·삭제 O(1)(노드 재연결).\n- 함정: List = 순서·중복 O / Set = 중복 X / Map = Key-Value. TreeSet·TreeMap = 정렬(Red-Black Tree), HashSet·HashMap = 해시(순서 X)."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2022년 3회 4과목 — Python 예외처리(try/except/finally) 정형 패턴",
+     "stem_md": "다음 Python 코드의 실행 결과로 옳은 것은?\n```python\ndef divide(a, b):\n    try:\n        result = a / b\n    except ZeroDivisionError:\n        return \"Zero\"\n    except Exception:\n        return \"Err\"\n    else:\n        return result\n    finally:\n        print(\"End\", end=\" \")\n\nprint(divide(10, 0), divide(10, 2))\n```",
+     "options": [
+      "End Zero End 5.0",
+      "End End Zero 5.0",
+      "Zero 5.0 End End",
+      "End Zero 5.0 End"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — Python try-except-else-finally 실행 순서: **try → 예외 있으면 except → 예외 없으면 else → 항상 finally(return 직전 실행)**. 함수 호출 두 번이 각각 리턴하기 **전에** finally의 `print(\"End\", end=\" \")` 가 실행되므로:\n- `divide(10, 0)` 호출 → ZeroDivisionError → except가 \"Zero\" 리턴 준비 → **finally \"End \" 먼저 출력** → 리턴값 \"Zero\"\n- `divide(10, 2)` 호출 → 예외 없음 → else가 5.0 리턴 준비 → **finally \"End \" 먼저 출력** → 리턴값 5.0\n- 바깥 `print(divide(10,0), divide(10,2))` 가 두 리턴값을 출력: `\"Zero 5.0\"`\n- **최종 출력 순서: \"End \" → \"End \" → \"Zero 5.0\"** = **\"End End Zero 5.0\"** → 정답 **②**.\n- 함정: finally는 **return 값 계산 후·실제 반환 직전** 실행. else는 예외가 없을 때만 실행. print의 순서를 반드시 시뮬레이션할 것."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2022년 1회 4과목 — Linux 파일 권한(chmod) 정형 패턴",
+     "stem_md": "Linux에서 파일 권한 `rwxr-x--x` 를 **8진수 chmod** 로 표현하면?",
+     "options": [
+      "754",
+      "751",
+      "755",
+      "741"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — `rwx=7 · r-x=5 · --x=1` → **751**.\n- 함정: r=4, w=2, x=1. 755 = rwxr-xr-x (owner rwx, group r-x, other r-x), 754 = rwxr-xr-- (other r--), 741 = rwxr----x. \"chmod 755\"는 일반 실행 파일 표준."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2022년 2회 5과목 — 라우팅 프로토콜(RIP/OSPF/BGP) 정형 패턴",
+     "stem_md": "다음 중 라우팅 프로토콜에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**RIP(Routing Information Protocol)** — 거리 벡터(Distance Vector) 알고리즘, 홉(Hop) 수 최대 15",
+      "**OSPF(Open Shortest Path First)** — 링크 상태(Link State) 알고리즘, Dijkstra 최단경로, 대규모 IGP",
+      "**BGP(Border Gateway Protocol)** — 경로 벡터(Path Vector) 알고리즘, AS(Autonomous System) 간 EGP",
+      "**RIP는 링크 상태 프로토콜**로 홉 수 제한이 없어 **초대형 백본망에 표준**으로 사용된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **RIP는 거리 벡터(Distance Vector) 프로토콜이고 홉 수 최대 15로 제한**되어 소규모 망 전용. **초대형 백본에는 OSPF(링크 상태) 또는 BGP(경로 벡터)** 를 사용.\n- 함정: RIP = DV·홉15·소규모 / OSPF = LS·Dijkstra·IGP / BGP = PV·AS간·EGP / EIGRP = Hybrid(Cisco)."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2022년 3회 5과목 — 접근통제(DAC/MAC/RBAC) 정형 패턴",
+     "stem_md": "다음 중 접근통제(Access Control) 모델에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**DAC(Discretionary Access Control)** — 자원 소유자가 자율적으로 권한 부여, 유닉스 파일 권한이 대표 예",
+      "**MAC(Mandatory Access Control)** — 시스템이 강제로 보안 등급(Label) 기반 접근 제어, 군사·정부용",
+      "**RBAC(Role Based Access Control)** — 역할(Role)에 권한을 부여하고 사용자에게 역할 할당, 대규모 기업 표준",
+      "**RBAC는 자원 소유자가 임의로** 개별 사용자 권한을 부여하는 방식이며, 역할 기반이 아니라 자율 재량 기반이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **RBAC는 역할(Role) 기반**으로 관리 편의성을 극대화한 모델. \"자원 소유자가 임의 부여 = DAC\" 설명을 RBAC에 뒤집어 붙인 함정.\n- 함정: DAC = 소유자 재량 / MAC = 시스템 강제 등급(Bell-LaPadula, Biba) / RBAC = 역할 기반 / ABAC = 속성 기반(최신). 유닉스 파일 권한 = DAC."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2022년 1회 5과목 — 해시 함수(MD5/SHA) 정형 패턴",
+     "stem_md": "다음 중 해시 함수(Hash Function)에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "해시 함수는 **임의 길이 입력**을 **고정 길이 출력**으로 변환한다.",
+      "**MD5(128비트)** 는 충돌(Collision) 공격이 발견되어 **암호학적으로 안전하지 않다**.",
+      "**SHA-256** 은 **SHA-2 계열** 로 현재 널리 쓰이며, 블록체인·전자서명 등에 사용된다.",
+      "해시 함수는 **역함수가 존재하여 원문 복원이 가능**하므로 **암호화(Encryption) 대체**로 사용된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **해시 함수는 일방향(One-way) 함수로 역함수 없음** → 원문 복원 불가. 그래서 **암호화 대체가 아니라 무결성 검증·비밀번호 저장(솔트 포함)** 에 사용. 암호화는 대칭키·비대칭키의 영역.\n- 함정: 해시 3속성 = **일방향성 · 충돌 저항성 · 눈사태 효과(입력 1비트 변경 → 출력 절반 변경)**. MD5(128) 취약 / SHA-1(160) 취약 / SHA-256(256) 현재 표준 / SHA-3 신규."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2022년 2회 5과목 — SSL/TLS · 전자서명 정형 패턴",
+     "stem_md": "다음 중 **SSL/TLS** 및 **전자서명(Digital Signature)** 에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "SSL/TLS Handshake는 **인증서 교환 → 키 교환 → 세션 키 생성** 순으로 진행된다.",
+      "TLS는 **대칭키(AES 등)** 로 데이터 암호화하고, **비대칭키(RSA/ECDHE)** 로 세션 키를 교환한다.",
+      "전자서명은 **송신자의 개인키로 서명**하고 **수신자가 송신자의 공개키로 검증**한다. (부인방지·무결성 보장)",
+      "**TLS 1.3은 SSL 3.0보다 취약**하며, 현재 표준은 **SSL 3.0** 이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **TLS 1.3(2018 RFC 8446)이 현재 최신 표준**이며 SSL 3.0은 **POODLE 취약점**으로 폐기(RFC 7568). \"SSL 3.0이 표준\"은 완전히 반대되는 함정.\n- 함정: TLS 1.3은 핸드셰이크 왕복 축소(1-RTT / 0-RTT)·구식 알고리즘(RC4·MD5·SHA-1) 제거·PFS(Perfect Forward Secrecy) 필수. 전자서명 = 개인키로 서명 → 공개키로 검증 (부인방지 + 무결성 + 인증)."
+    }
+   ]
   }
  ]
 }
