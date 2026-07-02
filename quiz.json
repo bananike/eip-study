@@ -6916,6 +6916,274 @@
      "explanation_md": "**정답 ④** — 정반대. **TLS 1.3(2018 RFC 8446)이 현재 최신 표준**이며 SSL 3.0은 **POODLE 취약점**으로 폐기(RFC 7568). \"SSL 3.0이 표준\"은 완전히 반대되는 함정.\n- 함정: TLS 1.3은 핸드셰이크 왕복 축소(1-RTT / 0-RTT)·구식 알고리즘(RC4·MD5·SHA-1) 제거·PFS(Perfect Forward Secrecy) 필수. 전자서명 = 개인키로 서명 → 공개키로 검증 (부인방지 + 무결성 + 인증)."
     }
    ]
+  },
+  {
+   "day": 53,
+   "date": "2026-07-03",
+   "subject": "Phase 3 기출회독",
+   "topic": "2022년 정보처리기사 필기 기출 (회독 4/4 · 마지막 정리) — 5과목 잔여 격자 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2022년 1회 1과목 — 소프트웨어 개발 방법론(SDLC 모델) 5종 정형 패턴",
+     "stem_md": "다음 중 소프트웨어 개발 생명주기(SDLC) 모델에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**폭포수(Waterfall) 모델** — 순차적 단계 진행, 이전 단계 완료 후 다음 단계, 요구사항 명확한 대규모 프로젝트에 적합",
+      "**프로토타입(Prototype) 모델** — 요구사항 파악을 위한 시제품 개발 후 폐기 또는 발전",
+      "**나선형(Spiral) 모델** — 계획 → 위험분석 → 개발 → 평가 4단계 반복, 위험 관리 중심",
+      "**애자일(Agile) 모델** — 문서화 · 계획 · 계약을 최우선하며 변화에 대한 대응보다 계획 준수를 강조한다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **애자일(Agile) 4대 가치**는 정반대. **① 개인과 상호작용 > 프로세스와 도구** / **② 동작하는 소프트웨어 > 포괄적 문서** / **③ 고객과의 협력 > 계약 협상** / **④ 변화에 대한 대응 > 계획 준수**. 애자일은 \"**변화 대응 > 계획 준수**\"가 핵심.\n- 함정: SDLC 모델 = **폭포수(순차)** · **프로토타입(시제품)** · **나선형(위험분석 반복)** · **RAD(빠른 개발)** · **애자일(반복·점진)**. \"애자일 = 문서·계획 최우선\" 반대 진술."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2022년 2회 1과목 — 소프트웨어 아키텍처 4+1 뷰 모델 정형 패턴",
+     "stem_md": "다음 중 소프트웨어 아키텍처 **4+1 뷰 모델(Kruchten)** 의 뷰(View) 종류와 설명 매칭으로 **옳지 않은** 것은?",
+     "options": [
+      "**논리 뷰(Logical View)** — 시스템의 기능적 요구사항, 클래스·객체 구조 (설계자 관점)",
+      "**프로세스 뷰(Process View)** — 동시성·성능·확장성, 실행 시 동작 (통합자 관점)",
+      "**구현 뷰(Implementation/Development View)** — 소스코드 모듈 구성, 컴포넌트·패키지 (개발자 관점)",
+      "**배포 뷰(Deployment View)** — 사용자 요구사항 및 유스케이스 수집, 아키텍처 전체를 통합하는 시나리오 뷰"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 보기 ④는 **유스케이스 뷰(Use Case View, +1 시나리오 뷰)** 설명. **배포 뷰(Deployment View, 물리 뷰)** 는 **하드웨어 노드에 소프트웨어 컴포넌트를 배치**하는 관점(시스템 엔지니어). 4+1 뷰 = **논리·프로세스·구현·배포 + 유스케이스**.\n- 함정: \"4+1\"의 **+1이 유스케이스 뷰**(모든 뷰를 아우르는 시나리오 뷰). \"배포 뷰 = 유스케이스\" 뒤바꾸기 빈출."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2022년 3회 1과목 — GoF 디자인 패턴 23종 3분류 정형 패턴",
+     "stem_md": "다음 중 **GoF(Gang of Four) 디자인 패턴 23종**의 분류에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**생성(Creational) 패턴 5종** — Singleton, Factory Method, Abstract Factory, Builder, Prototype",
+      "**구조(Structural) 패턴 7종** — Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy",
+      "**행위(Behavioral) 패턴 11종** — Observer, Strategy, Command, Iterator, State, Template Method, Chain of Responsibility 등",
+      "**Observer · Strategy · Command** 는 모두 **생성(Creational) 패턴**에 속한다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **Observer · Strategy · Command 는 행위(Behavioral) 패턴**. 생성 패턴은 **Singleton · Factory Method · Abstract Factory · Builder · Prototype 5종** 만 해당.\n- 함정: GoF 23 = **생성 5 + 구조 7 + 행위 11**. Observer/Strategy는 매우 자주 \"생성\" 함정으로 출제."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2022년 1회 1과목 — 클린 코드 원칙 & 코드 스멜(Code Smell) 정형 패턴",
+     "stem_md": "다음 중 **클린 코드(Clean Code) 원칙**과 **코드 스멜(Code Smell)** 에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "클린 코드 원칙 — **가독성(Readable)** · **단순성(Simple)** · **의존성 최소화** · **중복 최소화(DRY)** · **추상화(Abstraction)**",
+      "대표 코드 스멜 — **중복 코드(Duplicated Code)** · **긴 메서드(Long Method)** · **큰 클래스(Large Class)** · **긴 매개변수 목록(Long Parameter List)**",
+      "**의존성 주입(DI)** · **책임 분리(SRP)** · **인터페이스 분리(ISP)** 는 클린 코드 지향 리팩토링의 대표 기법이다",
+      "**긴 매개변수 목록(Long Parameter List)** 은 **클린 코드의 핵심 지향점**이며, 매개변수가 많을수록 유연성이 좋아 권장된다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **긴 매개변수 목록(Long Parameter List)** 은 **대표 코드 스멜(Code Smell)** 로 리팩토링 대상. 매개변수가 3~4개 넘으면 객체로 묶거나(Introduce Parameter Object) 매개변수 제거(Remove Parameter) 리팩토링을 권장.\n- 함정: 클린 코드 원칙 = **DRY · KISS · SRP · YAGNI**. 코드 스멜 = **중복코드·긴메서드·큰클래스·긴매개변수·기능욕심(Feature Envy) 등**. \"긴 매개변수 = 좋은 것\" 반대 진술."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2022년 2회 2과목 — 정렬 알고리즘 시간복잡도 비교 정형 패턴",
+     "stem_md": "다음 중 정렬 알고리즘의 **평균 시간복잡도** 로 **옳지 않은** 것은?",
+     "options": [
+      "**버블 정렬(Bubble Sort)** — 평균 O(n²)",
+      "**삽입 정렬(Insertion Sort)** — 평균 O(n²), 최선 O(n)",
+      "**퀵 정렬(Quick Sort)** — 평균 O(n log n), 최악 O(n²)",
+      "**머지 정렬(Merge Sort)** — 평균 O(n²), 공간 복잡도 O(1)"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **머지 정렬(Merge Sort)** 은 **평균/최선/최악 모두 O(n log n)**, 공간 복잡도는 **O(n)** (병합용 보조 배열 필요). 보기 ④의 \"O(n²)·O(1)\"은 완전 오답.\n- 함정: 정렬 시간복잡도 암기 — **버블·삽입·선택 = O(n²)** / **퀵·머지·힙 = O(n log n)**, **퀵 최악 O(n²)** / **머지 공간 O(n)**."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2022년 3회 2과목 — 해시 테이블 충돌 해결(Collision Resolution) 정형 패턴",
+     "stem_md": "다음 중 **해시 테이블(Hash Table)** 의 **충돌 해결 방식**에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**체이닝(Chaining)** — 같은 해시 값에 여러 원소를 연결 리스트로 연결",
+      "**개방 주소법(Open Addressing) — 선형 조사(Linear Probing)** — 충돌 시 다음 슬롯을 순차 탐색",
+      "**개방 주소법 — 이차 조사(Quadratic Probing)** — 충돌 시 h(k)+1², h(k)+2², h(k)+3² … 로 탐색",
+      "**이중 해싱(Double Hashing)** 은 **체이닝의 한 종류**이며, 충돌이 나면 **연결 리스트에 두 번째 해시 값을 저장**하는 방식이다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **이중 해싱(Double Hashing)** 은 **개방 주소법(Open Addressing)** 의 한 방식. 첫 번째 해시 함수로 슬롯 결정 → 충돌 시 **두 번째 해시 함수** 로 다음 슬롯 계산 (h₁(k) + i·h₂(k)). 체이닝(연결 리스트)과는 다른 계열.\n- 함정: 충돌 해결 = **체이닝(연결 리스트)** vs **개방 주소법(선형·이차·이중 해싱)**. \"이중 해싱 = 체이닝\" 뒤바꾸기 함정."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2022년 1회 2과목 — 힙(Heap) 자료구조 & 우선순위 큐 정형 패턴",
+     "stem_md": "다음 중 **힙(Heap)** 자료구조와 **우선순위 큐(Priority Queue)** 에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "힙은 **완전 이진 트리(Complete Binary Tree)** 형태이며 배열로 구현 가능하다",
+      "**최대 힙(Max Heap)** — 부모 노드 ≥ 자식 노드 관계 유지, 루트가 최댓값",
+      "힙에서 **삽입(Insert)** 은 O(log n), **삭제(최대/최소)** 도 O(log n) 이다",
+      "힙은 **좌우 자식이 반드시 정렬**되어 있으며, **중위 순회(Inorder Traversal)** 로 오름차순 정렬을 얻을 수 있다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. 힙은 **부모-자식 관계만** 유지하며 **좌우 자식 간에는 정렬이 없다** (형제 순서 미보장). **중위 순회로 정렬을 얻는 것은 BST(이진 탐색 트리)**. 힙에서 오름차순 정렬을 얻으려면 **힙 정렬(반복 delete-min)** 필요.\n- 함정: 힙 = 부모 vs 자식만 관계 / BST = 좌 < 부모 < 우, 중위 순회 시 정렬. \"힙 = 중위 순회 정렬\" 뒤바꾸기."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2022년 2회 2과목 — 회귀/알파/베타 테스트 정형 패턴",
+     "stem_md": "다음 중 소프트웨어 테스트 종류에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**회귀 테스트(Regression Test)** — 변경 후 기존 기능이 여전히 동작하는지 재검증",
+      "**알파 테스트(Alpha Test)** — **개발자 환경**에서 사용자 대표가 개발자와 함께 수행",
+      "**베타 테스트(Beta Test)** — **실제 사용자 환경**에서 사용자가 독립적으로 수행, 피드백 수집",
+      "**회귀 테스트는 새 기능 추가 시에만 수행**하며, 버그 수정 후에는 별도의 회귀 테스트가 필요 없다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **회귀 테스트는 버그 수정 · 새 기능 추가 · 리팩토링 등 모든 변경 후 필수**로 수행. 변경으로 인해 **기존에 잘 동작하던 기능이 깨졌는지(Regression)** 확인하는 것이 핵심 목적.\n- 함정: 회귀 = **모든 변경 후** / 알파 = 개발자 환경(사용자 대표) / 베타 = **실제 사용자 환경**(외부). \"버그 수정 후 회귀 불필요\" 반대 진술."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2022년 3회 3과목 — 병행제어(2PL · 타임스탬프) 정형 패턴",
+     "stem_md": "다음 중 데이터베이스 **병행제어(Concurrency Control)** 기법에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**로킹(Locking)** — 데이터 접근 전 락(Lock)을 걸어 다른 트랜잭션의 접근 차단",
+      "**2단계 로킹(2PL, Two-Phase Locking)** — 확장 단계(Growing Phase)에서만 락 획득, 축소 단계(Shrinking Phase)에서만 해제",
+      "**타임스탬프 순서 기법(Timestamp Ordering)** — 트랜잭션에 타임스탬프 부여, 순서에 맞지 않으면 롤백",
+      "**2PL은 데드락(Deadlock)을 완전히 방지**하며, 모든 트랜잭션은 반드시 동시에 완료됨을 보장한다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **2PL은 직렬성(Serializability)을 보장**하지만 **데드락은 여전히 발생 가능**. 2PL이 데드락을 방지하는 것은 **엄격 2PL(Strict 2PL)** 도 아니며, 데드락 방지는 **타임스탬프 순서 기법**·**대기-사망(Wait-Die)**·**상처-대기(Wound-Wait)** 같은 별도 기법이 필요.\n- 함정: 2PL = **직렬성 보장** ≠ **데드락 방지**. \"2PL이 데드락 완전 방지\" 반대 진술."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2022년 1회 3과목 — 이상현상(Anomaly) & 함수 종속(FD) 정형 패턴",
+     "stem_md": "다음 중 **이상현상(Anomaly)** 과 **함수 종속(Functional Dependency)** 에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**삽입 이상(Insertion Anomaly)** — 원치 않는 자료가 함께 삽입되어야 하는 문제",
+      "**삭제 이상(Deletion Anomaly)** — 특정 튜플 삭제 시 연쇄적으로 원치 않는 정보도 삭제됨",
+      "**갱신 이상(Update Anomaly)** — 중복된 자료 중 일부만 수정되어 데이터 불일치 발생",
+      "**함수 종속 X → Y** 는 \"X의 값이 하나여도 **Y의 값이 여러 개** 가능함\"을 의미하며, 정규화의 반대 개념이다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **함수 종속 X → Y** 는 **\"X의 값이 같으면 Y의 값도 반드시 같다\"** (즉 X → Y). X가 Y를 결정한다는 의미. 정규화는 함수 종속을 분석해 **부분/이행/결정자 종속을 제거**하는 것이므로 함수 종속의 반대가 아니라 정규화의 **기반 개념**이다.\n- 함정: 삽입/삭제/갱신 이상 3종 + **FD는 정규화의 기반 개념**. \"X → Y = Y가 여러 값\" 반대 진술."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2022년 2회 3과목 — BCNF · 4NF · 5NF 고급 정규화 정형 패턴",
+     "stem_md": "다음 중 **고급 정규화(BCNF · 4NF · 5NF)** 단계에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**BCNF(Boyce-Codd Normal Form)** — 3NF의 강화, 모든 결정자(Determinant)가 후보 키(Candidate Key)여야 함",
+      "**4NF(제4정규형)** — BCNF 만족 + **다치 종속(Multi-Valued Dependency)** 제거",
+      "**5NF(제5정규형, PJNF)** — 4NF 만족 + **조인 종속(Join Dependency)** 제거, 후보 키를 통한 조인만 존재",
+      "**BCNF는 항상 3NF 이하의 정규형**이며, BCNF가 만족되어도 3NF는 만족되지 않을 수 있다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **BCNF ⊆ 3NF** 관계 성립 → **BCNF를 만족하면 항상 3NF도 만족**. \"BCNF 만족해도 3NF 미만족\"은 불가능. 반대로 3NF 만족은 BCNF 미만족 가능(결정자가 후보 키가 아닐 수 있음).\n- 함정: **정규화 포함 관계 = 1NF ⊃ 2NF ⊃ 3NF ⊃ BCNF ⊃ 4NF ⊃ 5NF**. 상위 정규형이 하위 정규형을 항상 포함."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2022년 3회 3과목 — 데이터 웨어하우스(OLAP vs OLTP) 정형 패턴",
+     "stem_md": "다음 중 **데이터 웨어하우스(Data Warehouse)** 및 **OLAP vs OLTP** 비교로 **옳지 않은** 것은?",
+     "options": [
+      "**OLTP(Online Transaction Processing)** — 실시간 트랜잭션 처리, INSERT/UPDATE 중심, 정규화된 스키마",
+      "**OLAP(Online Analytical Processing)** — 분석·의사결정 지원, SELECT 중심, 비정규화·다차원 스키마(스타/스노우플레이크)",
+      "**데이터 마트(Data Mart)** — 특정 부서·주제 영역별 소규모 웨어하우스, DW의 서브셋",
+      "**OLAP는 실시간 트랜잭션 처리에 최적화**되어 있으며 **INSERT·UPDATE 비중이 SELECT보다 훨씬 높다**"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **OLAP는 분석·의사결정 지원(SELECT 중심)**, **OLTP가 실시간 트랜잭션 처리(INSERT/UPDATE 중심)**. 완전히 뒤바꾼 함정.\n- 함정: **OLTP = 트랜잭션(짧고 빈번), 정규화** / **OLAP = 분석(집계·다차원), 비정규화·스타 스키마**. DW·데이터마트는 OLAP 계열."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2022년 1회 4과목 — C 문자열 함수(strcpy/strcmp/strlen) 정형 패턴",
+     "stem_md": "다음 C 코드의 실행 결과로 옳은 것은?\n```c\n#include <stdio.h>\n#include <string.h>\nint main() {\n    char a[20] = \"Hello\";\n    char b[20] = \"World\";\n    strcat(a, b);\n    printf(\"%d %s\\n\", strlen(a), a);\n    return 0;\n}\n```",
+     "options": [
+      "10 HelloWorld",
+      "5 Hello",
+      "11 Hello World",
+      "10 World"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — `strcat(a, b)` → `a` = \"HelloWorld\" (5+5=10글자). `strlen(\"HelloWorld\")` = **10**. 출력 = `10 HelloWorld`.\n- 함정: strcat = 문자열 이어붙이기 / strcpy = 복사 / strcmp = 비교(같으면 0) / strlen = 길이(널 문자 미포함)."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2022년 2회 4과목 — Java String vs StringBuilder 정형 패턴",
+     "stem_md": "다음 중 Java의 **String · StringBuilder · StringBuffer** 비교로 **옳지 않은** 것은?",
+     "options": [
+      "**String** — 불변(Immutable) 객체, 문자열 변경 시 새 객체 생성",
+      "**StringBuilder** — 가변(Mutable) 객체, 단일 스레드 환경에서 성능 최우수",
+      "**StringBuffer** — 가변 객체, **동기화(synchronized)** 지원, 멀티 스레드 안전(Thread-Safe)",
+      "**String은 가변(Mutable) 객체**이므로 `+` 연산자로 문자열을 반복 결합해도 **원본 객체가 그대로 수정되어 성능이 가장 빠르다**"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **String은 불변(Immutable)** 이므로 `+` 연산은 **매번 새 String 객체를 생성**하여 성능이 가장 **느리다**. 반복 결합에는 **StringBuilder(단일 스레드)** 또는 **StringBuffer(멀티 스레드)** 를 사용해야 한다.\n- 함정: **String = 불변(느림)** / **StringBuilder = 가변·비동기(빠름)** / **StringBuffer = 가변·동기화(중간·안전)**. \"String이 가장 빠름\" 반대 진술."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2022년 3회 4과목 — OS 프로세스 스케줄링(FCFS/SJF/RR) 정형 패턴",
+     "stem_md": "다음 중 **비선점(Non-Preemptive) · 선점(Preemptive) 스케줄링** 분류가 **옳지 않은** 것은?",
+     "options": [
+      "**FCFS(First-Come First-Served)** — 비선점, 도착 순서대로 처리, Convoy Effect 발생 가능",
+      "**SJF(Shortest Job First)** — 비선점, 실행시간 짧은 순, 기아(Starvation) 발생 가능",
+      "**SRT(Shortest Remaining Time)** — 선점형 SJF, 남은 실행 시간 짧은 순",
+      "**RR(Round Robin) 은 비선점 스케줄링**이며, 프로세스가 종료될 때까지 CPU를 독점한다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **RR(Round Robin)은 선점형(Preemptive) 스케줄링**. 각 프로세스에 **시간 할당량(Time Quantum)** 부여 후 **강제 컨텍스트 스위칭**. \"프로세스 종료까지 CPU 독점\"은 **FCFS(비선점)** 의 문제(Convoy Effect).\n- 함정: 비선점 = FCFS · SJF · HRN · Priority(비선점형) / 선점 = **RR · SRT · Priority(선점형) · Multilevel Queue**."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2022년 1회 4과목 — 데드락(Deadlock) 4조건 정형 패턴",
+     "stem_md": "다음 중 **데드락(Deadlock) 4조건**에 해당하지 **않는** 것은?",
+     "options": [
+      "**상호 배제(Mutual Exclusion)** — 자원을 한 번에 하나의 프로세스만 사용",
+      "**점유와 대기(Hold and Wait)** — 자원을 점유한 채 다른 자원을 대기",
+      "**비선점(Non-Preemption)** — 다른 프로세스의 자원을 강제로 뺏을 수 없음",
+      "**선입선출(FIFO) 스케줄링** — 프로세스를 도착 순서대로 처리하는 조건"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **데드락 4조건 = 상호 배제 + 점유와 대기 + 비선점 + 순환 대기(Circular Wait)**. 보기 ④의 \"FIFO 스케줄링\"은 스케줄링 정책이지 데드락 조건이 아니다.\n- 함정: 4조건 암기 = **상·점·비·순** (상호배제 · 점유대기 · 비선점 · 순환대기). 4조건 **모두** 성립해야 데드락 발생 → 하나만 깨도 방지 가능."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2022년 2회 5과목 — DDoS 공격 유형(SYN Flood/Smurf) 정형 패턴",
+     "stem_md": "다음 중 **DDoS(Distributed Denial of Service)** 공격 유형에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**SYN Flood** — TCP 3-Way Handshake의 SYN만 대량 전송, 반쯤 열린 연결로 서버 자원 고갈",
+      "**UDP Flood** — 무작위 포트에 대량 UDP 패킷 전송, ICMP Unreachable 응답으로 서버 자원 소모",
+      "**Smurf 공격** — 브로드캐스트 주소로 ICMP Echo Request를 위조 발신, 다수 호스트가 피해자에게 응답 폭주",
+      "**Ping of Death는 DDoS 공격 유형이 아니며**, 정상적인 ICMP Ping은 어떤 패킷 크기에서도 시스템 크래시를 유발하지 않는다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **Ping of Death는 대표적인 DoS 공격**. 규격을 초과하는 대형 ICMP Echo 패킷(64KB+)을 전송해 취약한 시스템의 버퍼 오버플로우 유발. 지금은 OS 패치로 대부분 방어되지만 DDoS 유형에 명백히 포함.\n- 함정: DDoS 유형 = SYN Flood · UDP Flood · ICMP(Smurf/Ping of Death) · HTTP Flood(Slowloris/GET Flood) · DNS Amplification 등. \"Ping of Death는 DDoS 아님\" 반대 진술."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2022년 3회 5과목 — IPSec/VPN(AH · ESP) 정형 패턴",
+     "stem_md": "다음 중 **IPSec** 및 **VPN** 에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**AH(Authentication Header)** — 인증(무결성 + 인증)만 제공, **암호화 미지원**",
+      "**ESP(Encapsulating Security Payload)** — 인증 + **암호화(기밀성) 지원**",
+      "**전송 모드(Transport Mode)** 는 페이로드만 보호, **터널 모드(Tunnel Mode)** 는 IP 헤더까지 통째로 보호(VPN 게이트웨이 간)",
+      "**IPSec은 응용 계층(L7) 프로토콜**이며, HTTP/HTTPS 위에서 동작한다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **IPSec은 네트워크 계층(L3) 프로토콜**로 IP 패킷을 직접 보호. HTTP/HTTPS(L7) 위가 아니라 **IP 위**에서 동작. VPN 게이트웨이·엔드투엔드 암호화에 사용.\n- 함정: **IPSec = L3(네트워크)** / **TLS = L4~L7(전송/응용)**. \"IPSec = 응용 계층\" 반대 진술."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2022년 1회 5과목 — IDS vs IPS vs 방화벽 정형 패턴",
+     "stem_md": "다음 중 **IDS(Intrusion Detection System) · IPS(Intrusion Prevention System) · 방화벽(Firewall)** 비교로 **옳지 않은** 것은?",
+     "options": [
+      "**방화벽** — 정책(허용/차단 룰) 기반 트래픽 필터링, L3/L4 중심(패킷 필터·Stateful)",
+      "**IDS** — 침입 탐지, 로그·경보 발생, **인라인(Inline) 배치 아닌 미러링(Mirror) 방식** 가능",
+      "**IPS** — 침입 **탐지 + 차단**, **인라인(Inline) 배치**로 실시간 트래픽 차단",
+      "**IDS는 실시간 차단이 가능**하며, **IPS는 사후 탐지만 수행**하고 트래픽 차단은 불가능하다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **IPS(Intrusion Prevention System)** 이 **실시간 탐지 + 차단**을 수행하고 **인라인 배치**된다. **IDS(Intrusion Detection System)** 는 **탐지·경보만** 수행하며 트래픽 차단 없음(미러링 배치).\n- 함정: IDS = **탐지만**(수동) / IPS = **탐지+차단**(능동, 인라인) / 방화벽 = **정책 기반 필터링**(L3/L4). \"IDS 차단, IPS 사후 탐지\" 완전 뒤바꾸기."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2022년 2회 5과목 — CVE / CVSS / 침해대응 5단계 정형 패턴",
+     "stem_md": "다음 중 **취약점 관리(CVE/CVSS)** 및 **침해사고 대응** 에 대한 설명으로 **옳지 않은** 것은?",
+     "options": [
+      "**CVE(Common Vulnerabilities and Exposures)** — 공개된 보안 취약점에 부여되는 고유 식별자 (예: CVE-2021-44228 Log4Shell)",
+      "**CVSS(Common Vulnerability Scoring System)** — 취약점 심각도 정량 점수(0.0~10.0), 3.0/3.1 버전 사용",
+      "**침해사고 대응 5단계** — **준비(Preparation) → 식별(Identification) → 봉쇄(Containment) → 근절(Eradication) → 복구(Recovery)** + 사후분석(Lessons Learned)",
+      "**CVE 식별자는 취약점 심각도 점수를 그대로 나타내며**, CVE 번호가 낮을수록 위험이 크다"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 정반대. **CVE 식별자(CVE-YYYY-NNNNN)** 는 **취약점 고유 번호**일 뿐 심각도와 무관. 심각도는 **CVSS 점수(0.0~10.0)** 로 별도 표시. CVE 번호는 발급 순서에 따른 일련번호로 위험도와 관계없음.\n- 함정: **CVE = 식별자(무엇)** / **CVSS = 점수(얼마나 위험)**. 침해대응 5단계 = **준비 → 식별 → 봉쇄 → 근절 → 복구** (+ 사후분석/PIR)."
+    }
+   ]
   }
  ]
 }
