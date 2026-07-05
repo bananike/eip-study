@@ -7720,6 +7720,274 @@
      "explanation_md": "**정답 ④ OCSP**. PKI 구성 요소:\n- **CA(Certificate Authority, 인증기관)**: 인증서 발급·서명 (예: DigiCert, Let's Encrypt, 한국전자인증)\n- **RA(Registration Authority, 등록기관)**: CA를 대신해 신원 확인·등록 대행\n- **VA(Validation Authority, 검증기관)**: 인증서 유효성 검증\n- **CRL(Certificate Revocation List, 폐기 목록)**: 폐기된 인증서 시리얼 번호 목록을 **주기적으로 다운로드**(오프라인·시차 존재)\n- **OCSP(Online Certificate Status Protocol)**: **실시간 온라인**으로 인증서 폐기 여부 조회(RFC 6960)\n- **OCSP Stapling**: 서버가 CA의 OCSP 응답을 미리 받아 TLS 핸드셰이크에 첨부(성능·프라이버시)\n\n- 함정: **CRL vs OCSP 뒤바꾸기 초빈출**. **CRL = 주기적·오프라인·목록 다운로드(시차)** / **OCSP = 실시간·온라인·개별 조회**. **전자서명 워크플로** = ① 송신자 문서 해시 → ② 송신자 **개인키로 서명** → ③ 문서+서명 전송 → ④ 수신자 문서 해시 재계산 + 송신자 **공개키로 서명 복호** → ⑤ 두 해시 비교. **부인방지·무결성·인증** 3대 효과."
     }
    ]
+  },
+  {
+   "day": 56,
+   "date": "2026-07-06",
+   "subject": "Phase 3 기출회독",
+   "topic": "2023년 정보처리기사 필기 기출 (회독 3/4) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2023년 1회 1과목 — 미들웨어/프레임워크/라이브러리 IoC 관점 정형 패턴",
+     "stem_md": "소프트웨어 구성 요소 중 **프레임워크(Framework)**를 라이브러리(Library)와 구분 짓는 결정적 특성으로 가장 옳은 것은?",
+     "options": [
+      "프레임워크는 컴파일이 필요 없으나 라이브러리는 컴파일이 필요하다.",
+      "프레임워크는 개발자가 호출하지만 라이브러리는 개발자를 호출한다.",
+      "프레임워크는 개발자를 호출(제어의 역전, IoC)하지만 라이브러리는 개발자가 호출한다.",
+      "프레임워크는 오픈소스여야 하지만 라이브러리는 상용이어야 한다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③**. **프레임워크(Framework) vs 라이브러리(Library) 결정적 차이 = 제어의 역전(IoC, Inversion of Control)**.\n- **라이브러리**: 개발자 코드가 라이브러리 함수를 **호출**(개발자 → 라이브러리). 예) `Math.pow(2, 10)`, jQuery, lodash. **제어권은 개발자**에게 있음.\n- **프레임워크**: 프레임워크가 개발자 코드를 **호출**(프레임워크 → 개발자). 예) Spring, Django, React 컴포넌트 라이프사이클, JUnit `@Test`. **제어권은 프레임워크**에게 있음. **\"Don't call us, we'll call you\"(할리우드 원칙)**.\n- **미들웨어(Middleware)**: OS와 응용 사이에 위치하여 표준 통신·데이터 처리를 제공(WAS·MOM·DB미들웨어·RPC).\n- 함정: ①/② 뒤바꾸기, ④ 라이선스 조건은 IoC 판별 기준 아님. **호출 방향(개발자↔코드) = IoC 여부**가 유일한 판별 기준."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2023년 2회 1과목 — GRASP 패턴 정형 패턴",
+     "stem_md": "GRASP 패턴 중 **\"어떤 정보를 가장 잘 알고 있는 객체에게 그 정보를 처리할 책임을 할당한다\"**는 원칙에 해당하는 것은?",
+     "options": [
+      "Creator(생성자)",
+      "Information Expert(정보 전문가)",
+      "Controller(제어자)",
+      "Pure Fabrication(순수 조작)"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② Information Expert(정보 전문가)**. GRASP(General Responsibility Assignment Software Patterns) **9패턴**:\n- **① Creator(생성자)**: B가 A를 포함/사용/기록하면 B가 A 생성 책임\n- **② Information Expert(정보 전문가)**: **정보를 가장 잘 아는 객체에게 책임 할당** — 정답\n- **③ Controller(제어자)**: UI 이벤트를 도메인 계층에 위임하는 첫 번째 객체\n- **④ Low Coupling(낮은 결합도)** / **⑤ High Cohesion(높은 응집도)**\n- **⑥ Polymorphism(다형성)**: 타입 기반 분기 대신 다형성\n- **⑦ Pure Fabrication(순수 조작)**: 도메인에 없는 인공 클래스로 결합도↓·응집도↑ 확보(예: 서비스·리포지토리)\n- **⑧ Indirection(간접화)**: 중간자를 두어 결합도 완화(예: 어댑터)\n- **⑨ Protected Variations(변경 보호)**: 변경 가능한 부분을 인터페이스·추상화로 캡슐화(OCP와 유사)\n\n- 함정: **Creator vs Information Expert 뒤바꾸기 초빈출**. \"생성 책임 = Creator\" / \"처리 책임 = Info Expert\". Controller는 UI-도메인 경계, Pure Fabrication은 인공 클래스 도입. **GOF 23 패턴과 다른 체계**(GRASP는 책임 할당 원칙)."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2023년 3회 1과목 — CBD 개발 프로세스 정형 패턴",
+     "stem_md": "컴포넌트 기반 개발 방법론(CBD, Component Based Development)의 특징으로 옳지 **않은** 것은?",
+     "options": [
+      "재사용 가능한 컴포넌트를 조립하여 시스템을 구축한다.",
+      "컴포넌트 간 인터페이스를 표준화하여 결합도를 낮춘다.",
+      "개발 생산성과 품질을 높이고 유지보수 비용을 절감한다.",
+      "모든 컴포넌트는 반드시 소스 코드가 공개되어야 사용 가능하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. CBD(Component Based Development)의 특징:\n- **컴포넌트(Component)**: 독립적으로 배포 가능한 실행 단위. **바이너리 형태로 배포 가능**(소스 공개 X). 인터페이스만 공개.\n- **CBD 프로세스**: 요구분석 → 컴포넌트 식별 → 아키텍처 설계 → 컴포넌트 개발/획득 → 조립·통합 → 테스트.\n- **장점**: 재사용성↑, 개발 생산성↑, 유지보수↓, 표준 인터페이스로 결합도↓, 병렬 개발 가능.\n- **핵심 원칙**: **\"블랙박스(Black Box) 재사용\"** — 내부 구현 몰라도 인터페이스로 사용. 소스 공개 강제하지 않음(예: COM/DCOM·EJB·.NET Assembly).\n\n- 함정: **④ 소스 공개 강제는 CBD의 특징이 아니라 오히려 반대**. CBD는 블랙박스 재사용을 지향하므로 소스 공개 불필요. **오픈소스 재사용과 CBD는 별개 개념**. ①~③은 모두 CBD 정통 특징."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2023년 1회 1과목 — 소프트웨어 재사용 4단계 정형 패턴",
+     "stem_md": "소프트웨어 재사용(Reuse) 방법 중 **\"기존 소프트웨어의 성능을 개선하기 위해 기존 시스템의 인터페이스는 유지하면서 내부 구조·구현을 변경\"**하는 방법에 해당하는 것은?",
+     "options": [
+      "합성(Composition) 중심 재사용",
+      "생성(Generation) 중심 재사용",
+      "재구성(Restructuring)",
+      "재공학(Re-engineering)"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ 재공학(Re-engineering)**. 소프트웨어 재사용 4대 방법:\n- **① 합성(Composition) 중심 재사용**: 기존 컴포넌트를 **부품 조립**하듯 결합(GUI 위젯, 라이브러리 함수 조합)\n- **② 생성(Generation) 중심 재사용**: 응용 프로그램 생성기(코드 생성기, 스캐폴딩)로 재사용\n- **③ 재구성(Restructuring)**: 프로그램 **동작을 유지하면서 구조만 개선**(리팩토링·모듈화)\n- **④ 재공학(Re-engineering)**: **기존 시스템의 인터페이스는 유지하되 내부 구현을 새로 개발**하여 성능·품질 개선. 프로세스 = 분석(Analysis) → 재구성(Restructuring) → 역공학(Reverse Engineering) → 이식(Migration). 정답\n- 관련: **역공학(Reverse Engineering)** = 실행 파일→소스/명세 복원 / **정공학(Forward Engineering)** = 명세→구현(일반적 개발)\n\n- 함정: **재구성 vs 재공학 뒤바꾸기 초빈출**. \"구조만 개선 = 재구성\" / \"성능·품질 개선(내부 다시 만듦) = 재공학\". 재공학은 인터페이스 유지가 핵심(외부에서 봤을 때 호환)."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2023년 2회 2과목 — 그래프 DFS 순회 정형 패턴",
+     "stem_md": "다음 무방향 그래프를 정점 A에서 시작하여 **깊이 우선 탐색(DFS)** 으로 순회할 때 방문 순서로 옳은 것은? (인접 정점은 사전순으로 방문)\n\n```\n정점: A, B, C, D, E, F\n간선: A-B, A-C, B-D, B-E, C-F, E-F\n```",
+     "options": [
+      "A → B → C → D → E → F",
+      "A → B → D → E → F → C",
+      "A → B → D → E → C → F",
+      "A → C → F → E → B → D"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② A → B → D → E → F → C**. **DFS(Depth First Search) 스택(재귀) 트레이싱** — 인접 리스트 사전순:\n- A=[B,C], B=[A,D,E], C=[A,F], D=[B], E=[B,F], F=[C,E]\n- Visit A → 인접 B,C 중 사전순 첫 B\n- Visit B → 인접 A(방문완료), D, E 중 D 먼저\n- Visit D → 인접 B(방문완료) → 되돌아옴(pop D) → B로 복귀\n- Visit E → 인접 B(방문완료), F\n- Visit F → 인접 C, E(방문완료) → C 방문\n- Visit C → 인접 A(방문완료), F(방문완료) → 종료\n- 최종 순서: **A → B → D → E → F → C**\n\n**BFS 순회(참고)** 로 하면 큐 사용: A → (B,C 인큐) → B → (D,E 인큐) → C → (F 인큐) → D → E → F 로 A → B → C → D → E → F 순서가 나온다. **③(A→B→D→E→C→F)** 은 DFS에서 F 이전에 C를 방문한 잘못된 트레이싱.\n\n- 함정: **DFS(스택·깊이 우선) vs BFS(큐·너비 우선) 뒤바꾸기 초빈출**. DFS는 재귀 또는 명시적 스택 사용, BFS는 큐 사용. 인접 정점 방문 순서 규칙(사전순/역순) 명시 시 그대로 따를 것. ④는 A→C 먼저 잡은 경우(사전순 규칙 위반)."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2023년 3회 2과목 — 해시 충돌 해결 정형 패턴",
+     "stem_md": "해시 테이블에서 충돌(Collision)이 발생했을 때, **\"동일 해시값을 가지는 원소들을 연결 리스트(Linked List)로 연결하여 저장\"** 하는 충돌 해결 방법은?",
+     "options": [
+      "선형 조사법(Linear Probing)",
+      "이차 조사법(Quadratic Probing)",
+      "이중 해싱(Double Hashing)",
+      "체이닝(Chaining, 분리 연결법)"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ 체이닝(Chaining, 분리 연결법)**. 해시 충돌 해결 2대 계열:\n- **개방 주소법(Open Addressing)**: 충돌 시 **다른 빈 슬롯**을 찾아 저장\n  - **선형 조사법(Linear Probing)**: h(k), h(k)+1, h(k)+2, ... — 1차 클러스터링 문제\n  - **이차 조사법(Quadratic Probing)**: h(k), h(k)+1², h(k)+2², ... — 2차 클러스터링\n  - **이중 해싱(Double Hashing)**: h(k), h(k)+h₂(k), h(k)+2·h₂(k), ... — 클러스터링 최소\n- **분리 연결법(Separate Chaining / Chaining)**: 각 버킷에 **연결 리스트**를 두고 충돌 원소를 연결. Java `HashMap`(JDK8+는 버킷 크기 8 초과 시 Red-Black Tree로 승격), Python `dict`(Open Addressing).\n\n- 함정: **Chaining vs Open Addressing 개념 뒤바꾸기 초빈출**. \"연결 리스트 = Chaining\", \"빈 슬롯 탐색 = Open Addressing\". Linear/Quadratic/Double Hashing은 모두 Open Addressing의 하위 유형. **Java HashMap 내부 구조**(Chaining + Tree) 자주 출제."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2023년 1회 2과목 — 시스템 통합 EAI/ESB/ETL 정형 패턴",
+     "stem_md": "다음 중 **ESB(Enterprise Service Bus)** 방식에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "각 시스템을 1:1로 직접 연결(Point-to-Point)하여 배선이 복잡하다.",
+      "중앙 허브(Hub)에 모든 시스템이 연결되는 Hub & Spoke 구조이다.",
+      "표준화된 버스(Bus)를 통해 서비스 간 느슨하게 결합되어 통합·확장이 유연하다.",
+      "원본 데이터를 추출(Extract)·변환(Transform)·적재(Load)하는 데이터 웨어하우스 구축 도구이다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③**. 시스템 통합 3형 비교:\n- **Point-to-Point**: 시스템 간 1:1 직접 연결. N개 시스템 → 최대 N(N-1)/2 회선. **배선 폭발 문제**.\n- **EAI(Enterprise Application Integration) — Hub & Spoke**: 중앙 **허브**에 모든 시스템이 연결. 허브가 라우팅·변환. 허브 장애 = 전체 마비(단일 장애점).\n- **ESB(Enterprise Service Bus) — Bus**: 표준화된 **버스(메시지 브로커)** 를 통해 서비스 간 **느슨하게 결합**. SOA/MSA와 자연스럽게 결합. 확장성·유연성 최고. 대표: MuleSoft, Apache Camel, Kafka(브로커).\n- **ETL(Extract-Transform-Load)**: **데이터 웨어하우스(DW)** 구축용. 원본 → 추출 → 변환 → 적재. 배치성 통합(실시간 X). 대표: Informatica, Talend, Airflow.\n\n- 함정: **EAI(Hub&Spoke) vs ESB(Bus) 구조 뒤바꾸기 초빈출**. Hub&Spoke는 중앙 집중(허브 병목), Bus는 분산·느슨한 결합. **ETL은 통합 방식이 아니라 데이터 이관 방식**(오답 ④). ① Point-to-Point, ② EAI, ③ ESB(정답), ④ ETL 4대 분류 필수."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2023년 2회 2과목 — 회귀/스모크/새니티 테스트 정형 패턴",
+     "stem_md": "소프트웨어 테스트 중 **\"변경·수정이 기존 기능에 부작용(Side Effect)을 일으키지 않는지 확인하기 위해 이미 통과했던 테스트를 재수행\"** 하는 테스트는?",
+     "options": [
+      "스모크(Smoke) 테스트",
+      "새니티(Sanity) 테스트",
+      "회귀(Regression) 테스트",
+      "알파(Alpha) 테스트"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③ 회귀(Regression) 테스트**. 테스트 유형 비교:\n- **스모크(Smoke) 테스트**: 빌드가 최소한 실행 가능한지 **간단·짧게** 확인. 빌드 초기 단계. \"빌드 검증 테스트(BVT, Build Verification Test)\".\n- **새니티(Sanity) 테스트**: 특정 기능·모듈에 국한된 **얕고 좁은** 회귀 검증(제한적 회귀). 스모크와 유사하나 대상이 좁고 깊이는 얕음.\n- **회귀(Regression) 테스트**: **변경·수정이 기존 기능에 부작용을 일으키지 않는지** 확인. **이미 통과했던 테스트 케이스를 재수행**. CI/CD 파이프라인의 핵심.\n- **알파(Alpha) 테스트**: 개발사 내부 환경에서 실 사용자가 수행(사내). / **베타(Beta) 테스트**: 실 고객 환경에서 수행(사외 배포 전).\n\n- 함정: **회귀 vs 새니티 뒤바꾸기 초빈출**. \"부작용 방지 = 회귀(넓고 깊음)\" / \"특정 모듈 얕은 재검증 = 새니티(좁고 얕음)\" / \"빌드 자체 실행 확인 = 스모크(최소)\". 알파/베타는 인수 테스트 계열로 별도."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2023년 3회 3과목 — 뷰(View) 특성 정형 패턴",
+     "stem_md": "관계형 데이터베이스의 **뷰(View)** 에 대한 설명으로 옳지 **않은** 것은?",
+     "options": [
+      "CREATE VIEW로 생성하고 DROP VIEW로 제거한다.",
+      "뷰의 정의는 ALTER VIEW로 변경할 수 없고 삭제 후 재생성해야 한다.",
+      "뷰에는 자체적으로 인덱스를 생성할 수 있다.",
+      "뷰를 통해 원본 테이블의 특정 컬럼·행에만 접근하도록 보안을 강화할 수 있다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③**. 뷰(View) 특성:\n- ✅ CREATE VIEW / DROP VIEW로 생성·삭제 가능\n- ✅ SELECT는 자유, INSERT/UPDATE/DELETE는 **단일 테이블 기반·집계함수·DISTINCT·GROUP BY 없는 경우에만 제한적 가능**\n- ✅ **ALTER VIEW 불가**(일부 DBMS는 CREATE OR REPLACE VIEW 지원) — 정의 변경 시 DROP 후 재생성\n- ❌ **뷰 자체에는 인덱스 생성 불가**(뷰는 저장된 SELECT 문 정의일 뿐 실제 데이터 없음). Oracle의 **Materialized View(구체화된 뷰)** 는 물리 데이터를 가지므로 인덱스 가능.\n- ✅ 원본 테이블의 특정 컬럼/행만 노출하여 **보안·논리적 독립성** 강화\n- ✅ 뷰를 통해 복잡한 조인·집계를 캡슐화(재사용성)\n\n- 함정: **③ 뷰에 인덱스 생성 = 오답 초빈출**. 일반 뷰(Virtual View)는 정의만 저장하므로 인덱스 대상 아님. **Materialized View 는 예외**(용어 구분 필수). ② ALTER VIEW 불가 = 정답 특성. 뷰의 **WITH CHECK OPTION**(뷰 조건 위반 INSERT/UPDATE 방지), **WITH READ ONLY** 옵션도 자주 함께 출제."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2023년 1회 3과목 — 시퀀스(Sequence) 정형 패턴",
+     "stem_md": "Oracle의 **시퀀스(Sequence)** 객체에서, **\"현재 세션에서 마지막으로 발급된 시퀀스 값\"** 을 조회하는 의사(pseudo) 컬럼은?",
+     "options": [
+      "NEXTVAL",
+      "CURRVAL",
+      "ROWNUM",
+      "ROWID"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② CURRVAL**. Oracle Sequence 의사 컬럼:\n- **NEXTVAL**: 시퀀스를 **다음 값으로 증가시키고 반환**. 세션 최초 호출 필수(CURRVAL 사전 조건).\n- **CURRVAL**: **현재 세션에서 마지막으로 발급된** 시퀀스 값 반환. 세션에서 NEXTVAL을 한 번도 호출 안 했으면 오류.\n- **ROWNUM**: SELECT 결과 행에 부여되는 순번(1부터). WHERE ROWNUM <= N 페이징.\n- **ROWID**: 실제 물리 저장 위치를 나타내는 16진수 문자열(블록·행 정보).\n\n시퀀스 생성 예: `CREATE SEQUENCE seq_a START WITH 1 INCREMENT BY 1 MAXVALUE 9999 NOCYCLE NOCACHE;`\n사용: `INSERT INTO t VALUES(seq_a.NEXTVAL, 'A'); SELECT seq_a.CURRVAL FROM DUAL;`\n\n- 함정: **NEXTVAL vs CURRVAL 뒤바꾸기 초빈출**. \"다음 값 발급 = NEXTVAL\", \"현재(마지막) 값 조회 = CURRVAL\". ROWNUM/ROWID와 혼동 X. **MySQL에는 SEQUENCE 없이 AUTO_INCREMENT 사용**(DBMS별 차이)."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2023년 2회 3과목 — 역정규화 유형 정형 패턴",
+     "stem_md": "데이터베이스의 **역정규화(Denormalization) 유형** 중, **\"자주 함께 조회되는 두 테이블을 하나로 합쳐 조인 비용을 줄이는\"** 방법에 해당하는 것은?",
+     "options": [
+      "테이블 통합(Merging Tables)",
+      "테이블 분할(Splitting Tables)",
+      "중복 속성 추가(Redundant Column)",
+      "파생 속성 추가(Derived Column)"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ① 테이블 통합(Merging Tables)**. 역정규화(Denormalization) 5대 유형:\n- **① 테이블 통합**: 두 개 이상의 테이블을 **하나로 합쳐** 조인 비용 절감. 1:1 관계이거나 자주 함께 조회되는 경우.\n- **② 테이블 분할**: 하나의 테이블을 **수직 분할(컬럼)** 또는 **수평 분할(행, 파티셔닝)** 로 나눠 성능 확보.\n- **③ 중복 속성 추가**: 자주 조회되는 컬럼을 **다른 테이블에 복사** 저장하여 조인 회피.\n- **④ 파생 속성 추가**: 계산 결과(합계·평균)를 미리 컬럼으로 저장(예: total_amount = sum).\n- **⑤ 이력 테이블(History Table)**: 변경 이력을 별도 테이블에 저장하여 이력 조회 최적화.\n\n- 함정: **① 통합 vs ② 분할 정반대 뒤바꾸기 초빈출**. \"합침 = 조인 비용↓·중복↑\" / \"쪼갬 = 조회 성능↑·복잡도↑\". 중복 속성 vs 파생 속성 구분: **중복 = 다른 테이블에 같은 값 복사** / **파생 = 계산 결과**. **역정규화는 성능을 위해 정규형(3NF+)에서 의도적 후퇴**하는 것 — 무결성 위험을 감수함."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2023년 3회 3과목 — 저장 프로시저/함수/트리거 비교 정형 패턴",
+     "stem_md": "다음 중 **트리거(Trigger)** 에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "반드시 반환값(RETURN)이 있어야 하며 SELECT문 내에서 호출된다.",
+      "사용자가 명시적으로 EXECUTE 문으로 실행한다.",
+      "특정 테이블에 대한 INSERT/UPDATE/DELETE 이벤트 발생 시 자동으로 실행된다.",
+      "매개변수(IN/OUT)를 반드시 하나 이상 가져야 한다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③**. 저장 프로시저(Procedure) vs 함수(Function) vs 트리거(Trigger) 4대 차이:\n\n| 구분 | 프로시저(Procedure) | 함수(Function) | 트리거(Trigger) |\n|---|---|---|---|\n| **호출 방식** | EXECUTE / CALL 명시 | SELECT/DML 내에서 호출 | **자동 실행** (이벤트 기반) |\n| **반환값** | 없음(OUT 매개변수) | **반드시 RETURN 값** | 없음 |\n| **매개변수** | IN/OUT/INOUT 가능 | IN만 가능 | 없음(NEW/OLD 참조) |\n| **주 용도** | 업무 로직·트랜잭션 처리 | 계산·값 반환 | 무결성·감사·자동 갱신 |\n| **실행 시점** | 명시적 호출 시 | 쿼리 내 호출 시 | INSERT/UPDATE/DELETE 이벤트 |\n\n- 트리거는 **BEFORE/AFTER + INSERT/UPDATE/DELETE + ROW/STATEMENT** 조합으로 정의. NEW/OLD 의사 레코드로 변경 전/후 값 참조.\n\n- 함정: ① 트리거는 반환값 없음, SELECT에서 호출 안 함 / ② EXECUTE는 프로시저 방식 / ④ 트리거는 매개변수 없음. **\"자동 실행 + 이벤트 기반\" = 트리거의 결정적 특성**. **DDL 트리거(스키마 변경 감지)**·**Instead-Of 트리거(뷰에 대한 DML 대체)** 등 응용 유형도 자주 출제."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2023년 1회 4과목 — C 동적 할당 정형 패턴",
+     "stem_md": "다음 C 코드의 실행 결과로 옳은 것은?\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\nint main() {\n    int *p = (int*)calloc(3, sizeof(int));\n    p[0] = 10; p[1] = 20;\n    p = (int*)realloc(p, 5 * sizeof(int));\n    p[3] = 40;\n    printf(\"%d %d %d %d %d\", p[0], p[1], p[2], p[3], p[4]);\n    free(p);\n    return 0;\n}\n```",
+     "options": [
+      "10 20 0 40 0",
+      "10 20 쓰레기 40 쓰레기",
+      "0 0 0 40 0",
+      "10 20 0 40 쓰레기"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ② 10 20 0 40 쓰레기**. C 동적 할당 4함수:\n- **malloc(size)**: size 바이트 할당, **초기화 안 함**(쓰레기값)\n- **calloc(n, size)**: n×size 바이트 할당, **0으로 초기화**\n- **realloc(ptr, new_size)**: 기존 블록을 new_size로 조정. 기존 값은 유지, **확장 부분은 초기화 안 함**(쓰레기값). 이동 발생 가능(포인터 재할당).\n- **free(ptr)**: 할당 해제. **NULL free는 안전, 이중 free는 UB**.\n\n코드 트레이싱:\n1. `calloc(3, sizeof(int))` → p = [0, 0, 0] (**0 초기화**)\n2. `p[0]=10; p[1]=20` → p = [10, 20, 0]\n3. `realloc(p, 5*sizeof(int))` → p = [10, 20, 0, **쓰레기**, **쓰레기**] (기존 3칸은 유지, 확장 2칸은 초기화 안 됨)\n4. `p[3]=40` → p = [10, 20, 0, 40, **쓰레기**]\n5. 출력: `10 20 0 40 (쓰레기)`\n\n- 함정: **malloc(초기화 X) vs calloc(0 초기화) vs realloc(확장부 초기화 X)** 3자 차이가 핵심. **realloc의 확장 부분은 malloc과 같이 쓰레기값** — \"realloc도 0으로 초기화\"라는 오답(①번)이 초빈출. **free 후 dangling pointer**·**메모리 릭(leak)** 개념도 함께 출제."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2023년 2회 4과목 — Java 컬렉션 시간복잡도 정형 패턴",
+     "stem_md": "Java 컬렉션 프레임워크에서, **\"내부적으로 해시 테이블을 사용하며 키의 순서를 보장하지 않고, 키에 의한 검색·삽입·삭제가 평균 O(1) 시간복잡도를 가지는\"** 자료구조는?",
+     "options": [
+      "ArrayList",
+      "LinkedList",
+      "TreeMap",
+      "HashMap"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④ HashMap**. Java 컬렉션 시간복잡도 비교:\n\n| 컬렉션 | 내부 구조 | 순서 | 검색 | 삽입 | 삭제 |\n|---|---|---|---|---|---|\n| **ArrayList** | 동적 배열 | 삽입 순서 | O(n) 값·**O(1) 인덱스** | 뒤 O(1)·중간 O(n) | O(n) |\n| **LinkedList** | 이중 연결 리스트 | 삽입 순서 | O(n) | **O(1) 노드 참조** | O(1) 노드 참조 |\n| **HashMap** | **해시 테이블(배열+체이닝)** | **순서 없음** | **평균 O(1)** | **평균 O(1)** | **평균 O(1)** |\n| HashSet | HashMap 기반 | 순서 없음 | O(1) | O(1) | O(1) |\n| **TreeMap** | Red-Black Tree | **키 정렬** | O(log n) | O(log n) | O(log n) |\n| TreeSet | TreeMap 기반 | 정렬 | O(log n) | O(log n) | O(log n) |\n| LinkedHashMap | 해시+연결리스트 | 삽입 순서 유지 | O(1) | O(1) | O(1) |\n\n- 함정: **HashMap(O(1)·순서 X) vs TreeMap(O(log n)·정렬)** 성능-순서 트레이드오프 초빈출. **ArrayList는 인덱스 O(1)이지만 값 검색은 O(n)** — \"ArrayList가 항상 빠르다\"는 오답. **JDK 8+ HashMap은 버킷 충돌 8개 초과 시 Red-Black Tree로 승격**(최악 O(log n) 보장)."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2023년 3회 4과목 — 세마포어 vs 뮤텍스 정형 패턴",
+     "stem_md": "운영체제의 동기화 기법 중 **세마포어(Semaphore)** 와 **뮤텍스(Mutex)** 의 차이점으로 옳지 **않은** 것은?",
+     "options": [
+      "세마포어는 정수 카운터를 가지지만 뮤텍스는 0/1(잠금/해제) 두 상태만 가진다.",
+      "뮤텍스는 소유(Ownership) 개념이 있어 잠근 스레드만 풀 수 있지만, 세마포어는 소유 개념이 없다.",
+      "세마포어는 여러 개의 자원(N개)을 동시에 관리할 수 있지만, 뮤텍스는 하나의 자원에 대한 상호배제만 관리한다.",
+      "세마포어와 뮤텍스는 모두 P(wait)·V(signal) 연산으로만 동작하며 기능적으로 동일하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. 세마포어(Semaphore) vs 뮤텍스(Mutex) 4대 차이:\n\n| 구분 | 세마포어(Semaphore) | 뮤텍스(Mutex) |\n|---|---|---|\n| **상태** | 정수 카운터 (0~N) | 0(잠금)/1(해제) 이진 |\n| **관리 자원 수** | **N개 동시 관리** | **1개 상호배제만** |\n| **소유(Ownership)** | 소유 개념 **없음** — 다른 스레드가 signal 가능 | **잠근 스레드만 해제 가능**(소유권) |\n| **연산** | P(wait)·V(signal) 이진/일반 세마포어 | lock()·unlock() |\n| **주 용도** | 자원 카운팅·생산자-소비자 | 임계 구역 상호배제 |\n\n- **이진 세마포어(Binary Semaphore)** 는 뮤텍스와 유사하지만 **소유 개념 없음**이 결정적 차이. **뮤텍스만 우선순위 상속(Priority Inheritance)** 가능(우선순위 역전 방지).\n- **P(wait)**: 카운터--, 0이면 대기 / **V(signal)**: 카운터++, 대기 스레드 깨움.\n\n- 함정: **④ \"기능적으로 동일\" = 대표 오답**. 세마포어와 뮤텍스는 **소유 개념·관리 자원 수·용도가 다름**. \"이진 세마포어 = 뮤텍스\" 오답 유의. **모니터(Monitor)**·**조건 변수(Condition Variable)** 도 자주 함께 출제(모니터는 언어 레벨 동기화 구조체)."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2023년 1회 4과목 — 라우팅 프로토콜 정형 패턴",
+     "stem_md": "다음 중 **BGP(Border Gateway Protocol)** 에 대한 설명으로 옳은 것은?",
+     "options": [
+      "홉 수(Hop Count) 기반의 거리 벡터 프로토콜이며 최대 15홉 제한이 있다.",
+      "링크 상태(Link State) 기반의 다익스트라 알고리즘을 사용하는 IGP 프로토콜이다.",
+      "자율 시스템(AS) 간 경로 정보를 교환하는 경로 벡터(Path Vector) 방식의 EGP 프로토콜이다.",
+      "멀티캐스트 라우팅 전용 프로토콜로 RPF(Reverse Path Forwarding)를 사용한다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③**. 라우팅 프로토콜 3대 계열:\n\n| 구분 | RIP | OSPF | BGP |\n|---|---|---|---|\n| **알고리즘** | 거리 벡터(Distance Vector) | 링크 상태(Link State) — 다익스트라 | 경로 벡터(Path Vector) |\n| **메트릭** | 홉 수(Hop Count), **최대 15홉** | 링크 비용(대역폭 기반) | AS 경로·정책 |\n| **범위** | 소규모 AS 내부 (IGP) | 대규모 AS 내부 (IGP) | **AS 간 (EGP)** |\n| **수렴 속도** | 느림 | 빠름 | 느림(정책 기반) |\n| **주 용도** | 소규모 사내망 | 대기업·ISP 내부 | **인터넷 백본** |\n\n- **BGP(Border Gateway Protocol)** = 인터넷 백본 라우팅의 사실상 표준. AS(Autonomous System) 간 경로 정보를 교환. AS 번호(ASN)를 사용. TCP 179 포트.\n- **RPF(Reverse Path Forwarding)** 는 멀티캐스트(PIM-DM/PIM-SM)에서 사용, BGP와 무관.\n\n- 함정: **RIP(홉수·15) vs OSPF(링크상태·다익스트라) vs BGP(AS간·경로벡터) 3자 뒤바꾸기 초빈출**. ① RIP, ② OSPF, ③ BGP(정답), ④ PIM 계열(멀티캐스트). **IGP(내부: RIP/OSPF/EIGRP) vs EGP(외부: BGP) 구분** 필수."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2023년 2회 5과목 — 대칭키 알고리즘 정형 패턴",
+     "stem_md": "다음 중 **대칭키 암호 알고리즘**과 그 특징의 연결이 옳지 **않은** 것은?",
+     "options": [
+      "DES — 64bit 블록, 56bit 키, 페이스텔(Feistel) 구조, 현재는 취약",
+      "AES — 128bit 블록, 128/192/256bit 키, SPN(Substitution-Permutation Network) 구조",
+      "SEED — 128bit 블록, 128bit 키, 한국인터넷진흥원(KISA) 개발 국산 알고리즘",
+      "ARIA — 가변 블록, 가변 키, RSA 기반 공개키 알고리즘"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. 대칭키 알고리즘 4종:\n- **DES(Data Encryption Standard)**: 64bit 블록, **56bit 키**, 페이스텔 16라운드. **현재는 취약**(1997 크랙). **3DES(Triple DES)** = 168bit 유효 키로 확장.\n- **AES(Advanced Encryption Standard)**: 128bit 블록, **128/192/256bit 키**, SPN 구조(Rijndael), 10/12/14 라운드. **현행 표준**.\n- **SEED**: 128bit 블록, 128bit 키. **KISA(한국인터넷진흥원) 개발**, 페이스텔 16라운드, 국가 표준.\n- **ARIA(Academy, Research Institute, Agency)**: 128bit 블록, **128/192/256bit 키**(AES와 동일), SPN 12/14/16 라운드. **국가정보원 개발 국산 표준**, 공공기관 필수.\n- **④ \"ARIA = RSA 기반 공개키\" = 명백한 오답**. ARIA는 국산 **대칭키**, RSA는 미국 **비대칭키**.\n\n- 함정: **ARIA vs RSA 계열 뒤바꾸기 = 오답 초빈출**. 국산 알고리즘 3대: **SEED(1998)·ARIA(2004)·LEA(2013, 경량)**. **HIGHT**(경량 IoT용)도 국산. 키 길이(DES 56·AES 128~256·SEED/ARIA 128~256)는 반드시 암기. **HAS-160**(국산 해시 함수)과 혼동 X."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2023년 3회 5과목 — 비대칭키(공개키) 알고리즘 정형 패턴",
+     "stem_md": "다음 중 **비대칭키(공개키) 암호 알고리즘**의 안전성 근거로 옳지 **않은** 것은?",
+     "options": [
+      "RSA — 큰 정수의 소인수분해(Integer Factorization) 문제의 어려움",
+      "ECC — 타원곡선상의 이산대수(Discrete Logarithm) 문제의 어려움",
+      "ElGamal — 이산대수 문제의 어려움",
+      "AES — 큰 정수의 소인수분해 문제의 어려움"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. 비대칭키(공개키) 알고리즘 안전성 근거:\n- **RSA(Rivest-Shamir-Adleman, 1977)**: **큰 정수의 소인수분해(Integer Factorization)** 문제. n=p·q, n에서 p,q 복원 어려움. 2048~4096bit 키 사용.\n- **ECC(Elliptic Curve Cryptography)**: **타원곡선 상의 이산대수(ECDLP)** 문제. **동일 보안 강도에서 RSA보다 훨씬 짧은 키**(RSA 2048bit ≈ ECC 224bit). IoT·모바일 유리.\n- **ElGamal**: **이산대수(DLP)** 문제. Diffie-Hellman과 같은 기반.\n- **DSA(Digital Signature Algorithm)**: 이산대수 기반 서명 전용.\n- **Diffie-Hellman(1976)**: 최초의 공개키 개념·키 교환. 이산대수 문제.\n- **AES**: **대칭키** — 소인수분해 근거 X. AES 안전성은 **키 공간 탐색의 계산 복잡성**(현실적으로 무차별 대입 불가).\n\n- **④ \"AES = 소인수분해\" = 명백한 오답**. AES는 대칭키이므로 수학적 어려움 기반이 아닌 **연산 복잡도** 기반.\n\n- 함정: **비대칭키의 3대 수학 문제 = 소인수분해(RSA) / 이산대수(ElGamal·DSA·DH) / 타원곡선 이산대수(ECC)** 매칭. **AES·DES·SEED·ARIA는 대칭키**이므로 이 분류에 속하지 않음. **양자 컴퓨팅(Shor 알고리즘)** 은 소인수분해·이산대수를 모두 다항 시간에 해결 가능 → **PQC(Post-Quantum Cryptography)** 필요성."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2023년 1회 5과목 — SBOM 공급망 보안 정형 패턴",
+     "stem_md": "**SBOM(Software Bill Of Materials)** 에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "소프트웨어에 포함된 오픈소스·서드파티 컴포넌트 목록·버전·라이선스 정보를 명세한 자재 명세서로, 공급망 보안·취약점(CVE) 대응에 활용된다.",
+      "데이터베이스 스키마의 전체 테이블·컬럼 목록을 기술한 명세서이다.",
+      "소프트웨어 결함을 관리하기 위한 결함 추적 시스템의 목록이다.",
+      "운영체제의 커널 시스템 콜 목록을 정리한 문서이다."
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①**. **SBOM(Software Bill Of Materials)**:\n- **정의**: 소프트웨어 제품에 포함된 **모든 오픈소스·서드파티 컴포넌트의 목록·버전·라이선스·의존성 정보**를 기술한 자재 명세서.\n- **표준 포맷**: SPDX(Linux Foundation), CycloneDX(OWASP), SWID Tag.\n- **용도**:\n  - **취약점 대응**: 특정 CVE(예: Log4Shell CVE-2021-44228) 발견 시 영향받는 제품 신속 식별\n  - **공급망 보안(Software Supply Chain Security)**: 서드파티 코드 투명성\n  - **라이선스 컴플라이언스**: GPL/MIT/Apache 등 라이선스 의무 확인\n- **정책**: 미국 EO 14028(2021, 바이든 행정명령), 한국 SBOM 도입 로드맵(과기정통부).\n- **관련 개념**: **SLSA(Supply-chain Levels for Software Artifacts)** — 공급망 무결성 레벨 프레임워크 / **VEX(Vulnerability Exploitability eXchange)** — SBOM 컴포넌트별 취약점 노출 여부 명세.\n\n- 함정: SBOM을 **② DB 스키마 목록**·**③ 결함 추적 시스템**·**④ 시스템 콜 목록**으로 오해 유도. **\"소프트웨어 자재 명세서 = 재료(오픈소스 컴포넌트) 목록\"** 이 핵심. **Log4Shell(2021) 이후 SBOM 의무화 추세**·**공급망 공격(SolarWinds, Kaseya)** 이 배경."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2023년 2회 5과목 — 랜섬웨어 대응 3-2-1 백업 정형 패턴",
+     "stem_md": "랜섬웨어 대응을 위한 **3-2-1 백업 전략**에 대한 설명으로 가장 옳은 것은?",
+     "options": [
+      "데이터 사본 3개, 서로 다른 저장 매체 2종, 그 중 1개는 오프사이트(원격지) 보관",
+      "데이터 사본 3개, 서로 다른 클라우드 2개, 물리 서버 1개",
+      "3중 암호화, 2인 승인, 1주일 주기 백업",
+      "3세대 백업 유지, 2단계 인증, 1회용 비밀번호(OTP) 적용"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①**. **3-2-1 백업 전략**(US-CERT·NIST 권고):\n- **3(사본)**: 데이터 사본 **최소 3개** 유지(원본 1 + 백업 2)\n- **2(매체)**: **서로 다른 저장 매체 2종 이상**(예: HDD + SSD, 로컬 디스크 + 테이프, 온프렘 + 클라우드)\n- **1(오프사이트)**: 그 중 **1개는 물리적으로 분리된 원격지(오프사이트/에어갭)** 보관 — 화재·수해·랜섬웨어 격리\n- **확장: 3-2-1-1-0 전략** = 3사본·2매체·1오프사이트 + **1개 오프라인/에어갭(불변)** + **0개 검증되지 않은 백업**(복원 테스트 필수)\n- **랜섬웨어 관점**: 온라인 백업만 있으면 랜섬웨어가 백업도 암호화 가능 → **오프사이트·오프라인·불변(Immutable) 백업 필수**. WORM(Write Once Read Many), 클라우드 Object Lock, 에어갭 테이프.\n\n- 함정: **② 클라우드 2개는 매체 다양성 아님(둘 다 네트워크 스토리지)**·**③ 암호화·승인은 접근 통제 개념·백업 전략 아님**·**④ 세대·2FA·OTP는 인증 개념·백업 전략 아님**. **랜섬웨어 대응 4원칙 = 예방(패치·백신·EDR) + 백업(3-2-1) + 격리(네트워크 분리) + 복구(BCP/DRP)**. **BCP(Business Continuity Plan)**·**DRP(Disaster Recovery Plan)**·**RTO(Recovery Time Objective)**·**RPO(Recovery Point Objective)** 관련 개념 함께 출제."
+    }
+   ]
   }
  ]
 }
