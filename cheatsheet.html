@@ -66,7 +66,196 @@ li{margin:3px 0}
 </div>
 
 <!-- ================= 1과목 ================= -->
+
 <h2 id="g1">1과목 · 소프트웨어 설계</h2>
+
+<h3>⭐ 요구사항 (기능 vs 비기능)</h3>
+<div class="two">
+<ul>
+<li><b>기능적(Functional)</b>: 시스템이 <b>무엇을 하는가</b> — 입력·출력·처리·DB·통신 등 수행 기능</li>
+<li>예) "금융 시스템은 조회·인출·입금·송금 기능이 있어야 한다"</li>
+</ul>
+<ul>
+<li><b>비기능적(Non-functional)</b>: 기능 외 <b>품질·제약</b> — 성능·보안·품질·안정성·사용성·이식성</li>
+<li>예) "모든 화면이 <b>3초 이내</b> 표시" → 성능 = 비기능</li>
+</ul>
+</div>
+<div class="warn">함정: "처리량(Throughput)·반응시간·보안·안전"은 <b>비기능</b>. 성능/보안을 기능적 요구라 하면 <b>틀린 보기</b>.</div>
+
+<h3>⭐ 요구공학 프로세스 (개발 5단계)</h3>
+<div class="mnem">순서: <span class="k">도출 → 분석 → 명세 → 확인(검증) → 관리</span></div>
+<table>
+<tr><th>단계</th><th>내용</th></tr>
+<tr><td><b>도출</b>(Elicitation)</td><td>이해관계자에게서 요구 수집 — 인터뷰·설문·브레인스토밍·유스케이스·프로토타이핑</td></tr>
+<tr><td><b>분석</b>(Analysis)</td><td>요구 분류·개념 모델링·할당·협상·<b>정형 분석</b>, 상충·모호성 정리</td></tr>
+<tr><td><b>명세</b>(Specification)</td><td>분석 결과를 문서화 (요구사항 명세서 작성)</td></tr>
+<tr><td><b>확인/검증</b>(Validation)</td><td>명세가 옳게 작성됐는지 검토 (아래 검토기법)</td></tr>
+<tr><td><b>관리</b>(Management)</td><td>변경 추적·영향 평가·버전 관리 (전 단계에 걸쳐 지속)</td></tr>
+</table>
+<div class="tip">요구사항 <b>분석</b>에 속하는 것: 타당성 조사·비용/일정 제약설정·요구 문서화. <b>설계 명세서 작성은 분석 다음 단계</b>(명세)라 분석에 넣으면 함정.</div>
+
+<h3>요구사항 검토(검증) 방법 — 자주 나옴</h3>
+<table>
+<tr><th>방법</th><th>핵심</th></tr>
+<tr><td><b>동료 검토</b>(Peer Review)</td><td>작성자가 <b>직접 설명</b>, 참석자가 들으며 결함 발견</td></tr>
+<tr><td><b>워크스루</b>(Walkthrough)</td><td>회의 <b>전에 명세서 미리 배포</b> → 사전 검토 후 짧은 회의로 <b>오류 조기 검출</b></td></tr>
+<tr><td><b>인스펙션</b>(Inspection)</td><td>작성자를 <b>제외한</b> 다른 검토 전문가가 확인하며 결함 발견</td></tr>
+</table>
+<div class="warn">단골 함정: "회의 전 배포·사전 검토" = <b>워크스루</b> (인스펙션 아님). 워크스루 ≠ 인스펙션 (2022년 4월 기출).</div>
+
+<h3>요구사항 명세 기법 (정형 vs 비정형)</h3>
+<div class="two">
+<div>
+<b>정형(Formal) 명세</b>
+<ul>
+<li><b>수학적 원리·표기법</b> 기반</li>
+<li>Z, VDM, Petri-Net, CSP, LOTOS</li>
+<li>정확·간결·일관 / 이해 어려움</li>
+</ul>
+</div>
+<div>
+<b>비정형(Informal) 명세</b>
+<ul>
+<li><b>자연어</b> 기반, 상태·기능·객체 중심</li>
+<li>FSM, 결정표, ER, Use Case, SADT</li>
+<li>작성·의사전달 쉬움 / 모호·불일치</li>
+</ul>
+</div>
+</div>
+<div class="warn">함정: "비정형 명세에서 <b>Z</b>를 쓴다" → <b>틀림</b>. Z·VDM은 <b>정형</b> 명세.</div>
+
+<h3>구조적 분석 도구 (DFD · 자료사전 · 소단위명세서 · HIPO)</h3>
+<b>자료흐름도 DFD (Data Flow Diagram)</b> — 버블차트, 시간 흐름 표현 <b>불가</b>
+<table>
+<tr><th>구성요소</th><th>표기</th></tr>
+<tr><td><b>Process</b>(처리)</td><td>원(○) 또는 둥근사각형</td></tr>
+<tr><td><b>Data Flow</b>(자료 흐름)</td><td>화살표(→)</td></tr>
+<tr><td><b>Data Store</b>(자료 저장소)</td><td>평행선(=, 이중선/직선)</td></tr>
+<tr><td><b>Terminator</b>(단말/외부)</td><td>사각형(□)</td></tr>
+</table>
+<div class="warn">DFD 구성요소에 <b>data dictionary(자료사전)는 포함 안 됨</b> — 4지선다 단골 오답. 저장소는 삼각형 아님(평행선).</div>
+
+<b>자료사전(Data Dictionary) 기호</b>
+<table>
+<tr><td><b>=</b> 정의(~로 구성)</td><td><b>+</b> 연결(그리고)</td><td><b>( )</b> 생략(선택적)</td></tr>
+<tr><td><b>{ }</b> 반복(iteration)</td><td><b>[ | ]</b> 선택(택일)</td><td><b>** **</b> 주석(설명)</td></tr>
+</table>
+<div class="tip">암기: <b>정연생반택주</b> = = + ( ) { } [ ] **. 특히 <b>{ }=반복</b>, <b>( )=생략</b> 자주 나옴(둘을 바꿔 내는 함정).</div>
+<ul>
+<li><b>소단위 명세서(Mini-Spec)</b>: DFD 최하위 프로세스의 상세 처리 절차 기술</li>
+<li><b>HIPO</b>(Hierarchy Input Process Output): <b>하향식</b> 문서화 도구. 가시적/총체적/세부적 도표. 기능·자료 관계 동시 표현, 보기 쉬움 <span class="warn" style="display:inline;padding:1px 6px">함정: 상향식 아님!</span></li>
+</ul>
+
+<h3>⭐ 객체지향 핵심 개념</h3>
+<table>
+<tr><th>캡슐화(Encapsulation)</th><td>데이터(속성)+함수(메소드)를 <b>하나로 묶음</b>. 결합도↓·재사용↑·인터페이스 단순화, 변경 시 파급효과↓</td></tr>
+<tr><td><b>정보은닉</b>(Information Hiding)</td><td>내부 구현·데이터를 <b>숨기고</b> 연산(인터페이스)으로만 접근 허용. 캡슐화의 핵심 개념 (예: IP·상세자료구조 은닉)</td></tr>
+<tr><th>상속(Inheritance)</th><td>상위(부모)의 속성·연산을 하위(자식)가 <b>물려받음</b>. 재사용성↑</td></tr>
+<tr><td><b>다형성</b>(Polymorphism)</td><td>같은 메시지에 객체마다 <b>다르게 응답</b>. 오버로딩(이름同·매개변수異)·오버라이딩(재정의, 상속)</td></tr>
+<tr><td><b>추상화</b>(Abstraction)</td><td>공통 성질 추출 → 슈퍼클래스. 기법: <b>과정·자료(데이터)·제어</b> 추상화</td></tr>
+</table>
+<div class="warn">함정: "상위 클래스 속성/연산을 하위가 물려받음" = <b>상속</b>이지 캡슐화 아님. 오버로딩은 "매개변수 <b>타입/개수</b>가 다름"(메소드명은 같음) — "메소드명을 다르게"라 하면 틀림.</div>
+
+<h3>객체지향 구성 요소 (용어 구별)</h3>
+<table>
+<tr><th>클래스(Class)</th><td>유사 객체를 묶은 <b>틀·집합</b>. 데이터 <b>추상화 단위</b>. 공통 속성·연산을 가진 객체의 타입</td></tr>
+<tr><td><b>객체(Object)</b></td><td>클래스로 실체화된 것. 상태(속성)+동작(연산)+식별자를 가짐</td></tr>
+<tr><td><b>인스턴스(Instance)</b></td><td>같은 클래스에 속한 <b>각각의</b> 개별 객체</td></tr>
+<tr><td><b>메시지(Message)</b></td><td>객체에게 <b>행위를 지시하는 명령/요구</b> (객체 간 상호작용 수단)</td></tr>
+<tr><td><b>메소드(Method)</b></td><td>객체의 <b>연산(함수)</b>. 메시지를 받으면 정해진 기능 수행</td></tr>
+</table>
+
+<h3>객체지향 설계 원칙 SOLID</h3>
+<div class="mnem"><span class="k">S O L I D</span></div>
+<ul>
+<li><b>SRP</b> 단일 책임: 클래스는 하나의 책임만</li>
+<li><b>OCP</b> 개방-폐쇄: <b>확장에 열림, 수정에 닫힘</b></li>
+<li><b>LSP</b> 리스코프 치환: <b>하위 타입은 상위 타입으로 언제든 교체</b> 가능</li>
+<li><b>ISP</b> 인터페이스 분리: 안 쓰는 인터페이스에 의존 X</li>
+<li><b>DIP</b> 의존 역전: 변하기 쉬운 것 말고 <b>변하기 어려운(추상)</b> 것에 의존</li>
+</ul>
+
+<h3>객체지향 분석 방법론 (인물별)</h3>
+<table>
+<tr><td><b>Rumbaugh</b>(럼바우)</td><td>객체·동적·기능(<b>객동기</b>) 3모델. 그래픽 표기 (OMT)</td></tr>
+<tr><td><b>Booch</b>(부치)</td><td>미시적+거시적 프로세스 모두 사용</td></tr>
+<tr><td><b>Jacobson</b>(제이콥슨)</td><td><b>Use Case</b> 중심 분석</td></tr>
+<tr><td><b>Coad-Yourdon</b></td><td><b>E-R 다이어그램</b>으로 객체 행위 모델링 (객체·구조·주제·속성·서비스)</td></tr>
+<tr><td><b>Wirfs-Brock</b></td><td>분석~설계 구분 없이 연속 수행</td></tr>
+</table>
+
+<h3>⭐ 럼바우(Rumbaugh) 3모델링</h3>
+<div class="mnem"><span class="k">객 동 기</span> — 객체2 / 동상 / 기자</div>
+<ul>
+<li><b>객체(Object)</b> 모델링: <b>객체 다이어그램</b>. 정적 구조·관계 (= 정보 모델링, 가장 먼저·가장 중요)</li>
+<li><b>동적(Dynamic)</b> 모델링: <b>상태 다이어그램</b>. 시간 흐름·제어·상태 변화</li>
+<li><b>기능(Functional)</b> 모델링: <b>자료흐름도(DFD)</b>. 프로세스 간 자료 흐름</li>
+</ul>
+<div class="tip">키워드 암기 → "정보·요구되는 객체"=객체 / "제어·흐름·동작·상태"=동적 / "DFD·자료흐름"=기능. 정적 모델링은 럼바우 3모델에 <b>없음</b>(함정).</div>
+
+<h3>⭐ UML — 구조(정적) vs 행위(동적)</h3>
+<div class="two">
+<div>
+<b>구조 다이어그램 (정적)</b>
+<div class="mnem"><span class="k">클 객 컴 배 복 패</span></div>
+<ul>
+<li>클래스 / 객체 / 컴포넌트</li>
+<li>배치(Deployment) / 복합체 / 패키지</li>
+</ul>
+</div>
+<div>
+<b>행위 다이어그램 (동적)</b>
+<div class="mnem"><span class="k">유 순 커 상 활 타</span></div>
+<ul>
+<li>유스케이스 / <b>순차(Sequence)</b> / 커뮤니케이션</li>
+<li>상태 / 활동(Activity) / 타이밍</li>
+</ul>
+</div>
+</div>
+<div class="warn">★최다 함정: <b>순차(Sequence)=행위(동적)</b>. "정적 측면 모델링"이라 하면 틀림. 활동(Activity)·상태도 <b>행위</b>. 배치(Deployment)만 <b>구조</b>인데 행위에 섞어 냄.</div>
+
+<h3>UML 관계 6종</h3>
+<table>
+<tr><th>관계</th><th>의미 / 표기</th></tr>
+<tr><td><b>연관</b>(Association)</td><td>두 사물의 구조적 연결 (has-a). 실선</td></tr>
+<tr><td><b>집합</b>(Aggregation)</td><td>전체-부분, <b>부분이 독립적</b> 존재. 속 빈 마름모(◇)</td></tr>
+<tr><td><b>포함</b>(Composition)</td><td>전체-부분, <b>부분이 전체에 종속</b>(생명주기 같이). 채운 마름모(◆)</td></tr>
+<tr><td><b>일반화</b>(Generalization)</td><td>상속(is-a). 하위→상위 속 빈 삼각 화살표(△)</td></tr>
+<tr><td><b>의존</b>(Dependency)</td><td>한쪽 명세 바뀌면 영향. <b>매개변수로 잠깐 사용</b>. 점선 화살표</td></tr>
+<tr><td><b>실체화</b>(Realization)</td><td>한 객체가 다른 객체의 <b>오퍼레이션 수행</b> 지정(인터페이스 구현). 점선 삼각</td></tr>
+</table>
+<div class="tip">단골: "명세 바뀌면 영향·매개변수로 사용" = <b>의존</b>. "오퍼레이션 수행하도록 지정" = <b>실체화</b>. "부분-전체(is-a-part-of)" = <b>집합/집단화</b>. 스테레오타입 표기 = <b>&laquo; &raquo;</b> (겹화살괄호).</div>
+
+<h3>⭐ 디자인 패턴 GoF 23 (생성5 / 구조7 / 행위11)</h3>
+<table>
+<tr><th>생성 5 <span class="note">"추빌팩프싱"</span></th><td>Abstract Factory(추상팩토리) · Builder(빌더) · Factory Method(팩토리메소드) · Prototype(프로토타입) · Singleton(싱글톤)</td></tr>
+<tr><th>구조 7 <span class="note">"어브컴 데퍼플프"</span></th><td>Adapter(어댑터) · Bridge(브리지) · Composite(컴포지트) · Decorator(데코레이터) · Facade(퍼사드) · Flyweight(플라이웨이트) · Proxy(프록시)</td></tr>
+<tr><th>행위 11</th><td>Chain of Responsibility · Command · Interpreter · Iterator · Mediator · Memento · <b>Observer(옵서버)</b> · State · <b>Strategy(전략)</b> · Template Method · Visitor</td></tr>
+</table>
+<table>
+<tr><th>Singleton</th><td>인스턴스가 <b>오직 1개</b>임을 보장</td></tr>
+<tr><td><b>Observer</b></td><td>한 객체 상태 변화 시 <b>1:N으로 통보</b>(발행-구독)</td></tr>
+<tr><td><b>Adapter</b></td><td>호환 안 되는 <b>인터페이스를 변환</b>해 함께 사용</td></tr>
+<tr><td><b>Facade</b></td><td>복잡한 서브시스템에 <b>단순한 통합 창구</b> 제공</td></tr>
+<tr><td><b>Strategy</b></td><td>알고리즘을 캡슐화해 <b>독립적으로 교체</b></td></tr>
+<tr><td><b>Factory Method</b></td><td>상위는 생성 인터페이스, <b>하위가 인스턴스 생성</b></td></tr>
+<tr><td><b>Prototype</b></td><td>원본 객체를 <b>복제(clone)</b>해 생성</td></tr>
+<tr><td><b>Bridge</b></td><td>구현부에서 <b>추상층 분리</b> → 독립 확장</td></tr>
+</table>
+<div class="warn">단골 함정: <b>Prototype·Builder·Singleton = 생성</b>인데 구조/행위에 섞어 냄. <b>Visitor·Observer·State·Command·Strategy = 행위</b>. 추상"팩토리"는 있어도 "추상 패턴"이라는 분류는 <b>없음</b>. 디자인 패턴은 객체지향에 최적(절차형과 결합 시 극대화 X → 틀린 보기).</div>
+
+<h3>⭐ 아키텍처 패턴</h3>
+<table>
+<tr><th>패턴</th><th>특징</th></tr>
+<tr><td><b>계층(Layered)</b></td><td>계층 단위로 구성, 하위가 상위 지원. 예) OSI 참조모델</td></tr>
+<tr><td><b>MVC</b></td><td>Model(데이터/기능)·View(표현)·Controller(중개·전달자). 한 모델에 여러 뷰. UI 응집도↑·결합도↓</td></tr>
+<tr><td><b>파이프-필터</b></td><td>필터가 데이터 처리 후 <b>파이프로 다음에 전달·반복</b>. 데이터 <b>단방향</b> 흐름(양방향도 가능). 예) UNIX 셸</td></tr>
+<tr><td><b>브로커(Broker)</b></td><td>분산 컴포넌트 간 중개자가 요청 전달</td></tr>
+<tr><td><b>클라이언트-서버</b></td><td>서버 1 + 클라이언트 다수, 서비스 요청/응답</td></tr>
+<tr><td><b>마스터-슬레이브</b></td><td>마스터가 작업 분배·조정, 슬레이브가 처리·반환. 실시간에 사용</td></tr>
+<tr><td><b>피어투피어(P2P)</b></td><td>노드가 클라이언트·서버 역할 동시 수행</td></tr>
+</table>
+<div class="warn">함정: MVC에서 "<b>전달자 역할은 Controller</b>"(Model 아님). "모델당 뷰 1개"라 하면 틀림(여러 뷰 가능). 파이프-필터에서 "필터 이동 시 오버헤드 없음"이라 하면 틀림(발생함).</div>
 
 <h3>⭐ 응집도 (Cohesion) — 강할수록 좋음</h3>
 <div class="mnem">약 → 강 : <span class="k">우 논 시 절 교(통) 순 기</span></div>
@@ -74,8 +263,8 @@ li{margin:3px 0}
 <tr><th>순서</th><th>응집도</th><th>뜻</th></tr>
 <tr><td>1 (약)</td><td>우연적(Coincidental)</td><td>관련 없는 요소끼리 우연히 모임</td></tr>
 <tr><td>2</td><td>논리적(Logical)</td><td>유사 성격(입력/출력 등)끼리 묶음</td></tr>
-<tr><td>3</td><td>시간적(Temporal)</td><td>같은 시간대에 실행되는 것끼리 (초기화 등)</td></tr>
-<tr><td>4</td><td>절차적(Procedural)</td><td>순서대로 수행</td></tr>
+<tr><td>3</td><td>시간적(Temporal)</td><td>같은 시간대 실행(초기화 등)</td></tr>
+<tr><td>4</td><td>절차적(Procedural)</td><td>여러 기능을 <b>순서대로</b> 수행</td></tr>
 <tr><td>5</td><td>교환/통신적(Communicational)</td><td>같은 자료를 사용</td></tr>
 <tr><td>6</td><td>순차적(Sequential)</td><td>앞 출력이 뒤 입력</td></tr>
 <tr><td>7 (강)</td><td><b>기능적(Functional)</b></td><td>단일 기능만 수행 (가장 이상적)</td></tr>
@@ -85,256 +274,1147 @@ li{margin:3px 0}
 <div class="mnem">약 → 강 : <span class="k">자 스 제 외 공 내</span></div>
 <table>
 <tr><th>순서</th><th>결합도</th><th>뜻</th></tr>
-<tr><td>1 (약)</td><td><b>자료(Data)</b></td><td>파라미터로 값만 전달 (가장 좋음)</td></tr>
+<tr><td>1 (약)</td><td><b>자료(Data)</b></td><td>파라미터로 <b>값만</b> 전달 (가장 좋음)</td></tr>
 <tr><td>2</td><td>스탬프(Stamp)</td><td>자료구조 전체를 전달</td></tr>
 <tr><td>3</td><td>제어(Control)</td><td>제어 플래그를 전달</td></tr>
 <tr><td>4</td><td>외부(External)</td><td>외부 전역변수/장치 공유</td></tr>
 <tr><td>5</td><td>공통(Common)</td><td>전역변수 공유</td></tr>
-<tr><td>6 (강)</td><td>내용(Content)</td><td>다른 모듈 내부를 직접 참조 (가장 나쁨)</td></tr>
+<tr><td>6 (강)</td><td>내용(Content)</td><td>다른 모듈 <b>내부를 직접 참조</b> (가장 나쁨)</td></tr>
 </table>
-<div class="tip">시험 단골: "가장 좋은 결합도 = <b>자료(Data)</b>", "가장 좋은 응집도 = <b>기능적</b>". 반대로 "가장 나쁜 = 내용/우연적".</div>
+<div class="tip">단골: "가장 좋은 결합도 = <b>자료(Data)</b>", "가장 좋은 응집도 = <b>기능적</b>". 반대로 "가장 나쁜 = 내용 / 우연적". 좋은 설계 = <b>응집도↑ 결합도↓</b>.</div>
 
-<h3>⭐ 럼바우(Rumbaugh) 객체지향 분석 3모델링</h3>
-<div class="mnem"><span class="k">객 동 기</span> = 객체 · 동적 · 기능</div>
+<h3>팬인(Fan-In) / 팬아웃(Fan-Out)</h3>
 <ul>
-<li><b>객체(Object) 모델링</b>: 객체 다이어그램으로 정적 구조 표현 (= 정보 모델링)</li>
-<li><b>동적(Dynamic) 모델링</b>: 상태 다이어그램, 시간 흐름·상태 변화</li>
-<li><b>기능(Functional) 모델링</b>: 자료흐름도(DFD), 데이터 변환 과정</li>
+<li><b>팬인</b>: 나를 <b>호출(제어)하는</b> 상위 모듈 수 (들어오는 화살표)</li>
+<li><b>팬아웃</b>: 내가 <b>호출하는</b> 하위 모듈 수 (나가는 화살표)</li>
 </ul>
+<div class="tip">팬인↑ = 재사용성 좋음(공통 모듈), 팬아웃↑ = 제어 복잡. 특정 모듈 기준 위/아래 화살표 세는 계산문제로 출제.</div>
 
-<h3>⭐ 디자인 패턴 GoF 23 (생성5 / 구조7 / 행위11)</h3>
+<h3>코드(Code) 종류 & 기능</h3>
 <table>
-<tr><th>생성 5 <span class="note">"추빌팩프싱"</span></th><td>Abstract Factory(추상팩토리), Builder(빌더), Factory Method(팩토리메소드), Prototype(프로토타입), Singleton(싱글톤)</td></tr>
-<tr><th>구조 7 <span class="note">"어브컴 데퍼플프"</span></th><td>Adapter(어댑터), Bridge(브리지), Composite(컴포지트), Decorator(데코레이터), Facade(퍼사드), Flyweight(플라이웨이트), Proxy(프록시)</td></tr>
-<tr><th>행위 11</th><td>Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, <b>Observer(옵서버)</b>, State, <b>Strategy(전략)</b>, Template Method, Visitor</td></tr>
+<tr><th>코드</th><th>방식</th></tr>
+<tr><td><b>순차(Sequence)</b></td><td>발생순/일정 순서대로 <b>일련번호</b> 부여</td></tr>
+<tr><td><b>블록(Block)</b>=구분</td><td>공통 항목끼리 블록 구분 후 블록 내 일련번호</td></tr>
+<tr><td>그룹분류</td><td>대·중·소 분류별 자릿수 구성</td></tr>
+<tr><td>10진</td><td>10진수로 대/중/소 분류</td></tr>
+<tr><td><b>표의 숫자</b>=유효숫자</td><td>대상의 <b>물리적 수치</b>(길이·면적·중량·용량)를 그대로 코드화</td></tr>
+<tr><td><b>연상(Mnemonic)</b></td><td>명칭·약호와 관계있는 문자/기호로 <b>연상</b>하게</td></tr>
+<tr><td>합성(복합)</td><td>둘 이상의 코드를 조합</td></tr>
 </table>
-<div class="tip">자주 물음: 개수(생성5·구조7·행위11), <b>Singleton=인스턴스 1개 보장</b>, <b>Observer=1:N 상태변화 통보</b>, <b>Adapter=인터페이스 변환</b>, <b>Facade=단순화된 통합 창구</b>.</div>
+<div class="tip">단골: "일련번호" = <b>순차</b>코드, "물리적 수치(중량·면적·용량)" = <b>표의 숫자(유효숫자)</b>코드. 코드 기능 = <b>식별·분류·배열·표준화</b> (복잡성은 기능 아님).</div>
 
-<h3>개발 방법론 & 애자일</h3>
+<h3>UI 설계 원칙 & 유형</h3>
 <div class="two">
+<div>
+<b>4대 원칙</b>
 <ul>
-<li><b>폭포수</b>: 고전적·선형순차. 단계 명확, 변경 어려움</li>
-<li><b>프로토타입</b>: 시제품으로 요구 확인</li>
-<li><b>나선형(Boehm)</b>: <b>위험분석</b> 포함, 4단계 반복 (계획→위험분석→개발→평가)</li>
-<li><b>V모델</b>: 폭포수 확장, 단계별 테스트 대응</li>
-</ul>
-<ul>
-<li><b>XP 5가치</b> <span class="note">"용단의피존"</span>: 용기·단순성·의사소통·피드백·존중</li>
-<li><b>스크럼</b>: PO(제품책임자)·SM(스크럼마스터)·개발팀, 스프린트(2~4주), 데일리스크럼</li>
-<li>애자일 = 짧은 반복, 변화 수용, 동작 SW 중시</li>
+<li><b>직관성</b>: 누구나 쉽게 이해·사용</li>
+<li><b>유효성</b>: 정확·완벽하게 목표 달성</li>
+<li><b>학습성</b>: 쉽게 배우고 익힘</li>
+<li><b>유연성</b>: 인터랙션 포용·실수 방지</li>
 </ul>
 </div>
-
-<h3>UML</h3>
+<div>
+<b>UI 유형</b>
 <ul>
-<li><b>구조(정적) 다이어그램</b>: 클래스, 객체, 컴포넌트, 배치, 복합체, 패키지</li>
-<li><b>행위(동적) 다이어그램</b>: 유스케이스, <b>순차(Sequence)</b>, 통신, 상태, 활동, 타이밍</li>
-<li>관계: 연관·집합(Aggregation)·포함(Composition)·일반화(상속)·의존·실체화</li>
+<li><b>CLI</b>: 명령어 문자열(DOS·Unix)</li>
+<li><b>GUI</b>: 그래픽·아이콘·마우스</li>
+<li><b>NUI</b>: 멀티터치·동작·음성(자연스러운 움직임)</li>
+<li><b>OUI</b>: 모든 사물-사용자 상호작용</li>
 </ul>
-<div class="warn">함정: <b>순차 다이어그램 = 행위(동적)</b> 다이어그램. "정적 측면 모델링"이라 하면 <b>틀린 보기</b> (2022년 4월 기출).</div>
+</div>
+</div>
+<div class="tip">"누구나 쉽게" = <b>직관성</b>. "명령 문자열(DOS/Unix)" = <b>CLI</b>. "멀티터치·제스처" = <b>NUI</b>. UI는 <b>사용자 중심</b> 설계(개발자 중심 X — 함정).</div>
 
-<h3>미들웨어 종류</h3>
+<h3>미들웨어(Middleware) 종류</h3>
+<table>
+<tr><th>DB 미들웨어</th><td>DB와 연결(ODBC 등)</td></tr>
+<tr><td><b>RPC</b></td><td>원격 프로시저를 <b>로컬처럼 호출</b> (Remote=원격)</td></tr>
+<tr><td><b>MOM</b></td><td>메시지 지향, <b>비동기</b>·메시지 큐. 즉각응답보다 안정·이기종 동기화</td></tr>
+<tr><td><b>TP monitor</b></td><td>트랜잭션을 <b>감시·제어</b></td></tr>
+<tr><td><b>ORB</b></td><td>객체 요청 브로커, CORBA 표준(객체 간 메시지)</td></tr>
+<tr><td><b>WAS</b></td><td>웹 애플리케이션 서버, <b>동적 콘텐츠</b> 처리</td></tr>
+</table>
+<div class="tip">"트랜잭션 감시/제어" = <b>TP monitor</b>. "원격 프로시저 호출" = <b>RPC</b>. "메시지·비동기" = <b>MOM</b>. 미들웨어 = 클라이언트-서버 통신 담당, 내부 동작을 사용자가 알 필요 없음.</div>
+
+<h3>인터페이스 설계 — EAI 유형 & ESB</h3>
+<table>
+<tr><th>Point-to-Point</th><td>1:1 직접 연결. 가장 기본, 연결 많아지면 복잡</td></tr>
+<tr><td><b>Hub &amp; Spoke</b></td><td>단일 허브 중심 <b>중앙집중</b>. 허브 장애 시 전체 영향</td></tr>
+<tr><td><b>Message Bus</b></td><td>애플리케이션 사이 <b>미들웨어(버스)</b>로 처리. 확장 용이</td></tr>
+<tr><td><b>Hybrid</b></td><td>Hub&amp;Spoke + Message Bus <b>혼합</b>. 미들웨어 둠</td></tr>
+</table>
 <ul>
-<li><b>MOM</b>(Message-Oriented): 비동기 메시지, 메시지 큐 (즉각응답보다 안정)</li>
-<li><b>RPC</b>: 원격 프로시저 호출 &nbsp;·&nbsp; <b>ORB</b>: 객체 요청 &nbsp;·&nbsp; <b>TP monitor</b>: 트랜잭션 &nbsp;·&nbsp; <b>WAS</b>: 웹앱 &nbsp;·&nbsp; <b>DB 미들웨어</b>(ODBC 등)</li>
+<li><b>EAI</b>(Enterprise Application Integration): 기업 내 애플리케이션 통합·연계 솔루션</li>
+<li><b>ESB</b>(Enterprise Service Bus): 서비스 중심, 웹서비스·표준 인터페이스로 느슨하게 연계(SOA 기반)</li>
 </ul>
+<div class="warn">함정: EAI 유형에 <b>Tree·유닛분할</b> 같은 것 넣으면 오답. Hybrid는 "point-to-point로 직접 연결·미들웨어 없음"이라 하면 틀림(미들웨어 둠).</div>
 
-<!-- ================= 2과목 ================= -->
+<h3>추상화 기법 3종 & 상·하위 설계</h3>
+<div class="two">
+<ul>
+<li><b>과정(제어)</b> 추상화: 전반 흐름만, 상세 메커니즘 정의 X</li>
+<li><b>자료(데이터)</b> 추상화: 자료 구조를 대표 표현으로</li>
+<li><b>제어</b> 추상화: 원하는 효과만 정의</li>
+</ul>
+<ul>
+<li><b>상위 설계</b>: 아키텍처·데이터·시스템분할·인터페이스 정의·<b>UI 설계</b></li>
+<li><b>하위 설계</b>: <b>모듈 설계</b>·인터페이스 작성</li>
+</ul>
+</div>
+<div class="warn">함정: <b>모듈 설계 = 하위</b> 설계. 상위 설계에 넣으면 틀림. 추상화 기법에 "강도 추상화"는 <b>없음</b>.</div>
+
 <h2 id="g2">2과목 · 소프트웨어 개발</h2>
 
-<h3>⭐ 소프트웨어 테스트 (최다 출제)</h3>
+<div class="freq">📊 8회분 초빈출: <b>정렬(1회전 결과)·트리 순회·자료구조 선형/비선형·블랙/화이트박스·통합(스텁/드라이버)·형상관리·DRM·해싱·빅오·인터페이스 검증도구</b> — 계산문제(정렬 회전/순회/차수/이진검색 횟수)는 <b>손으로 직접 굴려봐야</b> 안 틀립니다.</div>
+
+<!-- ============ 자료구조 ============ -->
+<h3>⭐ 자료구조 — 선형 vs 비선형</h3>
+<div class="mnem">선형 : <span class="k">배 리 스 큐 덱</span> (배열·리스트·스택·큐·데크)</div>
+<div class="mnem">비선형 : <span class="k">트 그</span> (트리·그래프)</div>
 <div class="two">
-<div>
-<b>블랙박스</b> (명세 기반, 출력 검증)<br>
-<span class="mnem"><span class="k">동 경 원 비 오</span></span>
 <ul>
-<li>동치 분할(Equivalence)</li>
-<li>경계값 분석(Boundary)</li>
-<li>원인-효과 그래프</li>
-<li>비교 검사</li>
-<li>오류 예측</li>
+<li><b>스택(Stack)</b>: 한쪽 끝(Top)에서만 삽입/삭제 → <b>LIFO</b>(후입선출). 함수호출·인터럽트·수식(후위)계산·재귀</li>
+<li><b>큐(Queue)</b>: 한쪽(rear) 삽입, 다른쪽(front) 삭제 → <b>FIFO</b>(선입선출)</li>
+<li><b>데크(Deque)</b>: <b>양쪽 끝</b> 모두 삽입/삭제 가능</li>
+<li><b>연결리스트</b>: 노드(데이터+포인터)로 연결, 삽입/삭제 용이·접근 느림</li>
+</ul>
+<ul>
+<li><b>오버플로(Overflow)</b>: 꽉 찼는데 <b>삽입(push)</b> 시도</li>
+<li><b>언더플로(Underflow)</b>: 비었는데 <b>삭제(pop)</b> 시도</li>
+<li>스택 포인터: <b>Top</b>(Bottom과 짝). 큐: front·rear 2개 포인터</li>
+<li>파일구조: 순차·색인·직접 파일</li>
 </ul>
 </div>
-<div>
-<b>화이트박스</b> (내부 로직·경로)
-<ul>
-<li>기초 경로(Basis Path)</li>
-<li>조건 / 결정 커버리지</li>
-<li>구문(문장) 커버리지</li>
-<li>데이터 흐름 검사</li>
-<li>루프 검사</li>
-</ul>
-</div>
-</div>
+<div class="warn">단골 함정: "큐는 비선형이다" → <b>큐는 선형</b>! / "스택은 Head·Tail 2포인터" → 스택은 <b>Top 하나</b>(그건 큐 설명).</div>
+
+<h3>⭐ 스택 push/pop 출력 순서</h3>
+<div class="tip">A B C D 입력을 <b>push→pop</b> 규칙대로: 전부 push 후 pop이면 역순 <b>D C B A</b>. push·pop을 섞으면 그 순서대로 하나씩 그려서 판정. (예: push,push,pop,push,push,pop,pop,pop → B D C A)</div>
+
+<!-- ============ 트리 ============ -->
+<h3>⭐ 트리 순회 (전위/중위/후위)</h3>
+<div class="mnem">기준 = <span class="k">Root를 언제</span> 방문? 전=앞 / 중=가운데 / 후=뒤</div>
 <table>
-<tr><th>테스트 레벨(V모델)</th><td><b>단위 → 통합 → 시스템 → 인수</b></td></tr>
-<tr><th>통합 방식</th><td>하향식(Stub 필요) / 상향식(Driver 필요) / 빅뱅 / 샌드위치</td></tr>
-<tr><th>테스트 원리</th><td><b>살충제 패러독스</b>(같은 테스트 반복→결함 못 찾음), <b>오류-부재의 궤변</b>(결함 0이어도 요구 불충족이면 무의미), 결함 집중(파레토)</td></tr>
+<tr><th>순회</th><th>순서</th><th>암기</th></tr>
+<tr><td><b>전위 Preorder</b></td><td>Root → Left → Right</td><td>루트 <b>먼저</b></td></tr>
+<tr><td><b>중위 Inorder</b></td><td>Left → Root → Right</td><td>루트 <b>가운데</b> (= 중위식/infix)</td></tr>
+<tr><td><b>후위 Postorder</b></td><td>Left → Right → Root</td><td>루트 <b>마지막</b> (= 후위식/postfix)</td></tr>
 </table>
-<div class="tip"><b>McCabe 순환복잡도</b> = 화살표(E) − 노드(N) + 2 &nbsp;(또는 폐구역+1). 계산문제 단골.</div>
+<div class="tip"><b>수식표기 변환</b>: 전위(Prefix)=연산자 앞 / 중위(Infix)=연산자 안 / 후위(Postfix)=연산자 뒤. 후위식 계산은 연산자 바로 앞 두 피연산자를 계산. 변환 요령: ①연산자 기준 괄호 묶기 →②연산자를 괄호 뒤(후위)/앞(전위)로 →③괄호 제거.</div>
 
-<h3>자료구조</h3>
+<h3>트리 용어 — 차수·단말노드·간선수</h3>
 <div class="two">
 <ul>
-<li><b>스택(Stack)</b>: LIFO. 후위표기·재귀·인터럽트</li>
-<li><b>큐(Queue)</b>: FIFO</li>
-<li><b>트리</b>: 순회 = 전위(root먼저)/중위/후위</li>
+<li><b>차수(Degree)</b>: 한 노드의 <b>자식 수</b>. 트리의 차수 = 전체 중 <b>가장 큰 차수</b></li>
+<li><b>단말(Terminal/Leaf) 노드</b>: <b>자식이 없는</b> 노드</li>
+<li>루트는 차수 계산엔 포함, 자기 자신은 자식 아님</li>
 </ul>
 <ul>
-<li>트리 차수 = 자식 최대 수</li>
-<li>이진트리 최대 노드 = 2ᵏ−1</li>
-<li>그래프: 무방향 간선 최대 n(n−1)/2</li>
+<li><b>이진트리</b>: 각 노드 자식 최대 2개</li>
+<li><b>이진탐색트리(BST)</b>: 왼쪽&lt;루트&lt;오른쪽</li>
+<li><b>힙(Heap)</b>: 완전이진트리, 최대/최소값이 루트 (힙정렬에 사용)</li>
 </ul>
 </div>
-<div class="tip">중위→후위 변환 단골: <b>A+B*C → A B C * +</b> (곱셈 먼저).</div>
+<div class="warn">그래프 최대 간선수: <b>무방향 = n(n-1)/2</b>, <b>방향(유향) = n(n-1)</b>. n개 정점 기준. (무방향에서 ×2가 방향)</div>
 
-<h3>형상관리 (SCM)</h3>
-<div class="mnem">활동: <span class="k">식별 → 통제 → 감사 → 기록(보고)</span></div>
+<h3>그래프 탐색 DFS / BFS</h3>
 <ul>
-<li>형상 식별 → 형상 통제(변경 제어) → 형상 감사 → 형상 기록</li>
-<li>버전관리 도구: Git(분산), SVN·CVS(중앙집중)</li>
-<li>목적: 변경 추적·통제 (성능 향상 아님 ← 함정)</li>
+<li><b>DFS(깊이우선)</b>: 한 분기를 끝까지 파고든 뒤 되돌아옴(백트래킹). 스택 이용</li>
+<li><b>BFS(너비우선)</b>: 가까운 노드부터 넓게. 큐 이용</li>
+<li>하향식 통합에도 <b>깊이 우선/너비 우선</b> 통합법이 쓰임</li>
 </ul>
 
-<!-- ================= 3과목 ================= -->
+<!-- ============ 정렬 ============ -->
+<h3>⭐⭐ 정렬 알고리즘 & 시간복잡도</h3>
+<div class="mnem">O(n²) 삼형제 : <span class="k">버 선 삽</span> (버블·선택·삽입)</div>
+<table>
+<tr><th>정렬</th><th>평균/최악</th><th>동작 핵심</th></tr>
+<tr><td>버블(Bubble)</td><td>O(n²)</td><td><b>인접</b> 두 개 비교·교환. 1 PASS마다 최댓값이 맨 뒤 고정</td></tr>
+<tr><td>선택(Selection)</td><td>O(n²)</td><td>최솟값 찾아 <b>맨 앞과 교환</b> 반복 (위치 자체를 스왑)</td></tr>
+<tr><td>삽입(Insertion)</td><td>O(n²) <span class="note">최선 O(n)</span></td><td>2번째부터 앞쪽 정렬부와 비교해 <b>알맞은 자리에 끼워넣기</b></td></tr>
+<tr><td>쉘(Shell)</td><td>O(n<sup>1.5</sup>) <span class="note">최악 O(n²)</span></td><td>삽입정렬 확장. 매개변수 h 간격 서브파일 정렬</td></tr>
+<tr><td><b>퀵(Quick)</b></td><td><b>O(n log n)</b> <span class="note">최악 O(n²)</span></td><td><b>분할정복 + 피벗(pivot)</b> 기준 분할. 평균 최고속</td></tr>
+<tr><td><b>힙(Heap)</b></td><td><b>O(n log n)</b></td><td>완전이진트리(힙) 구성, 루트(최대) 제거 반복</td></tr>
+<tr><td><b>합병(Merge)</b></td><td><b>O(n log n)</b></td><td>분할정복. 반씩 쪼갠 뒤 정렬하며 합병(2-way)</td></tr>
+<tr><td>기수(Radix)</td><td>O(dn)</td><td>자릿수(키값)별 버킷 분배 후 꺼내기. 비교 안 함</td></tr>
+</table>
+<div class="warn">⭐ "1회전(PASS 1) 결과" 문제는 <b>반드시 직접</b> 굴리기. <b>선택</b>은 최솟값과 맨앞 <b>교환</b>, <b>버블</b>은 한 PASS에 여러 번 인접 교환+맨뒤 1개 확정, <b>삽입</b>은 왼쪽으로 밀어 끼워넣기 — 셋의 1회전 결과가 다르다!</div>
+
+<!-- ============ 검색/해싱 ============ -->
+<h3>검색 — 순차 / 이진 / 보간</h3>
+<div class="two">
+<ul>
+<li><b>순차(선형)검색</b>: 처음부터 하나씩. 정렬 <b>불필요</b>. O(n)</li>
+<li><b>이진(Binary)검색</b>: <b>정렬 필수</b>. 중간값 비교 후 절반씩 버림. O(log n)</li>
+<li><b>보간(Interpolation)</b>: 찾는 값 위치를 비례로 추정</li>
+<li><b>피보나치 검색</b>: 피보나치 수열로 비교 대상 선정</li>
+</ul>
+<ul>
+<li>이진검색: <b>중간 인덱스</b> = (low+high)/2. "14 찾기 비교횟수" = mid 갱신 횟수를 직접 세기</li>
+</ul>
+</div>
+<h3>해싱(Hashing) & 충돌 해결</h3>
+<ul>
+<li><b>해시함수</b>: 제산법(나눗셈)·제곱법·폴딩(중첩)·기수변환·숫자분석·무작위 등. 해시탐색은 이상적 <b>O(1)</b></li>
+<li><b>충돌(Collision)</b>: 서로 다른 키가 같은 주소 → 해결 필요. 같은 주소 겹친 = <b>동의어(Synonym)</b></li>
+<li><b>개방주소법(Open Addressing)</b>: 충돌 시 다음 빈 버킷 탐사 (선형/제곱/이중해싱)</li>
+<li><b>체이닝(Chaining)</b>: 같은 주소를 <b>연결리스트</b>로 매달기</li>
+<li><b>재해싱(Rehashing)</b>: 다른 해시함수로 재계산</li>
+</ul>
+
+<!-- ============ 알고리즘 설계기법 / 복잡도 ============ -->
+<h3>알고리즘 설계기법 & 빅오</h3>
+<div class="two">
+<ul>
+<li><b>분할정복(Divide &amp; Conquer)</b>: 작은 문제로 쪼개 해결 (퀵·합병)</li>
+<li><b>동적계획법(DP)</b>: 부분해 저장·재사용(중복 계산 제거)</li>
+<li><b>그리디(탐욕)</b>: 매 순간 최적 선택</li>
+<li><b>백트래킹</b>: 가지치기하며 해 탐색, 아니면 되돌아감</li>
+<li><b>분기한정(Branch &amp; Bound)</b>: 한계값으로 가지치기</li>
+</ul>
+<ul>
+<li>O(1) 상수 (해시)</li>
+<li>O(log n) 로그 (이진탐색)</li>
+<li>O(n) 선형 (순차탐색)</li>
+<li>O(n log n) 선형로그 (퀵·합병·힙)</li>
+<li>O(n²) 제곱 (버블·선택·삽입)</li>
+<li>O(2ⁿ) 지수, O(n!) 팩토리얼</li>
+</ul>
+</div>
+<div class="tip"><b>McCabe 순환복잡도</b> V(G) = <b>간선(E) − 노드(N) + 2</b>. (제어흐름 그래프에서 화살표 수 − 원 수 + 2) 예: 6−4+2 = 4</div>
+
+<!-- ============ 테스트: 블랙/화이트 ============ -->
+<h3>⭐⭐ 블랙박스 vs 화이트박스 테스트</h3>
+<div class="mnem">블랙박스 : <span class="k">동 경 원 오 비</span> (동치·경계값·원인효과·오류예측·비교)</div>
+<div class="mnem">화이트박스 : <span class="k">기 조 루 데</span> (기초경로·조건·루프·데이터흐름)</div>
+<div class="two">
+<ul>
+<li><b>블랙박스</b> = <b>기능/명세</b> 기반, 내부구조 <b>모름</b>, 사용자 관점</li>
+<li>동치(동등)분할, 경계값 분석, 원인-효과 그래프, 오류 예측, 비교 검사</li>
+<li>경계값: 경계·바로 옆 값이 오류 잘 남 (예: 0,59,60,79,80,100,101)</li>
+</ul>
+<ul>
+<li><b>화이트박스</b> = <b>내부 구조/소스</b> 기반, 개발자 관점, 동적 테스트</li>
+<li>기초경로(Base Path), 조건, 루프, 데이터흐름 검사</li>
+<li>기본경로: 시작→종료 서로 독립 경로, 사이클 최대 1회</li>
+</ul>
+</div>
+<div class="warn">함정: "경계값 분석/오류예측은 화이트박스" ❌ → <b>블랙박스</b>. "조건·루프·기초경로는 블랙박스" ❌ → <b>화이트박스</b>. 서로 바꿔치기가 매회 나옴.</div>
+
+<h3>검증(Verification) vs 확인(Validation)</h3>
+<ul>
+<li><b>검증(Verification)</b>: <b>제대로 만들고 있나</b> — 개발 과정·산출물 검토 (Are we building it right?)</li>
+<li><b>확인(Validation)</b>: <b>제대로 된 걸 만들었나</b> — 최종 결과가 요구 충족? (Are we building the right thing?)</li>
+</ul>
+
+<h3>⭐ 테스트 레벨 (V모델) & 통합 방식</h3>
+<div class="mnem">레벨 : <span class="k">단 통 시 인</span> (단위→통합→시스템→인수)</div>
+<table>
+<tr><th>레벨</th><th>내용</th></tr>
+<tr><td><b>단위(Unit)</b></td><td>모듈 단위. 구조기반(화이트박스) 위주. 스텁/드라이버 필요</td></tr>
+<tr><td><b>통합(Integration)</b></td><td>모듈 간 인터페이스·결합 검증</td></tr>
+<tr><td><b>시스템(System)</b></td><td>전체 시스템 (성능·강도(Stress)·회복·보안 등)</td></tr>
+<tr><td><b>인수(Acceptance)</b></td><td>사용자 요구 충족 확인 → <b>알파·베타 테스트</b></td></tr>
+</table>
+<div class="two">
+<ul>
+<li><b>상향식(Bottom-up)</b>: 하위→상위. <b>드라이버(Driver)</b> 필요. 클러스터</li>
+<li><b>하향식(Top-down)</b>: 상위→하위. <b>스텁(Stub)</b> 필요. 깊이/너비우선</li>
+</ul>
+<ul>
+<li><b>빅뱅(Big Bang)</b>: 한꺼번에 통합(비점진적)</li>
+<li><b>샌드위치</b>: 상향+하향 혼합</li>
+<li><b>회귀(Regression)</b>: 변경 후 기존 기능 재테스트</li>
+</ul>
+</div>
+<div class="warn">암기 못 하면 반드시 틀림 → <b>상향식=드라이버</b>, <b>하향식=스텁</b>. (드라이버=상위 대역, 스텁=하위 대역)</div>
+
+<h3>알파 / 베타 테스트</h3>
+<ul>
+<li><b>알파(Alpha)</b>: <b>개발자 장소</b>에서, 개발자 앞에서 사용자가 → 통제된 환경</li>
+<li><b>베타(Beta)</b>: <b>사용자 장소</b>에서, 선정된 최종 사용자가 자유롭게</li>
+</ul>
+
+<!-- ============ 테스트 원칙/오라클 ============ -->
+<h3>⭐ 소프트웨어 테스트 기본 원칙</h3>
+<ul>
+<li><b>결함 집중 (파레토 법칙)</b>: 오류의 <b>80%는 전체 모듈의 20%</b>에서 발견</li>
+<li><b>살충제 패러독스(Pesticide Paradox)</b>: 같은 테스트케이스 반복 시 더는 결함 안 나옴 → 케이스 개선 필요</li>
+<li><b>오류-부재의 궤변(Absence of Errors Fallacy)</b>: 결함 다 없애도 <b>요구 불충족</b>이면 좋은 SW 아님</li>
+<li><b>완벽한 테스팅은 불가능</b>, 테스트는 <b>초기</b>에 할수록 좋음</li>
+</ul>
+<div class="tip"><b>테스트 오라클(Test Oracle)</b>: 테스트 결과가 <b>참인지 거짓인지 판정</b>하는 기준(참·샘플링·추정·일관성 오라클). / <b>테스트 케이스</b>: 입력값·실행조건·<b>기대 결과</b> 명세. / <b>테스트 시나리오</b>: 케이스 실행 순서 묶음. / <b>테스트 슈트</b>: 케이스 집합.</div>
+
+<h3>테스트 커버리지 & 성능 도구</h3>
+<div class="two">
+<ul>
+<li><b>구문(문장) 커버리지</b>: 모든 문장 1번 이상 실행</li>
+<li><b>결정(분기) 커버리지</b>: 모든 분기 T/F 1번씩</li>
+<li><b>조건 커버리지</b>: 각 조건식 T/F 1번씩</li>
+</ul>
+<ul>
+<li><b>디버깅</b>: 오류(버그) 위치 찾아 원인 규명·수정</li>
+<li><b>결함관리</b>: 등록→분석→할당→수정→확인</li>
+<li><b>성능 측정 항목</b>: 처리량·응답시간·경과시간·자원사용률</li>
+</ul>
+</div>
+
+<!-- ============ 형상관리 ============ -->
+<h3>⭐ 소프트웨어 형상관리(SCM)</h3>
+<div class="mnem">절차 : <span class="k">식 통 감 기</span> (식별→통제→감사→기록)</div>
+<ul>
+<li><b>형상관리</b> = 개발 과정의 <b>변경사항을 관리</b>하는 활동 (비용·인력 관리 ❌)</li>
+<li>대상: 요구분석서·설계서·소스코드·테스트케이스·매뉴얼 (개발<b>비용은 대상 아님</b>)</li>
+<li><b>베이스라인(Baseline)</b>: 변경 통제 기준점</li>
+<li>형상통제위원회 = <b>CCB</b> (Change Control Board)</li>
+<li>형상감사(Audit): 베이스라인 무결성 평가·승인</li>
+</ul>
+<div class="two">
+<ul>
+<li><b>도구</b>: Git, SVN(Subversion), CVS, RCS</li>
+<li><b>RCS</b>: 한 사람만 수정(파일 잠금)</li>
+</ul>
+<ul>
+<li>체크아웃: 저장소→받아옴 / 체크인: 수정본 <b>갱신</b></li>
+<li>커밋(commit)·업데이트(동기화)·임포트(가져오기)</li>
+</ul>
+</div>
+<div class="tip"><b>버전관리 방식</b>: 공유폴더 / 클라이언트·서버(중앙집중, 서버 장애 시 중단) / <b>분산 저장소</b>(로컬+원격, Git). / ⚠️ <b>Ant·Maven·Gradle은 형상관리 아니라 빌드 자동화 도구</b>!</div>
+
+<h3>빌드 자동화 도구</h3>
+<ul>
+<li><b>Ant · Maven · Gradle</b>(Groovy기반, 태스크 단위·안드로이드) · <b>Jenkins</b>(CI, 지속적 통합)</li>
+<li>지속적 통합(CI) 환경에서 빌드+테스트+배포 자동화</li>
+</ul>
+
+<!-- ============ 품질/클린코드 ============ -->
+<h3>⭐ ISO/IEC 9126 품질특성 (6가지)</h3>
+<div class="mnem"><span class="k">기 신 사 효 유 이</span> (기능성·신뢰성·사용성·효율성·유지보수성·이식성)</div>
+<table>
+<tr><th>특성</th><th>하위 특성</th></tr>
+<tr><td><b>기능성</b></td><td>적합성·정확성·상호운용성·보안성·준수성</td></tr>
+<tr><td><b>신뢰성</b></td><td>성숙성·결함허용성·복구성 (오류없이 일관되게)</td></tr>
+<tr><td><b>사용성</b></td><td>이해성·<b>학습성</b>·운용성 (쉽게 배우고 사용)</td></tr>
+<tr><td><b>효율성</b></td><td>시간반응성·자원효율성</td></tr>
+<tr><td><b>유지보수성</b></td><td>분석성·변경성·안정성·시험성</td></tr>
+<tr><td><b>이식성</b></td><td>적응성·설치성·공존성·대체성</td></tr>
+</table>
+<div class="warn">함정: "학습성은 기능성의 하위" ❌ → <b>사용성</b>! / <b>ISO 25010(SQuaRE)</b>는 9126+12119+14598 통합 최신 표준(2500n~2505n).</div>
+
+<h3>클린코드 & 코드 품질 활동</h3>
+<div class="two">
+<ul>
+<li><b>클린코드 원칙</b>: 가독성·단순성·의존성 배제·<b>중복 최소화</b>·추상화</li>
+<li><b>리팩토링</b>: 겉 동작 유지 + <b>내부 구조 개선</b> (코드 스멜 제거)</li>
+<li><b>외계인코드(Alien)</b>: 문서·개발자 없어 유지보수 어려운 코드</li>
+<li><b>스파게티코드</b>: 로직 얽혀 이해 어려움</li>
+</ul>
+<ul>
+<li><b>인스펙션(Inspection)</b>: 작성자 <b>제외</b> 전문가가 결함 검출(정적)</li>
+<li><b>워크스루(Walkthrough)</b>: 자료 사전 배포 후 짧은 회의</li>
+<li><b>동료검토(Peer Review)</b>: 작성자가 설명, 동료가 결함 발견</li>
+<li>정적분석 도구: pmd·cppcheck·SonarQube·checkstyle (동적: valgrind·Avalanche)</li>
+</ul>
+</div>
+
+<!-- ============ 패키징/DRM/인터페이스 ============ -->
+<h3>제품 패키징 · 매뉴얼 · DRM</h3>
+<ul>
+<li><b>패키징</b>: <b>사용자(소비자) 중심</b>, 다양한 이기종·단말 지원, 내부 콘텐츠 <b>암호화·보안 필수</b></li>
+<li>매뉴얼(설치·사용자): <b>사용자 기준</b>으로 작성 (개발자 기준 ❌)</li>
+</ul>
+<div class="mnem">DRM 요소 : <span class="k">암 키 패 식 저 정 크 인</span> (암호화·키관리·패키저·식별·저작권표현·정책관리·크랙방지·인증)</div>
+<ul>
+<li><b>DRM(디지털 저작권 관리)</b>: 콘텐츠 불법복제·유통 방지. <b>방화벽은 DRM 요소 아님!</b></li>
+<li>구성: 클리어링 하우스(라이선스 발급·정산)·패키저·콘텐츠 분배자·DRM 컨트롤러</li>
+</ul>
+
+<h3>⭐ 인터페이스 구현 검증 도구</h3>
+<div class="mnem"><span class="k">엑 스 핏 왓 셀 엔</span> — xUnit · STAF · FitNesse · watir · Selenium · NTAF</div>
+<table>
+<tr><td><b>xUnit</b></td><td>Java·C++ 등 다양한 언어 <b>단위 테스트</b> 프레임워크</td></tr>
+<tr><td><b>STAF</b></td><td>서비스 호출·컴포넌트 재사용 지원</td></tr>
+<tr><td><b>FitNesse</b></td><td><b>웹 기반</b> 테스트케이스 설계·실행</td></tr>
+<tr><td><b>watir</b></td><td><b>Ruby</b> 기반 웹 앱 테스트</td></tr>
+<tr><td><b>Selenium</b></td><td>다양한 브라우저·언어 웹 앱 테스트</td></tr>
+<tr><td><b>NTAF</b></td><td>네이버 — FitNesse(협업)+STAF(재사용) 통합</td></tr>
+</table>
+<div class="tip">인터페이스 보안(네트워크): <b>IPSec·SSL·S-HTTP</b>. ⚠️ <b>SMTP(메일 전송)는 보안 솔루션 아님</b> — 매회 오답 보기로 등장. / 데이터 포맷: JSON·XML·YAML (AJTML 같은 건 없음).</div>
+
 <h2 id="g3">3과목 · 데이터베이스 구축</h2>
 
-<h3>⭐ 정규화 단계 (최다 출제)</h3>
-<div class="mnem">순서: <span class="k">도 부 이 결 다 조</span></div>
+<h3>⭐ DB 설계 단계 (순서 단골)</h3>
+<div class="mnem">순서: <span class="k">요 → 개 → 논 → 물</span> = 요구분석·개념·논리·물리</div>
 <table>
-<tr><th>단계</th><th>제거 대상</th></tr>
-<tr><td><b>1NF</b> (도메인)</td><td>모든 속성값이 원자값(더 못 쪼갬)</td></tr>
-<tr><td><b>2NF</b> (부분)</td><td>부분 함수 종속 제거</td></tr>
-<tr><td><b>3NF</b> (이행)</td><td>이행 함수 종속 제거</td></tr>
-<tr><td><b>BCNF</b> (결정자)</td><td>결정자가 후보키가 아닌 종속 제거</td></tr>
-<tr><td><b>4NF</b> (다치)</td><td>다치(다중값) 종속 제거</td></tr>
-<tr><td><b>5NF</b> (조인)</td><td>조인 종속 제거</td></tr>
+<tr><th>단계</th><th>산출물 / 핵심 작업</th></tr>
+<tr><td><b>1. 요구분석</b></td><td>요구조건 명세서 작성, 업무 프로세스 분석</td></tr>
+<tr><td><b>2. 개념적 설계</b></td><td><b>E-R 다이어그램</b>, 개념 스키마, DBMS 독립적</td></tr>
+<tr><td><b>3. 논리적 설계</b></td><td><b>정규화</b>, 논리 스키마(테이블) 매핑, <b>트랜잭션 인터페이스 설계</b>, 스키마 평가·정제</td></tr>
+<tr><td><b>4. 물리적 설계</b></td><td><b>레코드 집중(저장 구조)·접근 경로·인덱스</b> 설계, 성능 고려</td></tr>
 </table>
-<div class="warn">이상현상(Anomaly) 3종: <b>삽입·삭제·갱신</b> 이상. 정규화는 이 이상을 제거하려는 것.</div>
+<div class="warn">함정: "레코드 집중(저장 레코드 양식) 분석·설계"는 <b>물리적 설계</b>다 (논리적 설계로 나오면 오답). E-R은 <b>개념적</b> 설계.</div>
 
-<h3>⭐ 무결성 & 트랜잭션</h3>
+<h3>E-R (개체-관계) 모델</h3>
 <div class="two">
 <div>
-<b>무결성(Integrity)</b>
+<table>
+<tr><th>요소</th><th>기호</th></tr>
+<tr><td>개체(Entity)</td><td><b>□ 사각형</b></td></tr>
+<tr><td>속성(Attribute)</td><td><b>○ 타원</b></td></tr>
+<tr><td>관계(Relationship)</td><td><b>◇ 마름모</b></td></tr>
+<tr><td>연결</td><td>선(Line)</td></tr>
+</table>
+</div>
 <ul>
-<li>개체 무결성: 기본키 NOT NULL·유일</li>
-<li>참조 무결성: 외래키=참조값 또는 NULL</li>
-<li>도메인 무결성: 속성값이 정의역 내</li>
+<li>카디널리티(대응 관계): <b>1:1 · 1:N · N:M</b></li>
+<li>Peter Chen 표기법이 대표</li>
+<li>다중값 속성=이중 타원, 키 속성=밑줄</li>
+<li>ER모델은 <b>특정 DBMS에 독립적</b></li>
+</ul>
+</div>
+<div class="warn">함정: 속성은 <b>타원(○)</b>이다. "속성=오각형"은 오답. 관계=마름모, 개체=사각형.</div>
+
+<h3>3층 스키마 & 데이터 독립성</h3>
+<table>
+<tr><th>외부 스키마</th><td>사용자·응용 관점 (뷰, 서브스키마). 여러 개 존재</td></tr>
+<tr><th>개념 스키마</th><td>조직 전체의 통합 관점. DB에 하나. 보통 "스키마"라 하면 이것</td></tr>
+<tr><th>내부 스키마</th><td>물리적 저장 구조(레코드·인덱스·저장 방식)</td></tr>
+</table>
+<div class="two">
+<ul>
+<li><b>논리적 독립성</b>: 개념 스키마 변경이 외부 스키마/응용에 영향 X</li>
+</ul>
+<ul>
+<li><b>물리적 독립성</b>: 내부(저장) 스키마 변경이 개념 스키마에 영향 X</li>
+</ul>
+</div>
+
+<h3>데이터 모델 구성요소</h3>
+<div class="mnem">데이터 모델 = <span class="k">구조 · 연산 · 제약조건</span></div>
+<ul>
+<li><b>구조(Structure)</b>: 논리적 개체 타입 간 관계·데이터 구조</li>
+<li><b>연산(Operation)</b>: 데이터 처리·조작 방법(검색·삽입 등)</li>
+<li><b>제약조건(Constraint)</b>: 실제 저장될 수 있는 데이터의 논리적 제약</li>
+</ul>
+
+<h3>⭐ 관계형 용어 (필수 암기)</h3>
+<table>
+<tr><th>용어</th><th>의미</th></tr>
+<tr><td>릴레이션(Relation)</td><td>2차원 테이블</td></tr>
+<tr><td><b>튜플(Tuple)</b></td><td><b>행(Row)</b> = 레코드</td></tr>
+<tr><td><b>속성(Attribute)</b></td><td><b>열(Column)</b> = 필드, 데이터 최소 논리 단위</td></tr>
+<tr><td><b>카디널리티(Cardinality)</b></td><td><b>튜플(행)의 수</b> = 기수·대응수</td></tr>
+<tr><td><b>차수(Degree)</b></td><td><b>속성(열)의 수</b></td></tr>
+<tr><td>도메인(Domain)</td><td>한 속성이 가질 수 있는 <b>원자값들의 집합</b></td></tr>
+</table>
+<div class="warn">최다 함정: <b>카디널리티=행(튜플) 수</b>, <b>차수(Degree)=열(속성) 수</b>. 헷갈리면 반드시 틀림. "원자값들의 집합=도메인" 통암기.</div>
+<div class="tip">릴레이션 특성: 튜플은 모두 상이(중복 X)·튜플 간 순서 없음·속성 간 순서 없음·속성명 유일·속성값은 원자값. "튜플 사이에 순서가 있다"→<b>오답</b>.</div>
+
+<h3>⭐ 키(Key) 종류</h3>
+<div class="mnem">유일성=슈퍼키 / 유일성+<span class="k">최소성</span>=후보키</div>
+<table>
+<tr><th>키</th><th>성질</th></tr>
+<tr><td>슈퍼키(Super)</td><td>유일성 O, <b>최소성 X</b></td></tr>
+<tr><td>후보키(Candidate)</td><td>유일성 O, <b>최소성 O</b></td></tr>
+<tr><td>기본키(Primary)</td><td>후보키 중 선정. NULL·중복 불가</td></tr>
+<tr><td>대체키(Alternate)</td><td>후보키 − 기본키</td></tr>
+<tr><td>외래키(Foreign)</td><td>다른 릴레이션의 <b>기본키를 참조</b>하는 속성</td></tr>
+</table>
+<div class="tip">외래키는 참조 릴레이션의 기본키 값과 같거나 <b>NULL</b>이어야 함(참조 무결성).</div>
+
+<h3>⭐ 무결성(Integrity) 제약</h3>
+<table>
+<tr><td><b>개체 무결성</b></td><td>기본키는 <b>NULL·중복 불가</b> (널 아닌 원자값·유일)</td></tr>
+<tr><td><b>참조 무결성</b></td><td>외래키 값 = 참조 릴레이션 기본키 값 또는 NULL</td></tr>
+<tr><td><b>도메인 무결성</b></td><td>속성값이 정의된 도메인(타입·범위) 내</td></tr>
+</table>
+<div class="warn">"NULL"·"기본키"·"원자값"이라는 단어가 보이면 <b>개체 무결성</b> 국룰. 외래키·참조 관련이면 <b>참조 무결성</b>.</div>
+<div class="tip">DROP/삭제 옵션: <b>CASCADE</b>=참조 튜플 함께 삭제·변경 / <b>RESTRICT(ED)</b>=참조 중이면 삭제 취소 / <b>SET NULL</b>=관련 속성 NULL로.</div>
+
+<h3>⭐ 관계대수 vs 관계해석</h3>
+<div class="two">
+<div>
+<b>관계대수</b> (절차적, "어떻게")
+<table>
+<tr><th>순수 관계연산</th><td>SELECT(<b>σ</b>, 행 추출)·PROJECT(<b>π</b>, 열 추출)·JOIN(<b>⋈</b>)·DIVISION(<b>÷</b>)</td></tr>
+<tr><th>일반 집합연산</th><td>합집합 ∪ · 교집합 ∩ · 차집합 − · 카티션곱 ×</td></tr>
+</table>
+</div>
+<div>
+<b>관계해석</b> (비절차적, "무엇을")
+<ul>
+<li>수학의 <b>술어 논리(predicate)</b> 기반</li>
+<li><b>튜플 관계해석 · 도메인 관계해석</b></li>
+<li>표현력은 관계대수와 동등</li>
+</ul>
+</div>
+</div>
+<div class="warn">함정: <b>카티션곱(Cartesian Product)·차집합은 순수 관계연산 아님</b> → 일반 집합연산. 순수=SELECT·PROJECT·JOIN·DIVISION 4개.</div>
+<div class="tip">SELECT σ=수평 절단(행), PROJECT π=수직 절단(열). JOIN=공통 속성으로 두 릴레이션 결합. DIVISION=S의 모든 튜플과 관련된 R의 튜플. 관계해석 정량자: <b>∀</b>(전칭, for all) · <b>∃</b>(존재, there exists).</div>
+<div class="tip">⭐ <b>카티션곱 계산</b>: 차수(Degree)는 <b>덧셈</b>(4+6=10), 카디널리티는 <b>곱셈</b>(5×7=35). 계산 문제 단골.</div>
+
+<h3>⭐ 정규화 (최다 출제)</h3>
+<div class="mnem">순서: <span class="k">도 부 이 결 다 조</span></div>
+<table>
+<tr><th>단계</th><th>제거 대상 / 조건</th></tr>
+<tr><td><b>1NF</b> (도메인)</td><td>모든 속성값이 <b>원자값</b>(반복그룹 제거)</td></tr>
+<tr><td><b>2NF</b> (부분)</td><td><b>부분 함수 종속 제거</b>(→ 완전 함수 종속)</td></tr>
+<tr><td><b>3NF</b> (이행)</td><td><b>이행 함수 종속 제거</b> (A→B, B→C ⇒ A→C 제거)</td></tr>
+<tr><td><b>BCNF</b> (결정자)</td><td>모든 <b>결정자가 후보키</b></td></tr>
+<tr><td><b>4NF</b> (다치)</td><td><b>다치(다중값) 종속</b> 제거</td></tr>
+<tr><td><b>5NF</b> (조인)</td><td><b>조인 종속</b> 제거</td></tr>
+</table>
+<div class="two">
+<ul>
+<li><b>함수 종속(FD)</b>: X→Y, X가 결정자(determinant)</li>
+<li>이행 종속: A→B, B→C이면 A→C</li>
+</ul>
+<ul>
+<li>이상현상(Anomaly): <b>삽입·삭제·갱신</b> 이상</li>
+<li>정규화 목적 = 이상현상·중복 <b>제거</b></li>
+</ul>
+</div>
+<div class="warn">함정: BCNF="모든 결정자가 후보키". 2NF="부분 함수 종속 제거=완전 함수 종속". 3NF="이행 종속 제거". 순서 뒤섞기 단골.</div>
+<div class="tip">반정규화(Denormalization)=성능 위해 <b>일부러 중복 허용</b>. 중복 테이블 추가 유형: <b>집계·진행·부분(특정부분)</b> 테이블 등. 정규화의 역과정.</div>
+
+<h3>⭐ SQL 분류</h3>
+<table>
+<tr><th>DDL (정의)</th><td>CREATE · ALTER · DROP · TRUNCATE</td></tr>
+<tr><th>DML (조작)</th><td>SELECT · INSERT · UPDATE · DELETE</td></tr>
+<tr><th>DCL (제어)</th><td>GRANT · REVOKE · COMMIT · ROLLBACK · (SAVEPOINT)</td></tr>
+</table>
+<div class="mnem">DML 두문자: <span class="k">S I U D</span> (셀·인·업·딜)</div>
+<div class="warn">최다 함정: <b>UPDATE·DELETE=DML</b>(DDL 아님!), <b>DROP·ALTER·TRUNCATE=DDL</b>. GRANT/REVOKE=권한, COMMIT/ROLLBACK=트랜잭션. SELECT는 DCL 아님(DML).</div>
+<div class="tip">DCL은 데이터 <b>보안·무결성·병행제어·회복</b>을 위한 DBA용 언어. "논리적·물리적 구조 정의"는 DCL이 아니라 <b>DDL</b>의 기능.</div>
+
+<h3>SQL 상세 (조인·서브쿼리·그룹·집계)</h3>
+<ul>
+<li><b>조인</b>: INNER(내부) · OUTER(LEFT/RIGHT/FULL) · CROSS(카티션곱) · SELF(자기 참조)</li>
+<li><b>서브쿼리</b>: WHERE 절 내 중첩 SELECT (단일행/다중행 IN·ANY·ALL·EXISTS)</li>
+<li><b>DISTINCT</b>: 중복 튜플 제거(첫 하나만). 단순 SELECT는 전체 튜플 반환</li>
+<li><b>GROUP BY</b> ~ <b>HAVING</b>: 그룹화 후 그룹 조건(HAVING은 GROUP BY와 함께)</li>
+<li><b>ORDER BY</b>: ASC(오름차·기본) / DESC(내림차)</li>
+<li><b>집계(집합)함수</b>: COUNT · SUM · AVG · MAX · MIN &nbsp;(CREATE는 집계함수 아님)</li>
+<li><b>집합 연산</b>: UNION(합집합, <b>중복 제거</b>) · UNION ALL(중복 유지) · INTERSECT(교집합) · EXCEPT/MINUS(차집합)</li>
+</ul>
+<div class="tip">WHERE 범위: <b>BETWEEN A AND B</b>=(≥A AND ≤B), 경계값 포함 (BETWEEN~OR 문법 없음 ← 함정). NULL 비교는 <b>IS NULL / IS NOT NULL</b>(=, != 불가). LIKE '%신%'='신' 포함.</div>
+
+<h3>뷰(View)</h3>
+<div class="two">
+<div>
+<b>장점</b>
+<ul>
+<li><b>논리적 데이터 독립성</b> 제공</li>
+<li>접근 제어(보안) 용이</li>
+<li>사용자 데이터 관리 간단</li>
 </ul>
 </div>
 <div>
-<b>트랜잭션 ACID</b> <span class="mnem"><span class="k">원 일 격 지</span></span>
+<b>단점</b>
 <ul>
-<li>원자성(Atomicity): 전부 or 전무</li>
-<li>일관성(Consistency)</li>
-<li>격리성(Isolation)</li>
-<li>지속성(Durability)</li>
+<li>독립적 <b>인덱스 못 가짐</b></li>
+<li>정의 변경 불가(ALTER X, DROP·CREATE만)</li>
+<li>삽입·삭제·갱신 연산에 제약</li>
 </ul>
 </div>
 </div>
+<div class="warn">함정: 뷰는 <b>물리적으로 존재하지 않는 가상 테이블</b>. "저장장치에 물리적으로 존재"·"뷰 자체가 인덱스를 가짐"→오답. 생성 CREATE / 제거 DROP.</div>
 
-<h3>키(Key) & 관계대수</h3>
-<table>
-<tr><th>키</th><td>슈퍼키(유일성○ 최소성✕) / 후보키(유일+최소) / 기본키 / 대체키 / 외래키</td></tr>
-<tr><th>순수 관계연산</th><td>SELECT(σ, 행) · PROJECT(π, 열) · JOIN(⋈) · DIVISION(÷)</td></tr>
-<tr><th>일반 집합연산</th><td>합집합 ∪ · 교집합 ∩ · 차집합 − · 곱(카티션) ×</td></tr>
-</table>
+<h3>인덱스 · 트리거</h3>
+<ul>
+<li><b>인덱스(Index)</b>: 검색 속도 향상. 대표 자료구조 <b>B-트리 · 해시</b>. 삽입·갱신 시 부담↑</li>
+<li><b>트리거(Trigger)</b>: <b>삽입·갱신·삭제 이벤트 발생 시 자동 실행</b>되는 절차형 SQL</li>
+<li><b>프로시저(Procedure)</b>: 특정 기능 수행 절차형 SQL 블록</li>
+</ul>
 
-<h3>SQL 분류</h3>
+<h3>⭐ 트랜잭션 ACID</h3>
+<div class="mnem"><span class="k">원 일 격 지</span> = 원자성·일관성·격리성·지속성</div>
 <table>
-<tr><th>DDL</th><td>CREATE · ALTER · DROP · TRUNCATE (구조 정의)</td></tr>
-<tr><th>DML</th><td>SELECT · INSERT · UPDATE · DELETE (조작)</td></tr>
-<tr><th>DCL</th><td>GRANT · REVOKE · COMMIT · ROLLBACK (제어)</td></tr>
+<tr><td><b>원자성(Atomicity)</b></td><td>전부 반영(Commit) or 전무(Rollback). <b>Commit/Rollback → 원자성</b></td></tr>
+<tr><td><b>일관성(Consistency)</b></td><td>실행 후에도 DB 일관성 유지</td></tr>
+<tr><td><b>격리성(Isolation)</b></td><td>실행 중 다른 트랜잭션이 끼어들 수 없음(독립성)</td></tr>
+<tr><td><b>지속성(Durability)</b></td><td>완료 결과는 고장에도 <b>영구 반영</b></td></tr>
 </table>
-<div class="tip">GRANT/REVOKE=권한, COMMIT/ROLLBACK=트랜잭션 제어. DELETE(DML) vs DROP(DDL) 구별 함정 주의.</div>
+<div class="tip">상태 전이: <b>활동(Active) → 부분완료(Partially Committed) → 완료(Committed)</b> / 실패(Failed) → 철회(Aborted). "Commit·Rollback이 보장하는 특성"이면 무조건 <b>원자성</b>.</div>
+
+<h3>병행제어(Concurrency Control)</h3>
+<ul>
+<li><b>로킹(Locking)</b>: 접근 데이터를 잠가 다른 트랜잭션 접근 차단. 로킹 단위=필드·레코드·테이블·파일·DB</li>
+<li><b>2단계 로킹(2PL)</b>: 확장 단계(Lock만)·축소 단계(Unlock만)</li>
+<li><b>타임스탬프(Timestamp)</b> 순서 기법 · 낙관적 검증 기법</li>
+<li><b>교착상태(Deadlock)</b>: 서로 상대 자원 대기하며 무한 정지</li>
+</ul>
+<div class="warn">⭐ 로킹 단위 비례관계: 단위 <b>커지면</b> → 로크 수↓·오버헤드↓·병행성(공유도)↓·관리 쉬움 / 단위 <b>작아지면</b> → 오버헤드↑·병행성(공유도)↑·관리 복잡. "작아지면 오버헤드 감소"는 오답.</div>
+
+<h3>회복(Recovery) 기법</h3>
+<table>
+<tr><td><b>로그 기반</b></td><td><b>지연 갱신</b>(Deferred, 완료 후 반영·Undo 불필요) / <b>즉시 갱신</b>(Immediate, 즉시 반영·<b>Undo·Redo 모두</b> 필요)</td></tr>
+<tr><td><b>검사점(Check Point)</b></td><td>검사점까지만 회복, 전체 취소 불필요</td></tr>
+<tr><td><b>그림자 페이징</b></td><td>복사본(그림자 페이지) 이용, <b>로그·Undo·Redo 불필요</b></td></tr>
+</table>
+<div class="two">
+<ul><li><b>REDO(재시도)</b>: 완료된 트랜잭션 재반영</li></ul>
+<ul><li><b>UNDO(취소)</b>: 미완료 트랜잭션 되돌림</li></ul>
+</div>
+<div class="warn">함정: "로그를 필요로 하는 회복 기법"=즉시 갱신·지연 갱신. <b>그림자 페이징은 로그 불필요</b>.</div>
+
+<h3>⭐ 분산 DB — 투명성(Transparency) 5종</h3>
+<div class="mnem"><span class="k">위 중 병 장 분</span> = 위치·중복·병행·장애·분할</div>
+<table>
+<tr><td><b>위치(Location)</b></td><td>실제 저장 위치 몰라도 논리적 명칭으로 접근</td></tr>
+<tr><td><b>중복/복제(Replication)</b></td><td>여러 곳 중복돼도 하나처럼 사용</td></tr>
+<tr><td><b>병행(Concurrency)</b></td><td>동시 트랜잭션 결과 일관성 유지</td></tr>
+<tr><td><b>장애(Failure)</b></td><td>일부 장애에도 트랜잭션 정확 처리(무결성 보장)</td></tr>
+<tr><td><b>분할(Division/Fragmentation)</b></td><td>하나의 릴레이션이 여러 단편으로 나뉜 걸 몰라도 됨</td></tr>
+</table>
+<div class="warn">함정: <b>"Media Access Transparency"는 없음</b> (오답 보기 단골). 물리 환경·네트워크 장애에도 무결성 보장→<b>장애 투명성</b>.</div>
+<div class="tip">4대 목표로는 <b>위치·중복·병행·장애</b>를 꼽기도 함(+분할=5종). 분산 DB 구성요소: <b>분산 처리기 · 분산 데이터베이스 · 통신 네트워크</b>. "분산 투명성을 배제한다"→오답(제공해야 함).</div>
+
+<h3>시스템 카탈로그 (데이터 사전) — 자주 나옴</h3>
+<ul>
+<li>DB 객체(스키마·테이블·뷰·인덱스 등) 정보를 담은 <b>시스템 테이블</b> = <b>메타데이터</b> 저장</li>
+<li><b>DBMS가 스스로 생성·유지</b> → 사용자가 <b>직접 갱신 불가</b>(DDL 실행 시 자동 갱신)</li>
+<li>실제 데이터의 물리적 위치·접근 정보는 <b>데이터 디렉토리(Data Directory)</b>가 관리</li>
+</ul>
+<div class="warn">함정: "사용자가 SQL로 시스템 카탈로그를 직접 갱신한다"→<b>오답</b>. 시스템이 자동 갱신한다.</div>
+
+<h3>DBMS 필수 기능 & 분석 시 고려사항</h3>
+<div class="two">
+<div>
+<b>DBMS 필수 3기능</b>
+<ul>
+<li><b>정의(Definition)</b> 기능</li>
+<li><b>조작(Manipulation)</b> 기능</li>
+<li><b>제어(Control)</b> 기능</li>
+</ul>
+</div>
+<ul>
+<li>DBMS 분석 고려: 가용성·성능·기술지원·상호호환성·구축비용</li>
+<li>파티션(수평분할) 유형: <b>범위(Range)·해시(Hash)·리스트(List)·조합(Composite)·라운드로빈</b></li>
+</ul>
+</div>
+<div class="tip"><b>트랜잭션 분석(CRUD 분석)</b>: 프로세스와 테이블 간 <b>C(생성)·R(읽기)·U(갱신)·D(삭제)</b> 매트릭스 작성. 병행제어 목적=DB <b>공유 최대화</b>·응답시간 최소화·일관성 유지("공유 최소화"는 오답).</div>
+
+<h3>데이터 분석 관련 용어</h3>
+<ul>
+<li><b>데이터 웨어하우스(DW)</b>: 주제 지향·통합된 의사결정용 대규모 데이터 저장소</li>
+<li><b>데이터 마트(Data Mart)</b>: DW의 부서·주제별 소규모 부분 집합</li>
+<li><b>데이터 마이닝(Data Mining)</b>: 대량 데이터에서 숨은 패턴·규칙 발굴</li>
+<li><b>OLAP</b>: 다차원 데이터 분석(드릴다운·롤업·슬라이싱) &nbsp;↔&nbsp; OLTP(실시간 트랜잭션 처리)</li>
+</ul>
 
 <!-- ================= 4과목 ================= -->
-<h2 id="g4">4과목 · 프로그래밍 언어 · OS · 네트워크</h2>
+<h2 id="g4">4과목 · 프로그래밍 언어 · 운영체제 · 네트워크</h2>
+<div class="freq">📊 4과목(문제 61~80번) 8회분 최다 반복: <b>응집도/결합도·OSI 7계층·TCP/UDP·IPv6·라우팅·HRN 스케줄링·교착상태 4조건·페이지교체·기억장치 배치·C 포인터/비트연산·Java 오버라이딩/오버로딩·접근제어자·Python 자료형</b> — 계산·코드해석 문제가 섞여 나옴.</div>
 
+<h3>⭐⭐ 응집도·결합도 (4과목 61번 단골 — 8회 전부 출제)</h3>
+<div class="mnem">응집도 약→강: <span class="k">우 논 시 절 교(통) 순 기</span> · 결합도 약→강: <span class="k">자 스 제 외 공 내</span></div>
+<div class="two">
+<ul>
+<li><b>응집도(Cohesion)</b> = 모듈 <b>내부</b> 요소의 연관성 → <b>강할수록 좋음</b></li>
+<li>우연적 &lt; 논리적 &lt; 시간적 &lt; 절차적 &lt; 교환(통신)적 &lt; 순차적 &lt; <b>기능적</b>(최고)</li>
+</ul>
+<ul>
+<li><b>결합도(Coupling)</b> = 모듈 <b>간</b> 상호의존도 → <b>약할수록 좋음</b></li>
+<li><b>자료</b>(최선) &lt; 스탬프 &lt; 제어 &lt; 외부 &lt; 공통 &lt; 내용(최악)</li>
+</ul>
+</div>
+<div class="warn">함정: "모듈 간 상호의존 정도"=<b>결합도</b>(응집도 아님). "가장 좋은 = 기능적 응집도 / 자료 결합도". 내용 결합도=다른 모듈 내부를 직접 참조(최악). 모듈은 <b>응집도↑ 결합도↓</b>로 설계.</div>
+
+<!-- ───────── 프로그래밍 언어 ───────── -->
+<h3>⭐ 언어 유형 & 컴파일 vs 인터프리터</h3>
+<table>
+<tr><th>유형</th><th>특징 · 대표 언어</th></tr>
+<tr><td><b>절차형(명령형)</b></td><td>순서대로 명령 수행. <b>C</b>, FORTRAN, COBOL, ALGOL</td></tr>
+<tr><td><b>객체지향</b></td><td>객체(속성+메소드) 중심. <b>Java</b>, C++, C#, Python, Smalltalk</td></tr>
+<tr><td><b>함수형</b></td><td>수학 함수 계산, 부작용 없음. <b>LISP</b>, Haskell, Scala</td></tr>
+<tr><td><b>논리형(선언형)</b></td><td>사실·규칙으로 추론. <b>PROLOG</b></td></tr>
+<tr><td><b>스크립트</b></td><td>인터프리터 실행. JavaScript, Python, PHP, Ruby, 셸</td></tr>
+</table>
+<table>
+<tr><th>컴파일러</th><td>소스 전체를 목적코드로 <b>한 번에 번역</b> → 실행 빠름. C, C++, Java. 오류를 컴파일 시점에 발견</td></tr>
+<tr><th>인터프리터</th><td>소스를 <b>한 줄씩 즉시 해석·실행</b> → 개발 편함·실행 느림. Python, JS, PHP, LISP, BASIC</td></tr>
+</table>
+<div class="tip">함정: <b>Python은 인터프리터·동적타이핑·객체지향</b>. "컴파일 언어"라고 하면 틀림. Java는 바이트코드로 컴파일 후 JVM이 실행(반컴파일).</div>
+
+<h3>언어 기초 — 연산자 우선순위 & 제어문</h3>
+<div class="mnem">우선순위 높→낮: <span class="k">단항 → 산술 → 시프트 → 관계 → 비트 → 논리 → 삼항 → 대입</span></div>
+<ul>
+<li><b>단항</b>(!, ~, ++, --, 부호) &gt; <b>산술</b>(*,/,% &gt; +,-) &gt; <b>시프트</b>(&lt;&lt;,&gt;&gt;) &gt; <b>관계</b>(&lt;,&gt;,&lt;=,&gt;=) &gt; <b>동등</b>(==,!=) &gt; <b>비트</b>(&amp; &gt; ^ &gt; |) &gt; <b>논리</b>(&amp;&amp; &gt; ||) &gt; <b>삼항</b>(?:) &gt; <b>대입</b>(=)</li>
+<li>결합방향: 대부분 좌→우, <b>단항·삼항·대입은 우→좌</b></li>
+<li>제어문: 선택(if / switch-case), 반복(for / while / do-while), 분기(break / continue / goto)</li>
+</ul>
+<div class="tip"><b>삼항 연산자</b> 단골: <code>k = (i&gt;j) ? (i-j) : (i+j);</code> → i&gt;j 참이면 i-j, 거짓이면 i+j. if-else와 1:1 대응시켜 읽을 것.</div>
+
+<h3>⭐ C언어 — 포인터 · 배열 · 구조체 · 비트연산</h3>
+<div class="two">
+<ul>
+<li><b>포인터</b>: <code>*p</code>=값(참조), <code>&amp;a</code>=주소</li>
+<li><b>배열명 = 첫 원소의 주소</b> (상수 포인터). <code>arr==&amp;arr[0]</code>, <code>*(arr+i)==arr[i]</code></li>
+<li>구조체 멤버 접근: <code>s.member</code> / 포인터는 <code>p-&gt;member</code></li>
+<li>문자열 = char 배열, 끝에 <b>널문자 '\0'</b></li>
+</ul>
+<ul>
+<li><b>call by value</b>: 값 복사 → 원본 안 바뀜</li>
+<li><b>call by reference</b>: 주소 전달(포인터) → 원본 바뀜. C는 <code>swap(&amp;a,&amp;b)</code>로 구현</li>
+</ul>
+</div>
+<table>
+<tr><th>비트 연산자</th><td><b>&amp;</b>(AND) · <b>|</b>(OR) · <b>^</b>(XOR) · <b>~</b>(NOT, 1의보수) · <b>&lt;&lt;</b>(왼쪽시프트=×2) · <b>&gt;&gt;</b>(오른쪽=÷2)</td></tr>
+<tr><th>논리 연산자</th><td><b>&amp;&amp;</b> · <b>||</b> · <b>!</b></td></tr>
+<tr><th>printf 서식</th><td>%d(정수)·%f(실수)·%c(문자)·%s(문자열)·%o(8진)·%x(16진)·%%(퍼센트)</td></tr>
+</table>
+<div class="warn">함정 단골: 비트 논리연산자에 <b>?는 아님</b>(?는 삼항). 비트 연산자는 <code>&amp; | ^ ~ &lt;&lt; &gt;&gt;</code>. XOR(^)은 같으면 0, 다르면 1.</div>
+<ul>
+<li><b>변수명 규칙</b>: 영문·숫자·<code>_</code>·<code>$</code>만. 첫 글자 숫자 불가, 예약어(<code>int</code>,<code>short</code> 등) 불가. <b>하이픈(-)·공백·특수문자 불가</b>(예: <code>text-color</code> ✕)</li>
+<li><b>자료형</b>: int(정수)·char(문자 1개)·float/double(실수). <b>초기화 부족 시 static·전역 배열은 나머지가 0</b> (<code>int b[9]={1,2,3}</code> → b[3~8]=0)</li>
+<li><b>문자↔수치 변환</b>: <code>atoi()</code>(문자열→정수)·<code>atof()</code>(→실수)·<code>itoa()</code>(정수→문자열). 문자열 길이 <code>strlen()</code>, 복사 <code>strcpy()</code>, 비교 <code>strcmp()</code>, 연결 <code>strcat()</code></li>
+<li>헤더: <code>stdio.h</code>(입출력)·<code>stdlib.h</code>(atoi 등)·<code>string.h</code>(strlen 등)·<code>math.h</code>(수학)</li>
+</ul>
+
+<h3>⭐ Java — 상속 · 오버라이딩/로딩 · 접근제어 · 예외</h3>
+<table>
+<tr><th></th><th>오버라이딩(Overriding)</th><th>오버로딩(Overloading)</th></tr>
+<tr><td>의미</td><td>재정의</td><td>중복 정의</td></tr>
+<tr><td>메소드명</td><td>같음</td><td>같음</td></tr>
+<tr><td>매개변수</td><td><b>같음(시그니처 동일)</b></td><td><b>다름(개수/타입)</b></td></tr>
+<tr><td>관계</td><td>상위↔하위 클래스(상속)</td><td>같은 클래스 내</td></tr>
+</table>
+<div class="mnem">접근제어자 넓→좁: <span class="k">public → protected → default → private</span></div>
+<ul>
+<li><b>public</b>: 전체 &nbsp; <b>protected</b>: 같은 패키지 + 자식클래스 &nbsp; <b>default</b>(생략): 같은 패키지 &nbsp; <b>private</b>: 같은 클래스만</li>
+<li><b>상속</b>: <code>class 자식 extends 부모</code>. 다중상속 불가(인터페이스 <code>implements</code>로 대체)</li>
+<li><b>예외처리</b>: <code>try</code>(위험코드) → <code>catch</code>(예외잡기) → <code>finally</code>(항상실행). 강제발생 <code>throw</code>, 위임 <code>throws</code></li>
+<li><b>컬렉션</b>: List(순서·중복O)·Set(중복X)·Map(키-값). ArrayList, HashMap 등</li>
+<li>자료형 크기: byte 1·short 2·int 4·<b>long 8</b>·float 4·double 8 byte. char는 문자 1개, 문자열은 <b>String</b></li>
+<li>출력: <code>print()</code>·<code>println()</code>·<code>printf()</code> (printing() 없음). 증감: <b>후위 x++</b>(대입 후 증가), <b>전위 ++x</b>(증가 후 대입)</li>
+</ul>
+<div class="warn">문자열+숫자 연결 함정: <code>"5+2="+3+4</code> → <b>"5+2=34"</b>(문자로 이어붙임). <code>"5+2="+(3+4)</code> → <b>"5+2=7"</b>(괄호 먼저 계산). 접근제어자에 <b>package·internal은 없음</b>(internal은 C#).</div>
+
+<h3>⭐ Python — 자료형 & 슬라이싱</h3>
+<table>
+<tr><th>리스트 List</th><td><code>[1,2,3]</code> · 순서O · <b>변경 가능(mutable)</b></td></tr>
+<tr><th>튜플 Tuple</th><td><code>(1,2,3)</code> · 순서O · <b>변경 불가(immutable)</b></td></tr>
+<tr><th>딕셔너리 Dict</th><td><code>{'a':1}</code> · <b>키-값</b> 쌍 · 키 중복X</td></tr>
+<tr><th>셋 Set</th><td><code>{1,2,3}</code> · <b>중복X</b> · 순서X</td></tr>
+</table>
+<ul>
+<li><b>슬라이싱</b> <code>a[start:stop:step]</code> — stop은 <b>미포함</b>. <code>a[1:3]</code>=인덱스1,2. <code>a[::-1]</code>=역순. 음수 인덱스=뒤에서부터</li>
+<li><b>들여쓰기(indent)로 블록</b> 구분(중괄호 없음), <b>동적 타이핑</b>(자료형 선언 불필요)</li>
+<li>라이브러리/모듈: <code>import 모듈</code>. 표준 라이브러리 + 외부 패키지(pip)</li>
+</ul>
+<div class="tip">셸 스크립트(bash) 제어문: <b>if · for · while · case · until</b>. <b>repeat_do는 없음</b>(함정 단골).</div>
+
+<!-- ───────── 운영체제 ───────── -->
+<h3>⭐ 프로세스 상태전이 & PCB · 스레드</h3>
+<div class="mnem">상태: <span class="k">생성 → 준비 → 실행 ⇄ 대기 → 종료</span></div>
+<ul>
+<li><b>Dispatch</b>: 준비→실행 &nbsp; <b>Timeout(할당시간초과)</b>: 실행→준비 &nbsp; <b>Block(I/O요청)</b>: 실행→대기 &nbsp; <b>Wake-up</b>: 대기→준비</li>
+<li><b>PCB</b>(Process Control Block): 프로세스 정보 저장(상태, PID, 레지스터, 우선순위, 포인터). 프로세스 생성 시 만들어짐</li>
+<li><b>스레드</b>: 프로세스 내 실행 단위(경량 프로세스). 자원 공유, 문맥교환 빠름. 사용자 스레드 / 커널 스레드</li>
+</ul>
+
+<h3>⭐ CPU 스케줄링 — 선점 vs 비선점</h3>
+<div class="two">
+<ul>
+<li><b>선점(Preemptive)</b>: 실행 중 뺏김</li>
+<li>RR(라운드로빈, 타임슬라이스)</li>
+<li>SRT(최소잔여시간)</li>
+<li>다단계 큐 / 다단계 피드백 큐</li>
+</ul>
+<ul>
+<li><b>비선점(Non-preemptive)</b>: 끝까지 실행</li>
+<li>FCFS(선입선출) · SJF(최단작업)</li>
+<li>HRN · 우선순위 · 기한부</li>
+</ul>
+</div>
+<div class="warn"><b>HRN 우선순위 = (대기시간 + 서비스시간) ÷ 서비스시간</b>. 값이 <b>클수록</b> 우선순위 높음. SJF의 긴 작업 무한대기(기아)를 보완. 계산문제 단골 — 각 작업의 HRN 값 구해 큰 순으로 처리.</div>
+
+<h3>상호배제 · 임계구역</h3>
+<ul>
+<li><b>임계구역(Critical Section)</b>: 한 번에 한 프로세스만 접근 가능한 공유자원 영역</li>
+<li><b>세마포어(Semaphore)</b>: 정수 변수 + <b>P(대기, wait)</b> / <b>V(신호, signal)</b> 연산으로 상호배제 (Dijkstra)</li>
+<li><b>모니터(Monitor)</b>: 공유자원+연산을 캡슐화한 고급 동기화 기법 (프로그래밍 언어 수준)</li>
+</ul>
+
+<h3>⭐ 교착상태(Deadlock)</h3>
+<div class="mnem">4조건(모두 성립해야 발생): <span class="k">상 점 비 환</span> = 상호배제 · 점유대기 · 비선점 · 환형대기</div>
+<table>
+<tr><th>예방(Prevention)</th><td>4조건 중 하나를 <b>미리 부정</b></td></tr>
+<tr><th>회피(Avoidance)</th><td><b>은행원 알고리즘</b>(Banker's, Dijkstra) — 안전상태 유지</td></tr>
+<tr><th>탐지(Detection)</th><td>발생 여부 검사(자원할당 그래프)</td></tr>
+<tr><th>회복(Recovery)</th><td>프로세스 강제종료 / 자원 선점</td></tr>
+</table>
+
+<h3>⭐ 기억장치 배치전략 & 단편화</h3>
+<table>
+<tr><th>최초적합 First Fit</th><td>들어갈 수 있는 <b>첫 번째</b> 공간에 배치</td></tr>
+<tr><th>최적적합 Best Fit</th><td>단편화(남는 공간)가 <b>가장 작은</b> 곳에 배치</td></tr>
+<tr><th>최악적합 Worst Fit</th><td>단편화가 <b>가장 큰</b> 곳에 배치</td></tr>
+</table>
+<ul>
+<li><b>내부 단편화</b>: 할당 후 <b>내부에</b> 남는 공간 &nbsp; <b>외부 단편화</b>: 남은 공간이 있어도 <b>연속되지 않아</b> 못 씀</li>
+</ul>
+<div class="tip">예: 빈 공간 [20K, 10K, 30K]에 15K 배치 → First=20K, Best=20K, Worst=30K.</div>
+
+<h3>⭐ 가상기억장치 — 페이징 · 페이지 교체</h3>
+<ul>
+<li><b>페이징(Paging)</b>: 프로그램을 <b>고정 크기 페이지</b>로 분할 → 내부 단편화 발생</li>
+<li><b>세그먼테이션</b>: <b>가변 크기 논리 단위</b>로 분할 → 외부 단편화 발생</li>
+</ul>
+<table>
+<tr><th>FIFO</th><td>가장 <b>먼저 들어온</b> 페이지 교체</td></tr>
+<tr><th>LRU</th><td>가장 <b>오래 참조 안 된</b>(최근 미사용) 페이지 교체</td></tr>
+<tr><th>LFU</th><td>참조 <b>횟수가 가장 적은</b> 페이지 교체</td></tr>
+<tr><th>OPT(최적)</th><td>앞으로 <b>가장 오래 안 쓸</b> 페이지 교체(이론상 최적, Belady)</td></tr>
+<tr><th>NUR</th><td>최근 미사용(참조·변형 비트 사용)</td></tr>
+</table>
+<div class="warn"><b>벨레이디의 모순(Belady's Anomaly)</b>: FIFO에서 <b>프레임 수를 늘렸는데 오히려 페이지 부재(fault)가 증가</b>하는 현상. LRU·OPT는 발생 안 함.</div>
+
+<h3>지역성 · 워킹셋 · 스래싱</h3>
+<ul>
+<li><b>지역성(Locality)</b>: <b>시간적</b>(최근 참조한 것을 다시 참조 · 반복문/스택) + <b>공간적</b>(인접 주소 참조 · 배열/순차접근)</li>
+<li><b>워킹셋(Working Set)</b>: 일정 시간 동안 자주 참조하는 페이지 집합(주기억장치에 유지)</li>
+<li><b>스래싱(Thrashing)</b>: 페이지 교체가 지나치게 잦아 <b>실행보다 교체에 더 많은 시간</b> 소모 → CPU 이용률 급감. 워킹셋·페이지부재빈도(PFF)로 방지</li>
+</ul>
+
+<h3>⭐ 디스크 스케줄링</h3>
+<table>
+<tr><th>FCFS</th><td>요청 순서대로</td></tr>
+<tr><th>SSTF</th><td>현재 위치에서 <b>가장 가까운</b> 트랙 먼저(기아 발생 가능)</td></tr>
+<tr><th>SCAN</th><td>양 끝까지 왕복(엘리베이터 방식) — 끝단 도달</td></tr>
+<tr><th>C-SCAN</th><td>한 방향 서비스 후 <b>끝에서 처음으로 되돌아와</b> 다시 한 방향</td></tr>
+<tr><th>LOOK / C-LOOK</th><td>SCAN/C-SCAN이되 <b>요청 있는 곳까지만</b> 이동(끝단 안 감)</td></tr>
+</table>
+
+<h3>파일시스템 · 유닉스(UNIX)</h3>
+<ul>
+<li><b>커널(Kernel)</b>: OS 핵심, 하드웨어·자원 관리(스케줄링·메모리·파일). 부팅 시 상주</li>
+<li><b>셸(Shell)</b>: 명령어 해석기(사용자↔커널 인터페이스). 종류: sh·bash·csh·ksh</li>
+<li><b>inode(아이노드)</b>: 파일 메타정보(소유자·권한·크기·블록 위치)를 담은 자료구조</li>
+</ul>
+<table>
+<tr><th>주요 명령어</th><td><b>chmod</b>(권한변경 · 예 755) · <b>chown</b>(소유자) · <b>ls</b> · <b>grep</b>(문자열검색) · <b>cat</b> · <b>ps</b>(프로세스) · <b>kill</b> · <b>fork</b>(프로세스생성) · <b>cp/mv/rm</b> · <b>pwd</b> · <b>cd</b></td></tr>
+</table>
+<div class="tip">chmod 권한: r(4)·w(2)·x(1) 합. <b>755</b> = 소유자 rwx(7) / 그룹 r-x(5) / 그 외 r-x(5).</div>
+
+<!-- ───────── 네트워크 ───────── -->
 <h3>⭐ OSI 7계층</h3>
 <div class="mnem">하위→상위: <span class="k">물 데 네 전 세 표 응</span></div>
 <table>
-<tr><th>계층</th><th>단위/장비·프로토콜</th></tr>
-<tr><td>1 물리(Physical)</td><td>비트 · 리피터/허브</td></tr>
-<tr><td>2 데이터링크</td><td>프레임 · 브리지/스위치, MAC</td></tr>
-<tr><td>3 네트워크</td><td>패킷 · 라우터, IP</td></tr>
-<tr><td>4 전송(Transport)</td><td>세그먼트 · TCP/UDP</td></tr>
-<tr><td>5 세션 / 6 표현 / 7 응용</td><td>데이터 · HTTP·FTP·SMTP·DNS</td></tr>
+<tr><th>계층</th><th>전송 단위</th><th>장비 · 프로토콜</th></tr>
+<tr><td>1 물리(Physical)</td><td>비트(Bit)</td><td>리피터, 허브 · (전기신호)</td></tr>
+<tr><td>2 데이터링크(Data Link)</td><td>프레임(Frame)</td><td>브리지, 스위치 · MAC, HDLC, PPP</td></tr>
+<tr><td>3 네트워크(Network)</td><td>패킷(Packet)</td><td>라우터 · <b>IP, ICMP, ARP, RARP, IGMP</b></td></tr>
+<tr><td>4 전송(Transport)</td><td>세그먼트(Segment)</td><td>게이트웨이 · <b>TCP, UDP</b></td></tr>
+<tr><td>5 세션(Session)</td><td>데이터</td><td>동기·대화 제어</td></tr>
+<tr><td>6 표현(Presentation)</td><td>데이터</td><td>암호화·압축·코드변환</td></tr>
+<tr><td>7 응용(Application)</td><td>데이터</td><td>HTTP, FTP, SMTP, DNS, Telnet, SNMP</td></tr>
+</table>
+<div class="tip"><b>TCP/IP 4계층</b> 대응: 네트워크 액세스(1~2) · 인터넷(3, IP) · 전송(4, TCP/UDP) · 응용(5~7).</div>
+
+<h3>⭐ 프로토콜 — TCP vs UDP</h3>
+<table>
+<tr><th></th><th>TCP</th><th>UDP</th></tr>
+<tr><td>연결</td><td><b>연결형</b>(3-way handshake)</td><td><b>비연결형</b></td></tr>
+<tr><td>신뢰성</td><td>높음(재전송·순서보장)</td><td>낮음(보장 안 함)</td></tr>
+<tr><td>속도</td><td>느림</td><td><b>빠름</b>(오버헤드 적음)</td></tr>
+<tr><td>제어</td><td>흐름제어(<b>슬라이딩 윈도우</b>)·혼잡제어</td><td>없음</td></tr>
+<tr><td>용도</td><td>웹·메일·파일</td><td>스트리밍·DNS·실시간</td></tr>
+</table>
+<ul>
+<li><b>3-way handshake</b>: SYN → SYN+ACK → ACK (연결 설정)</li>
+<li><b>ARP</b>: IP주소→MAC주소 변환 &nbsp; <b>RARP</b>: MAC→IP &nbsp; <b>ICMP</b>: 오류·상태 메시지(ping) &nbsp; <b>IGMP</b>: 멀티캐스트 그룹 관리</li>
+</ul>
+
+<h3>⭐ IP 주소 & 서브넷</h3>
+<table>
+<tr><th>클래스 A</th><td>0~127 · 대형망 · 네트워크 8비트 / 호스트 24비트</td></tr>
+<tr><th>클래스 B</th><td>128~191 · 중형망 · 16 / 16비트</td></tr>
+<tr><th>클래스 C</th><td>192~223 · 소형망 · 24 / 8비트</td></tr>
+<tr><th>D / E</th><td>D(224~239 멀티캐스트) · E(240~255 실험용)</td></tr>
+</table>
+<ul>
+<li><b>IPv4 = 32비트</b>(8비트×4, 점 구분 10진수) &nbsp; <b>IPv6 = 128비트</b>(16비트×8, 콜론 구분 16진수)</li>
+<li><b>IPv6</b>: 주소부족 해결 · 헤더 단순화 · <b>인증/보안 기능 내장</b> · QoS(실시간) · 자동 환경설정. 주소 유형 = <b>유니캐스트 · 멀티캐스트 · 애니캐스트</b>(브로드캐스트 없음)</li>
+<li><b>서브넷팅</b>: 서브넷 마스크로 네트워크를 분할. 예 /24 = 255.255.255.0</li>
+</ul>
+<div class="warn">IPv6 함정: "패킷 크기 64Kbyte로 <b>고정</b>"이라 하면 틀림(IPv4가 64K 제한, IPv6는 확장헤더로 큰 패킷 가능). "32비트"라 하면 IPv4와 혼동시킨 오답.</div>
+
+<h3>⭐ 라우팅 프로토콜</h3>
+<table>
+<tr><th>RIP</th><td><b>거리 벡터(Distance Vector)</b> · 홉 카운트 기준 · <b>최대 홉 15</b>(16=무한) · 소규모망 · UDP 520</td></tr>
+<tr><th>OSPF</th><td><b>링크 상태(Link State)</b> · 대규모망 · 최단경로(다익스트라) · AS 내부(IGP)</td></tr>
+<tr><td>BGP</td><td><b>AS(자율시스템) 간</b> 라우팅(EGP) · 인터넷 백본</td></tr>
 </table>
 
-<h3>운영체제 — 교착상태 4조건 & 스케줄링</h3>
-<div class="mnem">교착 4조건: <span class="k">상 점 비 환</span> = 상호배제·점유대기·비선점·환형대기</div>
+<h3>매체접근(IEEE 802) & ARQ 오류제어</h3>
 <div class="two">
 <ul>
-<li><b>선점</b>: RR(라운드로빈), SRT, 다단계큐</li>
-<li><b>비선점</b>: FCFS, SJF, 우선순위, HRN</li>
+<li><b>CSMA/CD</b>: 충돌 <b>감지</b> · 유선 이더넷 · <b>IEEE 802.3</b></li>
+<li><b>CSMA/CA</b>: 충돌 <b>회피</b>(전송 전 대기) · 무선랜 · <b>IEEE 802.11</b></li>
+<li>802.4=토큰버스, 802.5=토큰링, 802.11e=QoS</li>
 </ul>
 <ul>
-<li><b>HRN 우선순위</b> = (대기+서비스)/서비스</li>
-<li><b>페이지 교체</b>: FIFO·LRU·LFU·OPT·NUR</li>
-<li>벨레이디 모순: FIFO에서 프레임↑인데 부재↑</li>
+<li><b>ARQ(자동재전송)</b>: 오류 시 재전송 요청</li>
+<li>Stop-and-Wait(1개씩) · <b>Go-Back-N</b>(오류블록부터 전부) · <b>Selective-Repeat</b>(오류블록만) · Adaptive</li>
 </ul>
 </div>
 
-<h3>네트워크 라우팅 / IP</h3>
-<ul>
-<li>라우팅: <b>RIP</b>(거리벡터, 홉≤15) · <b>OSPF</b>(링크상태) · BGP(AS간)</li>
-<li>IPv4=32비트, <b>IPv6=128비트</b>(16진수, 헤더단순·보안강화)</li>
-<li>TCP=연결형·신뢰성, UDP=비연결·빠름</li>
-</ul>
-
-<h3>언어 핵심</h3>
-<ul>
-<li>C: 배열명=포인터(주소), call by value vs 포인터(reference)</li>
-<li>Java: 상속·오버라이딩(재정의, 시그니처 같음) vs 오버로딩(중복, 매개변수 다름)</li>
-<li>Python: 들여쓰기 블록, 동적타이핑, 리스트/튜플/딕셔너리/셋</li>
-</ul>
-
-<!-- ================= 5과목 ================= -->
-<h2 id="g5">5과목 · 정보시스템 구축관리 (보안·방법론)</h2>
-
-<h3>⭐ 암호화 (최다 출제)</h3>
+<h3>⭐ 오류 검출 & 교정</h3>
 <table>
-<tr><th>대칭키 (비밀키)</th><td>같은 키로 암·복호. 빠름. <b>DES·AES·SEED·ARIA·IDEA·RC4</b></td></tr>
-<tr><th>비대칭키 (공개키)</th><td>공개키 암호/개인키 복호. 느림·키분배 쉬움. <b>RSA·ECC·DSA·디피헬만</b></td></tr>
-<tr><th>해시 (단방향)</th><td>복호 불가, 무결성. <b>MD5·SHA·HAVAL</b></td></tr>
+<tr><th>패리티 비트</th><td>1비트 추가로 오류 <b>검출만</b>(짝수/홀수 패리티). 교정 불가</td></tr>
+<tr><th>해밍 코드</th><td>오류 <b>검출 + 교정</b>(1비트) 가능. 패리티 비트를 여러 개 삽입</td></tr>
+<tr><th>CRC(순환중복검사)</th><td>다항식 나눗셈. <b>연집(버스트) 오류</b> 검출에 강함. 검출만</td></tr>
+<tr><th>블록합 검사</th><td>패리티를 가로·세로(2차원)로 확장</td></tr>
 </table>
-<div class="warn">함정: RSA=비대칭. AES/DES/SEED/ARIA=대칭. "대칭키는 키 개수 n(n−1)/2".</div>
+<div class="tip">암기: <b>교정까지 되는 건 해밍코드</b>. 나머지(패리티·CRC·블록합)는 검출만. CRC=버스트 오류.</div>
 
-<h3>정보보안 3요소 & 접근통제 & 인증</h3>
+<div class="tip" style="margin-top:20px">📌 4과목은 <b>계산·코드해석</b>(HRN 값, 페이지 부재 수, C/Java/Python 출력값)이 절반입니다. 표를 외우되, 실제 예제로 손으로 계산해 보는 게 핵심입니다.</div>
+
+<h2 id="g5">5과목 · 정보시스템 구축관리 (방법론·보안)</h2>
+<div class="freq" style="max-width:none">📊 8회분 실제 반복 출제: <b>암호화(대칭/비대칭/해시)·COCOMO·접근통제(DAC/MAC/RBAC)·생명주기모형·DoS공격·StackGuard·비용산정·CMM/SPICE·IT신기술</b>. 특히 <b>암호화 분류</b>와 <b>COCOMO 5만줄</b>은 거의 매회 나옵니다.</div>
+
+<!-- ========== 암호화 ========== -->
+<h3>⭐ 암호화 3분류 (최다 출제 · 매회)</h3>
+<table>
+<tr><th>구분</th><th>키</th><th>대표 알고리즘</th></tr>
+<tr><td><b>대칭키</b> (비밀키·관용)</td><td>암호화=복호화 <b>같은 키</b>. 빠름</td><td><b>DES·AES·SEED·ARIA·IDEA</b>(블록) / <b>RC4·LFSR</b>(스트림)</td></tr>
+<tr><td><b>비대칭키</b> (공개키)</td><td>공개키 암호 → 개인키 복호. 느림·키분배 쉬움</td><td><b>RSA·ECC·디피헬만·DSA·ElGamal</b></td></tr>
+<tr><td><b>해시</b> (단방향)</td><td>복호 <b>불가</b>. 무결성 검증</td><td><b>MD5·SHA·HAVAL·N-HASH·SNEFRU</b></td></tr>
+</table>
+<div class="mnem">대칭키 외우기: <span class="k">DES · AES · SEED · ARIA · IDEA · RC4</span></div>
+<div class="warn">함정 단골: <b>RSA·ECC·디피헬만=비대칭</b> / <b>MD5·SHA=해시(비암호화 아님)</b> / <b>RC4·LFSR=스트림(대칭)</b>. "성격 다른 하나 고르기"에서 대칭 3개+해시 1개면 답은 <b>해시</b>.</div>
 <div class="two">
 <ul>
-<li><b>CIA</b>: 기밀성(Confidentiality)·무결성(Integrity)·가용성(Availability)</li>
-<li>부인방지·인증 추가</li>
+<li><b>키 개수</b>: 대칭키 = <b>n(n−1)/2</b> &nbsp;→ 10명이면 45개</li>
+<li>공개키 = <b>2n</b> &nbsp;→ 10명이면 20개 (5개 아님 ← 함정)</li>
 </ul>
 <ul>
-<li>접근통제: <b>DAC</b>(임의)·<b>MAC</b>(강제)·<b>RBAC</b>(역할)</li>
+<li><b>RSA</b>: 1978 MIT, <b>소인수분해</b> 난해성 기반</li>
+<li><b>DES = 64비트</b> 블록(키 56비트) &nbsp;·&nbsp; <b>AES</b>=128/192/256</li>
+</ul>
+</div>
+<div class="tip"><b>암호문→평문 = 복호화</b>, 평문→암호문 = 암호화. "복호화=평문을 암호문으로"는 <b>틀린 보기</b>. <b>Salt</b> = 같은 패스워드도 다른 해시값으로 저장(사전공격 방지).</div>
+
+<!-- ========== 정보보안 3요소 · 접근통제 · 인증 ========== -->
+<h3>⭐ 정보보안 3요소 CIA & 접근통제 (매회급)</h3>
+<div class="mnem">보안 3요소: <span class="k">기 무 가</span> = 기밀성 · 무결성 · 가용성</div>
+<div class="two">
+<ul>
+<li><b>기밀성(Confidentiality)</b>: 인가된 자만 접근</li>
+<li><b>무결성(Integrity)</b>: 인가된 자만 수정</li>
+<li><b>가용성(Availability)</b>: 필요시 즉시 접근</li>
+<li class="note">함정 오답: 휘발성·정확성·책임추적성</li>
+</ul>
+<ul>
+<li>추가 요소: <b>인증·부인방지</b></li>
 <li><b>AAA</b>: 인증(Authentication)·인가(Authorization)·과금(Accounting)</li>
+<li><b>인증(신원증명) vs 인가(권한부여)</b> 구별 함정</li>
 </ul>
 </div>
 
-<h3>주요 보안 공격/용어</h3>
+<h4 style="margin:10px 0 4px;color:#1858c8">접근통제 정책 3종 (DAC / MAC / RBAC)</h4>
 <table>
-<tr><th>네트워크</th><td>DDoS·스니핑(도청)·스푸핑(위장)·세션하이재킹·스미싱·파밍·피싱</td></tr>
-<tr><th>웹</th><td>SQL Injection·XSS·CSRF</td></tr>
-<tr><th>보안 프로토콜</th><td><b>IPSec</b>(3계층, AH·ESP)·<b>SSL/TLS</b>(4~7계층)·SSH·Kerberos</td></tr>
-<tr><th>공격기법</th><td>스택가드/버퍼오버플로우·APT(지능형지속위협)·랜섬웨어·백도어</td></tr>
+<tr><th>정책</th><th>권한 부여 기준</th><th>지정 주체</th></tr>
+<tr><td><b>DAC</b> 임의적</td><td>사용자 <b>신원</b>에 따라 (GRANT/REVOKE)</td><td>데이터 소유자</td></tr>
+<tr><td><b>MAC</b> 강제적</td><td>주체·객체 <b>보안등급(레이블)</b> 비교</td><td>시스템(관리자)</td></tr>
+<tr><td><b>RBAC</b> 역할기반</td><td>조직 내 <b>직무·역할</b>에 따라</td><td>중앙관리자 (DAC+MAC 보완)</td></tr>
 </table>
+<div class="warn">"접근통제 정책 아닌 것" 함정 오답: <b>SDAC · 데이터 전환 접근통제(Data-Transition)</b> 같은 가짜 용어. 실존 3종은 DAC·MAC·RBAC.</div>
 
-<h3>비용 산정 & 일정 & 방법론</h3>
-<table>
-<tr><th>COCOMO 유형</th><td><b>조직형(Organic, 5만줄↓)</b> · 반분리형(Semi-detached, 30만↓) · 내장형(Embedded, 대형)</td></tr>
-<tr><th>비용 산정</th><td>LOC(원시코드 라인) · FP(기능점수) · Putnam(생명주기) · 델파이(전문가)</td></tr>
-<tr><th>일정 관리</th><td>PERT(불확실, 3점추정) · CPM(임계경로) · Gantt(막대)</td></tr>
-<tr><th>프로세스 성숙도</th><td>CMMI(5단계) · SPICE(ISO 15504)</td></tr>
-</table>
-
-<h3>IT 신기술 자주 나오는 용어</h3>
+<h4 style="margin:10px 0 4px;color:#1858c8">접근통제 보안 모델</h4>
 <ul>
-<li><b>데이터</b>: 빅데이터·하둡·맵리듀스·데이터마이닝·OLAP·데이터웨어하우스</li>
-<li><b>인프라</b>: 클라우드(IaaS/PaaS/SaaS)·도커·SDN·NFV·엣지컴퓨팅</li>
-<li><b>기타</b>: 블록체인·디지털트윈·메타버스·RAID·N-Screen·Baas·Mesh Network</li>
+<li><b>Bell-LaPadula(BLP)</b>: <b>기밀성</b> 강조, 군사용. "위로 못 읽고 아래로 못 씀"</li>
+<li><b>Clark-Wilson</b>: <b>무결성</b> 강조, 금융·회계 자료 변조 방지</li>
+<li><b>Chinese Wall(만리장성)</b>: <b>이해충돌 방지</b>, 경쟁사 정보 차단</li>
 </ul>
+
+<h4 style="margin:10px 0 4px;color:#1858c8">인증 유형 4가지</h4>
+<table>
+<tr><th>지식 (알고 있는 것)</th><td>패스워드·PIN</td></tr>
+<tr><th>소유 (가지고 있는 것)</th><td>토큰·스마트카드·OTP</td></tr>
+<tr><th>생체 (본인 자체)</th><td>지문·홍채·얼굴·음성</td></tr>
+<tr><th>행위 (하는 것)</th><td>서명·걸음걸이</td></tr>
+</table>
+<div class="tip"><b>SSO</b>(Single Sign On): 한 번 인증으로 여러 시스템 접근. <b>커버로스(Kerberos)</b>: 대칭키 기반 티켓 인증 프로토콜.</div>
+
+<!-- ========== 보안 공격 ========== -->
+<h3>⭐ 보안 공격 유형 (매회 2~3문제)</h3>
+<div class="two">
+<div>
+<b>서비스 거부 (DoS/DDoS)</b>
+<ul>
+<li><b>Ping of Death</b>: 큰 ICMP 패킷 반복</li>
+<li><b>Smurf</b>: ICMP Echo 브로드캐스트로 증폭</li>
+<li><b>SYN Flooding</b>: TCP SYN 남발(반연결 소진)</li>
+<li><b>Land</b>: 출발지=목적지 IP 동일</li>
+<li>Teardrop(단편 오프셋 조작)·Bonk·Boink</li>
+<li>DDoS 도구: <b>Trin00·TFN·Stacheldraht</b></li>
+</ul>
+</div>
+<div>
+<b>네트워크 · 웹 공격</b>
+<ul>
+<li><b>스니핑</b>=도청 / <b>스푸핑</b>=위장</li>
+<li><b>세션 하이재킹</b>: 연결 세션 가로채기</li>
+<li><b>Switch Jamming</b>: 위조 MAC 남발→허브화</li>
+<li><b>ARP 스푸핑</b> · <b>파밍 · 피싱 · 스미싱</b></li>
+<li><b>SQL Injection</b> · <b>XSS</b>(스크립트 삽입) · <b>CSRF</b></li>
+</ul>
+</div>
+</div>
+<table>
+<tr><th>시스템 공격</th><td><b>버퍼오버플로우</b>·포맷스트링·레이스컨디션·<b>백도어</b>·루트킷</td></tr>
+<tr><th>악성코드</th><td>바이러스 / <b>웜</b>(자가전파·증식) / 트로이목마 / <b>랜섬웨어</b>(암호화 후 금품) / 스파이웨어</td></tr>
+<tr><th>기타</th><td>APT(지능형지속위협)·Evil Twin(지인위장)·Logic Bomb(논리폭탄)·키로거</td></tr>
+</table>
+<div class="warn">★ <b>StackGuard(스택가드)</b>: "복귀주소와 변수 사이에 특정 값(카나리)을 저장→변경 시 오버플로우로 간주해 실행 중단" = <b>버퍼오버플로우 방지</b>. exam1·exam5에 <b>토씨까지 똑같이</b> 출제됨. 꼭 암기. (유사: ASLR=주소 랜덤화)</div>
+
+<!-- ========== 보안 솔루션 · 프로토콜 ========== -->
+<h3>보안 솔루션 & 프로토콜</h3>
+<div class="two">
+<ul>
+<li><b>방화벽(Firewall)</b>: 내·외부 경계 차단</li>
+<li><b>IDS</b>(침입탐지) → <b>IPS</b>(침입방지)</li>
+<li><b>DMZ</b>: 외부서비스 서버용 완충망 · <b>Screened Subnet</b></li>
+<li><b>VPN</b>: 공중망에 사설망(전용선 효과)</li>
+<li><b>NAC·DLP·SIEM·ESM·UTM·WAF·HSM</b></li>
+</ul>
+<ul>
+<li><b>IDS 탐지</b>: 오용탐지(Signature/Knowledge) vs 이상탐지(Anomaly/통계·행위)</li>
+<li>HIDS(호스트) / <b>NIDS(네트워크, 예: Snort)</b></li>
+<li><b>Secure OS</b>: 커널에 보안기능(MAC/DAC 등)</li>
+<li>도구: <b>nmap</b>(포트스캔)·<b>tripwire</b>(무결성)·tcpdump·netcat</li>
+</ul>
+</div>
+<table>
+<tr><th><b>IPSec</b></th><td><b>3계층(네트워크)</b>. <b>AH</b>(인증·무결성) / <b>ESP</b>(+기밀성). 전송(Transport)·터널(Tunnel) 모드. IKE로 키 교환</td></tr>
+<tr><th><b>SSL/TLS</b></th><td>전송~응용(4~7계층). 인증·암호화·무결성 (S-HTTP·HTTPS)</td></tr>
+<tr><th><b>SSH</b></th><td>암호화 원격 접속. <b>기본 포트 22</b> (텔넷 23)</td></tr>
+</table>
+<div class="tip">시큐어 코딩 약점 4대: <b>입력데이터 검증(SQL삽입·XSS 방지)</b>·보안기능·에러처리·코드오류. "<b>하드코드된 암호화 키</b>"는 대표적 보안 약점. <b>OWASP</b>=웹 보안 취약점 연구 프로젝트.</div>
+
+<!-- ========== 개발 방법론 ========== -->
+<h3>⭐ 소프트웨어 개발 방법론 & 테일러링</h3>
+<table>
+<tr><th>구조적</th><td>DFD·자료사전·<b>소단위명세서(Mini-Spec)</b>. 하향식 분할정복</td></tr>
+<tr><th>정보공학</th><td>자료(데이터) 중심 통합</td></tr>
+<tr><th>객체지향</th><td>객체·클래스·상속·캡슐화. 재사용성</td></tr>
+<tr><th><b>CBD</b> (컴포넌트기반)</th><td>기존 <b>컴포넌트(블록) 조립</b>으로 개발. 생산성·재사용↑. <b>1990년대</b> (1960년대 아님)</td></tr>
+<tr><th>애자일 / 린</th><td>짧은 반복·변화 수용·동작SW·고객협업 중시</td></tr>
+</table>
+<div class="two">
+<ul>
+<li><b>CBD 재사용 방법</b>: <b>합성 중심</b>(블록 끼워맞춤) / <b>생성 중심</b>(명세→구체화)</li>
+<li>CBD 분석 산출물: 요구사항정의서·유스케이스명세서·추적표</li>
+</ul>
+<ul>
+<li><b>XP 5가치</b> <span class="note">"용단의피존"</span>: 용기·단순성·의사소통·피드백·존중</li>
+<li><b>테일러링</b>: 방법론을 프로젝트에 맞게 <b>재단</b>. 내부기준(규모·기술·구성원), 외부기준(표준·법규)</li>
+</ul>
+</div>
+
+<h3>⭐ SW 생명주기 모델</h3>
+<table>
+<tr><td><b>폭포수(Waterfall)</b></td><td>가장 오래됨·<b>선형 순차</b>. 단계 완료 후 다음, 요구변경 어려움. (타당성→계획→분석→설계→구현→테스트→유지보수)</td></tr>
+<tr><td><b>프로토타입</b></td><td>시제품으로 요구 확인, 폭포수 단점 보완</td></tr>
+<tr><td><b>나선형(Spiral, Boehm)</b></td><td><b>위험분석 중심</b>·반복. 대규모 적합</td></tr>
+<tr><td><b>반복점진 / V모델</b></td><td>V모델=폭포수 확장, 단계별 테스트 대응</td></tr>
+</table>
+<div class="mnem">나선형 4활동: <span class="k">수 분 개 평</span> = 계획수립 → 위험분석 → 개발·검증 → 고객평가 (반복)</div>
+<div class="warn">함정: 나선형은 <b>매 주기마다 위험분석</b>(마지막 한 번 아님), <b>여러 번 반복</b>(한 번 아님). "각 단계 결과 확인 후 진행"은 폭포수/애자일 아님.</div>
+
+<!-- ========== 비용 산정 ========== -->
+<h3>⭐ 비용 산정 (하향식 vs 상향식 · 최다급)</h3>
+<div class="two">
+<ul>
+<li><b>하향식</b>: <b>델파이</b>(전문가 다수 익명 조정) · 전문가 감정</li>
+<li><b>상향식</b>: <b>LOC · FP · COCOMO · Putnam</b></li>
+</ul>
+<ul>
+<li><b>FP(기능점수)</b>: 입력·출력·질의·파일·인터페이스 5요소 가중치 (클래스 인터페이스 아님)</li>
+<li><b>Putnam</b>: <b>Rayleigh-Norden</b> 노력분포곡선. 자동화도구 <b>SLIM</b></li>
+</ul>
+</div>
+<div class="warn">"비용 <b>추정 모형이 아닌 것</b>" 단골 답 = <b>PERT</b>(일정관리 기법). LOC·FP·COCOMO·Putnam은 추정 모형.</div>
+
+<h4 style="margin:10px 0 4px;color:#1858c8">COCOMO 유형 (5만줄 문제 거의 매회)</h4>
+<table>
+<tr><th>유형</th><th>규모</th><th>예시</th></tr>
+<tr><td><b>조직형 Organic</b></td><td><b>5만 라인 ↓</b></td><td>일괄처리·과학기술계산·업무용 중소</td></tr>
+<tr><td><b>반분리형 Semi-detached</b></td><td>30만 라인 ↓</td><td>컴파일러·인터프리터·트랜잭션 처리</td></tr>
+<tr><td><b>내장형 Embedded</b></td><td>30만 라인 ↑</td><td>미사일·실시간·대형 OS</td></tr>
+</table>
+<div class="tip"><b>COCOMO</b>=Boehm 제안, <b>LOC(원시코드 라인수)</b> 기반, 결과는 <b>man-month(인월)</b>. 종류: 기본(Basic)·중간(Intermediate)·상세(Detailed). "object/dynamic/function 3모드"는 <b>럼바우</b>이지 COCOMO 아님(함정).</div>
+
+<div class="mnem" style="display:block">📐 LOC 계산 공식 (계산문제 단골)</div>
+<ul>
+<li><b>노력(인월) = LOC ÷ 1인당 월생산성</b> &nbsp;=&nbsp; 생산성 = LOC ÷ (인원 × 기간)</li>
+<li><b>개발기간 = 노력(인월) ÷ 투입인원</b></li>
+<li>예: 50000줄 ÷ 200 = 250인월, ÷ 10명 = <b>25개월</b> &nbsp;/&nbsp; 36000 ÷ (6×300) = <b>20개월</b></li>
+</ul>
+
+<!-- ========== 일정관리 ========== -->
+<h3>일정 관리 (WBS · PERT · CPM · Gantt)</h3>
+<table>
+<tr><th><b>WBS</b></th><td>작업 분해 구조(업무를 계층적으로 세분)</td></tr>
+<tr><th><b>PERT</b></th><td><b>불확실</b>·3점 추정(비관·낙관·기대). 작업 순서·상호관계 네트워크. 임계경로·자원할당 표시</td></tr>
+<tr><th><b>CPM</b></th><td><b>임계경로(Critical Path)</b>=가장 오래 걸리는 경로 → 프로젝트 최소 기간</td></tr>
+<tr><th><b>간트(Gantt)</b></th><td>막대(시간선) 차트. 진척도 시각화</td></tr>
+</table>
+<div class="tip">CPM 임계경로 문제: 각 경로 소요일 합산 중 <b>최댓값</b>이 답(예: 2+3+5+4=14일). PERT=네트워크 도표, Gantt=막대 도표로 구별.</div>
+
+<!-- ========== 프로세스 성숙도 ========== -->
+<h3>프로세스 성숙도 (CMM/CMMI · SPICE)</h3>
+<div class="two">
+<div>
+<b>CMMI 5단계</b> <span class="note">"초 관 정 정 최"</span>
+<ol style="margin:4px 0;padding-left:22px">
+<li>초기(Initial)</li>
+<li>관리(Managed)</li>
+<li>정의(Defined)</li>
+<li>정량적 관리(Quantitatively Managed)</li>
+<li>최적화(Optimizing)</li>
+</ol>
+</div>
+<div>
+<b>SPICE = ISO/IEC 15504</b>
+<ul>
+<li>프로세스 <b>수행능력 6수준(0~5)</b></li>
+<li>0 불완전 · 1 수행 · 2 관리 · 3 확립 · 4 예측 · 5 <b>최적화</b></li>
+<li>"수준 7"은 <b>없음</b>(함정)</li>
+</ul>
+</div>
+</div>
+<div class="tip">CMMI/SPICE는 <b>프로세스 평가·개선</b> 표준. <b>ISO 12207</b>=SW 생명주기 프로세스(기본: 획득·공급·개발·운영·유지보수). 코드 오류: 생략(Omission)·필사(Transcription)·전위(Transposition, 자리바뀜)·이중전위.</div>
+
+<!-- ========== IT 신기술 ========== -->
+<h3>⭐ IT 신기술 (매회 3~4문제 · 용어 암기)</h3>
+<table>
+<tr><th>데이터</th><td><b>빅데이터·하둡·맵리듀스</b>·데이터마이닝(패턴 발견)·<b>Sqoop</b>(하둡↔RDBMS)·OLAP·데이터웨어하우스·TensorFlow(구글 ML)</td></tr>
+<tr><th>클라우드</th><td><b>IaaS·PaaS·SaaS</b>·BaaS(블록체인)·<b>도커</b>·<b>SDN·NFV</b>·<b>SDDC/SDS</b>(소프트웨어 정의)·<b>PaaS-TA</b>(국내 개방형)</td></tr>
+<tr><th>네트워크</th><td><b>Mesh Network</b>(대규모 디바이스)·<b>VLAN</b>(논리적 LAN)·<b>MQTT</b>(IoT 발행/구독)·<b>N-Screen</b>(멀티단말 콘텐츠)·Zigbee·NFC·Wi-SUN</td></tr>
+<tr><th>기타</th><td><b>블록체인·디지털트윈</b>(물리자산 가상화)·메타버스·양자암호통신·<b>스마트그리드</b>(지능형 전력망)·Memristor·MEMS</td></tr>
+</table>
+<div class="mnem">라우팅: <span class="k">RIP(거리벡터·홉≤15)</span> · <span class="k">OSPF(링크상태·Dijkstra)</span> · BGP(AS간)</div>
+
+<!-- ========== 서버 / 스토리지 ========== -->
+<h3>서버 · 스토리지 · 백업</h3>
+<div class="two">
+<ul>
+<li><b>고가용성(HA)·클러스터링</b>: 장애 시 자동 인수(HACMP)</li>
+<li><b>RAID</b>: 0(스트라이핑·속도, 무결함내성) · 1(미러링) · 5(패리티1) · 6(패리티2) · 10(1+0)</li>
+</ul>
+<ul>
+<li><b>DAS</b>: 서버 직접 연결</li>
+<li><b>NAS</b>: 네트워크(파일 단위) 연결</li>
+<li><b>SAN</b>: 전용 스토리지 네트워크(블록 단위)</li>
+</ul>
+</div>
+<div class="tip"><b>SDS</b>(Software Defined Storage)=스토리지를 SW로 가상화·통합 관리. 라우터=서로 다른 네트워크 대역 연결(3계층).</div>
+
+<div class="tip" style="margin-top:20px">📌 5과목은 <b>용어 암기</b>가 핵심입니다. 암호화 3분류·접근통제 3종·COCOMO 5만줄·StackGuard·나선형 위험분석·"추정모형 아닌 것=PERT"만 확실히 잡아도 절반은 맞습니다.</div>
 
 <div class="tip" style="margin-top:24px">📌 정해진 순서 없습니다. <b>맨 위부터 맨 아래까지 한 번에 쭉 필사</b>하고, 내킬 때마다 처음부터 다시 한 바퀴. 반복이 전부입니다.</div>
 
