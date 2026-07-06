@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정보처리기사 필기 · 빈출 암기 노트</title>
+<style>
+:root{--ink:#1a1a1a;--muted:#666;--line:#d0d0d0;--hl:#fff3bf;--key:#1858c8;--red:#c0392b;--box:#f6f7f9}
+*{box-sizing:border-box}
+body{margin:0;background:#e9ecef;color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  line-height:1.55;font-size:14px}
+.sheet{max-width:820px;margin:16px auto;background:#fff;padding:34px 40px 60px;
+  box-shadow:0 2px 14px rgba(0,0,0,.12)}
+h1{font-size:22px;margin:0 0 4px;text-align:center}
+.sub{text-align:center;color:var(--muted);font-size:12.5px;margin-bottom:8px}
+.freq{text-align:center;font-size:11.5px;color:var(--muted);border:1px solid var(--line);
+  border-radius:6px;padding:6px 10px;margin:0 auto 22px;max-width:640px;background:var(--box)}
+.freq b{color:var(--red)}
+h2{font-size:17px;margin:26px 0 10px;padding:7px 12px;background:var(--ink);color:#fff;border-radius:5px}
+h3{font-size:14.5px;margin:16px 0 6px;color:var(--key);border-bottom:2px solid var(--line);padding-bottom:3px}
+.mnem{display:inline-block;background:var(--hl);border:1px solid #e0c000;border-radius:5px;
+  padding:2px 9px;font-weight:700;margin:3px 0;font-size:14px}
+.mnem .k{color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:13px}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:var(--box);font-weight:700;white-space:nowrap}
+td b,li b{color:var(--key)}
+ul{margin:6px 0 12px;padding-left:20px}
+li{margin:3px 0}
+.tip{background:#fff9db;border-left:4px solid #f0c000;padding:8px 12px;margin:8px 0;font-size:13px;border-radius:0 5px 5px 0}
+.warn{background:#ffe8e6;border-left:4px solid var(--red);padding:8px 12px;margin:8px 0;font-size:13px;border-radius:0 5px 5px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.note{color:var(--muted);font-size:12px}
+.toc{background:var(--box);border:1px solid var(--line);border-radius:7px;padding:12px 16px;margin-bottom:6px;font-size:13px}
+.toc a{color:var(--key);text-decoration:none;margin-right:14px;white-space:nowrap}
+.printbar{position:sticky;top:0;background:#1858c8;color:#fff;text-align:center;padding:9px;font-size:13px;z-index:10}
+.printbar button{background:#fff;color:#1858c8;border:none;border-radius:5px;padding:5px 14px;font-weight:700;cursor:pointer;margin-left:8px}
+@media print{
+  body{background:#fff;font-size:11.5px}
+  .sheet{box-shadow:none;max-width:none;margin:0;padding:0}
+  .printbar{display:none}
+  h2{background:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .mnem,th,.tip,.warn,.freq{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2{page-break-after:avoid}
+  table,ul{page-break-inside:avoid}
+}
+@media(max-width:600px){.two{grid-template-columns:1fr}.sheet{padding:20px 16px}}
+</style>
+</head>
+<body>
+<div class="printbar">📄 카페 필사용 · A4 인쇄 최적화 <button onclick="window.print()">인쇄 / PDF 저장</button></div>
+<div class="sheet">
+
+<h1>정보처리기사 필기 · 빈출 암기 노트</h1>
+<div class="sub">2020~2022 공개 기출 8회분 빈도 분석 기반 · 손필기 반복용</div>
+<div class="freq">📊 실제 8회분 출현 빈도 상위: <b>테스트·암호·무결성·트랜잭션·정규형·응집도/결합도·트리·미들웨어·UML·디자인패턴·COCOMO·럼바우</b> — 이 순서로 힘 실어서 외우세요.</div>
+
+<div class="toc">
+<b>목차</b> ·
+<a href="#g1">1과목 SW설계</a>
+<a href="#g2">2과목 SW개발</a>
+<a href="#g3">3과목 DB</a>
+<a href="#g4">4과목 언어·OS·네트워크</a>
+<a href="#g5">5과목 구축·보안</a>
+</div>
+
+<!-- ================= 1과목 ================= -->
+<h2 id="g1">1과목 · 소프트웨어 설계</h2>
+
+<h3>⭐ 응집도 (Cohesion) — 강할수록 좋음</h3>
+<div class="mnem">약 → 강 : <span class="k">우 논 시 절 교(통) 순 기</span></div>
+<table>
+<tr><th>순서</th><th>응집도</th><th>뜻</th></tr>
+<tr><td>1 (약)</td><td>우연적(Coincidental)</td><td>관련 없는 요소끼리 우연히 모임</td></tr>
+<tr><td>2</td><td>논리적(Logical)</td><td>유사 성격(입력/출력 등)끼리 묶음</td></tr>
+<tr><td>3</td><td>시간적(Temporal)</td><td>같은 시간대에 실행되는 것끼리 (초기화 등)</td></tr>
+<tr><td>4</td><td>절차적(Procedural)</td><td>순서대로 수행</td></tr>
+<tr><td>5</td><td>교환/통신적(Communicational)</td><td>같은 자료를 사용</td></tr>
+<tr><td>6</td><td>순차적(Sequential)</td><td>앞 출력이 뒤 입력</td></tr>
+<tr><td>7 (강)</td><td><b>기능적(Functional)</b></td><td>단일 기능만 수행 (가장 이상적)</td></tr>
+</table>
+
+<h3>⭐ 결합도 (Coupling) — 약할수록 좋음</h3>
+<div class="mnem">약 → 강 : <span class="k">자 스 제 외 공 내</span></div>
+<table>
+<tr><th>순서</th><th>결합도</th><th>뜻</th></tr>
+<tr><td>1 (약)</td><td><b>자료(Data)</b></td><td>파라미터로 값만 전달 (가장 좋음)</td></tr>
+<tr><td>2</td><td>스탬프(Stamp)</td><td>자료구조 전체를 전달</td></tr>
+<tr><td>3</td><td>제어(Control)</td><td>제어 플래그를 전달</td></tr>
+<tr><td>4</td><td>외부(External)</td><td>외부 전역변수/장치 공유</td></tr>
+<tr><td>5</td><td>공통(Common)</td><td>전역변수 공유</td></tr>
+<tr><td>6 (강)</td><td>내용(Content)</td><td>다른 모듈 내부를 직접 참조 (가장 나쁨)</td></tr>
+</table>
+<div class="tip">시험 단골: "가장 좋은 결합도 = <b>자료(Data)</b>", "가장 좋은 응집도 = <b>기능적</b>". 반대로 "가장 나쁜 = 내용/우연적".</div>
+
+<h3>⭐ 럼바우(Rumbaugh) 객체지향 분석 3모델링</h3>
+<div class="mnem"><span class="k">객 동 기</span> = 객체 · 동적 · 기능</div>
+<ul>
+<li><b>객체(Object) 모델링</b>: 객체 다이어그램으로 정적 구조 표현 (= 정보 모델링)</li>
+<li><b>동적(Dynamic) 모델링</b>: 상태 다이어그램, 시간 흐름·상태 변화</li>
+<li><b>기능(Functional) 모델링</b>: 자료흐름도(DFD), 데이터 변환 과정</li>
+</ul>
+
+<h3>⭐ 디자인 패턴 GoF 23 (생성5 / 구조7 / 행위11)</h3>
+<table>
+<tr><th>생성 5 <span class="note">"추빌팩프싱"</span></th><td>Abstract Factory(추상팩토리), Builder(빌더), Factory Method(팩토리메소드), Prototype(프로토타입), Singleton(싱글톤)</td></tr>
+<tr><th>구조 7 <span class="note">"어브컴 데퍼플프"</span></th><td>Adapter(어댑터), Bridge(브리지), Composite(컴포지트), Decorator(데코레이터), Facade(퍼사드), Flyweight(플라이웨이트), Proxy(프록시)</td></tr>
+<tr><th>행위 11</th><td>Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, <b>Observer(옵서버)</b>, State, <b>Strategy(전략)</b>, Template Method, Visitor</td></tr>
+</table>
+<div class="tip">자주 물음: 개수(생성5·구조7·행위11), <b>Singleton=인스턴스 1개 보장</b>, <b>Observer=1:N 상태변화 통보</b>, <b>Adapter=인터페이스 변환</b>, <b>Facade=단순화된 통합 창구</b>.</div>
+
+<h3>개발 방법론 & 애자일</h3>
+<div class="two">
+<ul>
+<li><b>폭포수</b>: 고전적·선형순차. 단계 명확, 변경 어려움</li>
+<li><b>프로토타입</b>: 시제품으로 요구 확인</li>
+<li><b>나선형(Boehm)</b>: <b>위험분석</b> 포함, 4단계 반복 (계획→위험분석→개발→평가)</li>
+<li><b>V모델</b>: 폭포수 확장, 단계별 테스트 대응</li>
+</ul>
+<ul>
+<li><b>XP 5가치</b> <span class="note">"용단의피존"</span>: 용기·단순성·의사소통·피드백·존중</li>
+<li><b>스크럼</b>: PO(제품책임자)·SM(스크럼마스터)·개발팀, 스프린트(2~4주), 데일리스크럼</li>
+<li>애자일 = 짧은 반복, 변화 수용, 동작 SW 중시</li>
+</ul>
+</div>
+
+<h3>UML</h3>
+<ul>
+<li><b>구조(정적) 다이어그램</b>: 클래스, 객체, 컴포넌트, 배치, 복합체, 패키지</li>
+<li><b>행위(동적) 다이어그램</b>: 유스케이스, <b>순차(Sequence)</b>, 통신, 상태, 활동, 타이밍</li>
+<li>관계: 연관·집합(Aggregation)·포함(Composition)·일반화(상속)·의존·실체화</li>
+</ul>
+<div class="warn">함정: <b>순차 다이어그램 = 행위(동적)</b> 다이어그램. "정적 측면 모델링"이라 하면 <b>틀린 보기</b> (2022년 4월 기출).</div>
+
+<h3>미들웨어 종류</h3>
+<ul>
+<li><b>MOM</b>(Message-Oriented): 비동기 메시지, 메시지 큐 (즉각응답보다 안정)</li>
+<li><b>RPC</b>: 원격 프로시저 호출 &nbsp;·&nbsp; <b>ORB</b>: 객체 요청 &nbsp;·&nbsp; <b>TP monitor</b>: 트랜잭션 &nbsp;·&nbsp; <b>WAS</b>: 웹앱 &nbsp;·&nbsp; <b>DB 미들웨어</b>(ODBC 등)</li>
+</ul>
+
+<!-- ================= 2과목 ================= -->
+<h2 id="g2">2과목 · 소프트웨어 개발</h2>
+
+<h3>⭐ 소프트웨어 테스트 (최다 출제)</h3>
+<div class="two">
+<div>
+<b>블랙박스</b> (명세 기반, 출력 검증)<br>
+<span class="mnem"><span class="k">동 경 원 비 오</span></span>
+<ul>
+<li>동치 분할(Equivalence)</li>
+<li>경계값 분석(Boundary)</li>
+<li>원인-효과 그래프</li>
+<li>비교 검사</li>
+<li>오류 예측</li>
+</ul>
+</div>
+<div>
+<b>화이트박스</b> (내부 로직·경로)
+<ul>
+<li>기초 경로(Basis Path)</li>
+<li>조건 / 결정 커버리지</li>
+<li>구문(문장) 커버리지</li>
+<li>데이터 흐름 검사</li>
+<li>루프 검사</li>
+</ul>
+</div>
+</div>
+<table>
+<tr><th>테스트 레벨(V모델)</th><td><b>단위 → 통합 → 시스템 → 인수</b></td></tr>
+<tr><th>통합 방식</th><td>하향식(Stub 필요) / 상향식(Driver 필요) / 빅뱅 / 샌드위치</td></tr>
+<tr><th>테스트 원리</th><td><b>살충제 패러독스</b>(같은 테스트 반복→결함 못 찾음), <b>오류-부재의 궤변</b>(결함 0이어도 요구 불충족이면 무의미), 결함 집중(파레토)</td></tr>
+</table>
+<div class="tip"><b>McCabe 순환복잡도</b> = 화살표(E) − 노드(N) + 2 &nbsp;(또는 폐구역+1). 계산문제 단골.</div>
+
+<h3>자료구조</h3>
+<div class="two">
+<ul>
+<li><b>스택(Stack)</b>: LIFO. 후위표기·재귀·인터럽트</li>
+<li><b>큐(Queue)</b>: FIFO</li>
+<li><b>트리</b>: 순회 = 전위(root먼저)/중위/후위</li>
+</ul>
+<ul>
+<li>트리 차수 = 자식 최대 수</li>
+<li>이진트리 최대 노드 = 2ᵏ−1</li>
+<li>그래프: 무방향 간선 최대 n(n−1)/2</li>
+</ul>
+</div>
+<div class="tip">중위→후위 변환 단골: <b>A+B*C → A B C * +</b> (곱셈 먼저).</div>
+
+<h3>형상관리 (SCM)</h3>
+<div class="mnem">활동: <span class="k">식별 → 통제 → 감사 → 기록(보고)</span></div>
+<ul>
+<li>형상 식별 → 형상 통제(변경 제어) → 형상 감사 → 형상 기록</li>
+<li>버전관리 도구: Git(분산), SVN·CVS(중앙집중)</li>
+<li>목적: 변경 추적·통제 (성능 향상 아님 ← 함정)</li>
+</ul>
+
+<!-- ================= 3과목 ================= -->
+<h2 id="g3">3과목 · 데이터베이스 구축</h2>
+
+<h3>⭐ 정규화 단계 (최다 출제)</h3>
+<div class="mnem">순서: <span class="k">도 부 이 결 다 조</span></div>
+<table>
+<tr><th>단계</th><th>제거 대상</th></tr>
+<tr><td><b>1NF</b> (도메인)</td><td>모든 속성값이 원자값(더 못 쪼갬)</td></tr>
+<tr><td><b>2NF</b> (부분)</td><td>부분 함수 종속 제거</td></tr>
+<tr><td><b>3NF</b> (이행)</td><td>이행 함수 종속 제거</td></tr>
+<tr><td><b>BCNF</b> (결정자)</td><td>결정자가 후보키가 아닌 종속 제거</td></tr>
+<tr><td><b>4NF</b> (다치)</td><td>다치(다중값) 종속 제거</td></tr>
+<tr><td><b>5NF</b> (조인)</td><td>조인 종속 제거</td></tr>
+</table>
+<div class="warn">이상현상(Anomaly) 3종: <b>삽입·삭제·갱신</b> 이상. 정규화는 이 이상을 제거하려는 것.</div>
+
+<h3>⭐ 무결성 & 트랜잭션</h3>
+<div class="two">
+<div>
+<b>무결성(Integrity)</b>
+<ul>
+<li>개체 무결성: 기본키 NOT NULL·유일</li>
+<li>참조 무결성: 외래키=참조값 또는 NULL</li>
+<li>도메인 무결성: 속성값이 정의역 내</li>
+</ul>
+</div>
+<div>
+<b>트랜잭션 ACID</b> <span class="mnem"><span class="k">원 일 격 지</span></span>
+<ul>
+<li>원자성(Atomicity): 전부 or 전무</li>
+<li>일관성(Consistency)</li>
+<li>격리성(Isolation)</li>
+<li>지속성(Durability)</li>
+</ul>
+</div>
+</div>
+
+<h3>키(Key) & 관계대수</h3>
+<table>
+<tr><th>키</th><td>슈퍼키(유일성○ 최소성✕) / 후보키(유일+최소) / 기본키 / 대체키 / 외래키</td></tr>
+<tr><th>순수 관계연산</th><td>SELECT(σ, 행) · PROJECT(π, 열) · JOIN(⋈) · DIVISION(÷)</td></tr>
+<tr><th>일반 집합연산</th><td>합집합 ∪ · 교집합 ∩ · 차집합 − · 곱(카티션) ×</td></tr>
+</table>
+
+<h3>SQL 분류</h3>
+<table>
+<tr><th>DDL</th><td>CREATE · ALTER · DROP · TRUNCATE (구조 정의)</td></tr>
+<tr><th>DML</th><td>SELECT · INSERT · UPDATE · DELETE (조작)</td></tr>
+<tr><th>DCL</th><td>GRANT · REVOKE · COMMIT · ROLLBACK (제어)</td></tr>
+</table>
+<div class="tip">GRANT/REVOKE=권한, COMMIT/ROLLBACK=트랜잭션 제어. DELETE(DML) vs DROP(DDL) 구별 함정 주의.</div>
+
+<!-- ================= 4과목 ================= -->
+<h2 id="g4">4과목 · 프로그래밍 언어 · OS · 네트워크</h2>
+
+<h3>⭐ OSI 7계층</h3>
+<div class="mnem">하위→상위: <span class="k">물 데 네 전 세 표 응</span></div>
+<table>
+<tr><th>계층</th><th>단위/장비·프로토콜</th></tr>
+<tr><td>1 물리(Physical)</td><td>비트 · 리피터/허브</td></tr>
+<tr><td>2 데이터링크</td><td>프레임 · 브리지/스위치, MAC</td></tr>
+<tr><td>3 네트워크</td><td>패킷 · 라우터, IP</td></tr>
+<tr><td>4 전송(Transport)</td><td>세그먼트 · TCP/UDP</td></tr>
+<tr><td>5 세션 / 6 표현 / 7 응용</td><td>데이터 · HTTP·FTP·SMTP·DNS</td></tr>
+</table>
+
+<h3>운영체제 — 교착상태 4조건 & 스케줄링</h3>
+<div class="mnem">교착 4조건: <span class="k">상 점 비 환</span> = 상호배제·점유대기·비선점·환형대기</div>
+<div class="two">
+<ul>
+<li><b>선점</b>: RR(라운드로빈), SRT, 다단계큐</li>
+<li><b>비선점</b>: FCFS, SJF, 우선순위, HRN</li>
+</ul>
+<ul>
+<li><b>HRN 우선순위</b> = (대기+서비스)/서비스</li>
+<li><b>페이지 교체</b>: FIFO·LRU·LFU·OPT·NUR</li>
+<li>벨레이디 모순: FIFO에서 프레임↑인데 부재↑</li>
+</ul>
+</div>
+
+<h3>네트워크 라우팅 / IP</h3>
+<ul>
+<li>라우팅: <b>RIP</b>(거리벡터, 홉≤15) · <b>OSPF</b>(링크상태) · BGP(AS간)</li>
+<li>IPv4=32비트, <b>IPv6=128비트</b>(16진수, 헤더단순·보안강화)</li>
+<li>TCP=연결형·신뢰성, UDP=비연결·빠름</li>
+</ul>
+
+<h3>언어 핵심</h3>
+<ul>
+<li>C: 배열명=포인터(주소), call by value vs 포인터(reference)</li>
+<li>Java: 상속·오버라이딩(재정의, 시그니처 같음) vs 오버로딩(중복, 매개변수 다름)</li>
+<li>Python: 들여쓰기 블록, 동적타이핑, 리스트/튜플/딕셔너리/셋</li>
+</ul>
+
+<!-- ================= 5과목 ================= -->
+<h2 id="g5">5과목 · 정보시스템 구축관리 (보안·방법론)</h2>
+
+<h3>⭐ 암호화 (최다 출제)</h3>
+<table>
+<tr><th>대칭키 (비밀키)</th><td>같은 키로 암·복호. 빠름. <b>DES·AES·SEED·ARIA·IDEA·RC4</b></td></tr>
+<tr><th>비대칭키 (공개키)</th><td>공개키 암호/개인키 복호. 느림·키분배 쉬움. <b>RSA·ECC·DSA·디피헬만</b></td></tr>
+<tr><th>해시 (단방향)</th><td>복호 불가, 무결성. <b>MD5·SHA·HAVAL</b></td></tr>
+</table>
+<div class="warn">함정: RSA=비대칭. AES/DES/SEED/ARIA=대칭. "대칭키는 키 개수 n(n−1)/2".</div>
+
+<h3>정보보안 3요소 & 접근통제 & 인증</h3>
+<div class="two">
+<ul>
+<li><b>CIA</b>: 기밀성(Confidentiality)·무결성(Integrity)·가용성(Availability)</li>
+<li>부인방지·인증 추가</li>
+</ul>
+<ul>
+<li>접근통제: <b>DAC</b>(임의)·<b>MAC</b>(강제)·<b>RBAC</b>(역할)</li>
+<li><b>AAA</b>: 인증(Authentication)·인가(Authorization)·과금(Accounting)</li>
+</ul>
+</div>
+
+<h3>주요 보안 공격/용어</h3>
+<table>
+<tr><th>네트워크</th><td>DDoS·스니핑(도청)·스푸핑(위장)·세션하이재킹·스미싱·파밍·피싱</td></tr>
+<tr><th>웹</th><td>SQL Injection·XSS·CSRF</td></tr>
+<tr><th>보안 프로토콜</th><td><b>IPSec</b>(3계층, AH·ESP)·<b>SSL/TLS</b>(4~7계층)·SSH·Kerberos</td></tr>
+<tr><th>공격기법</th><td>스택가드/버퍼오버플로우·APT(지능형지속위협)·랜섬웨어·백도어</td></tr>
+</table>
+
+<h3>비용 산정 & 일정 & 방법론</h3>
+<table>
+<tr><th>COCOMO 유형</th><td><b>조직형(Organic, 5만줄↓)</b> · 반분리형(Semi-detached, 30만↓) · 내장형(Embedded, 대형)</td></tr>
+<tr><th>비용 산정</th><td>LOC(원시코드 라인) · FP(기능점수) · Putnam(생명주기) · 델파이(전문가)</td></tr>
+<tr><th>일정 관리</th><td>PERT(불확실, 3점추정) · CPM(임계경로) · Gantt(막대)</td></tr>
+<tr><th>프로세스 성숙도</th><td>CMMI(5단계) · SPICE(ISO 15504)</td></tr>
+</table>
+
+<h3>IT 신기술 자주 나오는 용어</h3>
+<ul>
+<li><b>데이터</b>: 빅데이터·하둡·맵리듀스·데이터마이닝·OLAP·데이터웨어하우스</li>
+<li><b>인프라</b>: 클라우드(IaaS/PaaS/SaaS)·도커·SDN·NFV·엣지컴퓨팅</li>
+<li><b>기타</b>: 블록체인·디지털트윈·메타버스·RAID·N-Screen·Baas·Mesh Network</li>
+</ul>
+
+<div class="tip" style="margin-top:24px">📌 <b>필사 팁</b>: 각 과목의 ⭐표시(응집/결합·럼바우·GoF·테스트·정규화·무결성·암호·OSI·교착)만 먼저 3회 반복 필사 → 두문자 먼저 외우고 항목 채우기. 이 9개가 8회분에서 매번 나온 최상위 빈출입니다.</div>
+
+<div class="note" style="text-align:center;margin-top:20px">정보처리기사 필기 빈출 암기 노트 · 공개기출 2020~2022 기반 · 오류 발견 시 갱신</div>
+
+</div>
+</body>
+</html>
