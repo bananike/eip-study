@@ -8256,6 +8256,274 @@
      "explanation_md": "**정답 ④** — 책임 공유 모델(Shared Responsibility Model)의 핵심은 **계층별 책임 분담**. IaaS = 물리 인프라만 CSP(클라우드 제공자) 책임, OS 이상은 사용자 책임. PaaS = OS·미들웨어까지 CSP, 앱·데이터는 사용자. SaaS = 앱까지 CSP, 사용자는 데이터·계정 관리만. \"IaaS·PaaS·SaaS 모두 하드웨어·OS·앱·데이터 전체를 사용자 단독 책임\"은 완전 오답(모두 사용자 책임이면 클라우드 아님).\n- 함정 키워드: 책임 공유 = **계층별 분담**(IaaS↑ 사용자 책임 넓음 / SaaS↓ 사용자 책임 좁음)"
     }
    ]
+  },
+  {
+   "day": 58,
+   "date": "2026-07-08",
+   "subject": "Phase 3 기출회독",
+   "topic": "2024년 정보처리기사 필기 기출 (회독 1/4 진입) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2024년 1회 1과목 — 소프트웨어 생명주기(SDLC) 4모델 비교 정형 패턴",
+     "stem_md": "소프트웨어 생명주기(SDLC) 대표 모델에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**폭포수(Waterfall) 모델** — 요구분석→설계→구현→테스트→유지보수를 순차적으로 진행하며, 각 단계 산출물이 다음 단계 입력이 된다.",
+      "**프로토타입(Prototype) 모델** — 사용자 요구사항을 명확히 하기 위해 시제품을 반복 제작·평가하며, 최종 시스템 개발 전 사용자 피드백을 수렴한다.",
+      "**나선형(Spiral) 모델** — 계획→위험 분석→개발→고객 평가의 4단계를 반복하는 점진적 모델로, **위험 분석(Risk Analysis)** 단계가 핵심이다.",
+      "**애자일(Agile) 모델** — 요구사항의 변경을 억제하고, 개발 시작 전 모든 문서를 완벽히 확정한 후 순차적으로 진행하는 대규모 사전 설계 방식이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 애자일(Agile)은 **변화 수용·짧은 반복(Iteration)·고객 협업·동작 SW 우선**을 4대 가치로 삼는 방법론. \"요구사항 변경 억제, 개발 전 모든 문서 완벽 확정\"은 **폭포수(BDUF: Big Design Up Front) 정반대 함정**. 애자일 대표 방법론 = Scrum·XP·Kanban·Lean.\n- 함정 키워드: 애자일 = **변화 수용** / 폭포수·BDUF = 사전 문서 확정"
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2024년 2회 1과목 — MDA(Model Driven Architecture) 정형 패턴",
+     "stem_md": "**MDA(Model Driven Architecture)**에 관한 설명으로 **가장 옳은 것**은?",
+     "options": [
+      "특정 플랫폼(예: Java EE, .NET)에 의존적인 코드를 직접 작성하는 절차 지향 개발 방법론이다.",
+      "**플랫폼 독립적 모델(PIM)**을 **플랫폼 종속적 모델(PSM)**로 변환한 뒤, 자동 변환으로 코드를 생성하는 OMG(Object Management Group) 표준 아키텍처이다.",
+      "데이터베이스 스키마와 무결성 제약을 정의하는 데이터 모델링 전용 표기법이다.",
+      "사용자 인터페이스의 색상·폰트·레이아웃을 지정하는 스타일시트 아키텍처이다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — MDA(Model Driven Architecture)는 OMG(Object Management Group) 표준으로, **PIM(Platform Independent Model, 플랫폼 독립 모델) → PSM(Platform Specific Model, 플랫폼 종속 모델) → Code** 자동 변환을 통해 플랫폼 이식성·재사용성을 극대화. UML·MOF·XMI·CWM이 핵심 표준.\n- 함정 키워드: MDA 3계층 = **PIM → PSM → Code** / OMG 표준"
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2024년 3회 1과목 — 소프트웨어 3R(재공학·재사용·역공학) 정형 패턴",
+     "stem_md": "소프트웨어 3R(3R: Reverse Engineering·Re-engineering·Reuse)에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**역공학(Reverse Engineering)** — 실행 파일이나 소스 코드로부터 설계 문서·요구사항을 재추출하여 시스템 이해도를 높이는 활동이다.",
+      "**재공학(Re-engineering)** — 기존 시스템의 인터페이스를 유지하면서 내부 구조·품질을 개선하여 유지보수성을 높인다.",
+      "**재사용(Reuse)** — 기존에 개발된 컴포넌트·모듈·라이브러리를 새로운 시스템 개발에 활용하여 개발 생산성을 높인다.",
+      "**역공학(Reverse Engineering)** — 오로지 신규 시스템 개발만 가능하며, 기존 시스템 분석·문서화에는 사용될 수 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 역공학(Reverse Engineering)은 **기존 시스템의 실행 파일·소스 코드로부터 설계 문서·요구사항을 재추출**하는 활동. \"신규 개발만 가능·기존 시스템 분석 불가\"는 완전 오답. 3R = **Reverse Engineering(역공학)·Re-engineering(재공학)·Reuse(재사용)**.\n- 함정 키워드: 역공학 = **기존→문서 추출**(신규 개발 정반대) / 재공학 = **인터페이스 유지 + 내부 재개발**"
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2024년 1회 1과목 — UI/UX 설계 4대 원칙 정형 패턴",
+     "stem_md": "사용자 인터페이스(UI) 설계의 4대 기본 원칙에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**직관성(Intuitiveness)** — 누구나 쉽게 이해하고 사용할 수 있도록 설계되어야 한다.",
+      "**유효성(Efficiency)** — 사용자 목적을 정확하고 완벽하게 달성할 수 있어야 한다.",
+      "**학습성(Learnability)** — 초보자도 쉽게 배우고 사용할 수 있도록 설계되어야 한다.",
+      "**유연성(Flexibility)** — 사용자의 요구사항을 무시하고 개발자 중심의 고정된 인터페이스만 제공해야 한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — UI 4대 원칙 = **직관성(쉽게 이해)·유효성(정확히 목적 달성)·학습성(쉽게 학습)·유연성(오류 최소화·다양한 사용자 수용)**. \"사용자 요구를 무시하고 개발자 중심 고정 인터페이스\"는 유연성과 정반대. 유연성 = 사용자 다양성·오류 허용·개인화 지원.\n- 함정 키워드: 유연성 = **사용자 요구 수용**(개발자 중심 고정 정반대)"
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2024년 2회 2과목 — 스택(Stack) LIFO 응용 3대 사례 정형 패턴",
+     "stem_md": "**스택(Stack) 자료구조**의 응용 사례로 **가장 관련이 적은 것**은?",
+     "options": [
+      "함수 호출 시 복귀 주소(Return Address)·지역 변수를 저장하는 **재귀(Recursion) 처리**.",
+      "중위 표기식(Infix)을 **후위 표기식(Postfix)으로 변환**하고 계산하는 처리.",
+      "수식·프로그램 소스에서 **여는 괄호와 닫는 괄호의 짝(Matching Parentheses)을 검사**하는 처리.",
+      "프린터 대기열(Print Queue) 및 **CPU 라운드 로빈(Round Robin) 스케줄링**의 작업 순서 관리."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 프린터 대기열·라운드 로빈(RR) 스케줄링·메시지 큐는 **큐(Queue) FIFO** 응용. 스택 3대 응용 = ① 재귀 호출(Return Address 저장) ② 후위 표기식(Postfix) 변환·계산 ③ 괄호 검사(Matching Parentheses). 스택 = **LIFO**, 큐 = **FIFO**로 뒤바꾸기 함정 주의.\n- 함정 키워드: 스택 = **LIFO(재귀·후위표기식·괄호검사)** / 큐 = **FIFO(프린터·RR·BFS)**"
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2024년 3회 2과목 — 힙 정렬(Heap Sort) 트레이싱 정형 패턴",
+     "stem_md": "**힙 정렬(Heap Sort)**에 관한 설명으로 **가장 옳지 않은 것**은?",
+     "options": [
+      "완전 이진 트리(Complete Binary Tree) 형태의 힙(Heap) 자료구조를 이용한 정렬 알고리즘이다.",
+      "최대 힙(Max Heap)을 구성하면 루트에 최댓값이 오며, 이를 배열 끝과 교환하고 힙 크기를 하나 줄여 재구성하는 과정을 반복한다.",
+      "평균·최선·최악 시간 복잡도가 모두 **O(n log n)**이며, 추가 공간 없이 제자리(in-place) 정렬이 가능하다.",
+      "리스트를 순차 탐색하여 최솟값을 맨 앞에 놓는 과정을 반복하는 방식이며, 이진 트리 구조를 사용하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — \"순차 탐색으로 최솟값을 맨 앞에 놓는 방식\"은 **선택 정렬(Selection Sort)** 설명. 힙 정렬은 완전 이진 트리 힙 자료구조 이용, O(n log n)·제자리 정렬. 힙 vs 선택 뒤바꾸기 완전 오답.\n- 함정 키워드: 힙 정렬 = **완전 이진 트리·O(n log n)** / 선택 정렬 = **순차 탐색·O(n²)**"
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2024년 1회 2과목 — 통합 개발 환경(IDE) 특징 정형 패턴",
+     "stem_md": "**통합 개발 환경(IDE, Integrated Development Environment)**의 대표 기능으로 **가장 관련이 적은 것**은?",
+     "options": [
+      "코드 편집(Code Editor)·구문 강조(Syntax Highlighting)·자동 완성(Auto-completion) 지원.",
+      "컴파일러(Compiler)·인터프리터(Interpreter)·빌드(Build) 도구 통합 실행.",
+      "디버거(Debugger)를 통한 브레이크포인트·변수 감시·단계별 실행(Step Over/Into).",
+      "서버 하드웨어의 물리적 리소스(CPU·메모리)를 여러 논리 서버로 가상화하는 하이퍼바이저(Hypervisor) 기능."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 하이퍼바이저(Hypervisor) = VMware·Hyper-V·KVM·Xen 등 **가상화 계층**. IDE(통합 개발 환경)의 대표 예 = Eclipse·IntelliJ IDEA·Visual Studio·VS Code·Xcode·Android Studio. IDE 기능 = 코드 편집·구문 강조·자동 완성·컴파일·디버거·형상 관리(Git) 연동·리팩터링.\n- 함정 키워드: IDE = **개발 환경**(편집·컴파일·디버거) / Hypervisor = **가상화 계층**"
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2024년 2회 2과목 — 형상 관리(Configuration Management) 4단계 정형 패턴",
+     "stem_md": "**소프트웨어 형상 관리(SCM: Software Configuration Management)**의 4대 활동에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**형상 식별(Configuration Identification)** — 형상 항목(SCI)을 정의하고 이름·번호·버전으로 관리 대상을 명확히 한다.",
+      "**형상 통제(Configuration Control)** — 변경 요청(CR)을 접수·심의하여 승인된 변경만 반영하고 형상 통제 위원회(CCB)가 심사한다.",
+      "**형상 감사(Configuration Audit)** — 변경이 요구사항·계획대로 정확히 이행되었는지 확인·검증한다.",
+      "**형상 기록(Configuration Status Accounting)** — 형상 항목의 변경 이력·상태를 기록하지 않고, 오직 최종 산출물만 관리한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 형상 기록(Configuration Status Accounting)의 정확한 의미 = **형상 항목의 변경 이력·현재 상태·통계를 지속적으로 기록·보고**. \"최종 산출물만 관리·이력 미기록\"은 정반대 오답. SCM 4대 활동 = **식별(Identification) → 통제(Control) → 감사(Audit) → 기록(Status Accounting)**.\n- 함정 키워드: 형상 기록 = **변경 이력·상태 지속 기록**(최종만 관리 정반대)"
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2024년 3회 3과목 — Peterson(피터슨) 표기법 vs Chen 표기법 정형 패턴",
+     "stem_md": "ERD(Entity-Relationship Diagram) 표기법에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Chen 표기법** — 개체는 사각형, 관계는 마름모, 속성은 타원으로 표기하는 최초의 ERD 표기법이다.",
+      "**Peterson(Crow's Foot, IE) 표기법** — 개체는 사각형, 관계는 실선, 카디널리티는 까마귀 발(Crow's Foot)·원·수직선 기호로 표기한다.",
+      "**Peterson 표기법**은 실무·CASE 도구에서 널리 사용되며, 관계의 카디널리티(1:1, 1:N, M:N)와 옵션성(필수/선택)을 시각적으로 표기한다.",
+      "**Peterson 표기법**은 관계를 반드시 마름모(Diamond)로 표기해야 하며, 까마귀 발 기호는 사용할 수 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Peterson(Crow's Foot, IE 표기법)은 **까마귀 발(Crow's Foot)·원·수직선 기호로 카디널리티·옵션성**을 시각적으로 표기. **마름모(Diamond)로 관계를 표기하는 것은 Chen 표기법**의 특징. \"Peterson이 마름모만 사용·까마귀 발 사용 불가\"는 완전 오답.\n- 함정 키워드: Chen = **마름모(관계) + 사각형(개체) + 타원(속성)** / Peterson = **까마귀 발 + 실선**(마름모 사용 안 함)"
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2024년 1회 3과목 — 3NF vs BCNF 이행 종속 제거 정형 패턴",
+     "stem_md": "**정규화(Normalization)**의 3NF와 BCNF에 관한 설명으로 **가장 옳은 것**은?",
+     "options": [
+      "3NF는 부분 함수 종속(Partial Dependency)을 제거한 형태이며, BCNF는 다치 종속(Multi-Valued Dependency)을 제거한 형태이다.",
+      "3NF는 이행 함수 종속(Transitive Dependency)을 제거한 형태이며, BCNF는 3NF에서 **모든 결정자(Determinant)가 후보키(Candidate Key)**인 상태로 강화한 형태이다.",
+      "BCNF는 3NF의 약한 형태이며, BCNF를 만족하면 3NF는 만족하지 않을 수 있다.",
+      "3NF는 원자값(Atomic Value)만 허용하는 1NF의 다른 이름이다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — 정규화 단계 = **1NF(원자값) → 2NF(부분 함수 종속 제거) → 3NF(이행 함수 종속 제거) → BCNF(모든 결정자가 후보키) → 4NF(다치 종속 제거) → 5NF(조인 종속 제거)**. BCNF는 3NF보다 **강한(엄격한)** 조건이며 BCNF ⊆ 3NF(BCNF 만족하면 3NF 자동 만족).\n- 함정 키워드: 3NF = **이행 종속 제거** / BCNF = **모든 결정자가 후보키** / BCNF는 3NF보다 강함"
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2024년 2회 3과목 — GROUP BY + HAVING 절 정형 패턴",
+     "stem_md": "다음 SQL 문의 실행 결과 조건으로 **가장 옳은 것**은?\n\n```sql\nSELECT 부서, COUNT(*) AS 인원수\nFROM 사원\nWHERE 급여 >= 3000000\nGROUP BY 부서\nHAVING COUNT(*) >= 5\nORDER BY 인원수 DESC;\n```",
+     "options": [
+      "급여 300만 원 이상인 모든 사원의 목록을 부서별로 출력한다.",
+      "**급여 300만 원 이상인 사원을 부서별로 집계**한 뒤, **인원수가 5명 이상인 부서**만 인원수 내림차순으로 출력한다.",
+      "급여 300만 원 이상 조건은 무시되며, 모든 부서의 전체 인원수를 계산한다.",
+      "HAVING과 WHERE는 동일한 절이므로 두 조건이 중복되어 오류가 발생한다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — SQL 실행 순서 = **FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY**. WHERE는 **행(개별 레코드) 필터**(급여 300만 이상), GROUP BY로 부서별 집계, HAVING은 **그룹 필터**(COUNT ≥ 5), ORDER BY는 결과 정렬. WHERE(행)와 HAVING(그룹)은 역할이 다르며 상호 보완적.\n- 함정 키워드: WHERE = **행 필터**(집계 전) / HAVING = **그룹 필터**(집계 후)"
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2024년 3회 3과목 — 옵티마이저(Optimizer) RBO vs CBO 정형 패턴",
+     "stem_md": "**질의 최적화(Query Optimization)**의 옵티마이저(Optimizer)에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**RBO(Rule-Based Optimizer, 규칙 기반)** — 미리 정해진 규칙(우선순위)에 따라 실행 계획을 결정하며, 통계 정보와 무관하다.",
+      "**CBO(Cost-Based Optimizer, 비용 기반)** — 테이블·인덱스의 통계 정보를 활용하여 예상 비용이 가장 낮은 실행 계획을 선택한다.",
+      "현대 상용 RDBMS(Oracle 11g 이후, MySQL, PostgreSQL 등)는 **대부분 CBO**를 기본 옵티마이저로 사용한다.",
+      "**RBO는 통계 정보를 실시간으로 반영**하여 데이터 분포 변화에 즉시 대응하는 최신 옵티마이저이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — RBO는 **고정된 규칙**(우선순위: 인덱스 우선 등)에 따라 실행 계획을 결정하며, **통계 정보를 사용하지 않는 정적 옵티마이저**. 실시간 통계 반영은 **CBO(비용 기반)**의 특징. 현대 RDBMS(Oracle 11g+, MySQL, PostgreSQL)는 대부분 CBO 기본 사용.\n- 함정 키워드: RBO = **규칙·통계 무관·정적** / CBO = **비용·통계 기반·동적**"
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2024년 1회 4과목 — C 문자열 함수 4종 정형 패턴",
+     "stem_md": "다음 C 프로그램의 실행 결과로 가장 옳은 것은?\n\n```c\n#include <stdio.h>\n#include <string.h>\nint main() {\n    char a[20] = \"Hello\";\n    char b[] = \"World\";\n    strcat(a, b);\n    printf(\"%d %s %d\\n\", strlen(a), a, strcmp(\"abc\",\"abd\"));\n    return 0;\n}\n```",
+     "options": [
+      "`10 HelloWorld -1` — strcat으로 \"HelloWorld\" 결합(길이 10), strcmp는 \"abc\"<\"abd\"이므로 음수 반환",
+      "`5 Hello 0` — strcat 미실행",
+      "`10 World -1` — 원본이 덮어써짐",
+      "`15 HelloWorld 1` — 길이 계산 오류"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — `strcat(a, b)` → a = \"HelloWorld\"(길이 10, null 미포함). `strcmp(\"abc\",\"abd\")` → 첫 다른 문자 'c'(0x63) vs 'd'(0x64) → **c<d이므로 음수(-1)** 반환. strcmp: 같으면 0, s1>s2면 양수, s1<s2면 음수.\n- 함정 키워드: strlen = **null 미포함 길이** / strcmp = **음수(s1<s2)·0(같음)·양수(s1>s2)**"
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2024년 2회 4과목 — Java 인터페이스(interface) 다중 상속 정형 패턴",
+     "stem_md": "Java의 **인터페이스(interface)**에 관한 설명으로 **가장 옳지 않은 것**은?",
+     "options": [
+      "인터페이스는 **다중 상속(Multiple Inheritance)**을 지원하며, 클래스는 `implements` 키워드로 여러 인터페이스를 동시에 구현할 수 있다.",
+      "인터페이스 내의 모든 필드는 기본적으로 **public static final**(상수)로 처리된다.",
+      "Java 8부터 인터페이스에 **default 메서드**와 **static 메서드** 정의가 허용되어, 구현체 없이도 메서드 본체를 가질 수 있다.",
+      "인터페이스는 오직 **단일 상속(Single Inheritance)만 허용**되며, 클래스는 하나의 인터페이스만 구현할 수 있다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Java 인터페이스는 **다중 상속 지원**(클래스 다중 상속은 불가). `class Foo implements A, B, C { ... }` 형태로 여러 인터페이스 동시 구현 가능. \"인터페이스 단일 상속만 허용\" 완전 오답. 인터페이스 = 상수(public static final) + 추상 메서드 + Java 8+ default/static 메서드.\n- 함정 키워드: 인터페이스 = **다중 상속 O**(클래스는 단일 상속만) / Java 8+ default 메서드"
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2024년 3회 4과목 — Python 데코레이터(@decorator) 정형 패턴",
+     "stem_md": "다음 Python 프로그램의 실행 결과로 가장 옳은 것은?\n\n```python\ndef deco(func):\n    def wrapper(x):\n        return func(x) * 2\n    return wrapper\n\n@deco\ndef square(x):\n    return x * x\n\nprint(square(3))\n```",
+     "options": [
+      "`18` — square(3) = 9를 데코레이터가 감싸 wrapper(3) = 9 * 2 = 18",
+      "`9` — 데코레이터가 무시됨",
+      "`6` — 3 * 2만 계산",
+      "`TypeError` — 데코레이터 문법 오류"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — 데코레이터 `@deco`는 `square = deco(square)`와 동일. wrapper(x) = square(x) * 2. square(3) = 9, wrapper 반환값 = 9 * 2 = **18**. 데코레이터 = 함수를 인자로 받아 새 함수를 반환하는 고차 함수(High-Order Function).\n- 함정 키워드: `@deco` = **deco(square)** / 데코레이터 = **함수 감싸기(wrapping)**"
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2024년 1회 4과목 — TCP 3-way 핸드셰이크·4-way 종료 정형 패턴",
+     "stem_md": "**TCP(Transmission Control Protocol)** 연결 설정 및 종료 과정에 관한 설명으로 **가장 옳지 않은 것**은?",
+     "options": [
+      "**3-way 핸드셰이크**: 클라이언트 → 서버 **SYN** 전송 → 서버 → 클라이언트 **SYN+ACK** 응답 → 클라이언트 → 서버 **ACK** 전송으로 연결 설정.",
+      "**4-way 종료(Termination)**: **FIN → ACK → FIN → ACK**의 4단계로 양방향 종료를 처리한다.",
+      "TCP는 연결 지향(Connection-Oriented) 프로토콜로, 신뢰성(Reliable) 있는 데이터 전송을 보장한다.",
+      "TCP는 **비연결형(Connectionless)** 프로토콜로, UDP처럼 핸드셰이크 없이 즉시 데이터를 전송한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — TCP는 **연결 지향(Connection-Oriented)·신뢰성(Reliable) 프로토콜**. \"비연결형·UDP처럼 즉시 전송\"은 UDP 특성. TCP 3-way = SYN → SYN+ACK → ACK, 4-way 종료 = FIN → ACK → FIN → ACK(양방향 종료 필요해 4단계).\n- 함정 키워드: TCP = **연결 지향·신뢰성** / UDP = **비연결형·비신뢰성·핸드셰이크 X**"
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2024년 2회 5과목 — 소프트웨어 개발 프레임워크(Spring·전자정부) 정형 패턴",
+     "stem_md": "**소프트웨어 개발 프레임워크**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Spring 프레임워크** — Java 기반 오픈소스 경량(Lightweight) 프레임워크로, IoC(제어의 역전)·DI(의존성 주입)·AOP(관점 지향 프로그래밍)를 핵심 기능으로 제공한다.",
+      "**전자정부 표준 프레임워크(eGovFrame)** — 공공기관 SW 개발 표준화를 위해 한국 정부가 오픈소스 기반으로 개발한 Java EE 프레임워크로, Spring 기반이다.",
+      "**Struts 프레임워크** — Apache 재단의 Java 웹 프레임워크로, MVC 패턴을 지원한다.",
+      "**Spring 프레임워크**는 오직 **상용(유료) 라이선스**로만 배포되며, 소스 코드는 공개되지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Spring 프레임워크는 **Apache License 2.0 기반 오픈소스**로, 소스 코드가 공개되고 무료로 사용 가능. \"상용 유료·소스 비공개\" 완전 오답. Spring = Java 진영 사실상 표준 웹 프레임워크(IoC·DI·AOP·Spring Boot·Spring MVC·Spring Data).\n- 함정 키워드: Spring = **오픈소스(Apache 2.0)·무료·공개** / 전자정부 프레임워크 = **Spring 기반 한국 표준**"
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2024년 3회 5과목 — 빅데이터 처리(Hadoop·HDFS·MapReduce) 정형 패턴",
+     "stem_md": "**하둡(Hadoop) 생태계**의 핵심 구성 요소에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**HDFS(Hadoop Distributed File System)** — 대용량 파일을 블록(기본 128MB) 단위로 분할하여 여러 노드에 분산·복제 저장하는 분산 파일 시스템이다.",
+      "**MapReduce** — 데이터를 병렬로 처리하기 위한 프로그래밍 모델로, **Map(분할·매핑) → Shuffle → Reduce(집계·통합)** 단계로 구성된다.",
+      "**YARN(Yet Another Resource Negotiator)** — 하둡 2.x부터 도입된 자원 관리(Resource Management) 계층으로, 작업 스케줄링을 담당한다.",
+      "**HDFS**는 데이터를 **단 하나의 노드에만 저장**하여 저장 공간을 절약하며, 노드 장애 시 데이터는 영구 손실된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — HDFS는 **기본 3개(default replication factor = 3) 복제본을 여러 노드에 분산 저장**하여 노드 장애 시에도 데이터 손실 방지. \"단 하나의 노드에만 저장·장애 시 영구 손실\"은 완전 오답. HDFS = NameNode(메타데이터) + DataNode(실제 블록) + 블록 128MB 기본.\n- 함정 키워드: HDFS = **분산·복제(3개)·내결함성** / 블록 = **128MB 기본**"
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2024년 1회 5과목 — 접근 통제 모델 3종(DAC·MAC·RBAC) 정형 패턴",
+     "stem_md": "**접근 통제(Access Control) 모델**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**DAC(Discretionary Access Control, 임의적 접근 통제)** — 객체의 소유자가 접근 권한을 직접 부여·회수하며, UNIX 파일 시스템의 `chmod`가 대표 사례이다.",
+      "**MAC(Mandatory Access Control, 강제적 접근 통제)** — 시스템(관리자)이 정한 보안 등급(Top Secret·Secret·Confidential·Unclassified)에 따라 강제 적용되며, 군사·정부 시스템에서 사용한다.",
+      "**RBAC(Role-Based Access Control, 역할 기반 접근 통제)** — 사용자에게 직접 권한을 부여하지 않고 **역할(Role)에 권한을 부여한 뒤 사용자를 역할에 배정**하여 관리 편의성을 높인다.",
+      "**DAC**은 소유자와 무관하게 시스템이 강제로 권한을 결정하며, 소유자는 어떠한 권한도 조정할 수 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — DAC(임의적 접근 통제)의 정확한 의미 = **객체의 소유자(Owner)가 재량으로 권한을 부여·회수**. UNIX `chmod`, Windows NTFS ACL이 대표 사례. \"소유자와 무관하게 시스템이 강제\"는 **MAC(강제적 접근 통제)** 정반대 함정. DAC = 유연 / MAC = 강제 / RBAC = 역할 기반.\n- 함정 키워드: DAC = **소유자 재량** / MAC = **시스템 강제·보안 등급** / RBAC = **역할 기반·관리 편의**"
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2024년 2회 5과목 — APT(Advanced Persistent Threat) 공격 단계 정형 패턴",
+     "stem_md": "**APT(Advanced Persistent Threat, 지능형 지속 공격)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "특정 대상(기업·정부·기간산업)을 **장기간 은밀히 침투**하여 정보 수집·자산 탈취를 목적으로 하는 표적형 공격이다.",
+      "대표 공격 단계 = **정찰(Reconnaissance) → 침투(Initial Compromise) → 지속 확보(Persistence)·권한 상승(Escalation) → 내부 이동(Lateral Movement) → 목적 달성(Exfiltration)**.",
+      "스피어 피싱(Spear Phishing)·워터링 홀(Watering Hole)·제로데이(Zero-day) 취약점 등을 조합하여 사용한다.",
+      "APT는 오로지 **1~2시간 이내 단기 공격**만 수행하며, 침투 후 즉시 랜섬웨어를 실행해 흔적을 남기는 방식이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — APT의 핵심 특성 = **장기간(수개월~수년) 은밀·지속·표적형**. \"1~2시간 단기 공격\"은 APT의 정반대 특성. APT 단계 = 정찰(Reconnaissance) → 침투(Initial Compromise) → C2 통신 → 지속(Persistence)·권한 상승(Escalation) → 내부 이동(Lateral Movement) → 목적 달성(Exfiltration)·흔적 제거. 대표 사례 = 스턱스넷·오퍼레이션 오로라·SolarWinds.\n- 함정 키워드: APT = **장기·은밀·지속·표적**(단기 랜섬웨어 정반대) / 5단계 = **정찰→침투→지속→이동→탈취**"
+    }
+   ]
   }
  ]
 }
