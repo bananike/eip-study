@@ -8524,6 +8524,274 @@
      "explanation_md": "**정답 ④** — APT의 핵심 특성 = **장기간(수개월~수년) 은밀·지속·표적형**. \"1~2시간 단기 공격\"은 APT의 정반대 특성. APT 단계 = 정찰(Reconnaissance) → 침투(Initial Compromise) → C2 통신 → 지속(Persistence)·권한 상승(Escalation) → 내부 이동(Lateral Movement) → 목적 달성(Exfiltration)·흔적 제거. 대표 사례 = 스턱스넷·오퍼레이션 오로라·SolarWinds.\n- 함정 키워드: APT = **장기·은밀·지속·표적**(단기 랜섬웨어 정반대) / 5단계 = **정찰→침투→지속→이동→탈취**"
     }
    ]
+  },
+  {
+   "day": 59,
+   "date": "2026-07-09",
+   "subject": "Phase 3 기출회독",
+   "topic": "2024년 정보처리기사 필기 기출 (회독 2/4) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2024년 1회 1과목 — 애자일 방법론 상세(Scrum·XP·Kanban) 정형 패턴",
+     "stem_md": "애자일(Agile) 대표 방법론에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Scrum** — 2~4주 단위 **Sprint(스프린트)**를 반복하며, Product Backlog·Sprint Backlog·Daily Scrum·Sprint Review·Sprint Retrospective를 핵심 이벤트로 한다.",
+      "**XP(eXtreme Programming)** — Pair Programming·TDD(Test-Driven Development)·Refactoring·Continuous Integration·Small Release 등을 실천 사항(Practice)으로 삼는다.",
+      "**Kanban(칸반)** — 작업을 시각화(Visualize)하고 **WIP(Work In Progress) 제한**을 두어 흐름을 최적화하는 방법론으로, 시간 박스(Time-box)보다 흐름(Flow)에 초점을 둔다.",
+      "**Scrum**은 **6개월 이상 장기 계획을 확정**한 뒤 요구사항 변경을 일절 금지하는 폭포수 파생 방법론이며, Sprint·Daily Scrum 개념이 존재하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Scrum은 애자일 대표 프레임워크로 **2~4주 Sprint 반복 + 변화 수용**이 핵심. \"6개월 장기 계획·변경 금지·Sprint 없음\"은 폭포수 특성으로 완전 오답. Scrum 3역할(PO·SM·Dev Team)·5이벤트(Sprint Planning·Daily·Review·Retrospective·Sprint)·3산출물(Product Backlog·Sprint Backlog·Increment) 암기.\n- 함정 키워드: Scrum = **Sprint(2~4주) 반복·변화 수용·짧은 주기** / 폭포수 = **장기 계획·변경 금지·BDUF**"
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2024년 2회 1과목 — 요구공학(Requirements Engineering) 5단계 정형 패턴",
+     "stem_md": "**요구공학(Requirements Engineering) 프로세스**의 5단계 순서로 **가장 옳은 것**은?",
+     "options": [
+      "설계(Design) → 구현(Implementation) → 테스트(Test) → 배포(Deploy) → 유지보수(Maintenance)",
+      "**도출(Elicitation) → 분석(Analysis) → 명세(Specification) → 검증(Verification/Validation) → 관리(Management)**",
+      "계획(Planning) → 위험 분석(Risk Analysis) → 개발(Engineering) → 고객 평가(Evaluation) → 배포(Release)",
+      "요구분석 → 상세 설계 → 통합 → 인수 테스트 → 운영 (V 모델 순서)"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — 요구공학(RE) 표준 5단계 = **도출(Elicitation) → 분석(Analysis) → 명세(Specification) → 검증(Verification/Validation) → 관리(Management)**. ① 소프트웨어 전체 개발 프로세스(V모델 이후), ③ 나선형(Spiral) 4단계, ④ V 모델 단계 — 모두 요구공학 하위 프로세스 아님. 요구사항 관리는 변경·추적(Traceability) 포함.\n- 함정 키워드: 요구공학 5단계 = **도출→분석→명세→검증→관리** (Elicitation → Analysis → Spec → Verification → Management)"
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2024년 3회 1과목 — UML 14종 분류(구조 7 + 행위 7) 정형 패턴",
+     "stem_md": "UML 2.x의 다이어그램 분류에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**구조 다이어그램(Structural, 7종)** — 클래스(Class)·객체(Object)·컴포넌트(Component)·배치(Deployment)·복합 구조(Composite Structure)·패키지(Package)·프로파일(Profile).",
+      "**행위 다이어그램(Behavioral, 7종)** — 유스케이스(Use Case)·시퀀스(Sequence)·통신(Communication)·상태(State)·활동(Activity)·타이밍(Timing)·상호작용 개요(Interaction Overview).",
+      "**시퀀스(Sequence) 다이어그램**은 객체 간 메시지 교환을 **시간 순서**로 표현하며, 생명선(Lifeline)·활성 막대(Activation Bar)·메시지 화살표를 사용한다.",
+      "**클래스 다이어그램은 행위 다이어그램에 속하며**, 시간 흐름에 따른 시스템 상태 변화를 표현하는 것이 주요 목적이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 클래스 다이어그램은 **구조 다이어그램**(정적 뷰)에 속함. 시스템의 클래스·속성·메서드·관계(연관·의존·상속·구현)를 정적으로 표현. 시간 흐름에 따른 상태 변화는 **상태 다이어그램(State Diagram)** 또는 **활동/시퀀스** 등 행위 다이어그램. UML 2.x 총 14종 = 구조 7 + 행위 7.\n- 함정 키워드: 클래스 다이어그램 = **구조·정적** / 시퀀스·상태·활동 = **행위·동적**"
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2024년 1회 1과목 — 소프트웨어 아키텍처 스타일 정형 패턴",
+     "stem_md": "소프트웨어 아키텍처 스타일에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**계층형(Layered) 아키텍처** — 시스템을 계층(Layer)으로 나누어 상위 계층이 하위 계층 서비스를 이용하며, OSI 7계층·JEE 3-tier가 대표 사례이다.",
+      "**클라이언트-서버(Client-Server) 아키텍처** — 서비스 제공자(Server)와 요청자(Client)를 분리하는 분산 컴퓨팅 스타일이다.",
+      "**파이프-필터(Pipe-Filter) 아키텍처** — 데이터를 순차적으로 처리하는 필터(Filter)를 파이프(Pipe)로 연결하며, UNIX 셸 명령어 파이프라인(`ls | grep`)이 대표 사례이다.",
+      "**MVC(Model-View-Controller) 패턴**은 **UI 로직·데이터 로직·제어 로직을 하나의 컴포넌트에 통합**하여 관심사를 뭉치는(Tight Coupling) 스타일이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — MVC는 **Model(데이터·비즈니스 로직)·View(UI)·Controller(제어)**로 관심사를 **분리(Separation of Concerns)**하는 아키텍처. \"하나의 컴포넌트에 통합·Tight Coupling\"은 정반대. MVC는 유지보수성·재사용성·병렬 개발 편의성 극대화가 목적.\n- 함정 키워드: MVC = **관심사 분리(Loose Coupling)** / 통합·Tight Coupling 정반대"
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2024년 2회 2과목 — 큐(Queue) FIFO 응용 3대 사례 정형 패턴",
+     "stem_md": "**큐(Queue) 자료구조**의 응용 사례로 **가장 관련이 적은 것**은?",
+     "options": [
+      "그래프의 **너비 우선 탐색(BFS, Breadth-First Search)**에서 다음 방문 노드 관리.",
+      "**프린터 인쇄 대기열(Print Spooler)**의 인쇄 요청 처리 순서 관리.",
+      "CPU **라운드 로빈(Round Robin) 스케줄링**의 프로세스 순환 처리.",
+      "수식에서 **후위 표기식(Postfix)으로 변환**하고 계산하는 처리."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 후위 표기식(Postfix) 변환·계산은 **스택(Stack) LIFO** 응용. 큐 3대 응용 = ① BFS(너비 우선 탐색) ② 프린터 대기열(Print Spooler) ③ 라운드 로빈(RR) 스케줄링. 스택 vs 큐 뒤바꾸기 함정. 큐 = FIFO, 스택 = LIFO.\n- 함정 키워드: 큐 = **FIFO(BFS·프린터·RR)** / 스택 = **LIFO(재귀·후위표기·괄호검사)**"
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2024년 3회 2과목 — 병합 정렬(Merge Sort) 트레이싱 정형 패턴",
+     "stem_md": "**병합 정렬(Merge Sort)**에 관한 설명으로 **가장 옳지 않은 것**은?",
+     "options": [
+      "**분할 정복(Divide and Conquer)** 기법으로, 리스트를 절반으로 계속 분할한 뒤 정렬된 부분 리스트를 병합(Merge)하는 정렬이다.",
+      "평균·최선·최악 시간 복잡도가 모두 **O(n log n)**으로 안정적(Stable) 정렬이다.",
+      "병합 과정에서 **추가 임시 배열(보조 공간 O(n))**이 필요하여, 제자리(in-place) 정렬이 아니다.",
+      "이미 정렬된 데이터에서 O(n)에 종료되며, **추가 메모리가 필요 없는 제자리 정렬**로 힙 정렬과 완전히 동일한 특성을 갖는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 병합 정렬(Merge Sort)은 **O(n) 추가 공간(임시 배열) 필요**로 제자리(in-place) 정렬 **아님**. 이 점에서 힙 정렬(제자리 O(1) 보조 공간)과 다름. 두 정렬 모두 O(n log n) 시간이지만 공간 특성이 완전히 다름. 또한 병합 정렬은 **안정 정렬(Stable)**, 힙 정렬은 **불안정 정렬**.\n- 함정 키워드: 병합 정렬 = **O(n log n) + 추가 공간 O(n) + 안정** / 힙 정렬 = **O(n log n) + 제자리 + 불안정**"
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2024년 1회 2과목 — 화이트박스 테스트 커버리지 4종 정형 패턴",
+     "stem_md": "**화이트박스 테스트(White-box Test) 커버리지**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**문장 커버리지(Statement Coverage)** — 프로그램의 모든 문장(Statement)을 최소 한 번 이상 실행하는 커버리지.",
+      "**분기 커버리지(Branch/Decision Coverage)** — 모든 분기(if/else, switch)의 참·거짓 결과를 최소 한 번씩 실행하는 커버리지.",
+      "**조건 커버리지(Condition Coverage)** — 각 조건식의 개별 조건(참·거짓)을 최소 한 번씩 실행하며, 분기 커버리지보다 세밀하다.",
+      "화이트박스 테스트의 4대 커버리지는 **동치 분할(Equivalence Partitioning)·경곗값 분석(Boundary Value Analysis)·원인-결과 그래프(Cause-Effect Graph)·오류 예측(Error Guessing)**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 동치 분할·경곗값 분석·원인-결과 그래프·오류 예측은 모두 **블랙박스 테스트** 기법. 화이트박스 4대 커버리지 = **문장(Statement) → 분기(Branch/Decision) → 조건(Condition) → 경로(Path)**. 커버리지 강도 = 문장 < 분기 ≤ 조건 < 조건/분기 결합(MC/DC) < 경로.\n- 함정 키워드: 화이트박스 = **커버리지(문장·분기·조건·경로)** / 블랙박스 = **동치분할·경곗값·원인-결과·오류예측**"
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2024년 2회 2과목 — ISO 9126 소프트웨어 품질 특성 6종 정형 패턴",
+     "stem_md": "**ISO/IEC 9126 소프트웨어 품질 특성** 6종에 관한 설명 중 **가장 관련이 적은 것**은?",
+     "options": [
+      "**기능성(Functionality)** — 명시된·묵시된 요구를 만족하는 기능을 제공하는 능력(적합성·정확성·상호운용성·보안성).",
+      "**신뢰성(Reliability)** — 규정된 조건에서 규정된 기간 동안 성능 수준을 유지하는 능력(성숙성·결함 허용성·회복성).",
+      "**효율성(Efficiency)** — 명시된 조건에서 사용 자원 대비 성능을 나타내는 능력(시간 효율성·자원 효율성).",
+      "**광고성(Advertisability)** — 시장에서 소프트웨어를 얼마나 잘 홍보·판매할 수 있는지 마케팅 관점의 품질 특성이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — ISO/IEC 9126 소프트웨어 품질 특성 6종 = **기능성(Functionality)·신뢰성(Reliability)·사용성(Usability)·효율성(Efficiency)·유지보수성(Maintainability)·이식성(Portability)**. \"광고성(Advertisability)\"은 존재하지 않는 오답. 각 특성별 세부 부특성 암기(예: 신뢰성 → 성숙성·결함허용성·회복성).\n- 함정 키워드: ISO 9126 6종 = **기·신·사·효·유·이**(기능성·신뢰성·사용성·효율성·유지보수성·이식성)"
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2024년 3회 3과목 — E-R 카디널리티(1:1·1:N·M:N) 정형 패턴",
+     "stem_md": "E-R 다이어그램의 **카디널리티(Cardinality)** 매핑에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**1:1 관계** — 한 개체 인스턴스가 다른 개체의 인스턴스 하나와만 연결되며, 부부·주민등록번호 대응 등이 예이다.",
+      "**1:N 관계** — 한 부서(Department)에 여러 사원(Employee)이 소속되는 관계처럼 한 쪽 개체가 여러 개의 다른 개체 인스턴스와 연결된다.",
+      "**M:N 관계** — 학생(Student)과 과목(Course)의 수강 관계처럼 양쪽 개체가 모두 여러 개의 상대 인스턴스와 연결되며, 관계형 스키마 변환 시 **별도의 연결 테이블**(Bridge/Junction Table)로 분해된다.",
+      "**M:N 관계**는 관계형 데이터베이스에서 별도 처리 없이 두 테이블만으로 표현 가능하며, 연결 테이블은 필요하지 않다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — M:N 관계는 관계형 DB에서 **반드시 별도의 연결 테이블(Bridge/Junction/Association Table)로 분해**해야 함. 예: 학생-과목 M:N → 학생·과목·수강(학번, 과목번호) 3테이블. 두 테이블만으로는 다대다 표현 불가. 관계형 스키마 정규화의 기본 규칙.\n- 함정 키워드: M:N = **연결 테이블 필수** / 1:N = **N쪽에 외래키** / 1:1 = **양쪽 중 한쪽 외래키**"
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2024년 1회 3과목 — 관계 대수 순수 연산 4종 정형 패턴",
+     "stem_md": "관계 대수(Relational Algebra)의 **순수(Pure) 연산 4종**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**선택(Selection, σ)** — 특정 조건을 만족하는 **튜플(행)**을 선택하는 단항 연산으로, 결과 테이블의 스키마는 원본과 같다.",
+      "**투영(Projection, π)** — 특정 **속성(열)**만 추출하는 단항 연산으로, 결과 테이블의 스키마는 지정된 속성만 포함한다.",
+      "**조인(Join, ⋈)** — 두 릴레이션을 공통 속성으로 결합하는 이항 연산으로, 자연 조인(Natural Join)·세타 조인·동등 조인 등이 있다.",
+      "**선택(σ)과 투영(π)은 이항 연산**이며, **합집합(∪)·교집합(∩)·차집합(−)**은 단항 연산이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 순수 관계 연산자 = **σ(선택)·π(투영)·⋈(조인)·÷(나누기)** — 여기서 선택·투영은 **단항(Unary)**, 조인·나누기는 **이항(Binary)**. 집합 연산자(합집합 ∪·교집합 ∩·차집합 −·카티션 곱 ×)는 모두 **이항 연산**. \"선택·투영이 이항, 집합 연산이 단항\"은 완전 뒤바뀐 오답.\n- 함정 키워드: 순수 연산 = **σ·π·⋈·÷** / σ,π = **단항** / ⋈,÷,∪,∩,−,× = **이항**"
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2024년 2회 3과목 — SQL 서브쿼리 3종(스칼라·인라인뷰·중첩) 정형 패턴",
+     "stem_md": "SQL의 **서브쿼리(Subquery)** 3종에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**스칼라 서브쿼리(Scalar Subquery)** — SELECT 절에 위치하며, 단일 값(1행 1열)을 반환한다.",
+      "**인라인 뷰(Inline View)** — FROM 절에 위치하며, 서브쿼리 결과를 하나의 가상 테이블처럼 다룬다.",
+      "**중첩 서브쿼리(Nested Subquery)** — WHERE 절에 위치하며, IN·EXISTS·ANY·ALL 등의 연산자와 함께 사용한다.",
+      "서브쿼리는 **오직 SELECT 절에만 위치**할 수 있으며, FROM·WHERE·HAVING 절에는 절대 사용할 수 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 서브쿼리는 **SELECT(스칼라)·FROM(인라인 뷰)·WHERE·HAVING(중첩)** 모든 위치에서 사용 가능. \"오직 SELECT 절에만\"은 완전 오답. 서브쿼리 상관(Correlated)·비상관(Non-correlated) 분류도 함께 암기(EXISTS는 대표 상관 서브쿼리).\n- 함정 키워드: 서브쿼리 위치 = **SELECT·FROM·WHERE·HAVING 전부 가능** / 스칼라 = **SELECT 절 단일값**"
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2024년 3회 3과목 — 회복(Recovery) 기법 4종 정형 패턴",
+     "stem_md": "데이터베이스 **회복(Recovery) 기법**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**즉시 갱신(Immediate Update)** — 트랜잭션 실행 중 변경 사항을 즉시 DB에 반영하며, 실패 시 로그의 **UNDO·REDO**를 모두 사용한다.",
+      "**지연 갱신(Deferred Update)** — 트랜잭션이 부분 완료(Partial Commit) 시점까지 DB 변경을 미루며, 실패 시 **UNDO는 필요 없고 REDO만** 사용한다.",
+      "**검사점(Checkpoint) 기법** — 주기적으로 검사점을 두어 회복 시 마지막 검사점 이후 로그만 처리해 회복 시간을 단축한다.",
+      "**그림자 페이징(Shadow Paging)**은 로그 파일 없이 오직 페이지 테이블 하나만으로 동작하며, 트랜잭션 실패 시 어떠한 복원 처리도 필요 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 그림자 페이징(Shadow Paging)은 **현재 페이지 테이블과 그림자 페이지 테이블 2개**를 유지, 트랜잭션 실패 시 그림자 페이지로 롤백. 로그 파일이 필요 없다는 것은 부분적으로 맞지만, \"어떠한 복원 처리도 필요 없다\"는 완전 오답 — 실패 시 반드시 그림자 페이지 복원 처리 필요.\n- 함정 키워드: 그림자 페이징 = **2개 페이지 테이블·로그 없음·실패 시 그림자로 롤백** / 즉시 갱신 = **UNDO+REDO** / 지연 갱신 = **REDO만**"
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2024년 1회 4과목 — C 구조체(struct·typedef·포인터) 정형 패턴",
+     "stem_md": "다음 C 프로그램의 실행 결과로 가장 옳은 것은?\n\n```c\n#include <stdio.h>\ntypedef struct {\n    int x;\n    int y;\n} Point;\n\nint main() {\n    Point p = {3, 4};\n    Point *pp = &p;\n    pp->x = 10;\n    (*pp).y = 20;\n    printf(\"%d %d\\n\", p.x, p.y);\n    return 0;\n}\n```",
+     "options": [
+      "`3 4` — 포인터로 접근한 변경은 원본에 반영되지 않음",
+      "`10 20` — 포인터 `pp`로 접근한 `pp->x`와 `(*pp).y` 모두 원본 `p`의 멤버를 변경",
+      "`10 4` — `pp->x`만 반영되고 `(*pp).y`는 문법 오류",
+      "컴파일 오류 — `(*pp).y`는 잘못된 문법"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — `pp = &p`로 pp는 p의 주소를 가지므로 **pp->x = 10**과 **(*pp).y = 20**은 완전히 동일한 문법(포인터로 구조체 멤버 접근). 둘 다 원본 p의 x·y를 변경 → `p.x=10, p.y=20` → 출력 `10 20`. `pp->x`와 `(*pp).x`는 완전히 동일한 표현.\n- 함정 키워드: 구조체 포인터 멤버 접근 = **`pp->x` == `(*pp).x`** / typedef struct = **별칭(Alias)**"
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2024년 2회 4과목 — Java 예외 처리(try-catch-finally·throws) 정형 패턴",
+     "stem_md": "Java의 **예외 처리(Exception Handling)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "`try` 블록에서 발생한 예외는 `catch` 블록으로 전달되며, 여러 예외 타입은 다중 `catch` 또는 `catch (A | B e)` 멀티 캐치로 처리 가능하다.",
+      "`finally` 블록은 **예외 발생 여부와 무관하게 항상 실행**되며, 자원 해제(파일·DB 연결 close 등)에 사용한다.",
+      "메서드가 예외를 직접 처리하지 않고 호출자에게 위임할 때는 메서드 시그니처에 `throws ExceptionType`을 명시한다.",
+      "`finally` 블록은 **오직 예외가 발생했을 때에만 실행**되며, 정상 종료 시에는 실행되지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — `finally` 블록의 핵심 특성 = **예외 발생 여부와 무관하게 항상 실행**(정상 종료·예외 종료 모두). 이는 자원 해제(파일 닫기, DB 연결 해제)의 표준 패턴. \"예외 발생 시에만 실행\"은 정반대 오답. 예외: JVM이 강제 종료되거나 `System.exit()` 호출 시에만 예외적으로 미실행.\n- 함정 키워드: finally = **항상 실행**(예외 발생 여부 무관) / try-with-resources = **AutoCloseable 자동 해제**"
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2024년 3회 4과목 — Python 클로저(Closure) 정형 패턴",
+     "stem_md": "다음 Python 프로그램의 실행 결과로 가장 옳은 것은?\n\n```python\ndef make_counter():\n    count = 0\n    def counter():\n        nonlocal count\n        count += 1\n        return count\n    return counter\n\nc = make_counter()\nprint(c(), c(), c())\n```",
+     "options": [
+      "`1 1 1` — 매번 초기화되어 항상 1",
+      "`1 2 3` — 클로저가 외부 함수의 `count`를 캡처해 유지, 호출마다 증가",
+      "`0 0 0` — `nonlocal` 문법 무시",
+      "`NameError` — `count`는 접근 불가"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — **클로저(Closure)** = 외부 함수의 지역 변수를 내부 함수가 캡처하여 유지하는 개념. `counter()`는 `count`를 캡처하고 `nonlocal`로 쓰기 가능. `c()` 첫 호출 → 1, 두 번째 → 2, 세 번째 → 3. 최종 출력 `1 2 3`. `nonlocal`이 없다면 `count += 1`에서 UnboundLocalError.\n- 함정 키워드: 클로저 = **외부 지역 변수 캡처·유지** / `nonlocal` = **외부 스코프 변수 쓰기 허용**"
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2024년 1회 4과목 — UDP vs TCP 비교 정형 패턴",
+     "stem_md": "**UDP(User Datagram Protocol)**와 **TCP(Transmission Control Protocol)** 비교에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "UDP는 **비연결형(Connectionless)** 프로토콜로 3-way 핸드셰이크 없이 즉시 데이터그램을 전송한다.",
+      "UDP는 흐름 제어(Flow Control)·오류 제어(Error Control)·순서 보장을 제공하지 않아 **신뢰성이 낮지만 오버헤드가 적어 빠르다**.",
+      "UDP는 실시간 스트리밍(RTP)·DNS·SNMP·DHCP·VoIP 등 **속도가 신뢰성보다 중요한** 응용에 사용된다.",
+      "UDP는 TCP보다 **훨씬 무거운 헤더(20바이트 이상)**를 가지며, 3-way 핸드셰이크·흐름 제어·재전송을 필수로 지원한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — UDP는 **8바이트의 매우 작은 헤더**(발신 포트·수신 포트·길이·체크섬)를 가지며 신뢰성 관련 기능이 없어 오버헤드가 극히 낮음. TCP 헤더는 최소 20바이트(옵션 포함 최대 60바이트). \"UDP가 훨씬 무거운 헤더·핸드셰이크·재전송 필수\"는 TCP 특성과 완전히 뒤바꾼 오답.\n- 함정 키워드: UDP = **8바이트 헤더·비연결·비신뢰·빠름** / TCP = **20~60바이트·연결·신뢰·느림**"
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2024년 2회 5과목 — SW 개발 방법론 세대(구조적·정보공학·객체지향·CBD) 정형 패턴",
+     "stem_md": "소프트웨어 **개발 방법론의 세대별 변천**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**구조적(Structured) 방법론** — 프로세스 중심의 하향식(Top-down) 분할·정복 기법으로, DFD·자료 사전(DD)·소단위 명세(Mini-Spec) 등을 산출물로 삼는다.",
+      "**정보공학(Information Engineering) 방법론** — 데이터 중심의 전략적 정보 시스템 계획(ISP)부터 구축까지 전체 생명주기를 다루며, ERD·ELH·기능 분해도가 대표 산출물이다.",
+      "**객체지향(Object-Oriented) 방법론** — 객체·클래스·상속·다형성·캡슐화를 기반으로 하며, UML을 표기법으로 채택한다.",
+      "**CBD(Component-Based Development)**는 재사용 가능한 컴포넌트를 조립해 시스템을 구축하는 방법론이지만, **객체지향보다 이전(1970년대) 방법론**으로 이미 구조적 방법론이 등장하기 전에 널리 사용되었다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — SW 방법론 시대순 = **구조적(1970s) → 정보공학(1980s) → 객체지향(1990s) → CBD(2000s) → 애자일/DevOps(2000s 이후)**. CBD(Component-Based Development)는 객체지향의 확장·발전형으로, \"1970년대 구조적 이전\"은 완전 뒤바뀐 오답. CBD 대표 표준 = CORBA·EJB·.NET Component.\n- 함정 키워드: 방법론 시대 = **구조적→정보공학→객체지향→CBD→애자일** / CBD = **객체지향 이후 재사용 극대화**"
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2024년 3회 5과목 — 클라우드 배포 모델 4종(Public·Private·Hybrid·Community) 정형 패턴",
+     "stem_md": "**클라우드 컴퓨팅 배포 모델**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Public Cloud(공용 클라우드)** — AWS·Azure·GCP처럼 클라우드 사업자가 다수의 고객에게 자원을 제공하며, 초기 투자 없이 사용량 기반 요금(Pay-as-you-go)으로 이용한다.",
+      "**Private Cloud(사설 클라우드)** — 단일 조직 전용으로 구축되어 보안·규제 준수 요건이 강한 금융·정부에서 선호된다.",
+      "**Hybrid Cloud(하이브리드 클라우드)** — Public과 Private을 결합하여 민감 데이터는 Private에, 대량 처리 워크로드는 Public에 두는 유연한 전략이다.",
+      "**Community Cloud(커뮤니티 클라우드)**는 단 하나의 개인 사용자만 이용할 수 있는 개인 전용 모델로, 다수 조직이 공유하는 것은 불가능하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Community Cloud(커뮤니티 클라우드)의 정확한 정의 = **공통 관심사·규제·보안 요구를 가진 다수 조직이 공유**하는 클라우드(예: 정부 부처 간, 의료 기관 간). \"단 하나의 개인 사용자 전용\"은 완전 오답. 클라우드 배포 모델 4종 = Public·Private·Hybrid·Community.\n- 함정 키워드: Community Cloud = **다수 조직 공유(공통 관심사)** / Private = **단일 조직 전용** / Public = **다수 고객 사용량 요금**"
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2024년 1회 5과목 — 대칭키 vs 비대칭키 암호 정형 패턴",
+     "stem_md": "**대칭키 암호**와 **비대칭키 암호**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**대칭키 암호(Symmetric)** — 암호화·복호화에 **동일한 키**를 사용하며, DES·3DES·AES·SEED·ARIA·IDEA 등이 대표 알고리즘이다.",
+      "**비대칭키 암호(Asymmetric)** — 공개키(Public Key)와 개인키(Private Key)의 **한 쌍**을 사용하며, RSA·ECC·ElGamal·DSA 등이 대표 알고리즘이다.",
+      "일반적으로 **대칭키는 속도가 빠르나 키 분배 문제**가 있고, **비대칭키는 속도가 느리나 키 분배 문제 해결·전자서명 지원**의 장점이 있다.",
+      "**RSA는 대칭키 알고리즘**이며 하나의 비밀키만 사용하고, **AES는 비대칭키 알고리즘**으로 공개키·개인키 쌍을 사용한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — RSA·ECC·ElGamal·DSA는 **비대칭키(공개키)** 알고리즘. AES·DES·3DES·SEED·ARIA·IDEA는 **대칭키** 알고리즘. \"RSA가 대칭키·AES가 비대칭키\"는 완전히 뒤바꾼 오답. 실무에서는 **대칭키(빠른 데이터 암호화) + 비대칭키(안전한 세션 키 교환)** 하이브리드 방식(TLS)이 표준.\n- 함정 키워드: 대칭키 = **DES·3DES·AES·SEED·ARIA·IDEA** / 비대칭키 = **RSA·ECC·ElGamal·DSA**"
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2024년 2회 5과목 — DDoS 공격 유형 정형 패턴",
+     "stem_md": "**DDoS(Distributed Denial of Service, 분산 서비스 거부) 공격 유형**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**SYN Flood** — TCP 3-way 핸드셰이크의 SYN 패킷만 다량 전송하여 서버의 백로그 큐(Backlog Queue)를 고갈시키는 공격이다.",
+      "**UDP Flood** — 다수의 UDP 패킷을 임의 포트로 전송하여 대역폭·자원을 소모시키는 공격이다.",
+      "**Smurf** — ICMP Echo Request를 브로드캐스트로 전송하되 출발지 IP를 피해자로 위조하여 다수의 응답으로 피해자를 마비시키는 증폭(Amplification) 공격이다.",
+      "**Slowloris**는 서버로 대량의 트래픽을 초당 수 기가바이트로 폭발적으로 전송해 대역폭을 즉시 고갈시키는 **볼륨(Volumetric) 공격**이며, HTTP 헤더를 천천히 조금씩 보내는 저속 방식과는 반대의 특성을 가진다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Slowloris는 **HTTP 헤더를 매우 천천히 조금씩(수초에 1바이트) 보내 연결을 오래 유지**하여 서버의 동시 연결 슬롯을 고갈시키는 **저속(Slow-rate) 애플리케이션 계층 공격**. 대역폭이 낮아도 유효하며 \"초당 수 기가바이트 폭발적 트래픽·볼륨 공격\"은 정반대. 볼륨 공격은 UDP Flood·ICMP Flood 등이 대표.\n- 함정 키워드: Slowloris = **저속 HTTP·연결 슬롯 고갈·L7** / UDP Flood·Smurf = **볼륨·대역폭 고갈·L3-4**"
+    }
+   ]
   }
  ]
 }
