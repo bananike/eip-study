@@ -8792,6 +8792,274 @@
      "explanation_md": "**정답 ④** — Slowloris는 **HTTP 헤더를 매우 천천히 조금씩(수초에 1바이트) 보내 연결을 오래 유지**하여 서버의 동시 연결 슬롯을 고갈시키는 **저속(Slow-rate) 애플리케이션 계층 공격**. 대역폭이 낮아도 유효하며 \"초당 수 기가바이트 폭발적 트래픽·볼륨 공격\"은 정반대. 볼륨 공격은 UDP Flood·ICMP Flood 등이 대표.\n- 함정 키워드: Slowloris = **저속 HTTP·연결 슬롯 고갈·L7** / UDP Flood·Smurf = **볼륨·대역폭 고갈·L3-4**"
     }
    ]
+  },
+  {
+   "day": 60,
+   "date": "2026-07-10",
+   "subject": "Phase 3 기출회독",
+   "topic": "2024년 정보처리기사 필기 기출 (회독 3/4) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2024년 1회 1과목 — 럼바우(Rumbaugh) OMT 3모델 정형 패턴",
+     "stem_md": "럼바우(Rumbaugh)의 객체지향 분석(OMT: Object Modeling Technique) 3대 모델링에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**객체(Object) 모델링** — 시스템 내 정적 구조를 표현하며, 객체(Class)·속성(Attribute)·연산(Operation)·관계(Association·Aggregation·Generalization)를 클래스 다이어그램으로 나타낸다.",
+      "**동적(Dynamic) 모델링** — 시간 흐름에 따른 시스템 상태 변화를 표현하며, 상태(State)·이벤트(Event)·전이(Transition)를 상태 다이어그램(State Diagram)으로 나타낸다.",
+      "**기능(Functional) 모델링** — 데이터 흐름과 처리를 표현하며, DFD(Data Flow Diagram)·프로세스·데이터 저장소·외부 개체를 나타낸다.",
+      "**관계(Relational) 모델링** — 데이터베이스 스키마와 외래키를 표현하는 럼바우 OMT의 네 번째 정식 모델링 활동이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 럼바우 OMT는 **객체·동적·기능** 3모델만 정식으로 정의됨. \"관계(Relational) 모델링\"이라는 네 번째 모델은 존재하지 않음 → 완전 오답. 정적 구조(객체)·시간 변화(동적)·데이터 처리(기능)로 시스템을 세 각도로 보완적으로 분석. **함정 키워드**: 관계 모델링·네 번째 모델·데이터베이스 스키마 등장 시 오답."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2024년 2회 1과목 — GoF 생성 패턴 5종 정형 패턴",
+     "stem_md": "**GoF(Gang of Four) 생성(Creational) 디자인 패턴**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Singleton(싱글턴)** — 클래스의 인스턴스가 시스템 내 오직 하나만 생성되도록 보장하며, 전역 접근점을 제공한다.",
+      "**Factory Method(팩토리 메서드)** — 객체 생성을 서브클래스에 위임하여, 부모 클래스는 생성 인터페이스만 정의하고 실제 생성 로직은 자식 클래스가 구현하도록 한다.",
+      "**Builder(빌더)** — 복잡한 객체의 생성 과정을 단계별로 분리하여, 동일한 생성 절차에서 서로 다른 표현(Representation)을 만들 수 있게 한다.",
+      "**Decorator(데코레이터)** — 객체 생성을 담당하는 GoF 생성 패턴의 대표적 사례로, 여러 인스턴스를 미리 생성해 두었다가 요청 시 배포하는 객체 풀 패턴이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **Decorator(데코레이터)는 구조(Structural) 패턴**이며 생성(Creational) 패턴이 아님. GoF 생성 패턴 5종 = **Factory Method·Abstract Factory·Builder·Prototype·Singleton**(암기: FMBPS 또는 \"팩앱빌프싱\"). 구조 7종에 Decorator·Adapter·Bridge·Composite·Facade·Flyweight·Proxy 포함. **객체 풀(Object Pool)**은 GoF 정식 23종에는 없는 확장 패턴. **함정 키워드**: Decorator·Adapter·Proxy가 생성 패턴이라는 뒤바꾸기."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2024년 3회 1과목 — 응집도(Cohesion) 7단계 정형 패턴",
+     "stem_md": "**모듈의 응집도(Cohesion)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "응집도는 모듈 내부 구성 요소들이 서로 얼마나 밀접하게 관련되어 있는지를 나타내며, **응집도는 강할수록 좋은 설계**로 평가된다.",
+      "응집도 7단계 강도 순서(약 → 강)는 **우연적(Coincidental) → 논리적(Logical) → 시간적(Temporal) → 절차적(Procedural) → 통신적(Communicational) → 순차적(Sequential) → 기능적(Functional)**이다.",
+      "**기능적 응집도(Functional Cohesion)** — 모듈 내 모든 구성 요소가 하나의 목적을 위해 협력하는 가장 이상적인 형태이다.",
+      "**우연적 응집도(Coincidental Cohesion)** — 모듈 내 요소들이 하나의 명확한 기능을 수행하도록 정교하게 설계된 **가장 이상적이고 권장되는 응집도**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **우연적 응집도(Coincidental)**는 응집도 7단계 중 **가장 낮고(약하고) 나쁜 형태**로, 모듈 내 요소들이 아무런 관련성 없이 우연히 모여 있는 상태. **가장 이상적인 형태는 기능적 응집도(Functional)**. 암기: **\"우논시절통순기\"**(우연·논리·시간·절차·통신·순차·기능) 순으로 강해짐. **함정 키워드**: 우연적 응집도를 \"이상적·권장\" 완전 반대 함정."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2024년 1회 1과목 — 결합도(Coupling) 7단계 정형 패턴",
+     "stem_md": "**모듈의 결합도(Coupling)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "결합도는 서로 다른 모듈 간의 상호 의존 정도를 의미하며, **결합도는 약할수록(낮을수록) 좋은 설계**로 평가된다.",
+      "결합도 7단계 강도 순서(약 → 강)는 **자료(Data) → 스탬프(Stamp) → 제어(Control) → 외부(External) → 공통(Common) → 내용(Content)**이며, 자료 결합도가 가장 약하고 내용 결합도가 가장 강하다.",
+      "**자료 결합도(Data Coupling)** — 모듈 간에 단순 매개변수(값)만 주고받는 가장 이상적인 결합 형태이다.",
+      "**내용 결합도(Content Coupling)** — 결합도가 가장 낮고 이상적인 형태로, 유지보수성과 재사용성을 극대화한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **내용 결합도(Content)**는 결합도 7단계 중 **가장 높고(강하고) 나쁜 형태**로, 한 모듈이 다른 모듈의 내부 변수·구조를 직접 참조·수정하는 최악의 결합. **가장 낮고 이상적인 형태는 자료 결합도(Data)**. 암기: **\"자스제외공내\"** 또는 **\"자스제외공내(자→내)\"**(자료·스탬프·제어·외부·공통·내용) 순으로 강해짐(공통·내용 사이에 스탬프 재배치 이설 존재이나 기본은 자→스→제→외→공→내). **함정 키워드**: 내용 결합도를 \"가장 낮고 이상적\" 완전 반대 함정."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2024년 2회 2과목 — 이진 탐색 트리(BST) 삽입 정형 패턴",
+     "stem_md": "비어 있는 **이진 탐색 트리(BST: Binary Search Tree)**에 값 **[50, 30, 70, 20, 40, 60, 80]**을 이 순서대로 삽입할 때, 트리를 **중위 순회(Inorder Traversal)**한 결과로 **가장 옳은 것**은?",
+     "options": [
+      "50 30 20 40 70 60 80",
+      "**20 30 40 50 60 70 80**",
+      "20 40 30 60 80 70 50",
+      "50 70 80 60 30 40 20"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — BST 중위 순회(LNR: 좌→루트→우)는 **항상 오름차순 정렬 결과**를 반환. 삽입 순서 [50,30,70,20,40,60,80] → 루트 50, 좌 부트리(30-20,40), 우 부트리(70-60,80) → 중위 순회 = **20 30 40 50 60 70 80**. **함정 키워드**: 삽입 순서 그대로 나열(50 30 70…)는 전위 순회(NLR)."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2024년 3회 2과목 — 선택 정렬(Selection Sort) 트레이싱 정형 패턴",
+     "stem_md": "배열 **[9, 3, 5, 1, 7]**을 **선택 정렬(Selection Sort, 오름차순)**로 정렬할 때, **1회전(첫 번째 패스)** 완료 후 배열의 상태로 **가장 옳은 것**은?",
+     "options": [
+      "[3, 9, 5, 1, 7]",
+      "[1, 3, 5, 7, 9]",
+      "**[1, 3, 5, 9, 7]**",
+      "[9, 3, 5, 1, 7] (변화 없음)"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 선택 정렬 1회전: 배열 [9,3,5,1,7]에서 최솟값 1을 찾아 첫 번째 요소 9와 교환 → **[1, 3, 5, 9, 7]**. 2회전 시 남은 [3,5,9,7]에서 최솟값 3 그대로 유지, 3회전 시 [5,9,7]에서 5 유지, 4회전 시 [9,7]에서 7과 9 교환 → 최종 [1,3,5,7,9]. **함정 키워드**: 최종 결과 [1,3,5,7,9]를 1회전 결과로 오답 유도."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2024년 1회 2과목 — 블랙박스 테스트 5종 정형 패턴",
+     "stem_md": "**블랙박스 테스트(Black-box Testing) 기법**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**동등 분할(Equivalence Partitioning)** — 입력 값의 도메인을 유효(Valid)·무효(Invalid) 등가 클래스로 분할하여 각 클래스에서 대표 값 하나씩 테스트한다.",
+      "**경곗값 분석(Boundary Value Analysis)** — 입력 범위의 경계(최솟값·최댓값·경계 근처)에서 오류가 자주 발생한다는 경험에 근거해 경곗값을 집중 테스트한다.",
+      "**원인-결과 그래프(Cause-Effect Graphing)** — 입력 조건(원인)과 출력 결과 간의 논리적 관계를 그래프로 표현하여 테스트 케이스를 도출한다.",
+      "**기초 경로 검사(Basis Path Testing)** — 프로그램의 순환 복잡도(V(G) = E - N + 2)를 기반으로 독립적인 실행 경로를 도출하는 **블랙박스** 대표 기법이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **기초 경로 검사(Basis Path Testing)**는 순환 복잡도(McCabe V(G))를 기반으로 하는 **화이트박스** 테스트 대표 기법(문장·분기·조건·경로 커버리지 계열). 블랙박스 5종 = **동등 분할·경곗값 분석·원인-결과 그래프·오류 예측·비교 검사**. **함정 키워드**: 기초 경로·V(G)·순환 복잡도·문장 커버리지가 블랙박스라는 뒤바꾸기."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2024년 2회 2과목 — 통합 테스트 4종 정형 패턴",
+     "stem_md": "**통합 테스트(Integration Testing) 전략**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**하향식(Top-down) 통합** — 최상위 모듈부터 하위로 통합하며, 아직 개발되지 않은 하위 모듈은 **스텁(Stub)**으로 대체한다.",
+      "**상향식(Bottom-up) 통합** — 최하위 모듈부터 상위로 통합하며, 상위 모듈 역할을 대신하는 **드라이버(Driver)**로 하위 모듈을 호출·테스트한다.",
+      "**샌드위치(Sandwich) 통합** — 하향식과 상향식을 병행하며, 중간 계층에서 만나는 혼합 방식으로 대규모 시스템에 유리하다.",
+      "**빅뱅(Big Bang) 통합** — 모든 모듈을 개별 단위 테스트 없이 **한꺼번에 통합·테스트**하는 방식으로, 결함 원인 추적이 매우 쉽고 대규모 시스템에서 가장 권장된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **빅뱅(Big Bang) 통합**은 개별 단위 테스트 없이 모든 모듈을 한꺼번에 통합하기 때문에 **결함 원인 추적이 매우 어려우며 대규모 시스템에서 위험**함(소규모·간단 시스템에서만 제한적 사용). 하향식 = **스텁(Stub)** 필요, 상향식 = **드라이버(Driver)** 필요, 샌드위치 = 하향+상향 병행. **함정 키워드**: 빅뱅이 \"추적 쉬움·대규모 권장\"이라는 정반대 함정."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2024년 3회 3과목 — 함수 종속(FD) 3종 정형 패턴",
+     "stem_md": "**함수 종속(Functional Dependency)** 3종에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**완전 함수 종속(Full FD)** — 속성 Y가 복합키의 **일부가 아닌 전체 X**에 대해서만 종속되는 관계로, 어떤 부분집합에도 종속되지 않는다.",
+      "**부분 함수 종속(Partial FD)** — 속성 Y가 복합키의 **일부 속성**에만 종속되는 관계로, **2NF 위반의 원인**이며 2NF 정규화 시 제거된다.",
+      "**이행 함수 종속(Transitive FD)** — X→Y이고 Y→Z이면 X→Z가 성립하는 간접 종속으로, **3NF 위반의 원인**이며 3NF 정규화 시 제거된다.",
+      "**부분 함수 종속(Partial FD)** — 후보키가 단일 속성일 때에만 발생하는 종속으로, 단일 속성 기본키를 사용하면 **자동으로 완전 함수 종속**이 되지 못한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 부분 함수 종속은 **복합키(2개 이상 속성으로 구성된 기본키)**가 있을 때만 발생. 단일 속성 기본키에서는 부분 함수 종속이 애초에 성립 불가 → **자동으로 완전 함수 종속**임(반대로 서술한 함정). 완전 FD = 복합키 전체에 종속·부분 FD = 복합키 일부에만 종속(2NF 위반)·이행 FD = X→Y→Z 간접(3NF 위반). **함정 키워드**: 단일 속성 기본키에서 부분 FD가 \"자동 완전 FD 안 됨\"이라는 뒤바꾸기."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2024년 1회 3과목 — 2단계 로킹(2PL) + S/X-Lock 정형 패턴",
+     "stem_md": "데이터베이스 트랜잭션의 **2단계 로킹 프로토콜(2PL: Two-Phase Locking)** 및 로킹에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**2PL은 확장 단계(Growing Phase)**에서만 락을 획득하고 **축소 단계(Shrinking Phase)**에서만 락을 해제하며, 한번 락을 해제한 후에는 새로운 락을 획득할 수 없다.",
+      "**공유 락(S-Lock, Shared Lock)** — 여러 트랜잭션이 동시에 획득 가능(S-S 호환)하며, 읽기 전용 연산에 사용된다.",
+      "**배타 락(X-Lock, Exclusive Lock)** — 한 트랜잭션만 획득 가능하며, S-X·X-S·X-X 모두 호환되지 않아(대기) 쓰기 연산 시 사용된다.",
+      "**2PL은 직렬 가능성(Serializability)을 보장하지 못하며**, S-Lock과 X-Lock의 호환성도 반대로 정의되어 모든 락이 동시에 획득 가능하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **2PL은 직렬 가능성(Serializability)을 보장**하며, 락 호환성 매트릭스는 **S-S만 호환(○)** · **S-X·X-S·X-X 모두 비호환(×)**. 확장 단계(Growing)에서 락 획득만·축소 단계(Shrinking)에서 락 해제만 하며, 한번 해제 후에는 새 락 획득 불가(그래서 \"2단계\"). **함정 키워드**: 2PL이 직렬가능성 미보장·모든 락 동시 획득 가능이라는 정반대 함정."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2024년 2회 3과목 — 데이터 웨어하우스(DW) + OLAP 정형 패턴",
+     "stem_md": "**데이터 웨어하우스(Data Warehouse)** 및 **OLAP(Online Analytical Processing)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "데이터 웨어하우스는 의사결정 지원을 위해 **주제 지향적(Subject-Oriented)·통합적(Integrated)·시간 변형적(Time-Variant)·비휘발성(Non-Volatile)** 4가지 특성을 가진 데이터의 집합이다(Inmon 정의).",
+      "**OLAP(온라인 분석 처리)** — 다차원(Multi-dimensional) 큐브 구조로 데이터를 분석하며, 슬라이싱(Slicing)·다이싱(Dicing)·드릴다운(Drill-Down)·롤업(Roll-Up)·피벗(Pivot) 등의 연산을 지원한다.",
+      "**데이터 마트(Data Mart)** — 특정 부서·주제 영역에 특화된 소규모 데이터 웨어하우스로, 전사 DW에서 추출·구축된다.",
+      "데이터 웨어하우스는 **일별 OLTP(온라인 트랜잭션 처리) 요구를 실시간 초당 수천 건 처리**하는 것이 주 목적이며, 분석·의사결정 지원과는 무관하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 데이터 웨어하우스는 **의사결정 지원(DSS)·분석·리포팅**이 주 목적이며, OLTP(실시간 트랜잭션 처리, 초당 수천 건)와는 **역할이 정반대**. Inmon 4특성 = 주제 지향·통합·시간 변형·비휘발성(비휘발성 = 갱신 없이 축적). OLAP 연산 5종 = 슬라이싱·다이싱·드릴다운·롤업·피벗. **함정 키워드**: DW를 OLTP 목적으로 뒤바꾸는 완전 오답."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2024년 3회 3과목 — NoSQL 4유형 + CAP 정리 정형 패턴",
+     "stem_md": "**NoSQL 데이터베이스 4가지 유형** 및 **CAP 정리**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Key-Value Store** — 단순 키-값 쌍으로 데이터를 저장하며, Redis·DynamoDB·Riak가 대표 사례이다.",
+      "**Document Store** — JSON·BSON·XML 등 문서 형식으로 저장하며, MongoDB·CouchDB가 대표 사례이다. **Column Family Store** — 열(Column) 지향 저장 구조로, Cassandra·HBase가 대표 사례이다.",
+      "**Graph Database** — 노드(정점)·에지(간선)로 관계를 표현하며, 소셜 네트워크·추천 시스템에 유리하다. Neo4j·JanusGraph가 대표 사례이다.",
+      "**CAP 정리** — Consistency(일관성)·Availability(가용성)·Partition Tolerance(분할 내성) 3가지를 **모두 동시에 만족 가능**하다는 것이 CAP 정리의 결론이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **CAP 정리**는 분산 시스템에서 Consistency·Availability·Partition Tolerance **3가지 중 최대 2개까지만 동시 만족 가능**하다는 것이 결론(Brewer's Theorem). 실무에서 네트워크 분할은 필연적이므로 P는 필수 선택 → CP(MongoDB·HBase) 또는 AP(Cassandra·DynamoDB) 중 선택. **함정 키워드**: CAP 3가지 모두 동시 만족 가능이라는 완전 오답."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2024년 1회 4과목 — C 포인터·배열 정형 패턴",
+     "stem_md": "다음 C 프로그램의 출력 결과로 **가장 옳은 것**은?\n\n```c\n#include <stdio.h>\nint main() {\n    int arr[5] = {10, 20, 30, 40, 50};\n    int *p = arr;\n    printf(\"%d %d %d\\n\", *(p + 2), *(arr + 3), p[4]);\n    return 0;\n}\n```",
+     "options": [
+      "10 20 30",
+      "20 30 40",
+      "**30 40 50**",
+      "40 50 60"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — C에서 배열 이름 arr은 배열 첫 요소의 주소. `p = arr`이므로 `p+2`는 arr[2]의 주소 → `*(p+2) = arr[2] = 30`. `*(arr+3) = arr[3] = 40`. `p[4] = arr[4] = 50`. 결과 **`30 40 50`**. **함정 키워드**: 포인터 산술이 바이트 단위가 아니라 요소 단위(sizeof(int)만큼 이동)."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2024년 2회 4과목 — Java 상속·오버라이딩·super 정형 패턴",
+     "stem_md": "다음 Java 프로그램의 출력 결과로 **가장 옳은 것**은?\n\n```java\nclass Animal {\n    String name = \"Animal\";\n    void hello() { System.out.println(\"Hi, \" + name); }\n}\nclass Dog extends Animal {\n    String name = \"Dog\";\n    void hello() {\n        System.out.println(\"Hi, \" + name);\n        super.hello();\n    }\n}\npublic class Main {\n    public static void main(String[] args) {\n        Dog d = new Dog();\n        d.hello();\n    }\n}\n```",
+     "options": [
+      "Hi, Dog",
+      "Hi, Animal",
+      "**Hi, Dog / Hi, Animal**",
+      "Hi, Animal / Hi, Dog"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — Java에서 **필드는 정적 바인딩(선언 타입 기준)·메서드는 동적 바인딩(실제 인스턴스 타입 기준·오버라이딩)**. `d.hello()` 호출 → Dog의 hello() 실행: 우선 자신 name=\"Dog\" 출력 → `super.hello()` = Animal의 hello() 실행: `name`은 Animal 클래스의 name=\"Animal\" 참조(super는 부모 필드 접근) → **`Hi, Dog / Hi, Animal`**. **함정 키워드**: super.hello() 내부의 name이 Dog의 name을 참조한다는 오답(super는 부모 필드)."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2024년 3회 4과목 — Python 리스트 컴프리헨션 정형 패턴",
+     "stem_md": "다음 Python 프로그램의 출력 결과로 **가장 옳은 것**은?\n\n```python\nnums = [1, 2, 3, 4, 5, 6]\nresult = [x * x for x in nums if x % 2 == 0]\nprint(result)\n```",
+     "options": [
+      "[1, 9, 25]",
+      "[1, 4, 9, 16, 25, 36]",
+      "**[4, 16, 36]**",
+      "[2, 4, 6]"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — Python 리스트 컴프리헨션 `[x*x for x in nums if x%2==0]`: nums=[1,2,3,4,5,6]에서 짝수(x%2==0)만 필터링 → [2,4,6] → 각각 제곱 → **[4, 16, 36]**. 문법 = `[표현식 for 요소 in 반복가능객체 if 조건]`. **함정 키워드**: 필터 조건 없이 전체 요소 제곱([1,4,9,16,25,36])·필터만 하고 제곱 안 함([2,4,6])."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2024년 1회 4과목 — OSI 7계층 vs TCP/IP 4계층 정형 패턴",
+     "stem_md": "**OSI 7계층**과 **TCP/IP 4계층**의 대응 관계에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "OSI 7계층은 물리(Physical)·데이터링크(Data Link)·네트워크(Network)·전송(Transport)·세션(Session)·표현(Presentation)·응용(Application) 순으로 구성된다.",
+      "TCP/IP 4계층은 네트워크 접근(Network Access)·인터넷(Internet)·전송(Transport)·응용(Application) 순으로 구성된다.",
+      "**OSI 전송 계층(4계층)**은 TCP/IP의 **전송 계층**과 대응되며, TCP·UDP가 이 계층의 대표 프로토콜이다.",
+      "**OSI 응용(7)·표현(6)·세션(5) 3개 계층**은 TCP/IP에서 **인터넷(Internet) 계층 하나**로 합쳐지며, IP·ICMP가 이 계층의 대표 프로토콜이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **OSI 응용(7)·표현(6)·세션(5) 3개 계층 → TCP/IP 응용(Application) 계층 1개로 통합**(인터넷 계층 아님). OSI 네트워크(3) → TCP/IP 인터넷(IP·ICMP·ARP), OSI 물리(1)+데이터링크(2) → TCP/IP 네트워크 접근(Network Access, MAC·이더넷·PPP). 완전한 대응표 암기 필수. **함정 키워드**: OSI 상위 3계층이 TCP/IP 인터넷 계층으로 합쳐진다는 완전 오답."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2024년 2회 5과목 — CMMi 5단계 vs SPICE 6단계 정형 패턴",
+     "stem_md": "**CMMi(Capability Maturity Model Integration)** 및 **SPICE(ISO/IEC 15504)** 모델에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "CMMi 5단계 = **초기(Initial) → 관리(Managed) → 정의(Defined) → 정량적 관리(Quantitatively Managed) → 최적화(Optimizing)** 순으로 성숙도를 평가한다.",
+      "SPICE 6단계(레벨 0 포함) = **불완전(Incomplete) → 수행(Performed) → 관리(Managed) → 확립(Established) → 예측(Predictable) → 최적화(Optimizing)**로 프로세스 능력을 평가한다.",
+      "CMMi는 조직 전체의 성숙도를 5단계로 평가하며, SPICE는 프로세스별 능력을 0~5단계(총 6단계)로 평가하여 **개별 프로세스 진단에 유리**하다.",
+      "CMMi 최상위 5단계는 \"**직관과 경험**에 의존한 개선\"을 의미하며, SPICE 최상위 5단계는 CMMi보다 낮은 수준의 성숙도를 나타낸다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — CMMi 최상위 5단계(Optimizing)는 **정량적 데이터에 기반한 지속적 개선**을 의미하며(직관 아님), CMMi와 SPICE는 각각 5단계·6단계로 성숙도 수준을 표현하되 **동등 매핑 가능**(SPICE 5 = CMMi 5). CMMi = 조직 전체 성숙도·SPICE = 프로세스별 능력 평가에 유리. **함정 키워드**: CMMi 5단계가 \"직관·경험 의존\"이라는 정반대 함정(초기 단계 1의 특성과 뒤바꾸기)."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2024년 3회 5과목 — LOC·COCOMO 비용 산정 정형 패턴",
+     "stem_md": "**소프트웨어 비용 산정 기법**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**LOC(Line of Code) 기법** — 낙관치(a)·기대치(m)·비관치(b)를 활용하여 **예측 LOC = (a + 4m + b) / 6** 공식으로 규모를 산정하는 하향식 기법이다.",
+      "**COCOMO(Constructive Cost Model)** — Boehm이 제안한 원시 프로그램 크기(KDSI)에 의한 비용 산정 방식으로, 조직형(Organic, 5만 라인 이하)·반분리형(Semi-Detached, 30만 라인 이하)·내장형(Embedded, 30만 라인 초과) 3가지 유형으로 분류한다.",
+      "**기능 점수(FP: Function Point)** — Albrecht가 제안한 방식으로 사용자 관점의 외부입력(EI)·외부출력(EO)·외부조회(EQ)·내부논리파일(ILF)·외부인터페이스파일(EIF) 5개 기능 요소로 규모를 산정한다.",
+      "**COCOMO의 3가지 유형** — 조직형·반분리형·**애자일형(Agile)** 3가지로 분류되며, 애자일형은 소규모 팀·짧은 반복 개발에 특화된 COCOMO 표준 유형이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **COCOMO의 3가지 유형은 조직형(Organic)·반분리형(Semi-Detached)·내장형(Embedded)**만 정식 분류(암기: 5만·30만 라인 임계). \"애자일형\"은 COCOMO 표준 유형이 아니며 오답. LOC 공식 = **(낙관치 + 4×기대치 + 비관치)/6**. FP 5요소 = EI·EO·EQ·ILF·EIF. **함정 키워드**: COCOMO 유형에 애자일·CBD·객체지향 등 신규 방법론 이름 끼워넣는 함정."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2024년 1회 5과목 — IPSec vs SSL/TLS 정형 패턴",
+     "stem_md": "**IPSec(IP Security)** 및 **SSL/TLS(Secure Sockets Layer / Transport Layer Security)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**IPSec** — OSI **네트워크 계층(L3)** 에서 동작하며, AH(Authentication Header, 인증·무결성)·ESP(Encapsulating Security Payload, 기밀성·무결성·인증)·IKE(Internet Key Exchange, 키 교환) 프로토콜로 구성된다.",
+      "**IPSec**은 전송 모드(Transport Mode, 페이로드만 암호화)와 터널 모드(Tunnel Mode, 전체 IP 패킷 암호화) 2가지 동작 모드를 지원하며, VPN 구축의 표준으로 사용된다.",
+      "**SSL/TLS** — OSI **전송·세션 계층(L4~L7)** 에서 동작하며, HTTPS·SMTPS·IMAPS 등 응용 계층 프로토콜에 보안을 제공한다. TLS 1.3(RFC 8446)이 현재 표준이다.",
+      "**IPSec은 응용 계층(L7)에서 동작**하며, SSL/TLS는 **네트워크 계층(L3)**에서 동작하는 완전히 반대의 위치·구조를 가진다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **IPSec = 네트워크 계층(L3, IP 위)** · **SSL/TLS = 전송 계층(L4) 위, 응용 계층(L7) 아래**(약칭 L4~L7). 완전 뒤바꾸기 오답. IPSec 3구성 = AH(인증)·ESP(암호화+인증)·IKE(키교환), 모드 2가지 = Transport(페이로드만)·Tunnel(패킷 전체·VPN 표준). SSL/TLS = HTTPS·SMTPS 계열, TLS 1.3(RFC 8446) 최신. **함정 키워드**: IPSec을 L7·SSL을 L3로 뒤바꾸는 완전 오답."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2024년 2회 5과목 — 사회공학 공격(피싱·스미싱·파밍) 정형 패턴",
+     "stem_md": "**사회공학(Social Engineering) 공격**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**피싱(Phishing)** — 정상 사이트로 위장한 가짜 사이트나 이메일로 사용자를 유인하여 개인정보·금융정보를 탈취하는 공격이다.",
+      "**스미싱(Smishing)** — SMS + Phishing의 합성어로, **문자메시지(SMS)**를 통해 악성 URL·앱을 유포하여 개인정보를 탈취한다.",
+      "**파밍(Pharming)** — 사용자 PC의 hosts 파일 변조 또는 DNS 서버 변조를 통해 정상 URL을 입력해도 위조 사이트로 접속하도록 하는 공격이다.",
+      "**파밍(Pharming)** — 사용자가 정확한 URL을 입력했을 때 **반드시 정상 사이트로만 접속**되며, DNS 변조·hosts 파일 변조와는 무관한 물리적 회선 절단 공격이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **파밍(Pharming)**은 사용자 PC의 **hosts 파일 변조** 또는 **DNS 서버 변조(DNS 캐시 포이즈닝)**로 정상 URL 입력에도 위조 사이트로 유도하는 대표적 사회공학 공격. \"정확한 URL 입력 = 반드시 정상 접속\"이 안 되는 것이 파밍의 위험성. 물리적 회선 절단은 사회공학이 아니라 물리적 공격. 피싱 = 이메일/사이트 유인, 스미싱 = SMS 유인, 파밍 = DNS/hosts 변조. **함정 키워드**: 파밍이 \"정확한 URL은 무조건 안전\"이라는 정반대 함정."
+    }
+   ]
   }
  ]
 }
