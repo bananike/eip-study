@@ -9328,6 +9328,274 @@
      "explanation_md": "**정답 ④** — **Kerberos는 대칭키(비밀키) 암호 기반** 프로토콜이며 **KDC(Key Distribution Center) 중심**의 **티켓(TGT: Ticket Granting Ticket / ST: Service Ticket)** 방식으로 인증. 공개키·X.509 인증서·P2P 인증은 Kerberos 방식이 아님(공개키 인증은 PKI/SSL/TLS 영역). KDC = AS(인증 서버) + TGS(티켓 승인 서버). **함정 키워드**: Kerberos를 공개키·인증서·P2P로 왜곡하는 완전 정반대 오답."
     }
    ]
+  },
+  {
+   "day": 62,
+   "date": "2026-07-12",
+   "subject": "Phase 3 기출회독",
+   "topic": "2025년 정보처리기사 필기 기출 (회독 1/4 · 최신 트렌드 신규 진입) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2025년 1회 1과목 — 서버리스 아키텍처(Serverless) 정형 패턴",
+     "stem_md": "**서버리스 아키텍처(Serverless Architecture · FaaS · Function as a Service)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**FaaS(Function as a Service)** — AWS Lambda·Azure Functions·Google Cloud Functions 등이 대표적이며, 개발자는 이벤트에 반응하는 함수만 작성하고 서버 프로비저닝·확장·패치는 클라우드 사업자가 담당한다.",
+      "**이벤트 기반 실행(Event-Driven)** — HTTP 요청·큐 메시지·파일 업로드·스케줄·DB 변경 등 이벤트에 반응해 함수가 트리거되며, 실행 시간·호출 횟수 기준으로 과금(Pay-per-Use)된다.",
+      "**자동 확장(Auto Scaling)** — 트래픽 증가 시 함수 인스턴스가 병렬로 자동 확장되며, 유휴 시간에는 인스턴스가 종료되어(Scale-to-Zero) 비용이 발생하지 않는다.",
+      "**서버리스는 서버가 실제로 존재하지 않는 아키텍처**이며, 개발자가 **직접 물리 서버·OS·런타임을 수동으로 관리**해야 하고, **자동 확장·이벤트 트리거 기능은 제공되지 않아** 트래픽 증감에 수동 대응해야 한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 서버리스는 이름과 달리 **서버는 실제 존재**하되 클라우드 사업자가 **완전 관리(Fully Managed)**하는 방식으로, 개발자가 인프라·확장·패치를 신경 쓰지 않는다는 의미. **자동 확장(Auto Scaling)·이벤트 트리거·Scale-to-Zero**가 핵심 특징. **함정 키워드**: \"서버가 실제로 없다\", \"물리 서버 직접 관리\", \"자동 확장 없음\"은 서버리스 본질을 정반대로 왜곡한 완전 오답."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2025년 2회 1과목 — DevOps 3원칙(CALMS · CAMS) 정형 패턴",
+     "stem_md": "**DevOps의 핵심 원칙(CALMS · Culture · Automation · Lean · Measurement · Sharing)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Culture(문화)** — 개발(Dev)·운영(Ops) 팀 간 사일로(Silo)를 허물고 협업·공동 책임(You Build It, You Run It) 문화를 형성한다.",
+      "**Automation(자동화)** — 빌드·테스트·배포·인프라 프로비저닝(IaC · Terraform · Ansible)까지 모든 반복 작업을 자동화하여 인적 오류를 줄이고 속도를 높인다.",
+      "**Measurement(측정)** — MTTR(Mean Time To Recovery)·배포 빈도·리드 타임·변경 실패율 등 DORA 4대 지표를 측정하여 지속 개선한다.",
+      "**DevOps는 개발과 운영을 완전히 분리해 각자 독립적으로 일하는 것을 지향**하며, **자동화·측정·공유는 핵심 원칙이 아니라 부수적 활동**이고, **개발자는 배포·운영에 절대 관여하지 않는 것이 원칙**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — DevOps는 **개발과 운영의 융합·협업**을 지향(사일로 파괴)하며 **CALMS 5원칙(문화·자동화·린·측정·공유)**이 핵심. 자동화·측정·공유는 부수적이 아니라 필수 기둥이며, \"You Build It, You Run It\" 원칙 아래 개발자도 배포·운영에 관여한다. **함정 키워드**: \"개발과 운영 완전 분리\", \"자동화 부수적\", \"개발자는 배포·운영에 관여 X\"는 DevOps 철학 정확히 정반대."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2025년 3회 1과목 — CI/CD 파이프라인 정형 패턴",
+     "stem_md": "**CI/CD 파이프라인(Continuous Integration / Continuous Delivery · Deployment)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**CI(Continuous Integration · 지속적 통합)** — 개발자가 코드 변경을 **하루에도 여러 번** 공용 저장소(main 브랜치)에 병합하고, 매 병합마다 **자동 빌드·자동 테스트**를 수행하여 통합 문제를 조기 발견한다.",
+      "**CD(Continuous Delivery · 지속적 전달)** — 빌드·테스트를 통과한 아티팩트를 스테이징 환경까지 자동 배포하며, **프로덕션 배포는 승인(수동 트리거) 후 수행**한다.",
+      "**Continuous Deployment(지속적 배포)** — 프로덕션까지 **모든 단계 자동화**되어 사람의 개입 없이 자동 배포되며, 카나리·블루-그린·롤링 등의 배포 전략을 활용한다.",
+      "**CI/CD의 핵심은 배포를 최대한 드물게(1년에 1~2회) 대규모로 몰아서 수행하는 것**이며, **자동 테스트는 오히려 병목이라 생략하고 수동 QA만 사용**하고, **롤백 전략은 CI/CD 범위 밖의 별개 개념**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — CI/CD의 핵심 가치는 **작은 변경을 자주(Frequent)** 배포하여 리스크를 낮추는 것(대규모 몰아 배포 X). **자동 테스트는 CI/CD의 근간**이며 절대 생략할 수 없고, **롤백 전략(블루-그린·카나리)은 CI/CD의 핵심 구성 요소**. **함정 키워드**: \"드물게 대규모 몰아 배포\", \"자동 테스트 생략·수동 QA만\", \"롤백은 CI/CD 밖\"은 CI/CD 원칙 정확히 정반대."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2025년 1회 1과목 — Kubernetes 컨테이너 오케스트레이션 정형 패턴",
+     "stem_md": "**Kubernetes(K8s) 컨테이너 오케스트레이션**의 주요 오브젝트에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Pod(파드)** — Kubernetes의 **최소 배포 단위**로, 하나 이상의 컨테이너·저장 리소스·네트워크(IP)를 공유하는 논리적 그룹이다.",
+      "**Deployment(디플로이먼트)** — Pod의 **선언적(Declarative) 관리·롤링 업데이트·롤백**을 제공하며, ReplicaSet을 통해 지정된 개수의 Pod 복제본을 유지한다.",
+      "**Service(서비스)** — 동적으로 변하는 Pod IP를 **가상 IP(ClusterIP)·NodePort·LoadBalancer**로 추상화하여 안정적인 네트워크 엔드포인트를 제공한다.",
+      "**Pod는 최대 1개 컨테이너만 담을 수 있으며 컨테이너 간 리소스 공유 불가**, **Deployment는 명령형(Imperative) 방식으로 Pod를 개별 관리**하고, **Service 없이도 Pod IP는 영구 고정**되어 그대로 통신 가능하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **Pod는 하나 이상의 컨테이너**를 담을 수 있는 최소 단위(사이드카 패턴)이며 컨테이너 간 네트워크·저장소 공유 가능. **Deployment는 선언적(Declarative) 관리**로 원하는 상태 지정. **Service는 필수**이며 Pod IP는 재시작 시 변경되므로 Service의 안정적 엔드포인트가 필요. **함정 키워드**: \"Pod 최대 1개 컨테이너\", \"Deployment 명령형 개별 관리\", \"Service 없이 Pod IP 고정\"은 K8s 아키텍처 정확히 정반대."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2025년 2회 2과목 — Timsort · Introsort 최신 정렬 정형 패턴",
+     "stem_md": "**최신 표준 라이브러리 정렬 알고리즘(Timsort · Introsort)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Timsort** — Python `sorted`·`list.sort`, Java `Arrays.sort(Object[])`의 기본 정렬. **병합 정렬(Merge Sort) + 삽입 정렬(Insertion Sort)** 하이브리드로 최선 O(n), 평균·최악 O(n log n), **안정 정렬(Stable)**.",
+      "**Introsort(Introspective Sort)** — C++ STL `std::sort`의 기본 정렬. **퀵 정렬(Quick Sort) 시작 → 재귀 깊이 초과 시 힙 정렬(Heap Sort) 전환 → 작은 부분 배열은 삽입 정렬**의 하이브리드로 최악 O(n log n) 보장.",
+      "**하이브리드 정렬의 이유** — 단일 정렬 알고리즘의 최악 케이스 취약점(퀵의 O(n²), 병합의 추가 메모리, 힙의 캐시 비친화)을 여러 알고리즘 조합으로 상쇄해 실전 성능을 극대화한다.",
+      "**Timsort는 최악 시간 복잡도가 O(n²)이며 불안정 정렬**이고, **Introsort는 단순히 퀵 정렬만 사용하고 힙 정렬로 전환하지 않는 알고리즘**이며, **하이브리드 정렬은 실전 성능이 오히려 단일 알고리즘보다 나쁘다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **Timsort**는 병합+삽입 하이브리드로 **최선 O(n)·최악 O(n log n)·안정 정렬**. **Introsort**는 퀵 시작 → 재귀 깊이(2·log n) 초과 시 힙으로 전환하여 **최악 O(n log n) 보장**. 하이브리드가 실전 성능을 높이려는 목적. **함정 키워드**: \"Timsort 최악 O(n²)·불안정\", \"Introsort 힙 전환 없음\", \"하이브리드가 오히려 나쁨\"은 최신 정렬 알고리즘 특성 정확히 정반대."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2025년 3회 2과목 — 시간·공간 복잡도 트레이드오프 정형 패턴",
+     "stem_md": "**알고리즘의 시간·공간 복잡도 트레이드오프(Time-Space Tradeoff)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**메모이제이션(Memoization)** — 재귀 함수의 중복 계산 결과를 저장하여 시간 복잡도를 줄이는 대신 공간 복잡도를 증가시킨다(피보나치 O(2^n) → O(n)).",
+      "**해시 테이블(Hash Table)** — O(1) 평균 조회 시간을 얻기 위해 배열보다 큰 추가 공간을 소모하며, 로드 팩터(Load Factor) 조정으로 시간-공간 균형을 튜닝한다.",
+      "**인플레이스(In-place) 알고리즘** — 추가 메모리를 거의 사용하지 않고(O(1) 공간) 입력 배열을 직접 수정(퀵 정렬·힙 정렬)하지만, 안정성·구현 복잡도 측면 트레이드오프가 존재한다.",
+      "**모든 알고리즘은 시간과 공간 복잡도가 항상 반비례**하여 **시간을 줄이면 반드시 공간이 늘고 그 반대도 성립**하며, **메모이제이션은 시간·공간 모두 감소**시키는 만능 기법이고, **인플레이스 알고리즘은 추가 메모리를 무제한 사용**한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 시간·공간 트레이드오프는 **일반적으로 반비례 관계**이지만 **모든 경우가 그렇지는 않음**(더 나은 알고리즘이 둘 다 개선하는 경우도 있음). **메모이제이션은 공간을 늘려 시간을 줄이는** 명백한 트레이드오프. **인플레이스는 추가 메모리 O(1)**만 사용. **함정 키워드**: \"항상 반비례·메모이제이션은 시공간 모두 감소·인플레이스는 무제한 메모리\"는 트레이드오프 개념 정확히 정반대."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2025년 1회 2과목 — JUnit 5 신규 기능 정형 패턴",
+     "stem_md": "**JUnit 5(Jupiter · Vintage · Platform)의 신규 기능**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**모듈 구조** — JUnit 5는 **Jupiter(JUnit 5 API + 실행 엔진)·Vintage(JUnit 3·4 하위 호환)·Platform(플랫폼 launcher)**의 3개 서브 프로젝트로 구성된다.",
+      "**@BeforeEach · @AfterEach · @BeforeAll · @AfterAll** — JUnit 4의 `@Before`·`@After`·`@BeforeClass`·`@AfterClass`를 대체하는 새 어노테이션으로 명확한 실행 시점을 표현한다.",
+      "**@DisplayName · @Nested · @ParameterizedTest · @RepeatedTest** — 테스트 이름 커스터마이징·중첩 테스트 클래스·매개변수 테스트·반복 테스트 등 표현력 있는 기능을 제공한다.",
+      "**JUnit 5는 JUnit 4와 완전히 동일한 어노테이션(@Before·@After)을 그대로 사용**하며, **@Nested·@DisplayName·@ParameterizedTest는 JUnit 4 시절부터 있던 기능**이고, **Vintage 모듈은 JUnit 5 신기능만 실행하는 모듈**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — JUnit 5는 **Jupiter·Vintage·Platform 3개 모듈** 구조이며, JUnit 4의 `@Before`·`@BeforeClass`는 **`@BeforeEach`·`@BeforeAll`로 완전 대체**됨. **@Nested·@DisplayName·@ParameterizedTest는 JUnit 5의 신규 기능**(JUnit 4에는 없음). **Vintage는 JUnit 3/4 하위 호환** 지원 모듈. **함정 키워드**: \"JUnit 5가 4와 동일 어노테이션\", \"신규 기능이 4시절부터 있음\", \"Vintage가 신기능 실행\"은 JUnit 5 사실관계 정확히 정반대."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2025년 2회 2과목 — 테스트 자동화 프레임워크(Selenium · Cypress · Playwright) 정형 패턴",
+     "stem_md": "**웹 테스트 자동화 프레임워크(Selenium · Cypress · Playwright)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Selenium WebDriver** — 다양한 브라우저(Chrome·Firefox·Edge·Safari)와 다양한 언어(Java·Python·C#·JS·Ruby) 지원. W3C 표준 프로토콜 기반, 오랜 역사와 방대한 커뮤니티.",
+      "**Cypress** — JavaScript/TypeScript 전용, **브라우저 내부에서 실행**되어 네트워크·DOM에 실시간 접근 가능. 자동 대기(Auto-Wait)·타임 트래블 디버깅 등 개발자 친화적 UX 강점.",
+      "**Playwright** — Microsoft가 개발, **다중 브라우저(Chromium · Firefox · WebKit) 지원 및 다중 언어(JS·Python·.NET·Java)** 지원. 자동 대기·트레이싱·모바일 에뮬레이션 강점.",
+      "**Selenium은 오직 Java만 지원**하며 다중 브라우저 지원 불가, **Cypress는 모든 프로그래밍 언어를 지원**하고 백엔드 API 테스트만 가능(브라우저 테스트 불가), **Playwright는 Chromium 전용**으로 Firefox·WebKit은 지원하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **Selenium은 Java·Python·C#·JS·Ruby 등 다중 언어와 Chrome·Firefox·Edge·Safari 등 다중 브라우저 지원**. **Cypress는 JS/TS 전용이지만 브라우저 UI 테스트도 완벽 지원**. **Playwright는 Chromium·Firefox·WebKit 모두 지원**이 큰 장점. **함정 키워드**: \"Selenium Java만·다중 브라우저 불가\", \"Cypress 모든 언어·백엔드 API만\", \"Playwright Chromium 전용\"은 각 프레임워크 특성 정확히 정반대."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2025년 3회 3과목 — NewSQL(Spanner · CockroachDB) 정형 패턴",
+     "stem_md": "**NewSQL 데이터베이스(Google Spanner · CockroachDB · TiDB)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**NewSQL의 등장 배경** — RDBMS의 **ACID 트랜잭션과 SQL 인터페이스**를 유지하면서 NoSQL의 **수평 확장성(Horizontal Scalability)**을 동시에 확보하기 위해 등장했다.",
+      "**Google Spanner** — TrueTime API(GPS·원자시계 기반 글로벌 시각 동기화)를 활용하여 지리적 분산 환경에서도 **강한 일관성(Strong Consistency)**과 **분산 트랜잭션**을 지원한다.",
+      "**CockroachDB** — Spanner에 영감을 받은 오픈 소스 NewSQL로, **분산 SQL·자동 샤딩·다중 리전 복제·PostgreSQL 와이어 호환**을 제공한다.",
+      "**NewSQL은 SQL 인터페이스를 완전히 포기하고 오직 Key-Value 접근만 지원**하며, **ACID 트랜잭션을 지원하지 않고 최종 일관성(Eventual Consistency)만 제공**하고, **NoSQL(MongoDB·Cassandra)과 완전히 동일한 데이터 모델**을 사용한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — NewSQL은 **SQL 인터페이스 + ACID 트랜잭션 + 수평 확장성**의 결합이 본질. **NoSQL의 특징(최종 일관성·Key-Value)을 그대로 채택하지 않음**. Spanner·CockroachDB 모두 강한 일관성·분산 트랜잭션·SQL 표준을 지원. **함정 키워드**: \"SQL 포기·Key-Value만\", \"ACID 미지원·최종 일관성\", \"NoSQL과 동일\"은 NewSQL 정체성 정확히 정반대."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2025년 1회 3과목 — 파티셔닝(수평 · 수직 · Range · List · Hash) 정형 패턴",
+     "stem_md": "**데이터베이스 파티셔닝(Partitioning) 전략**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**수평 파티셔닝(Horizontal Partitioning · Sharding)** — 행(Row) 단위로 데이터를 나누어 서로 다른 파티션·노드에 저장. 각 파티션이 동일한 스키마를 가진다.",
+      "**수직 파티셔닝(Vertical Partitioning)** — 열(Column) 단위로 데이터를 나누어 자주 함께 조회되는 컬럼을 동일 파티션에 저장. 대용량 BLOB·CLOB를 분리하는 데 유용.",
+      "**파티셔닝 방식** — **Range(범위 · 날짜/ID 구간)**·**List(리스트 · 지역/카테고리 값 목록)**·**Hash(해시 · 균등 분산)**·**Composite(복합 · Range+Hash)** 등 다양한 전략이 있다.",
+      "**수평 파티셔닝은 열 단위 분할**이고 **수직 파티셔닝은 행 단위 분할**이며, **Range 파티셔닝은 해시 함수로 균등 분산**하고, **Hash 파티셔닝은 값 목록으로 지정**한다(정의가 정확히 정반대)."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **수평 파티셔닝 = 행(Row) 단위 분할** = 샤딩. **수직 파티셔닝 = 열(Column) 단위 분할**. **Range = 범위 구간 분할·List = 값 목록 분할·Hash = 해시 함수 균등 분산**으로 각각 정확한 정의가 있음. **함정 키워드**: \"수평·수직 정의 뒤바꿈·Range=해시·Hash=값 목록\"은 파티셔닝 4대 방식 정의 정확히 정반대의 극단 오답."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2025년 2회 3과목 — 샤딩(Sharding) 정형 패턴",
+     "stem_md": "**데이터베이스 샤딩(Sharding)** 전략에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**샤딩의 정의** — 대용량 데이터를 **샤드 키(Shard Key)** 기준으로 여러 물리적 노드(샤드)에 분산 저장하여 수평 확장성·처리량을 확보하는 기법.",
+      "**Range 샤딩** — 샤드 키의 범위(예: user_id 1~1M은 샤드 A, 1M~2M은 샤드 B)로 분산. 범위 조회는 유리하나 특정 구간 집중 시 **핫스팟(Hot Spot)** 우려.",
+      "**Hash 샤딩** — 샤드 키에 해시 함수 적용 후 나머지 연산으로 분산. 균등 분산에 유리하나 **범위 조회·정렬**이 어렵고, 샤드 추가·제거 시 대량 재분산 발생(Consistent Hashing으로 완화).",
+      "**샤딩은 오직 수직 분할(컬럼 단위)만을 의미**하며, **샤드 키 선택은 성능에 무관**하고, **범위 조회는 Hash 샤딩이 유리**하며, **Consistent Hashing은 오히려 재분산 량을 늘리는 기법**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 샤딩은 **수평 분할(행 단위)**이며 수직 분할과 반대 개념. **샤드 키 선택은 성능·핫스팟 발생 여부에 결정적**. **범위 조회는 Range 샤딩이 유리**(Hash는 정렬 정보 손실). **Consistent Hashing은 노드 추가·제거 시 재분산 량을 크게 줄이는 기법**. **함정 키워드**: \"수직 분할·샤드 키 성능 무관·Hash 범위 조회 유리·Consistent Hashing 재분산 증가\"는 샤딩 원리 정확히 정반대."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2025년 3회 3과목 — ACID vs BASE 정형 패턴",
+     "stem_md": "**전통 RDBMS의 ACID와 분산 NoSQL의 BASE** 비교에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**ACID** — **A**tomicity(원자성)·**C**onsistency(일관성)·**I**solation(격리성)·**D**urability(지속성). 강한 일관성과 트랜잭션 무결성 보장. 전통 RDBMS의 기본 성질.",
+      "**BASE** — **B**asically **A**vailable(기본 가용성)·**S**oft state(소프트 상태)·**E**ventually consistent(최종 일관성). 가용성·확장성을 우선하고 일관성은 시간이 지나면 수렴.",
+      "**CAP 이론** — 분산 시스템은 Consistency·Availability·Partition tolerance 중 최대 2개만 동시에 만족 가능. ACID는 CA·CP 성향, BASE는 AP 성향으로 볼 수 있다.",
+      "**ACID의 C(Consistency)는 최종 일관성**을 의미하고, **BASE의 E(Eventually consistent)는 즉시 강한 일관성**을 의미하며, **ACID와 BASE는 완전히 동일한 개념**이고, **CAP 이론은 3개 모두 동시 만족을 보장**한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **ACID의 C = 강한 일관성**(트랜잭션 완료 후 무결성 유지). **BASE의 E(Eventually consistent) = 최종 일관성**(시간 지나면 일관됨). ACID와 BASE는 트레이드오프 관계의 서로 다른 철학. CAP 이론은 **3개 중 최대 2개만** 동시 만족(3개 동시 만족 불가). **함정 키워드**: \"ACID C = 최종 일관성·BASE E = 강한 일관성·둘이 동일·CAP 3개 만족\"은 분산 시스템 이론 정확히 정반대."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2025년 1회 4과목 — C 동적 메모리(malloc · free · 메모리 누수) 정형 패턴",
+     "stem_md": "아래 C 코드의 **동적 메모리 관리** 관점에서 문제점을 가장 정확히 지적한 것은?\n```c\n#include <stdio.h>\n#include <stdlib.h>\nint main(void) {\n    int *arr = (int*)malloc(sizeof(int) * 5);\n    for (int i = 0; i < 5; i++) arr[i] = i * 10;\n    arr = (int*)malloc(sizeof(int) * 10);   // ← 문제 지점\n    for (int i = 0; i < 10; i++) arr[i] = i * 100;\n    free(arr);\n    return 0;\n}\n```",
+     "options": [
+      "두 번째 `malloc`이 실패하면 `arr`이 NULL이 되는 문제가 있으나, **free(arr)**로 마지막에 정상 해제되어 메모리 누수는 없다.",
+      "배열 인덱스가 모두 유효한 범위이며, `malloc` 결과 캐스팅도 정상이므로 이 코드는 아무 문제가 없다.",
+      "**첫 번째 `malloc`으로 할당한 5개 int 영역의 주소(포인터)를 잃어버리면서** 그 영역을 다시 `free`할 방법이 없어 **메모리 누수(Memory Leak) 발생**. 두 번째 `malloc` 전에 `free(arr)` 필요.",
+      "`sizeof(int) * 5`는 5바이트가 아닌 20바이트(64비트에서)이므로 배열 크기 계산이 잘못되어 **버퍼 오버플로우(Buffer Overflow)**가 발생한다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 두 번째 `malloc` 호출 시점에 **`arr` 변수가 새 주소로 덮어써지면서** 첫 번째 할당(5개 int = 20바이트)에 대한 포인터를 영구히 잃음. 이 영역은 프로그램이 종료될 때까지 `free` 불가 → **메모리 누수(Memory Leak)**. **해결책**: 두 번째 `malloc` 직전에 `free(arr)` 호출하거나 `realloc(arr, sizeof(int)*10)` 사용. **함정 키워드**: \"누수 없음·문제 없음·버퍼 오버플로우\"는 원인·현상 완전 오진."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2025년 2회 4과목 — Java 스트림 API(Stream · filter · map · collect) 정형 패턴",
+     "stem_md": "아래 **Java 8+ 스트림 API** 코드의 실행 결과로 가장 옳은 것은?\n```java\nimport java.util.*;\nimport java.util.stream.*;\npublic class StreamDemo {\n    public static void main(String[] args) {\n        List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5, 6);\n        int result = nums.stream()\n                         .filter(n -> n % 2 == 0)   // 짝수만\n                         .mapToInt(n -> n * n)      // 제곱\n                         .sum();                     // 합\n        System.out.println(result);\n    }\n}\n```",
+     "options": [
+      "21 (전체 합 1+2+3+4+5+6)",
+      "12 (짝수 합 2+4+6)",
+      "**56 (짝수 제곱의 합: 2²+4²+6² = 4+16+36 = 56)**",
+      "91 (전체 제곱의 합 1²+2²+3²+4²+5²+6²)"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 스트림 파이프라인 = `stream() → filter(짝수) → mapToInt(제곱) → sum()`. 짝수만 필터링: 2·4·6 → 제곱: 4·16·36 → 합: **56**. Stream API는 지연 평가(Lazy Evaluation)로 최종 연산(`sum`) 시점에 실행. **함정 키워드**: \"21(전체 합)\"은 filter 무시, \"12(짝수 합)\"은 map 무시, \"91(전체 제곱 합)\"은 filter 무시한 계산 오답."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2025년 3회 4과목 — Python asyncio(async · await · 코루틴) 정형 패턴",
+     "stem_md": "아래 **Python asyncio** 코드에 관한 설명 중 **가장 옳지 않은 것**은?\n```python\nimport asyncio\nasync def fetch(url, delay):\n    print(f\"start {url}\")\n    await asyncio.sleep(delay)\n    print(f\"done {url}\")\n    return f\"{url}:ok\"\n\nasync def main():\n    results = await asyncio.gather(\n        fetch(\"A\", 2),\n        fetch(\"B\", 1),\n        fetch(\"C\", 3),\n    )\n    print(results)\n\nasyncio.run(main())\n```",
+     "options": [
+      "`async def`로 정의된 함수는 **코루틴(Coroutine)**이며, `await` 키워드로 다른 코루틴의 완료를 비동기적으로 기다린다.",
+      "`asyncio.gather(...)`는 여러 코루틴을 **동시(Concurrent)** 실행하고 모두 완료될 때까지 대기하며, 결과를 **인자 순서대로** 리스트로 반환한다(A→B→C 순).",
+      "위 코드의 총 실행 시간은 세 지연의 **합인 6초가 아니라 최대값인 약 3초**이다(gather는 병렬적으로 실행되므로).",
+      "**`async def` 함수는 일반 함수와 완전히 동일하게 동작**하며 코루틴이 아니고, **`asyncio.gather`는 순차 실행**(A 완료 → B 시작 → C 시작)되며 총 실행 시간은 정확히 6초이고, **`await`는 반드시 동기 블로킹**만 수행한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **`async def`는 코루틴을 정의**하며 일반 함수와 다름(호출 시 즉시 실행되지 않고 코루틴 객체 반환). **`asyncio.gather`는 동시(Concurrent) 실행**하여 총 시간은 최대 지연(약 3초). **`await`는 비동기 대기**(다른 코루틴에 제어권 양보). **함정 키워드**: \"일반 함수 동일·gather 순차·await 동기 블로킹\"은 asyncio 비동기 개념 정확히 정반대."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2025년 1회 4과목 — HTTP/2 · HTTP/3(QUIC) 정형 패턴",
+     "stem_md": "**HTTP/2와 HTTP/3(QUIC)의 신기능·차이점**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**HTTP/2** — **바이너리 프레이밍(Binary Framing)·헤더 압축(HPACK)·서버 푸시(Server Push)·멀티플렉싱(Multiplexing)** 지원. 단일 TCP 연결에서 다수 스트림 병렬 처리.",
+      "**HOL Blocking(Head-of-Line Blocking)** — HTTP/2는 애플리케이션 레벨 멀티플렉싱은 해결하나, **TCP 패킷 손실 시 하위 TCP 레벨의 HOL Blocking**이 여전히 존재한다.",
+      "**HTTP/3(QUIC)** — **UDP 기반**의 QUIC 프로토콜 위에 동작. TLS 1.3 통합·0-RTT 연결·연결 마이그레이션·**TCP HOL Blocking 완전 해소**·독립 스트림.",
+      "**HTTP/2는 텍스트 기반 프로토콜**이며 헤더 압축·멀티플렉싱을 지원하지 않고, **HTTP/3는 TCP 기반**으로 UDP를 사용하지 않으며, **HTTP/3는 HOL Blocking을 오히려 악화**시킨다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **HTTP/2는 바이너리 프로토콜**(텍스트 아님)이며 HPACK 헤더 압축·멀티플렉싱 지원. **HTTP/3는 UDP 기반 QUIC**(TCP 아님) 사용. HTTP/3는 **TCP HOL Blocking을 완전 해소**(각 스트림이 독립). **함정 키워드**: \"HTTP/2 텍스트·헤더 압축 없음·HTTP/3 TCP·HOL Blocking 악화\"는 HTTP 신버전 특징 정확히 정반대."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2025년 2회 5과목 — DevSecOps(Shift Left) 정형 패턴",
+     "stem_md": "**DevSecOps(DevOps + Security)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Shift Left Security** — 보안 활동을 개발 후반부(운영)가 아닌 **개발 초기(설계·코딩)**로 이동시켜 취약점을 조기 발견·저비용으로 수정한다.",
+      "**자동화된 보안 도구** — SAST(정적 분석)·DAST(동적 분석)·IAST(상호작용)·SCA(오픈 소스 컴포넌트 분석)를 CI/CD 파이프라인에 통합해 자동 실행한다.",
+      "**문화적 전환** — 보안팀은 게이트키퍼(Gatekeeper) 역할에서 벗어나 **개발·운영과 협업**하며 \"보안은 모두의 책임(Everyone's Responsibility)\"이라는 문화를 확산한다.",
+      "**DevSecOps는 보안 활동을 개발 최후반(운영)으로 미루는 것**이 원칙(Shift Right)이며, **자동화된 보안 스캔은 오히려 금지**되고 **수동 감사만 허용**하며, **보안팀만 보안을 담당**하고 개발·운영은 관여하지 않는 것이 원칙이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — DevSecOps의 핵심은 **Shift Left**(보안을 개발 초기로 이동, 후반부 X)이며 **자동화 보안 도구(SAST·DAST·SCA)의 CI/CD 통합**이 필수. \"보안은 모두의 책임(Shared Responsibility)\"이 문화적 핵심. **함정 키워드**: \"Shift Right·후반부로 미룸·자동화 금지·보안팀만\"은 DevSecOps 철학 정확히 정반대."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2025년 3회 5과목 — SBOM(SPDX · CycloneDX) 정형 패턴",
+     "stem_md": "**SBOM(Software Bill of Materials · 소프트웨어 자재 명세서)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**SBOM의 정의** — 소프트웨어에 포함된 **모든 컴포넌트·라이브러리·의존성**을 목록화한 명세서. 오픈 소스·상용 라이브러리, 버전, 라이선스 정보를 포함한다.",
+      "**주요 표준 포맷** — **SPDX(Software Package Data Exchange · Linux Foundation)**와 **CycloneDX(OWASP)**가 대표적이며, JSON·XML 등 다양한 형식으로 표현 가능하다.",
+      "**활용 목적** — 공급망 공격(Supply Chain Attack) 대응, 취약점 관리(CVE 매칭), 라이선스 컴플라이언스, 보안 감사·규제(미국 EO 14028) 대응.",
+      "**SBOM은 하드웨어 부품 명세서**로 소프트웨어와는 무관하며, **SPDX·CycloneDX는 하드웨어 인증서 규격**이고, **SBOM은 공급망 공격 대응과 아무 관련이 없으며**, **오히려 컴포넌트 정보를 감추는 것이 목적**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — SBOM은 **소프트웨어 자재 명세서**(하드웨어 X)이며 SPDX·CycloneDX는 SW 컴포넌트 명세 표준. **공급망 공격 대응·취약점 추적·라이선스 컴플라이언스**가 핵심 목적. 미국 EO 14028(2021)로 정부 조달 SW의 SBOM 의무화. **함정 키워드**: \"하드웨어 부품·SPDX 하드웨어 인증서·공급망 무관·컴포넌트 감추기\"는 SBOM 정체성 정확히 정반대."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2025년 1회 5과목 — 제로 트러스트(Zero Trust) 정형 패턴",
+     "stem_md": "**제로 트러스트 아키텍처(Zero Trust Architecture · ZTA)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**핵심 원칙** — **\"Never Trust, Always Verify\"** — 네트워크 내부/외부 구분 없이 **모든 접근을 검증**하고, 최소 권한·마이크로세그멘테이션·지속적 검증을 원칙으로 한다.",
+      "**BeyondCorp(구글) 모델** — 사용자·디바이스·컨텍스트(위치·시간·이상행위) 기반의 동적 접근 제어. 회사 VPN 없이도 안전한 원격 접근 실현.",
+      "**주요 구성 요소** — PEP(Policy Enforcement Point)·PDP(Policy Decision Point)·아이덴티티 스토어·MFA·마이크로세그멘테이션·EDR(Endpoint Detection & Response)·SIEM 등이 유기적으로 결합된다.",
+      "**제로 트러스트는 \"회사 내부망은 무조건 신뢰\"의 전통적 경계 방어(Perimeter Defense)와 정확히 동일한 개념**이며, **VPN·방화벽만 있으면 자동으로 구현**되고, **최소 권한·MFA·지속 검증은 불필요**한 오래된 개념이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 제로 트러스트는 **\"내부망도 신뢰하지 말라\"**는 전통적 경계 방어의 정확히 반대 개념. **VPN·방화벽만으로 자동 구현되지 않으며**, 최소 권한·MFA·지속 검증·마이크로세그멘테이션이 필수. NIST SP 800-207이 표준화. **함정 키워드**: \"경계 방어와 동일·VPN만 있으면 됨·MFA·최소 권한 불필요\"는 Zero Trust 철학 정확히 정반대."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2025년 2회 5과목 — 개인정보보호(GDPR · CCPA) · AI 보안(적대적 예제) 정형 패턴",
+     "stem_md": "**개인정보보호 규제(GDPR · CCPA · PIPA)와 AI 보안(적대적 예제)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**GDPR(EU General Data Protection Regulation)** — EU 시민의 개인정보 보호 규정. **잊혀질 권리(Right to be Forgotten)**·데이터 이동권·명시적 동의·72시간 내 유출 신고·최대 매출 4% 과징금.",
+      "**CCPA(California Consumer Privacy Act)** — 캘리포니아 소비자 개인정보 보호법. 정보 열람·삭제·판매 거부(Opt-Out) 권리 등을 규정하며, PIPA(대한민국 개인정보보호법)와 유사한 취지.",
+      "**적대적 예제(Adversarial Example)** — AI 모델에 **사람 눈에는 감지 안 되는 미세한 노이즈**를 추가하여 오분류를 유발하는 공격(예: 판다 이미지에 노이즈 → 긴팔원숭이로 오인). 방어책으로 적대적 훈련(Adversarial Training) 등이 있다.",
+      "**GDPR은 미국의 규제**로 EU와 무관하며 잊혀질 권리 조항이 없고, **CCPA는 GDPR과 완전히 정반대의 규제**로 개인정보 판매를 강제하며, **적대적 예제는 AI 정확도를 오히려 높이는 기법**이라 방어할 필요가 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **GDPR = EU 규제**(2018년 5월 발효)로 잊혀질 권리 명시(제17조). **CCPA는 GDPR과 유사 취지의 미국 캘리포니아 규제**(정반대 아님). **적대적 예제는 AI 취약점을 노리는 공격**으로 방어(Adversarial Training·Defensive Distillation·인증 방어)가 필수 대책. **함정 키워드**: \"GDPR 미국·CCPA 정반대·개인정보 판매 강제·적대적 예제가 정확도 향상\"은 규제·AI 보안 사실관계 정확히 정반대."
+    }
+   ]
   }
  ]
 }
