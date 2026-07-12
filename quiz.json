@@ -9596,6 +9596,274 @@
      "explanation_md": "**정답 ④** — **GDPR = EU 규제**(2018년 5월 발효)로 잊혀질 권리 명시(제17조). **CCPA는 GDPR과 유사 취지의 미국 캘리포니아 규제**(정반대 아님). **적대적 예제는 AI 취약점을 노리는 공격**으로 방어(Adversarial Training·Defensive Distillation·인증 방어)가 필수 대책. **함정 키워드**: \"GDPR 미국·CCPA 정반대·개인정보 판매 강제·적대적 예제가 정확도 향상\"은 규제·AI 보안 사실관계 정확히 정반대."
     }
    ]
+  },
+  {
+   "day": 63,
+   "date": "2026-07-13",
+   "subject": "Phase 3 기출회독",
+   "topic": "2025년 정보처리기사 필기 기출 (회독 2/4 · 격자 40칸 완결) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2025년 1회 1과목 — GraphQL vs REST 정형 패턴",
+     "stem_md": "GraphQL과 REST 아키텍처 비교에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "REST는 리소스별로 다수의 엔드포인트를 사용하는 반면 GraphQL은 일반적으로 단일 엔드포인트(/graphql)를 사용한다.",
+      "GraphQL은 클라이언트가 필요한 필드만 지정 조회할 수 있어 REST의 오버페칭(Over-fetching)·언더페칭(Under-fetching) 문제를 완화한다.",
+      "GraphQL은 스키마 우선(Schema-First) 개발·타입 시스템·인트로스펙션(Introspection)을 지원한다.",
+      "REST는 GET/POST/PUT/DELETE 등 HTTP 메서드를 활용하고 GraphQL은 오직 GET 메서드만 사용해야 하며 캐싱은 GraphQL이 REST보다 항상 유리하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — GraphQL도 실제로는 **GET·POST 모두 사용**(대개 POST로 쿼리 전송, GET에서도 쿼리 파라미터로 가능). **캐싱은 HTTP 캐시가 성숙한 REST가 URL 단위로 더 유리한 편**이고 GraphQL은 단일 엔드포인트라 응답별 캐싱이 어려워 별도 전략(퍼시스티드 쿼리·Apollo Client 캐시)을 요구한다. **함정 키워드**: \"오직 GET만·캐싱은 GraphQL이 항상 유리\"는 프로토콜 사실관계 정반대."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2025년 2회 1과목 — gRPC(HTTP/2 · ProtoBuf) 정형 패턴",
+     "stem_md": "gRPC에 대한 설명으로 옳은 것은?",
+     "options": [
+      "gRPC는 HTTP/1.1 기반의 텍스트 프로토콜로 JSON을 기본 직렬화 포맷으로 사용한다.",
+      "gRPC는 HTTP/2 기반이며 Protocol Buffers(ProtoBuf)를 IDL(인터페이스 정의 언어) 겸 직렬화 포맷으로 사용하고 단항·서버 스트리밍·클라이언트 스트리밍·양방향 스트리밍 4가지 통신 방식을 지원한다.",
+      "gRPC는 브라우저의 자바스크립트 코드에서 별도의 프록시 없이 자유롭게 호출 가능하다.",
+      "gRPC는 언어별 종속성이 강해 서버·클라이언트 모두 반드시 Java로 구현해야 한다."
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②** — gRPC = **HTTP/2 + Protocol Buffers(바이너리 IDL·직렬화) + 4가지 통신 방식(Unary · Server Streaming · Client Streaming · Bidirectional Streaming)**. 다양한 언어(Java·Go·C++·Python·Node 등) SDK 제공. ①은 REST/JSON, ③은 브라우저 직접 호출 불가(gRPC-Web·프록시 필요), ④는 언어 다중 지원과 정반대. **함정 키워드**: \"HTTP/1.1·JSON·브라우저 직접 호출·Java 전용\"은 gRPC 사실관계 정반대."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2025년 3회 1과목 — API 게이트웨이 정형 패턴",
+     "stem_md": "API 게이트웨이(API Gateway)의 주요 역할로 옳지 않은 것은?",
+     "options": [
+      "요청 라우팅(Routing) 및 서비스 디스커버리(Service Discovery)와 연동",
+      "인증(Authentication)·인가(Authorization)·Rate Limiting·Throttling 등 횡단 관심사(Cross-cutting Concern) 처리",
+      "프로토콜 변환(예: REST ↔ gRPC)·응답 캐싱·로깅·모니터링",
+      "마이크로서비스 내부 비즈니스 로직 실행 및 각 서비스의 데이터베이스 스키마 직접 관리"
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — API 게이트웨이는 **횡단 관심사(라우팅·인증·인가·Rate Limiting·프로토콜 변환·캐싱·로깅)를 처리하는 진입점**이지 **비즈니스 로직 실행·마이크로서비스 내부 DB 스키마 관리**는 하지 않는다. 그 역할은 각 마이크로서비스의 책임. **함정 키워드**: \"비즈니스 로직 직접 실행·각 서비스 DB 스키마 관리\"는 게이트웨이 책임 경계 완전 위반."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2025년 1회 1과목 — 헥사고날/클린 아키텍처 · 이벤트 소싱/CQRS/BFF 정형 패턴",
+     "stem_md": "아키텍처 패턴에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "헥사고날 아키텍처(Hexagonal · Ports and Adapters)는 도메인을 중심에 두고 외부(UI·DB·메시징)와의 결합을 포트(인터페이스)와 어댑터(구현)로 분리한다.",
+      "클린 아키텍처(Clean Architecture)의 의존성 규칙은 \"의존성은 항상 안쪽(도메인)을 향한다\"이며 바깥 계층이 안쪽 계층을 알 수 있지만 그 반대는 허용되지 않는다.",
+      "이벤트 소싱(Event Sourcing)은 상태의 최종값만 저장하며 이벤트 로그·재현(Replay)·시간 여행(Time Travel) 조회는 지원하지 않는다.",
+      "CQRS(Command Query Responsibility Segregation)는 명령(쓰기)과 조회(읽기)의 모델을 분리하고, BFF(Backend For Frontend)는 클라이언트(웹·모바일)별로 최적화된 게이트웨이를 별도로 두는 패턴이다."
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 이벤트 소싱의 본질은 **상태 최종값이 아닌 도메인 이벤트 시퀀스를 저장**하여 **재현(Replay)·시간 여행 조회·감사(Audit)** 가 가능하다는 점. \"최종값만 저장·재현 불가\"는 이벤트 소싱을 정확히 반대로 설명한 것. 다른 보기(헥사고날·클린 아키텍처 의존성 규칙·CQRS·BFF)는 모두 정확. **함정 키워드**: \"이벤트 소싱이 최종값만 저장·Replay 미지원\"은 정의 정반대."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2025년 2회 2과목 — 병행성(뮤텍스 · 세마포어 · 데드락 4조건) 정형 패턴",
+     "stem_md": "병행성(Concurrency) 제어에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "뮤텍스(Mutex)는 상호 배제를 위한 이진 락으로, 소유권(Owner)이 있는 스레드만이 해제할 수 있다.",
+      "세마포어(Semaphore)는 카운팅 형태로 여러 자원의 동시 접근 제한이 가능하며, wait(P)·signal(V) 연산으로 제어한다.",
+      "데드락 발생 4대 필요조건은 상호 배제(Mutual Exclusion)·점유 대기(Hold and Wait)·비선점(No Preemption)·환형 대기(Circular Wait)이며, 이 중 하나라도 깨면 데드락은 발생하지 않는다.",
+      "락을 사용하지 않는 무잠금(Lock-free) 알고리즘은 원자적 연산(CAS 등)을 활용하며 항상 락 기반보다 성능이 우수하고 구현이 단순하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 무잠금(Lock-free) 알고리즘은 CAS(Compare-And-Swap) 등 원자 연산을 사용하지만 **ABA 문제·재시도 폭주·구현 난이도가 매우 높아 \"항상 락 기반보다 우수하고 단순\"하다는 명제는 거짓**이다. 상황에 따라 락 기반이 더 유리하다. 다른 보기(뮤텍스 소유권·세마포어 P/V·데드락 4조건)는 모두 정답. **함정 키워드**: \"락-free는 항상 락보다 빠르고 단순\"은 실무 오해 유도 초빈출 함정."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2025년 3회 2과목 — 트라이(Trie) 정형 패턴",
+     "stem_md": "트라이(Trie) 자료구조에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "문자열 집합을 저장하는 다진 트리로, 접두사(Prefix)를 공유하는 문자열들이 같은 경로를 사용한다.",
+      "길이 m의 문자열 검색을 O(m) 시간에 수행할 수 있어 사전(Dictionary)·자동완성·IP 라우팅(라딕스 트라이)에 활용된다.",
+      "공간 효율을 위해 압축 트라이(Compressed Trie·Radix Tree·PATRICIA)로 확장할 수 있다.",
+      "트라이의 시간 복잡도는 저장된 문자열의 개수 n에 비례하여 검색이 항상 O(n)이 소요된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 트라이의 **검색 시간은 문자열 개수 n이 아니라 검색 대상 문자열 길이 m에 비례하여 O(m)** 이다. n에 무관하다는 점이 트라이의 핵심 강점. **함정 키워드**: \"검색 O(n)·저장된 문자열 개수에 비례\"는 트라이 이점을 정면 부정하는 완전 오답."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2025년 1회 2과목 — KMP · 라빈-카프 문자열 검색 정형 패턴",
+     "stem_md": "문자열 검색 알고리즘에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "단순(Naive) 문자열 검색은 최악 O(n·m)이며, n은 텍스트 길이·m은 패턴 길이이다.",
+      "KMP(Knuth-Morris-Pratt)는 실패 함수(Failure Function·부분 일치 테이블)를 전처리하여 텍스트 문자를 되돌리지 않고 O(n+m)에 검색한다.",
+      "라빈-카프(Rabin-Karp)는 롤링 해시(Rolling Hash)를 사용하여 여러 패턴을 동시에 탐색하는 데 유리하며, 평균 O(n+m)·최악 O(n·m)이다.",
+      "보이어-무어(Boyer-Moore)는 패턴의 왼쪽부터 검사하여 실패 시 오른쪽으로 한 칸만 이동하며, 실무에서 KMP보다 항상 느리다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 보이어-무어(Boyer-Moore)는 **패턴의 오른쪽부터(뒤에서 앞으로) 검사**하며 **불일치 문자·좋은 접미사 규칙으로 여러 칸 점프**하여 실무에서 **KMP보다 대개 빠르다**(grep의 기본이었을 정도). \"왼쪽부터·한 칸씩 이동·항상 KMP보다 느리다\"는 정확히 정반대. **함정 키워드**: \"보이어-무어 왼쪽부터·한 칸 이동·KMP보다 항상 느림\"은 알고리즘 방향·성능 정반대."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2025년 2회 2과목 — TDD · BDD · Mutation Testing 정형 패턴",
+     "stem_md": "테스트 방법론에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "TDD(Test-Driven Development)는 Red(실패 테스트)→Green(최소 코드 통과)→Refactor(리팩토링) 사이클을 반복한다.",
+      "BDD(Behavior-Driven Development)는 Given(사전 조건)-When(행위)-Then(결과) 시나리오로 요구사항을 표현하며 Cucumber·SpecFlow 등이 대표 도구이다.",
+      "Mutation Testing(변이 테스트)은 원본 코드에 인위적 결함(Mutant)을 주입한 뒤, 테스트가 그 결함을 감지(Kill)하는지로 테스트 스위트의 품질을 측정한다. PIT·Stryker가 대표 도구이다.",
+      "TDD의 목적은 커버리지 100% 달성 자체이며, 리팩토링 단계는 시간 부족 시 생략해도 무방하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — TDD의 목적은 **커버리지 수치 자체가 아니라 회귀 방지·설계 개선·문서화**이며, **리팩토링 단계는 사이클의 필수 요소**(생략 시 부채 누적). ①②③은 모두 정확. **함정 키워드**: \"TDD 목적 = 커버리지 100%·리팩토링 생략 가능\"은 TDD 철학 정반대."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2025년 3회 3과목 — 데이터 웨어하우스(DW) 정형 패턴",
+     "stem_md": "데이터 웨어하우스(Data Warehouse)의 특성(Inmon 정의)으로 옳지 않은 것은?",
+     "options": [
+      "주제 지향적(Subject-Oriented) — 업무 프로세스가 아닌 주제 영역(고객·매출·상품 등) 중심으로 구성",
+      "통합적(Integrated) — 여러 원천 시스템의 이질적 데이터를 표준화·정제(ETL)하여 통합",
+      "시계열적(Time-Variant) — 특정 시점의 스냅샷을 유지하며 이력(History) 데이터를 장기간 축적",
+      "휘발성(Volatile) — 최신 트랜잭션 반영을 위해 데이터를 실시간으로 갱신·삭제하며 이력을 유지하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Inmon의 DW 정의는 **비휘발성(Non-Volatile)** 이다. **한 번 저장된 데이터는 정기 배치로 적재되며, 임의로 실시간 갱신·삭제하지 않고 이력을 계속 축적**한다. \"휘발성·실시간 갱신·이력 미유지\"는 OLTP 특성이지 DW가 아니다. **함정 키워드**: \"휘발성·실시간 삭제·이력 X\"는 DW 4대 특성 중 하나를 정확히 정반대로 뒤집은 초빈출 함정."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2025년 1회 3과목 — 데이터 레이크 · 레이크하우스 정형 패턴",
+     "stem_md": "데이터 레이크(Data Lake)와 레이크하우스(Lakehouse)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "데이터 레이크는 정형·반정형·비정형 원시 데이터(Raw Data)를 그대로 저장하며 Schema-on-Read 방식을 취한다.",
+      "데이터 웨어하우스가 Schema-on-Write(사전 정형)를 요구하는 것과 대비되어, 데이터 레이크는 저장 시점에 스키마를 강제하지 않는다.",
+      "레이크하우스(Lakehouse)는 데이터 레이크의 확장성과 데이터 웨어하우스의 트랜잭션·품질(ACID·스키마 강제)을 결합하며, Delta Lake·Apache Iceberg·Apache Hudi가 대표 구현이다.",
+      "데이터 레이크는 저장 비용이 매우 높고 정형 데이터만 취급하므로 반정형(JSON)·비정형(이미지·로그)은 저장할 수 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 데이터 레이크는 **저비용 오브젝트 스토리지(S3·ADLS·GCS) 기반이며 정형·반정형·비정형 모두 저장 가능**하다는 것이 핵심 강점. \"고비용·정형만 저장 가능\"은 데이터 레이크 정의 정면 부정. **함정 키워드**: \"레이크는 정형만·저장 비용 매우 높음\"은 개념 정반대."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2025년 2회 3과목 — OLTP vs OLAP 정형 패턴",
+     "stem_md": "OLTP(Online Transaction Processing)와 OLAP(Online Analytical Processing) 비교로 옳지 않은 것은?",
+     "options": [
+      "OLTP는 짧은 트랜잭션·CRUD·정규화된 스키마를 특징으로 하며, 초당 트랜잭션(TPS)·응답 시간이 핵심 지표이다.",
+      "OLAP는 대량 집계·분석·비정규화(스타·스노우플레이크 스키마)를 특징으로 하며, 쿼리 응답 시간·복잡도가 핵심 지표이다.",
+      "OLTP는 행 지향(Row-oriented) 저장이 유리하고, OLAP는 열 지향(Column-oriented) 저장이 유리하다.",
+      "OLAP는 짧은 실시간 CRUD 트랜잭션에 최적화되어 있어 OLTP의 상위 호환이며 OLTP를 대체하기 위한 시스템이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — OLAP는 **분석·집계 전용**으로 **짧은 실시간 CRUD 트랜잭션(OLTP)을 대체할 수 없다**. 두 시스템은 상호 보완적으로 공존(운영계=OLTP → ETL → 분석계=OLAP)한다. **함정 키워드**: \"OLAP가 OLTP 상위 호환·대체 시스템\"은 두 시스템의 목적을 정면 부정."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2025년 3회 3과목 — 인메모리 DB(Redis · Memcached · HANA) 정형 패턴",
+     "stem_md": "인메모리(In-Memory) DB에 대한 설명으로 옳은 것은?",
+     "options": [
+      "Redis는 문자열·리스트·해시·셋·정렬셋(Sorted Set)·스트림·비트맵 등 다양한 자료구조를 지원하며, RDB 스냅샷·AOF 로그로 영속성을 제공한다.",
+      "Memcached는 다양한 자료구조와 영속성·복제·클러스터링을 기본 제공하는 반면, Redis는 단순 Key-Value 캐시 전용이다.",
+      "SAP HANA는 디스크 기반 저장만 지원하며 실시간 분석(HTAP)에는 부적합하다.",
+      "인메모리 DB는 항상 RAM에만 저장하므로 어떠한 방식으로도 재시작 후 데이터를 복구할 수 없다."
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — Redis는 **다양한 자료구조(String·List·Hash·Set·Sorted Set·Stream·Bitmap·HyperLogLog·Geo)** 를 지원하고 **RDB 스냅샷·AOF 로그**로 영속성을 제공한다. ②는 정반대(Memcached가 단순 K-V, Redis가 다양 자료구조), ③은 HANA가 인메모리·HTAP 대표 상용 제품, ④는 영속성 옵션 존재로 정답 아님. **함정 키워드**: \"Memcached가 자료구조 다양·Redis 단순 K-V·HANA 디스크만\"은 사실관계 정반대."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2025년 1회 4과목 — C 함수 포인터 정형 패턴",
+     "stem_md": "다음 C 코드의 출력 결과로 옳은 것은?\n```c\n#include <stdio.h>\nint add(int a, int b) { return a + b; }\nint mul(int a, int b) { return a * b; }\nint apply(int (*fp)(int, int), int x, int y) { return fp(x, y); }\nint main() {\n    int (*ops[2])(int, int) = { add, mul };\n    int r = 0;\n    for (int i = 0; i < 2; i++) r += apply(ops[i], 3, 4);\n    printf(\"%d\\n\", r);\n    return 0;\n}\n```",
+     "options": [
+      "7",
+      "12",
+      "19",
+      "84"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 함수 포인터 배열 `ops[0]=add, ops[1]=mul` 을 순회하며 `apply(fp,3,4)` 호출. `add(3,4)=7`·`mul(3,4)=12` → 합 **7+12=19**. ①은 add만·②는 mul만·④는 곱한 실수 유도. **함정 키워드**: \"7·12\"는 개별 함수 결과만 계산한 트레이싱 오류."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2025년 2회 4과목 — Java 람다 · 함수형 인터페이스 정형 패턴",
+     "stem_md": "다음 Java 코드의 출력 결과로 옳은 것은?\n```java\nimport java.util.function.*;\nimport java.util.*;\nimport java.util.stream.*;\npublic class Main {\n    public static void main(String[] args) {\n        Function<Integer, Integer> sq = x -> x * x;\n        Predicate<Integer> isEven = n -> n % 2 == 0;\n        int sum = Stream.of(1, 2, 3, 4, 5)\n                        .filter(isEven)\n                        .map(sq)\n                        .mapToInt(Integer::intValue)\n                        .sum();\n        System.out.println(sum);\n    }\n}\n```",
+     "options": [
+      "20",
+      "25",
+      "30",
+      "55"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — 짝수 필터 {2,4} → 제곱 {4,16} → 합 **20**. 홀수 포함 실수(3²=9, 5²=25) → 25/30, 원소 합(1+2+3+4+5=15) 오답 유도 함정. **함정 키워드**: \"25·30·55\"는 필터·제곱 순서·범위 계산 오류."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2025년 3회 4과목 — Python 데코레이터 정형 패턴",
+     "stem_md": "다음 Python 코드의 출력 결과로 옳은 것은?\n```python\ndef deco(fn):\n    def wrapper(*args, **kwargs):\n        result = fn(*args, **kwargs)\n        return result * 2\n    return wrapper\n\n@deco\ndef add(a, b):\n    return a + b\n\n@deco\n@deco\ndef sub(a, b):\n    return a - b\n\nprint(add(3, 4), sub(10, 3))\n```",
+     "options": [
+      "14 28",
+      "7 7",
+      "14 7",
+      "7 28"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — `@deco`는 함수 반환값을 2배로 만드는 데코레이터. **`add(3,4)`**: `deco` 1회 적용 → 원본 `3+4=7` → wrapper `7*2 = 14`. **`sub(10,3)`**: `@deco @deco` 2회 중첩은 `sub = deco(deco(sub_original))`로 전개 → `inner = deco(sub_original)` → `inner(10,3) = (10-3)*2 = 14` → `outer = deco(inner)` → `outer(10,3) = 14*2 = 28`. 따라서 결과는 **`14 28`**. ②는 데코레이터 미적용·③은 sub만 1회 적용 실수·④는 add만 미적용 실수 유도. **함정 키워드**: \"데코레이터 중첩은 안쪽부터·매번 wrapper가 반환값을 재가공\"이라는 순서 원리를 놓치면 오답 유도 초빈출."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2025년 1회 4과목 — WebSocket · gRPC 통신 정형 패턴",
+     "stem_md": "실시간 양방향 통신 프로토콜에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "WebSocket은 HTTP Upgrade 핸드셰이크(Status 101 Switching Protocols)로 시작하여 이후 TCP 위에서 풀 듀플렉스(Full-Duplex) 양방향 통신을 제공한다.",
+      "WebSocket은 스킴 ws://(평문)·wss://(TLS 암호화)를 사용하며, 채팅·주식 시세·게임 등 저지연 양방향 시나리오에 적합하다.",
+      "gRPC는 HTTP/2 기반으로 단항·서버 스트리밍·클라이언트 스트리밍·양방향 스트리밍을 지원하며 브라우저에서는 gRPC-Web을 통해 접근한다.",
+      "WebSocket은 요청-응답(Request-Response) 반이중(Half-Duplex) 프로토콜로, 서버가 클라이언트로 능동적으로 데이터를 보낼 수 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — WebSocket은 **풀 듀플렉스(Full-Duplex) 양방향 프로토콜**로 서버가 클라이언트로 능동 푸시 가능(HTTP 폴링과 대비되는 핵심 강점). \"요청-응답 반이중·서버 능동 전송 불가\"는 프로토콜 정의 정반대. **함정 키워드**: \"WebSocket 반이중·서버 푸시 불가\"는 존재 이유 자체 부정."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2025년 2회 5과목 — 12-Factor App(클라우드 네이티브) 정형 패턴",
+     "stem_md": "12-Factor App(Heroku 발) 원칙에 해당하지 않는 것은?",
+     "options": [
+      "코드베이스(Codebase) — 하나의 코드베이스를 버전 관리, 여러 배포 대상",
+      "설정(Config) — 환경 변수에 저장(코드와 분리)",
+      "상태(Stateful) — 프로세스는 반드시 로컬 파일 시스템에 세션 상태를 유지해야 한다",
+      "로그(Logs) — 이벤트 스트림으로 취급(stdout 출력, 수집·저장은 외부에)"
+     ],
+     "answer": 2,
+     "explanation_md": "**정답 ③** — 12-Factor 6번째 원칙은 **\"프로세스(Processes) — 무상태(Stateless)로 실행\"** 이다. **세션 상태는 반드시 외부 스토어(Redis·DB)에 저장**해야 하며, **로컬 파일 시스템·메모리는 신뢰할 수 없다**(스케일 아웃·재시작 시 유실). \"로컬 파일에 상태 유지\"는 12-Factor 철학 정반대. **함정 키워드**: \"Stateful·로컬 파일 세션 유지\"는 12-Factor 6번(Processes) 정면 부정 초빈출 함정."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2025년 3회 5과목 — GitOps 정형 패턴",
+     "stem_md": "GitOps에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "Git 저장소를 시스템 상태의 단일 진실 원천(Single Source of Truth)으로 삼는다.",
+      "선언적(Declarative) 구성을 사용하고, 실제 클러스터 상태를 Git과 지속적으로 동기화(Reconciliation)한다.",
+      "ArgoCD·Flux 등이 대표 도구로, Pull 방식으로 에이전트가 클러스터 내부에서 Git을 감시하고 자동 배포한다.",
+      "변경은 반드시 클러스터에 직접 수동 kubectl 명령으로만 적용해야 하며 Git PR·머지 이력과는 분리 관리한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — GitOps의 핵심은 **모든 변경이 Git PR·머지를 통해서만 이루어지고, 자동화된 컨트롤러(ArgoCD·Flux)가 이를 클러스터에 지속적으로 동기화**한다는 점. **수동 kubectl 직접 적용은 Drift 발생·GitOps 원칙 정면 위반**. **함정 키워드**: \"수동 kubectl만·Git과 분리\"는 GitOps 정의 완전 정반대."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2025년 1회 5과목 — SRE(SLI · SLO · SLA · 에러 예산) 정형 패턴",
+     "stem_md": "SRE(Site Reliability Engineering) 핵심 지표에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "SLI(Service Level Indicator) — 실제 측정 가능한 서비스 품질 지표(가용성·응답 시간·에러율 등)",
+      "SLO(Service Level Objective) — SLI에 대한 내부 목표치(예: 가용성 99.9%)",
+      "SLA(Service Level Agreement) — 고객과의 계약상 최소 보장치와 미달 시 환불·페널티 조항 포함",
+      "에러 예산(Error Budget) = SLO를 초과 달성한 여유이며, 예산이 남으면 신기능 배포를 즉시 중단해야 한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 에러 예산(Error Budget) = **1 − SLO** 로 정의되는 **\"허용 가능한 실패의 총량\"**. 예산이 **남으면 신기능·위험한 변경을 배포할 여유가 있다는 뜻**이고, **예산을 소진하면 신기능 배포를 중단하고 안정화에 집중**한다. \"예산이 남으면 배포 중단\"은 방향 정확히 정반대. **함정 키워드**: \"에러 예산 = SLO 초과 여유·남으면 중단\"은 개념 정반대 초빈출 함정."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2025년 2회 5과목 — 핀옵스(FinOps) · 양자내성암호(PQC) 정형 패턴",
+     "stem_md": "클라우드 비용 관리(FinOps)와 양자내성암호(PQC)에 대한 설명으로 옳지 않은 것은?",
+     "options": [
+      "핀옵스(FinOps)는 재무·엔지니어링·비즈니스가 협력해 클라우드 지출을 가시화하고 최적화하는 문화·프레임워크로, 정보 제공(Inform)→최적화(Optimize)→운영(Operate) 단계를 반복한다.",
+      "핀옵스의 실무 기법에는 예약 인스턴스(RI)·Savings Plan·스팟 인스턴스·리소스 태깅·유휴 자원 회수(Rightsizing)·Auto-scaling 등이 있다.",
+      "양자내성암호(PQC · Post-Quantum Cryptography)는 격자 기반(Lattice-based)·해시 기반·다변수·부호 기반 등으로 분류되며, NIST가 2024년 CRYSTALS-Kyber(KEM)·CRYSTALS-Dilithium(서명) 등을 표준으로 채택하였다.",
+      "양자컴퓨터의 쇼어(Shor) 알고리즘은 대칭키(AES)를 무력화하므로 AES는 반드시 폐기되어야 하며, RSA·ECC는 그로버(Grover) 알고리즘의 영향을 받지 않아 안전하게 유지된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **쇼어(Shor) 알고리즘은 RSA·ECC 등 공개키 암호(정수 인수분해·이산 로그)를 다항 시간에 무력화**한다. **AES 대칭키는 쇼어의 영향을 직접 받지 않으며**, 그로버(Grover)로 유효 키 길이가 절반이 되는 정도(AES-256 → AES-128 수준)라 **키 길이 확장으로 대응 가능**. \"쇼어가 AES 무력화·RSA/ECC는 그로버 영향 없어 안전\"은 두 알고리즘의 타깃을 완전히 뒤바꾼 오답. **함정 키워드**: \"쇼어=AES·그로버=RSA/ECC 무영향\"은 양자 알고리즘 타깃 정반대 뒤바꾸기 초빈출 함정."
+    }
+   ]
   }
  ]
 }
