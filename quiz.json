@@ -9864,6 +9864,274 @@
      "explanation_md": "**정답 ④** — **쇼어(Shor) 알고리즘은 RSA·ECC 등 공개키 암호(정수 인수분해·이산 로그)를 다항 시간에 무력화**한다. **AES 대칭키는 쇼어의 영향을 직접 받지 않으며**, 그로버(Grover)로 유효 키 길이가 절반이 되는 정도(AES-256 → AES-128 수준)라 **키 길이 확장으로 대응 가능**. \"쇼어가 AES 무력화·RSA/ECC는 그로버 영향 없어 안전\"은 두 알고리즘의 타깃을 완전히 뒤바꾼 오답. **함정 키워드**: \"쇼어=AES·그로버=RSA/ECC 무영향\"은 양자 알고리즘 타깃 정반대 뒤바꾸기 초빈출 함정."
     }
    ]
+  },
+  {
+   "day": 64,
+   "date": "2026-07-14",
+   "subject": "Phase 3 기출회독",
+   "topic": "2025년 정보처리기사 필기 기출 (회독 3/4 · 격자 60칸 완결) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2025년 1회 1과목 — 서비스 메시(Service Mesh · Istio · Linkerd) 정형 패턴",
+     "stem_md": "**서비스 메시(Service Mesh)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**정의** — 마이크로서비스 간 통신을 처리하는 전용 인프라 계층으로, 트래픽 라우팅·관측성(Observability)·보안(mTLS)·복원성(재시도·서킷 브레이커)을 애플리케이션 코드 수정 없이 인프라 레벨에서 제공한다.",
+      "**대표 구현** — **Istio**(Envoy 프록시 기반 · Control Plane = istiod)·**Linkerd**(Rust 기반 초경량)·**Consul Connect** 등이 있으며, 오픈소스 CNCF 프로젝트로 성장했다.",
+      "**아키텍처** — 각 마이크로서비스 파드에 **사이드카(Sidecar) 프록시**(Envoy 등)를 함께 배치하여 애플리케이션 트래픽을 모두 프록시가 가로채 처리하며, 컨트롤 플레인이 프록시 설정을 중앙 관리한다.",
+      "**서비스 메시는 애플리케이션 코드에 통신 로직(재시도·서킷 브레이커·mTLS)을 직접 삽입해야 동작**하며, **사이드카 프록시 없이 SDK만으로 구현되고**, **관측성·트래픽 제어는 서비스 메시의 관심사가 아니다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 서비스 메시의 핵심은 **애플리케이션 코드 수정 없이 사이드카 프록시(Envoy 등)와 컨트롤 플레인이 통신·보안·관측성·복원성을 인프라 레벨에서 제공**한다는 점. \"SDK로 코드에 직접 삽입·사이드카 불필요·관측성 무관\"은 서비스 메시 존재 이유 자체를 정면 부정. **함정 키워드**: \"SDK 삽입·프록시 없음·관측성 무관\"은 서비스 메시 정의 정반대."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2025년 2회 1과목 — 사이드카(Sidecar) 패턴 정형 패턴",
+     "stem_md": "**사이드카(Sidecar) 패턴**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "주 애플리케이션 컨테이너 옆에 **보조 컨테이너(Sidecar)** 를 함께 배포하여 로깅·프록시·설정 동기화·보안 등 **횡단 관심사(Cross-cutting Concern)** 를 분리·전담시킨다.",
+      "Kubernetes에서는 **동일 Pod 내 여러 컨테이너**가 네트워크·볼륨을 공유하므로 사이드카가 자연스럽게 구현된다(로컬호스트 통신·공유 볼륨 활용).",
+      "대표 사례로 **Envoy 프록시**(서비스 메시)·**Fluentd/Fluent Bit**(로그 수집)·**Vault Agent**(시크릿 주입)·**init 컨테이너 후 실행되는 헬퍼**가 있으며, 언어·프레임워크에 독립적이다.",
+      "사이드카 패턴은 **주 애플리케이션 소스에 횡단 관심사를 하드코딩**하는 방식이며, **별도 컨테이너 없이 하나의 프로세스로 모든 관심사를 통합 처리**하는 것이 원칙이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 사이드카는 **주 컨테이너 옆에 별도 컨테이너로 횡단 관심사를 분리·전담**하는 패턴. \"주 소스에 하드코딩·단일 프로세스 통합\"은 사이드카 패턴이 명시적으로 해결하려는 문제 그 자체. **함정 키워드**: \"주 애플리케이션에 하드코딩·별도 컨테이너 없음\"은 사이드카 존재 이유 정반대."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2025년 3회 1과목 — 플랫폼 엔지니어링 · IDP · Backstage 정형 패턴",
+     "stem_md": "**플랫폼 엔지니어링(Platform Engineering)·내부 개발자 플랫폼(IDP: Internal Developer Platform)·백스테이지(Backstage)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**플랫폼 엔지니어링** — 개발팀의 인지 부하(Cognitive Load)를 줄이고 **셀프서비스(Self-Service)** 로 인프라·CI/CD·관측성·보안을 제공하기 위해 **내부 개발자 플랫폼(IDP)** 을 구축·운영하는 실천 분야이다.",
+      "**골든 패스(Golden Path)** — 조직 표준을 반영한 **권장 개발·배포 경로**로, 신규 서비스 생성 시 템플릿(Boilerplate·Cookiecutter·Backstage Software Template)을 통해 몇 분 안에 CI/CD·관측성이 구성된 저장소를 만들 수 있다.",
+      "**Backstage** — Spotify가 만든 오픈소스 IDP 프레임워크로, 서비스 카탈로그(Catalog)·소프트웨어 템플릿(Templates)·TechDocs·플러그인 생태계를 통해 개발자 포털을 구축한다.",
+      "**플랫폼 엔지니어링은 각 개발팀이 인프라·CI/CD·관측성을 개별적으로 자체 구축·운영하는 것을 지향**하며, **골든 패스·셀프서비스·IDP는 안티패턴**으로 취급되고, **Backstage는 모니터링 전용 도구**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 플랫폼 엔지니어링의 목적은 **개발팀 인지 부하 감소 · IDP를 통한 셀프서비스 · 골든 패스로 표준화**. Backstage는 **개발자 포털(카탈로그·템플릿·TechDocs)** 로, 모니터링 전용이 아니다. \"각 팀이 개별 구축·골든 패스 안티패턴·Backstage=모니터링\"은 정의 정반대. **함정 키워드**: \"각 팀 개별 구축·셀프서비스 안티패턴\"은 플랫폼 엔지니어링 철학 정반대."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2025년 1회 1과목 — 서비스 메시 트래픽 제어(카나리·A/B) 정형 패턴",
+     "stem_md": "**서비스 메시(Istio 등)를 활용한 트래픽 관리 기법**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**카나리 배포(Canary Deployment)** — 신버전에 소량 트래픽(예: 5%)을 우선 전달하고 지표(에러율·지연·비즈니스 KPI)를 검증한 뒤 점진적으로 비율을 확대(5%→25%→50%→100%)한다.",
+      "**블루/그린 배포(Blue-Green Deployment)** — 구버전(Blue)과 신버전(Green)을 동시에 운영하다가 **라우팅을 한 번에 스위칭**하여 즉시 롤백이 가능하도록 한다.",
+      "**A/B 테스트 · 트래픽 미러링** — 사용자 세그먼트(헤더·쿠키·지역)별로 다른 버전을 노출하거나, 프로덕션 트래픽을 **테스트 환경에 미러링(Shadowing)** 하여 실제 부하로 검증한다.",
+      "**서비스 메시는 오직 100% 즉시 배포(Big-Bang Deploy)만 지원**하며, **카나리·블루/그린·미러링은 서비스 메시로는 구현할 수 없고 별도 로드 밸런서 하드웨어가 반드시 필요**하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 서비스 메시(Istio VirtualService·DestinationRule)의 대표 강점이 바로 **가상 라우팅·가중치 기반 카나리·블루/그린·미러링 지원**. \"빅뱅 배포만·서비스 메시로 구현 불가·별도 하드웨어 필요\"는 서비스 메시 강점 정반대. **함정 키워드**: \"빅뱅 배포만 · 별도 하드웨어 필요\"는 서비스 메시 트래픽 제어 강점 정반대."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2025년 2회 2과목 — 병렬 정렬(Parallel Merge Sort · Sample Sort) 정형 패턴",
+     "stem_md": "**병렬 정렬 알고리즘(Parallel Sorting)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**병렬 병합 정렬(Parallel Merge Sort)** — 분할 정복 특성상 병렬화가 용이하며, 각 부분 배열을 서로 다른 스레드에서 독립 정렬한 후 병합 단계를 병렬로 수행한다.",
+      "**Sample Sort** — 입력에서 표본(Sample)을 추출해 피벗을 여러 개 선택하고 각 파티션을 병렬 프로세서에 분배하여 정렬하는 **분산·병렬 환경 친화적 정렬**이다.",
+      "**비교 기반 정렬의 하한**은 **Ω(n log n)** 이며, 병렬화로 **wall-clock 시간**은 단축할 수 있으나 **총 작업량(work)** 은 이 하한 아래로 내려가지 않는다.",
+      "**병렬 정렬은 코어 수만 늘리면 시간 복잡도 하한 Ω(n log n) 자체를 O(1)까지 낮출 수 있어**, **입력 크기에 무관하게 상수 시간 정렬이 이론적으로 성립**한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 비교 기반 정렬의 **총 작업량 하한은 Ω(n log n)** 으로, **아무리 병렬화해도 총 작업량 하한 자체는 낮출 수 없다**. 병렬화로 낮출 수 있는 것은 **wall-clock 시간(span)** 이지 하한이 아니다. \"코어 수로 O(1) 상수 시간\"은 계산 모델 위반. **함정 키워드**: \"병렬화로 O(1)·하한 자체 무시\"는 병렬 알고리즘 이론 정면 위반."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2025년 3회 2과목 — 근사 알고리즘 · 확률 알고리즘(Monte Carlo · Las Vegas) 정형 패턴",
+     "stem_md": "**근사 알고리즘(Approximation Algorithm)·확률 알고리즘(Randomized Algorithm)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**근사 알고리즘** — NP-Hard 문제(TSP·배낭·정점 커버 등)에 대해 **최적해 대신 근사 비율(Approximation Ratio) 보장**을 가진 다항 시간 해를 제공하며, 2-근사·PTAS·FPTAS 등이 대표적이다.",
+      "**Monte Carlo 알고리즘** — 항상 다항 시간 내 결과를 반환하지만 **결과가 확률적으로 오답일 수 있다**(예: Miller-Rabin 소수 판정). 반복으로 오류 확률을 지수적으로 낮출 수 있다.",
+      "**Las Vegas 알고리즘** — 결과는 **항상 정답**이나 **실행 시간이 확률적으로 변동**된다(예: Randomized QuickSort). 기대 실행 시간이 성능 지표가 된다.",
+      "**근사 알고리즘은 NP-Hard 문제를 항상 다항 시간에 정확한 최적해로 해결**하고, **Monte Carlo는 항상 정답을 보장**하며, **Las Vegas는 오답을 확률적으로 반환**한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — **근사 알고리즘 = 최적 대신 근사 비율 보장**(항상 최적해 X). **Monte Carlo = 시간 고정 · 결과 확률적 오답 가능**. **Las Vegas = 결과 정답 · 시간 확률 변동**. ④는 세 개념의 대표 속성을 모두 뒤바꿔 놓은 정반대. **함정 키워드**: \"Monte Carlo=항상 정답, Las Vegas=오답 반환, 근사=항상 최적\"은 개념 3중 뒤바꾸기 초빈출 함정."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2025년 1회 2과목 — 계약 기반 테스트(Consumer-Driven Contract · Pact) 정형 패턴",
+     "stem_md": "**계약 기반 테스트(Contract Testing) · 소비자 주도 계약(CDC · Consumer-Driven Contract · Pact)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**CDC 개념** — 소비자(Consumer)가 제공자(Provider) API에 기대하는 **인터페이스 계약(요청·응답 스키마)** 을 **계약 파일(Contract)** 로 명시하고, 양측이 이 계약을 만족하는지 검증한다.",
+      "**Pact 등 도구** — Consumer 테스트 단계에서 **Pact 파일**(JSON 계약)을 생성해 브로커(Pact Broker)에 게시하고, Provider는 이를 다운로드해 자신의 API가 계약을 만족하는지 검증하는 파이프라인을 구성한다.",
+      "**강점** — **엔드투엔드(E2E) 통합 테스트 대비 빠르고 안정적**이며, 소비자·제공자를 **독립 배포**하면서도 API 호환성 회귀를 조기 탐지할 수 있다(MSA·독립 배포 파이프라인 전제).",
+      "**CDC 계약 테스트는 각 서비스 간 완전한 E2E 실 트래픽만으로 검증**하며, **계약 파일·Pact 브로커 없이 소비자·제공자가 직접 모든 종단 시나리오를 항상 함께 배포해야만** 유효하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — CDC(Consumer-Driven Contract)의 존재 이유가 바로 **E2E 없이 계약 파일로 소비자·제공자를 독립적으로 검증**하는 것. \"E2E만·계약 파일 없음·항상 함께 배포\"는 CDC가 명시적으로 해결하려는 문제. **함정 키워드**: \"E2E만·계약 파일 없음\"은 CDC 목적 정반대."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2025년 2회 2과목 — 카오스 엔지니어링(Chaos Engineering · Netflix Chaos Monkey) 정형 패턴",
+     "stem_md": "**카오스 엔지니어링(Chaos Engineering)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**정의** — 프로덕션(또는 유사 환경)에 **의도적 장애(네트워크 지연·인스턴스 종료·DNS 실패 등)** 를 주입하여 시스템의 **복원력(Resilience)** 에 대한 **가설을 실험**하는 실천 분야이다.",
+      "**Netflix Chaos Monkey · Simian Army** — 무작위로 EC2 인스턴스를 종료시켜 팀이 **장애 내성 설계**를 상시 유지하도록 강제한다. Gremlin·Litmus·Chaos Mesh 등 후속 도구가 등장했다.",
+      "**원칙** — 정상 상태(Steady State) 정의 → 가설 수립 → 최소 폭발 반경(Blast Radius) 실험 → 결과 검증 → 폭발 반경 확장. **관측성(Observability)** 이 전제되어야 안전한 실행이 가능하다.",
+      "**카오스 엔지니어링은 프로덕션에 예고 없이 대규모 장애를 무차별 주입하여 최대한 많은 인스턴스를 파괴하는 것이 목표**이며, **가설·정상 상태·폭발 반경 통제·관측성은 원칙과 무관**하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 카오스 엔지니어링의 원칙은 **정상 상태 정의 → 가설 → 최소 폭발 반경 실험 → 관측성 기반 검증 → 반경 확장**. \"예고 없이 무차별 파괴\"는 카오스 엔지니어링이 아니라 **사고**이며, 원칙 정반대. **함정 키워드**: \"예고 없이 무차별 파괴·가설·관측성 무관\"은 카오스 엔지니어링 방법론 정반대."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2025년 3회 3과목 — 벡터 DB(Vector Database · 임베딩 유사도) 정형 패턴",
+     "stem_md": "**벡터 데이터베이스(Vector Database · Pinecone · Weaviate · Milvus · pgvector)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**정의** — 임베딩(Embedding) 벡터를 저장·인덱싱·유사도 검색(Similarity Search)에 특화된 데이터베이스로, RAG(Retrieval-Augmented Generation)·의미 검색·추천 시스템의 핵심 컴포넌트이다.",
+      "**유사도 척도** — **코사인 유사도(Cosine)** · **L2 거리(유클리드)** · **내적(Dot Product)** 이 대표적이며, 임베딩 모델과 정합해 선택한다.",
+      "**인덱스** — **ANN(Approximate Nearest Neighbor)** 알고리즘으로 **HNSW(Hierarchical Navigable Small World)** · **IVF(Inverted File Index)** · **PQ(Product Quantization)** 등을 사용해 대규모 벡터에서도 빠른 근사 최근접 이웃 검색을 제공한다.",
+      "**벡터 DB는 벡터가 아닌 정형 관계형 테이블 검색 전용**이며, **유사도 검색·ANN·임베딩과는 무관**하고, **RAG·추천 시스템에서는 사용할 수 없다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 벡터 DB는 **임베딩 벡터 저장·유사도 검색·ANN 인덱스가 존재 이유** 자체이며, RAG·의미 검색·추천의 핵심. \"정형 테이블 전용·유사도/ANN 무관·RAG 사용 불가\"는 벡터 DB 정의 완전 부정. **함정 키워드**: \"정형 테이블 전용·ANN·임베딩 무관\"은 벡터 DB 존재 이유 정반대."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2025년 1회 3과목 — 시계열 DB(TSDB · InfluxDB · TimescaleDB) 정형 패턴",
+     "stem_md": "**시계열 데이터베이스(Time-Series Database · TSDB)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "시간(Timestamp)이 1급 컬럼인 데이터에 특화된 DB로, **높은 쓰기 처리량·시간 범위 쿼리·다운샘플링(Downsampling)·리텐션 정책·연속 집계(Continuous Aggregate)** 를 지원한다.",
+      "**대표 제품** — **InfluxDB**(전용 스토리지·Flux/InfluxQL)·**TimescaleDB**(PostgreSQL 확장·하이퍼테이블)·**Prometheus**(모니터링 특화·PromQL)·**QuestDB**·**VictoriaMetrics** 등이 있다.",
+      "활용 영역 — **IoT 센서 데이터**·**애플리케이션·인프라 메트릭**·**금융 틱 데이터**·**로그·감사 이벤트** 등 시간 축이 지배적인 워크로드에 적합하다.",
+      "**TSDB는 시간 축이 없는 정적 데이터 저장 전용**이며, **연속 집계·다운샘플링·시간 범위 쿼리·높은 쓰기 처리량 최적화는 TSDB의 관심사가 아니다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — TSDB의 강점은 **시간 축이 지배적인 워크로드에 특화된 쓰기 최적화·다운샘플링·리텐션·연속 집계**. \"시간 축 없는 정적 데이터 전용·다운샘플링/집계 관심사 아님\"은 TSDB 존재 이유 정반대. **함정 키워드**: \"시간 축 없는 정적 데이터 전용\"은 TSDB 정의 정반대."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2025년 2회 3과목 — 그래프 DB · CDC · 데이터 메시 정형 패턴",
+     "stem_md": "**그래프 DB(Neo4j · Cypher)·CDC(Change Data Capture · Debezium)·데이터 메시(Data Mesh)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**그래프 DB** — 노드(Node)·엣지(Edge)·프로퍼티(Property) 모델로 관계(Relationship)를 1급 시민으로 취급하며, **Neo4j Cypher** · 표준 **GQL(ISO/IEC 39075)** 로 질의한다. 소셜·추천·사기 탐지에 강점.",
+      "**CDC** — 소스 DB의 **트랜잭션 로그(binlog · WAL · redo)** 를 읽어 변경 이벤트를 스트림(Kafka 등)으로 전달한다. **Debezium**(Kafka Connect 커넥터)·**Oracle GoldenGate**·**AWS DMS** 가 대표적이며, 배치 ETL 대비 지연이 극히 낮다.",
+      "**데이터 메시(Data Mesh)** — Zhamak Dehghani가 제안한 4대 원칙 = **도메인 소유(Domain Ownership)** · **데이터를 프로덕트로(Data as a Product)** · **셀프서비스 데이터 인프라** · **연합 컴퓨테이셔널 거버넌스(Federated Computational Governance)**.",
+      "**그래프 DB는 관계 표현이 불가능하며 Cypher/GQL은 문법 오류**이고, **CDC는 반드시 전체 테이블 야간 스냅샷 배치로만 동작**하며, **데이터 메시는 단일 중앙 집중식 모놀리식 데이터 웨어하우스만 인정**한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 그래프 DB(Neo4j)는 관계 표현·Cypher/GQL 표준 존재. CDC는 트랜잭션 로그 기반 저지연 스트리밍(야간 배치가 아님). 데이터 메시는 도메인별 데이터 프로덕트·연합 거버넌스로 **모놀리식 DW의 대안**. \"관계 표현 불가·야간 배치만·단일 DW만 인정\"은 세 개념 모두 정반대. **함정 키워드**: \"그래프 관계 불가·CDC=야간 배치·데이터 메시=중앙 집중\"은 세 개념 3중 뒤바꾸기."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2025년 3회 3과목 — 벡터 DB vs 시계열 DB vs 그래프 DB 특성 비교 정형 패턴",
+     "stem_md": "**다중 모델 데이터베이스(Multi-Model)·특수 목적 DB의 대응 매핑**으로 **가장 옳지 않은 것**은?",
+     "options": [
+      "임베딩 유사도 검색(RAG·추천) → **벡터 DB**(Pinecone · pgvector · Milvus · HNSW/IVF/PQ 인덱스).",
+      "시간 축이 지배적인 IoT·메트릭·틱 데이터 → **시계열 DB**(InfluxDB · TimescaleDB · Prometheus · 다운샘플링·리텐션).",
+      "관계·경로 탐색(6촌·최단 경로·커뮤니티) → **그래프 DB**(Neo4j Cypher · 표준 GQL · AllegroGraph).",
+      "임베딩 유사도 검색은 **정통 RDBMS의 정수 기본키 인덱스로 대체**하고, 시계열 데이터는 **관계형 튜플의 자연 순서**로 충분하며, 그래프 관계 탐색은 **다중 JOIN이 그래프 DB보다 항상 더 빠르므로** 특수 DB는 불필요하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 특수 목적 DB는 **각기 다른 워크로드에서 정통 RDBMS보다 압도적으로 유리**(벡터 DB의 ANN·TSDB의 시간 범위 쿼리·그래프 DB의 경로 탐색). \"RDBMS 정수 인덱스로 임베딩 대체·다중 JOIN이 그래프 DB보다 빠름\"은 각 DB 존재 이유 부정. **함정 키워드**: \"특수 DB 불필요·RDBMS로 모두 대체\"는 다중 모델 DB 등장 배경 정반대."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2025년 1회 4과목 — C 메모리 정렬(Alignment · Padding · sizeof) 정형 패턴",
+     "stem_md": "다음 C 프로그램의 출력 결과로 옳은 것은? (x86-64 리눅스 GCC·기본 정렬 규칙 가정, `sizeof` 는 문자열 접미사 필드 크기 규칙에 따름)\n```c\n#include <stdio.h>\nstruct A { char a; int b; char c; };\nstruct B { char a; char c; int b; };\nint main(void) {\n    printf(\"%zu %zu\\n\", sizeof(struct A), sizeof(struct B));\n    return 0;\n}\n```",
+     "options": [
+      "`12 8`",
+      "`6 6`",
+      "`9 6`",
+      "`8 8`"
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — **x86-64 GCC 기본 정렬** 규칙 적용.\n- `struct A { char a; int b; char c; }`:\n  - `char a` (1B, offset 0) → `int b` 정렬 4B 경계 → **3B padding** → `int b` (4B, offset 4~7) → `char c` (1B, offset 8) → 구조체 전체 정렬 4B 경계 → **3B padding** → **총 12B**.\n- `struct B { char a; char c; int b; }`:\n  - `char a` (1B, offset 0) → `char c` (1B, offset 1) → `int b` 정렬 4B 경계 → **2B padding** → `int b` (4B, offset 4~7) → **총 8B**.\n- 따라서 출력 = **`12 8`** → **①**. 구조체 필드 재배치(정렬 큰 순 → 작은 순)로 패딩을 최소화하는 것이 실무 기법. **함정 키워드**: \"필드 개수만 세서 6·6·9\" 오답은 alignment/padding 규칙 무시."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2025년 2회 4과목 — Java 리액티브(Reactor · Mono · Flux · Backpressure) 정형 패턴",
+     "stem_md": "**Java 리액티브 프로그래밍(Project Reactor · Mono · Flux · Spring WebFlux)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Mono<T>** 는 0 또는 1개의 요소를, **Flux<T>** 는 0..N개의 요소를 비동기적으로 방출하는 리액티브 스트림 발행자(Publisher)이며, 구독(subscribe) 전까지는 아무 일도 일어나지 않는다(Cold vs Hot 스트림 개념 존재).",
+      "**연산자(Operator)** — `map`·`filter`·`flatMap`·`zip`·`merge`·`retry`·`onErrorResume`·`timeout` 등을 체이닝하여 비동기 파이프라인을 선언적으로 구성하며, **불변 스트림 변환**이 원칙이다.",
+      "**Backpressure(배압)** — 구독자(Consumer)가 처리 가능한 속도로 발행자(Publisher)에게 요청량을 신호(request(n))하여 **소비자 과부하를 방지**한다. `onBackpressureBuffer`·`onBackpressureDrop`·`onBackpressureLatest` 전략이 있다.",
+      "**Reactor의 Flux/Mono는 반드시 즉시 동기적으로 실행**되며, **subscribe 없이도 값이 자동으로 방출**되고, **Backpressure는 리액티브 스트림 명세와 무관한 개념**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Reactor의 Flux/Mono는 **Cold 스트림 기본 · 구독 전까지 아무 일도 없음 · 비동기 실행**. Backpressure는 **리액티브 스트림 명세(Reactive Streams JSR)** 의 핵심 개념. ④는 이 세 가지 사실을 모두 정반대로 뒤집음. **함정 키워드**: \"즉시 동기 실행·subscribe 없이 방출·Backpressure 무관\"은 리액티브 명세 정반대."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2025년 3회 4과목 — Python 타입 힌트 · mypy · Pydantic 정형 패턴",
+     "stem_md": "다음 파이썬 코드의 실행·검증 결과로 **옳은 것**은?\n```python\nfrom pydantic import BaseModel, ValidationError\n\nclass User(BaseModel):\n    id: int\n    name: str\n    is_active: bool = True\n\ntry:\n    u1 = User(id=\"42\", name=\"Alice\")\n    print(u1.id, type(u1.id).__name__, u1.is_active)\n    User(id=\"not_an_int\", name=\"Bob\")\n    print(\"no error\")\nexcept ValidationError:\n    print(\"validation error\")\n```",
+     "options": [
+      "`42 int True` 다음 줄에 `validation error` 출력.",
+      "`42 str True` 다음 줄에 `no error` 출력 (문자열도 그대로 통과).",
+      "두 호출 모두 `ValidationError` 발생, 첫 줄부터 예외.",
+      "`42 int False` 다음 줄에 `no error` 출력 (기본값이 False로 오버라이드)."
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — **Pydantic v1/v2 기본 동작**:\n- `User(id=\"42\", name=\"Alice\")`: `\"42\"` 문자열을 **int로 강제 변환(coerce)** → `u1.id = 42`(int), `is_active` 기본값 `True`. 출력: `42 int True`.\n- `User(id=\"not_an_int\", name=\"Bob\")`: 정수 변환 실패 → **`ValidationError` 발생** → `except` 블록으로 이동 → `validation error` 출력.\n- 최종 출력 2줄: `42 int True` + `validation error` → **①**. **함정 키워드**: \"str 그대로 통과(②)·모든 호출 예외(③)·기본값 오버라이드(④)\"는 Pydantic의 타입 강제 변환·검증 실패·기본값 규칙 각각 오해."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2025년 1회 4과목 — HTTP/2 서버 푸시 폐기 · gRPC-Web · 최신 웹 프로토콜 정형 패턴",
+     "stem_md": "**HTTP/2 서버 푸시 · gRPC-Web · 최신 웹 프로토콜 사실관계**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**HTTP/2 서버 푸시(Server Push)** — 초기에는 성능 최적화 기능으로 도입되었으나, **캐시 히트율·복잡도 문제로 브라우저에서 점진 폐기**되어 **Chrome 106(2022년)부터 기본 비활성/제거**되었고, **Early Hints(103)** 가 사실상 대안으로 자리 잡았다.",
+      "**gRPC-Web** — 브라우저는 HTTP/2 트레일러·바이너리 프레임을 직접 다룰 수 없어, **Envoy 등 프록시가 gRPC ↔ gRPC-Web 프로토콜 변환**을 수행한다. 브라우저에서 gRPC 서비스를 호출할 때 사실상 표준적으로 사용된다.",
+      "**HTTP/3(QUIC)** — UDP 기반으로 **연결 확립 시 0-RTT/1-RTT**, **커넥션 마이그레이션**, **HoL(Head-of-Line) Blocking 완화** 등의 이점을 제공하며 주요 브라우저·CDN이 지원한다.",
+      "**HTTP/2 서버 푸시는 여전히 모든 브라우저에서 완전 지원되는 표준 최적화 기법**이고, **gRPC-Web은 별도 프록시 없이 브라우저에서 원시 gRPC를 직접 호출**하며, **HTTP/3는 TCP 기반**이라 QUIC과 무관하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — HTTP/2 서버 푸시는 **Chrome 106에서 제거**(2022년) · **gRPC-Web은 브라우저 호환을 위해 Envoy 등 프록시 필요** · **HTTP/3는 UDP/QUIC 기반**. ④는 세 사실을 모두 정반대로 뒤집음. **함정 키워드**: \"서버 푸시 완전 지원·gRPC-Web 프록시 불필요·HTTP/3=TCP\"는 최신 웹 프로토콜 사실관계 3중 뒤바꾸기."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2025년 2회 5과목 — OWASP Top 10 2021 정형 패턴",
+     "stem_md": "**OWASP Top 10 2021**의 카테고리 매핑으로 **가장 옳지 않은 것**은?",
+     "options": [
+      "**A01: Broken Access Control(접근 통제 실패)** — IDOR·권한 우회·수직/수평 권한 상승 등이 포함되며 2021년 개정판에서 **1위**로 승격되었다.",
+      "**A02: Cryptographic Failures(암호화 실패)** — 이전 \"Sensitive Data Exposure\"의 확장 이름으로, 취약한 알고리즘·평문 저장·약한 키·부적절한 TLS 설정 등을 포괄한다.",
+      "**A03: Injection** — SQL·NoSQL·OS Command·LDAP 인젝션 및 **XSS도 2021년부터 Injection에 통합**되어 관리된다. 파라미터화 쿼리·컨텍스트 인코딩이 대표 대응책이다.",
+      "**OWASP Top 10 2021의 A10 항목은 \"물리 보안 실패(Physical Security Failure)\"** 이며, **SSRF(Server-Side Request Forgery)는 Top 10에 포함된 적이 없다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — OWASP Top 10 2021 **A10 = SSRF(Server-Side Request Forgery)** 로 정식 신설. \"물리 보안 실패·SSRF 미포함\"은 OWASP 2021 개정 사실 정면 부정. A01 접근 통제 실패 승격, A02 암호화 실패, A03 인젝션(XSS 통합)은 모두 정확. **함정 키워드**: \"A10=물리 보안·SSRF 없음\"은 OWASP 2021 개정 사실 정반대."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2025년 3회 5과목 — OWASP API Security Top 10 정형 패턴",
+     "stem_md": "**OWASP API Security Top 10**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**BOLA(Broken Object Level Authorization)** — REST 경로의 `id` 파라미터를 조작하여 **타 사용자의 리소스에 접근**하는 취약점으로, API Top 10에서 최상위권에 위치한다.",
+      "**Broken Authentication** — 토큰 재사용·약한 JWT 서명 알고리즘(예: `alg: none`)·리프레시 토큰 회수 미비 등이 포함된다.",
+      "**Excessive Data Exposure / Broken Object Property Level Authorization** — API가 필요 이상의 필드(사용자 이메일·전화·해시된 비밀번호 등)를 응답 본문에 노출하는 문제로, DTO·응답 스키마 화이트리스트로 대응한다.",
+      "**API 보안에서는 BOLA·인증·데이터 노출은 관심사가 아니며**, **API에는 HTTPS만 적용하면 모든 취약점이 자동으로 해결**되어 별도 대응이 필요 없다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — API 보안 Top 10은 **BOLA·인증·데이터 노출·자원 소진·비즈니스 흐름·SSRF 등을 명시적으로 다루며 HTTPS만으로는 해결되지 않는다**. HTTPS는 전송 구간 암호화일 뿐 인가·권한·객체 수준 접근 통제와 무관. **함정 키워드**: \"HTTPS만으로 모두 해결·API 보안 무관심\"은 API 보안 존재 이유 정반대."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2025년 1회 5과목 — 컨테이너 CIS 벤치마크 · CSPM · CIEM 정형 패턴",
+     "stem_md": "**컨테이너 CIS 벤치마크 · CSPM(Cloud Security Posture Management) · CIEM(Cloud Infrastructure Entitlement Management)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**CIS 벤치마크** — Center for Internet Security가 발행하는 **보안 설정 표준**으로, **Docker CIS**·**Kubernetes CIS**·**클라우드 CIS** 등이 존재하며 **kube-bench**·**Docker Bench for Security** 등 자동 점검 도구가 있다.",
+      "**CSPM** — **클라우드 리소스 설정 오류(퍼블릭 S3 버킷·공개 보안 그룹·평문 스토리지·MFA 미적용 등)** 를 지속 스캔·시정 권고하는 도구 카테고리로, Prisma Cloud·Wiz·Orca 등이 대표적이다.",
+      "**CIEM** — **클라우드 자격(권한·역할)** 을 관측·정리해 **과잉 권한(Over-Privileged Identities)** 을 **최소 권한(Least Privilege)** 으로 회수하는 도구 카테고리다. IAM 정책 최적화가 핵심.",
+      "**CIS 벤치마크는 보안 표준이 아닌 임의의 마케팅 자료**이며, **CSPM은 설정 오류 대신 애플리케이션 로직만 검사**하고, **CIEM은 권한 관리와 무관하며 오히려 권한을 최대화하는 도구**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — CIS 벤치마크는 **국제적으로 통용되는 실질적 보안 표준**(마케팅 자료 아님). CSPM은 **설정 오류 탐지**가 핵심(로직 검사 아님). CIEM은 **과잉 권한 회수·최소 권한 실현**(권한 최대화가 아님). ④는 세 개념 모두 정반대. **함정 키워드**: \"CIS=마케팅·CSPM=로직 검사·CIEM=권한 최대화\"는 세 카테고리 3중 뒤바꾸기."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2025년 2회 5과목 — 클라우드 보안 3계층(CSPM · CWPP · CIEM · CNAPP) 종합 정형 패턴",
+     "stem_md": "**클라우드 네이티브 보안 도구 카테고리**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**CSPM(Cloud Security Posture Management)** — 클라우드 설정 오류 탐지·규정 준수(PCI-DSS·ISO 27001·CIS) 지속 점검.",
+      "**CWPP(Cloud Workload Protection Platform)** — VM·컨테이너·서버리스 등 **워크로드 런타임 보호**(취약점 스캔·런타임 이상 탐지·EDR 확장).",
+      "**CNAPP(Cloud Native Application Protection Platform)** — CSPM + CWPP + CIEM + IaC 스캔 + 컨테이너 이미지 스캔을 **통합 제공**하는 차세대 카테고리로, 좌시프트(Shift Left)·우측 런타임을 함께 다룬다.",
+      "**CSPM·CWPP·CIEM·CNAPP는 모두 동일한 온프레미스 방화벽 어플라이언스**를 지칭하는 이름이며, **클라우드·컨테이너·IaC 보안은 이 도구들과 무관**하고, **워크로드 런타임 보호·설정 오류 탐지·과잉 권한 회수는 각기 별개의 관심사가 아니라 단일 스위치로 통합 처리**된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — CSPM·CWPP·CIEM·CNAPP는 **각기 다른 관심사를 다루는 별개 카테고리**이며 CNAPP는 이들을 **통합**하는 상위 개념. \"온프레미스 방화벽 어플라이언스·단일 스위치 통합\"은 클라우드 네이티브 보안 카테고리의 정의·구조 정면 부정. **함정 키워드**: \"온프레미스 방화벽·단일 스위치\"는 클라우드 보안 4카테고리 존재 이유 정반대."
+    }
+   ]
   }
  ]
 }
