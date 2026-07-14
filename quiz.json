@@ -10132,6 +10132,274 @@
      "explanation_md": "**정답 ④** — CSPM·CWPP·CIEM·CNAPP는 **각기 다른 관심사를 다루는 별개 카테고리**이며 CNAPP는 이들을 **통합**하는 상위 개념. \"온프레미스 방화벽 어플라이언스·단일 스위치 통합\"은 클라우드 네이티브 보안 카테고리의 정의·구조 정면 부정. **함정 키워드**: \"온프레미스 방화벽·단일 스위치\"는 클라우드 보안 4카테고리 존재 이유 정반대."
     }
    ]
+  },
+  {
+   "day": 65,
+   "date": "2026-07-15",
+   "subject": "Phase 3 기출회독",
+   "topic": "2025년 정보처리기사 필기 기출 (회독 4/4 · 최종회독 · 격자 80칸 완결 · Phase 3 종료) — 5과목 전 영역 균등 20문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2025년 1회 1과목 — MSA 세부 패턴(API Composition · Aggregator) 정형 패턴",
+     "stem_md": "**MSA(Microservice Architecture) 조회 패턴**인 **API Composition · Aggregator 패턴**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**API Composition** — 여러 마이크로서비스에 흩어진 데이터를 조회할 때, 조합자(Composer)가 각 서비스의 API를 호출해 결과를 메모리에서 조인(In-memory Join)하여 클라이언트에 반환하는 패턴이다.",
+      "**Aggregator 패턴** — API Composition의 구현 형태로, 게이트웨이·전용 조합 서비스가 여러 서비스에 병렬 요청을 보내고 결과를 집계해 반환하며, 일반적으로 **BFF(Backends for Frontends)** 계층에서 자주 사용된다.",
+      "**트레이드오프** — 대규모 데이터셋을 서비스 간에 조인해야 할 경우 **네트워크·메모리 비용이 크고**, 이 경우 **CQRS + Materialized View**(읽기 전용 뷰)를 별도로 유지하는 대안을 고려한다.",
+      "**API Composition · Aggregator 패턴은 단일 서비스 내부에서 로컬 조인만 사용하는 패턴**이며, **여러 서비스 호출·병렬 요청·게이트웨이 조합·CQRS 대안은 이 패턴의 관심사와 무관**하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — API Composition/Aggregator는 **여러 서비스 병렬 호출 → 메모리 조인 → 클라이언트 반환** 이 핵심 정의. BFF 계층 활용·CQRS+Materialized View 대안까지 실무 정형. ④는 \"단일 서비스 로컬 조인만\"으로 패턴의 존재 이유를 정면 부정. **함정 키워드**: \"로컬 조인 전용·병렬 호출/게이트웨이/CQRS 무관\"은 MSA 조회 패턴 정반대."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2025년 2회 1과목 — Anti-Corruption Layer · Outbox 패턴 정형 패턴",
+     "stem_md": "**Anti-Corruption Layer(ACL) · Outbox(트랜잭션 아웃박스) 패턴**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Anti-Corruption Layer** — 레거시·외부 시스템의 도메인 모델이 자신의 바운디드 컨텍스트(Bounded Context)를 오염시키지 않도록, **번역·격리 계층**을 두어 개념·용어·데이터 구조를 변환한다(DDD 관점).",
+      "**Outbox 패턴 문제 배경** — 서비스가 **DB 커밋 + 메시지 발행**을 함께 하는 \"이중 쓰기(Dual Write)\"는 원자성이 없어, DB 성공/메시지 실패(또는 반대)로 인한 데이터 불일치가 발생한다.",
+      "**Outbox 해법** — 도메인 이벤트를 동일 DB 트랜잭션 내 **`outbox` 테이블에 기록**하고, 별도 릴레이·CDC(Debezium 등)가 outbox 레코드를 읽어 메시지 브로커로 전송해 **at-least-once** 를 보장한다.",
+      "**Outbox 패턴은 DB 커밋과 메시지 발행을 분산 트랜잭션(2PC)으로 묶는 방식**이며, **ACL은 외부 시스템의 도메인을 그대로 자신의 컨텍스트에 강제 이식하는 것**이 원칙이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Outbox는 **DB 트랜잭션 내 outbox 테이블 기록 + CDC 릴레이**로 이중 쓰기 문제를 해결하지 **2PC를 사용하지 않는다**(오히려 2PC 회피가 목적). ACL은 **번역·격리 계층**으로 자기 도메인을 지키는 것이지 외부 도메인을 강제 이식하지 않는다. **함정 키워드**: \"Outbox=2PC·ACL=외부 도메인 이식\"은 두 패턴의 정의 정반대."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2025년 3회 1과목 — Saga 패턴(Choreography vs Orchestration) 정형 패턴",
+     "stem_md": "**Saga 패턴 · Choreography(협주) vs Orchestration(오케스트레이션)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Saga 패턴** — 여러 서비스에 걸친 **장기 실행 비즈니스 트랜잭션**을 로컬 트랜잭션 시퀀스로 나누고, 실패 시 **보상 트랜잭션(Compensating Transaction)** 으로 이전 단계를 되돌린다.",
+      "**Choreography** — 중앙 조정자 없이 각 서비스가 이벤트를 구독·발행하며 자율 진행. **결합도가 낮고 확장성이 좋으나** 흐름 추적이 어렵고 순환 의존이 생길 수 있다.",
+      "**Orchestration** — 중앙 **Saga Orchestrator**(예: Camunda·Temporal·Netflix Conductor)가 각 단계를 명시적으로 지시. 흐름을 한눈에 파악·모니터링·재시도하기 쉬우나 오케스트레이터가 단일 결합점이 될 수 있다.",
+      "**Saga 패턴은 반드시 2PC와 동일한 원자성(Atomicity)을 만족**해야 하며, **Choreography는 중앙 조정자를 반드시 두어야 하고, Orchestration은 이벤트 발행 없이 동작해야 한다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Saga는 **BASE·궁극 일관성**이지 2PC 원자성이 아니며(전형적 오답 유도). Choreography는 **중앙 조정자 없음**, Orchestration도 이벤트/명령을 활용. ④는 세 사실을 모두 정반대로 뒤집음. **함정 키워드**: \"Saga=2PC 원자성·Choreography 중앙 조정자 필수·Orchestration 이벤트 금지\"는 Saga 두 스타일의 존재 이유 정면 부정."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2025년 1회 1과목 — BFF · GraphQL Federation · AsyncAPI 정형 패턴",
+     "stem_md": "**BFF(Backends for Frontends) · GraphQL Federation · AsyncAPI**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**BFF** — 웹·모바일·IoT 등 클라이언트 유형별로 **전용 백엔드 API 계층**을 두어, 클라이언트 특화 응답 형태·트래픽 최적화·인증 통합을 제공한다.",
+      "**GraphQL Federation** — 여러 팀·도메인의 **서브그래프(Subgraph)** 를 하나의 **슈퍼그래프(Supergraph)** 로 연합하고, 게이트웨이가 쿼리를 서브그래프별로 분해·실행·병합한다(Apollo Federation).",
+      "**AsyncAPI** — **비동기 메시지 기반 API(이벤트·큐·MQTT·WebSocket 등)** 를 OpenAPI 스타일로 명세하기 위한 스펙으로, 발행자·구독자·채널·페이로드 스키마를 표준 문서화한다.",
+      "**BFF는 하나의 백엔드로 모든 클라이언트를 통합 처리하는 원칙**이며, **GraphQL Federation은 단일 스키마 파일에 모든 도메인을 하드코딩하는 방식**이고, **AsyncAPI는 REST 동기 API 전용 명세이다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — BFF = **클라이언트 유형별 전용 백엔드**(단일 통합 반대). GraphQL Federation = **서브그래프 연합**(단일 스키마 하드코딩 반대). AsyncAPI = **비동기 이벤트 API 명세**(REST 동기 전용 반대). ④는 세 개념 모두 정반대. **함정 키워드**: \"BFF 단일 백엔드·Federation 하드코딩·AsyncAPI=REST\"는 세 개념 3중 뒤바꾸기."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2025년 2회 2과목 — 위상 정렬(Topological Sort · Kahn · DFS) 정형 패턴",
+     "stem_md": "**위상 정렬(Topological Sort)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**정의** — **방향 비순환 그래프(DAG)** 의 정점들을 선행 관계가 위배되지 않도록 선형 순서로 나열하는 알고리즘으로, 빌드 시스템·과목 이수 순서·작업 스케줄링에 사용된다.",
+      "**Kahn 알고리즘** — **진입 차수(in-degree)** 가 0인 정점을 큐에 넣고 반복적으로 제거하며 순서를 구성. 시간 복잡도 **O(V + E)**.",
+      "**DFS 기반 알고리즘** — DFS 완료 순서의 역순으로 위상 순서를 얻으며, 스택을 이용해 후위(post-order)에 정점을 저장한다. 시간 복잡도 **O(V + E)**.",
+      "**위상 정렬은 사이클이 있는 방향 그래프에서도 항상 유일한 순서를 반환**하며, **입력이 무향 그래프여도 동일하게 적용**할 수 있고, **시간 복잡도는 O(V²)** 이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 위상 정렬은 **DAG(사이클 없음)** 전제이며 사이클 있으면 불가. **여러 유효 순서**가 존재할 수 있어 \"유일\" 아님. **무향 그래프에는 정의되지 않고** 시간 복잡도는 **O(V + E)**. ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"사이클 있어도 유일·무향 그래프 적용·O(V²)\"은 위상 정렬 정의 정반대."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2025년 3회 2과목 — 강한 연결 요소(SCC · Tarjan · Kosaraju) 정형 패턴",
+     "stem_md": "**강한 연결 요소(SCC · Strongly Connected Component)** 알고리즘에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**정의** — 방향 그래프에서 **모든 정점 쌍(u, v)에 대해 u→v 와 v→u 경로가 모두 존재하는** 극대 부분 그래프. 컴파일러(재귀 함수 그룹)·2-SAT·소셜 네트워크 커뮤니티 탐지에 활용된다.",
+      "**Kosaraju 알고리즘** — ① 원 그래프에서 DFS 종료 순서 스택 저장 → ② 역방향 그래프에서 스택 순서로 DFS → 각 DFS 트리가 하나의 SCC. **O(V + E)** 두 번의 DFS.",
+      "**Tarjan 알고리즘** — 단일 DFS 중 **`disc`(발견 시각)·`low`(도달 가능한 최저 disc)** 를 추적하며 스택으로 SCC를 즉시 추출. **O(V + E)** 로 Kosaraju 대비 메모리·상수 계수가 더 효율적이라는 평가를 받는다.",
+      "**SCC는 무향 그래프에서만 정의**되며, **Tarjan · Kosaraju 모두 O(V²)** 이고, **역방향 그래프·`low` 값·DFS 종료 순서 등은 SCC 계산과 무관**하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — SCC는 **방향 그래프**에서 정의된다(무향은 연결 요소일 뿐). Tarjan·Kosaraju 모두 **O(V + E)**. 역방향 그래프(Kosaraju)·low 값(Tarjan)·DFS 종료 순서는 SCC 계산의 **핵심 개념**. ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"무향에서 정의·O(V²)·역방향/low 무관\"은 SCC 정의 정반대."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2025년 1회 2과목 — 최단 경로(Dijkstra · Bellman-Ford · Floyd-Warshall · A*) 정형 패턴",
+     "stem_md": "**최단 경로 알고리즘**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Dijkstra** — **음의 가중치가 없는** 그래프에서 단일 시작점 최단 경로를 우선순위 큐로 구한다. 이진 힙 사용 시 **O((V + E) log V)**, 피보나치 힙 사용 시 **O(E + V log V)**.",
+      "**Bellman-Ford** — 음의 가중치 간선을 허용하며 **음의 사이클 존재 여부**를 감지할 수 있다. 시간 복잡도 **O(V · E)**. V-1회 완화(Relaxation) 후 V회차에서 갱신이 있으면 음의 사이클이 존재.",
+      "**Floyd-Warshall** — **모든 쌍 최단 경로(All-Pairs Shortest Path)** 를 **O(V³)** 에 계산. 중간 정점을 순차적으로 허용하는 DP로, 음의 가중치는 허용하되 음의 사이클은 없어야 정의된다. **A***는 휴리스틱 함수 h(n)이 **admissible(과대추정 금지)** 하면 최적성이 보장된다.",
+      "**Dijkstra는 음의 가중치가 있어도 항상 최적해를 보장**하며, **Bellman-Ford는 음의 사이클을 감지할 수 없고**, **Floyd-Warshall은 O(V log V)**, **A***는 휴리스틱 조건과 무관하게 항상 최적이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Dijkstra는 **음의 가중치 불가**(음의 가중치 있으면 Bellman-Ford 사용). Bellman-Ford는 **V번째 반복 완화 여부로 음의 사이클 감지**. Floyd-Warshall은 **O(V³)** (V log V 아님). A*는 **admissible 휴리스틱일 때만 최적 보장**. ④는 네 사실 4중 뒤바꾸기. **함정 키워드**: \"Dijkstra 음가중 허용·Bellman-Ford 사이클 감지 불가·Floyd O(V log V)·A* 항상 최적\"은 최단 경로 4대 알고리즘 정반대."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2025년 2회 2과목 — MST(Kruskal · Prim) · Fuzz · Property-Based Testing 정형 패턴",
+     "stem_md": "**최소 신장 트리(MST) · Fuzz Testing · Property-Based Testing**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Kruskal** — 간선을 가중치 오름차순으로 정렬한 뒤, **Union-Find(Disjoint Set)** 로 사이클을 피하며 하나씩 선택. **O(E log E)**. 희소 그래프에 유리.",
+      "**Prim** — 시작 정점에서 확장하며 인접한 최소 가중치 간선을 추가. 우선순위 큐(이진 힙) 사용 시 **O(E log V)**. 밀집 그래프에서는 인접 행렬 O(V²) 구현이 더 유리할 수 있다.",
+      "**Fuzz Testing** — 무작위/변이(Mutation) 입력을 대량 주입하여 크래시·미정의 동작을 탐지. **커버리지 가이드 퍼저(AFL·libFuzzer)** 는 브랜치 커버리지를 피드백해 새 경로를 탐색한다. **Property-Based Testing**(QuickCheck·Hypothesis)은 \"역함수 관계·불변식·멱등성\" 같은 속성을 무작위 입력으로 검증하고, **실패 시 최소 반례를 축소(shrinking)** 한다.",
+      "**Kruskal·Prim 모두 사이클이 있는 방향 그래프에서만 동작**하며, **Union-Find는 MST와 무관**하고, **Fuzz Testing과 Property-Based Testing은 동일한 개념으로 shrinking·커버리지 가이드 모두 관계없다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Kruskal/Prim은 **무향 연결 가중 그래프**에 정의(방향 X). Union-Find는 **Kruskal의 사이클 검사 핵심 자료구조**. Fuzz Testing과 Property-Based Testing은 **별개 개념**(퍼즈=무작위 입력 크래시 탐지, PBT=속성 검증 + shrinking). ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"방향 그래프·Union-Find 무관·Fuzz=PBT 동일\"은 MST/테스트 기법 정반대."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2025년 3회 3과목 — 2PC · 3PC · 분산 트랜잭션 정형 패턴",
+     "stem_md": "**분산 트랜잭션 프로토콜 2PC(Two-Phase Commit) · 3PC(Three-Phase Commit)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**2PC 절차** — ① **Prepare(투표)** : 조정자(Coordinator)가 참여자에 준비 요청 → 참여자가 Yes/No 응답 ② **Commit/Abort** : 조정자가 결과를 결정해 통보. 모두 Yes면 Commit, 하나라도 No면 Abort.",
+      "**2PC의 한계** — **블로킹(Blocking)** — 조정자 장애 시 참여자가 Prepared 상태에서 잠금을 유지한 채 무한 대기할 수 있다. 부분 실패에 취약해 대규모 MSA에서는 Saga 등으로 대체된다.",
+      "**3PC** — Prepare/PreCommit/DoCommit 3단계로 확장해 조정자 장애 시에도 참여자들이 시간 초과 후 결정을 진행할 수 있게 해 **블로킹 문제를 완화**하지만, 네트워크 분할(파티션)에서는 여전히 취약하다.",
+      "**2PC는 조정자 장애 시에도 즉시 자동 복구되고**, **3PC는 2PC와 동일한 2단계 프로토콜**이며, **Saga는 2PC의 상위 호환 프로토콜로 항상 원자성을 보장**한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 2PC는 **조정자 장애 시 블로킹**(자동 복구 아님)이 핵심 한계. 3PC는 **3단계 프로토콜**(2PC 확장). Saga는 **BASE·궁극 일관성** 지향으로 2PC와 원자성 특성이 다름. ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"2PC 자동 복구·3PC=2단계·Saga=2PC 상위 호환\"은 분산 트랜잭션 프로토콜 정반대."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2025년 1회 3과목 — 합의(Paxos · Raft) · 일관성 모델 정형 패턴",
+     "stem_md": "**합의 프로토콜 Paxos·Raft · 일관성 모델**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Paxos** — Leslie Lamport가 제안한 분산 합의 알고리즘으로, **Prepare/Promise/Accept/Accepted** 단계를 통해 다수결로 값을 결정. 정확하나 이해·구현이 어렵기로 유명하다.",
+      "**Raft** — **이해하기 쉬운 합의(Understandable Consensus)** 를 목표로 설계. **Leader Election(리더 선출)·Log Replication(로그 복제)·Safety(안전성)** 세 부분으로 나누어 명세하며, etcd·Consul·CockroachDB 등이 사용한다.",
+      "**일관성 모델** — **Strong(선형화)** ⊃ **Sequential** ⊃ **Causal** ⊃ **Eventual**. 클라이언트 중심 모델로 **Read-Your-Writes(자기 쓰기 즉시 읽기)·Monotonic Reads(단조 읽기)** 등이 있다. CAP 정리와 함께 트레이드오프를 이룬다.",
+      "**Paxos·Raft는 리더 없이 동작해야 하며 다수결 결정 없이도 합의 가능**하고, **Strong Consistency는 Eventual보다 약한 모델**이며, **Read-Your-Writes는 서버 중심 모델**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Paxos/Raft는 **다수결(Quorum) 기반 합의**이며 Raft는 **리더 선출 + 로그 복제**로 구조화. Strong Consistency는 Eventual의 **상위 강한 모델**(약한 모델 아님). Read-Your-Writes는 **클라이언트 중심 모델**. ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"리더 없음·다수결 없음·Strong=약한 모델·RYW=서버 중심\"은 합의/일관성 모델 정반대."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2025년 2회 3과목 — CRDT · 스트리밍 SQL 정형 패턴",
+     "stem_md": "**CRDT(Conflict-free Replicated Data Type) · 스트리밍 SQL**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**CRDT** — 여러 노드가 동시에 갱신해도 **머지(Merge) 시 자동 수렴**이 보장되는 자료구조. 오프라인 협업 편집·다중 마스터 복제·엣지 컴퓨팅에서 사용. **G-Counter(증가 전용)·PN-Counter(증감)·OR-Set(관측된 제거)·LWW-Register** 등이 대표적.",
+      "**CRDT 원리** — 상태 기반(State-based · CvRDT)은 **결합·교환·멱등 병합 함수** 를 만족하고, 연산 기반(Operation-based · CmRDT)은 인과 순서를 보장하는 메시지 배송을 요구한다.",
+      "**스트리밍 SQL** — Kafka Streams · Flink SQL · KSQL은 **연속 쿼리(Continuous Query)** 를 지원하며, **Tumbling / Hopping / Sliding / Session Window**·**Watermark**(늦게 도착하는 이벤트 처리 경계)로 이벤트 시간 처리를 명세한다.",
+      "**CRDT는 결합·교환·멱등 병합이 아니어도 항상 수렴**하며, **G-Counter/PN-Counter/OR-Set은 CRDT와 무관**하고, **스트리밍 SQL은 오직 배치 처리만 지원**하며 **Watermark는 존재하지 않는 개념이다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — CRDT는 **결합·교환·멱등 병합** 이 필수 조건(수학적 성질). G-Counter/PN-Counter/OR-Set은 대표적 CRDT 자료구조. 스트리밍 SQL은 **연속 쿼리·Windowing·Watermark**가 정의적 특성. ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"성질 없이 수렴·CRDT 자료구조 무관·스트리밍=배치·Watermark 없음\"은 CRDT/스트리밍 SQL 정반대."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2025년 3회 3과목 — 레이크하우스(Iceberg · Delta Lake · Hudi) 정형 패턴",
+     "stem_md": "**레이크하우스(Lakehouse) 테이블 포맷 — Apache Iceberg · Delta Lake · Apache Hudi**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**공통 특성** — 오브젝트 스토리지(S3·GCS·ADLS) 위에 놓인 Parquet/ORC 파일 집합에 **트랜잭션(ACID)·스키마 진화·시간 여행(Time Travel)·업서트(Upsert)·삭제(Delete)** 를 제공하여 데이터 웨어하우스와 레이크의 장점을 결합.",
+      "**Apache Iceberg** — Netflix 발원, 벤더 중립 개방 사양. **숨겨진 파티셔닝(Hidden Partitioning)·스냅샷 격리·매니페스트 계층** 이 특징. Spark·Flink·Trino·Snowflake 등 폭넓게 통합.",
+      "**Delta Lake** — Databricks 주도 오픈 사양. **트랜잭션 로그(_delta_log)** 기반으로 ACID를 구현하며, MERGE INTO·CDC·시간 여행이 강점. **Apache Hudi** — Uber 발원, **레코드 수준 업서트·인덱싱·증분 쿼리(Incremental Query)** 로 스트리밍/CDC에 유리.",
+      "**레이크하우스 포맷은 ACID·시간 여행·스키마 진화를 지원하지 않으며**, **Iceberg는 Databricks 독점**·**Delta Lake는 트랜잭션 로그 없이 동작**하고, **Hudi는 배치 전용으로 CDC와 무관**하다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — 레이크하우스 3대 포맷 모두 **ACID·시간 여행·스키마 진화** 제공. Iceberg는 **벤더 중립 오픈 사양**(Databricks 독점 아님). Delta Lake는 **트랜잭션 로그(`_delta_log`) 기반**. Hudi는 **CDC/스트리밍 특화**. ④는 네 사실 4중 뒤바꾸기. **함정 키워드**: \"ACID 미지원·Iceberg=Databricks 독점·Delta 로그 없음·Hudi 배치 전용\"은 레이크하우스 3대 포맷 정반대."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2025년 1회 4과목 — C 스레드(pthread) · Java Virtual Threads(Loom) 정형 패턴",
+     "stem_md": "다음 C 코드의 실행 결과로 **가장 옳은 것**은?\n\n```c\n#include <stdio.h>\n#include <pthread.h>\n\nint counter = 0;\npthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;\n\nvoid* worker(void* arg) {\n    for (int i = 0; i < 100000; i++) {\n        pthread_mutex_lock(&m);\n        counter++;\n        pthread_mutex_unlock(&m);\n    }\n    return NULL;\n}\n\nint main(void) {\n    pthread_t t1, t2;\n    pthread_create(&t1, NULL, worker, NULL);\n    pthread_create(&t2, NULL, worker, NULL);\n    pthread_join(t1, NULL);\n    pthread_join(t2, NULL);\n    printf(\"%d\\n\", counter);\n    return 0;\n}\n```",
+     "options": [
+      "**200000** — 두 스레드가 각각 100000번 증가시키고 뮤텍스로 임계구역을 상호 배타 보호하므로, 데이터 경쟁 없이 정확히 200000이 출력된다.",
+      "**100000** — 뮤텍스가 있어도 한 스레드만 카운트되므로 100000.",
+      "**랜덤한 값(예: 137254)** — 뮤텍스가 있어도 데이터 경쟁이 발생하므로 매 실행마다 다른 값.",
+      "**컴파일 오류** — `pthread.h`는 표준 라이브러리가 아니라 링크 없이 컴파일되지 않는다."
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — `pthread_mutex_lock/unlock`으로 `counter++` 를 임계구역으로 보호 → 두 스레드 각 100000회 × 2 = **200000** 이 정확히 출력. 뮤텍스가 없으면 데이터 경쟁으로 값이 요동치지만, 여기서는 상호 배타 보장. **함정 키워드**: \"뮤텍스 있어도 100000·랜덤 값·`pthread.h` 표준 라이브러리 아님\"은 pthread 뮤텍스 원리 정반대."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2025년 2회 4과목 — Java Virtual Threads · Python GIL · Rust 소유권 정형 패턴",
+     "stem_md": "**Java 가상 스레드(Virtual Threads · Project Loom) · Python GIL · Rust 소유권**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Java Virtual Threads** — JDK 21 정식 반영(Project Loom). **다수의 경량 스레드**를 소수의 캐리어(Carrier) OS 스레드에 다중화하여, I/O 블로킹 지점에서 자동으로 언마운트되어 확장성이 향상된다. 기존 `Thread` API와 호환.",
+      "**Python GIL** — CPython 인터프리터의 **Global Interpreter Lock**. 동일 프로세스 내 여러 스레드가 있어도 한 순간 하나의 스레드만 파이썬 바이트코드를 실행하므로 **CPU-bound 병렬성에 한계**가 있다. **multiprocessing**·C 확장·PEP 703(자유 스레드) 방식으로 우회.",
+      "**Rust 소유권 · 대여** — **한 값의 소유자는 하나(Ownership)**·**빌림(Borrowing)** 은 **불변 빌림 여러 개 또는 가변 빌림 하나(XOR)** 만 허용하는 컴파일 타임 규칙으로, 데이터 경쟁을 컴파일 단계에서 방지. **Send/Sync** 트레이트로 스레드 간 안전성을 추적.",
+      "**Java Virtual Threads는 OS 스레드 1:1 매핑으로 오히려 무겁고**, **Python GIL은 CPU-bound 병렬 성능을 완벽하게 제공**하며, **Rust 소유권은 런타임에 데이터 경쟁을 감지하는 기능**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Virtual Threads는 **M:N 다중화**(다수 가상 : 소수 캐리어)로 확장성 향상(1:1 아님). Python GIL은 **CPU-bound 병렬 성능 제약**(완벽 병렬 아님). Rust 소유권은 **컴파일 타임** 검사(런타임 아님). ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"Virtual Threads 1:1·GIL 완벽 병렬·Rust 런타임 감지\"는 세 언어의 병렬 모델 정반대."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2025년 3회 4과목 — WebAuthn · Passkey · TLS 1.3 정형 패턴",
+     "stem_md": "**WebAuthn · Passkey · TLS 1.3**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**WebAuthn(FIDO2)** — 브라우저·플랫폼이 **공개키 기반 인증기(Authenticator)** 와 상호작용해 무비밀번호 인증을 수행하는 W3C 표준. 개인키는 인증기(TPM·보안 요소·플랫폼 인증기)에 남고, 서버는 공개키만 저장한다.",
+      "**Passkey** — WebAuthn을 사용자 관점에서 다듬은 UX로, **디바이스 간 동기화(iCloud Keychain · Google Password Manager)** 로 여러 기기에서 동일 자격 증명을 활용. 피싱 저항성(도메인 바인딩)·서버 침해 시 재사용 불가가 강점.",
+      "**TLS 1.3** — RFC 8446. 핸드셰이크가 **1-RTT** 로 단축(재개 시 0-RTT 가능), **CBC·RSA 키 교환·SHA-1** 등 취약한 조합을 제거하고 **AEAD(Authenticated Encryption with Associated Data)** 만 허용. **Perfect Forward Secrecy(PFS)** 를 제공하는 (EC)DHE 키 교환을 필수화.",
+      "**WebAuthn·Passkey는 서버가 사용자 비밀번호를 그대로 저장하는 방식**이며, **TLS 1.3은 RSA 키 교환·CBC 모드를 필수화**하고 **PFS를 제거**해 성능을 최적화한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — WebAuthn/Passkey는 **공개키 기반 · 서버는 공개키만 저장**(비밀번호 저장 X). TLS 1.3은 **RSA 키 교환·CBC 제거**하고 **PFS 필수**(제거 아님). ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"Passkey=비밀번호 저장·TLS 1.3 RSA/CBC 필수·PFS 제거\"는 최신 인증/암호 프로토콜 정반대."
+    },
+    {
+     "n": 16,
+     "source": "유사 기출: 2025년 1회 4과목 — Python GIL · multiprocessing 정형 패턴",
+     "stem_md": "다음 Python 코드의 병렬성 특성으로 **가장 옳은 것**은?\n\n```python\nimport threading, multiprocessing\n\ndef cpu_task(n):\n    x = 0\n    for i in range(n):\n        x = (x * 31 + i) & 0xffffffff\n    return x\n\n# 방식 A: threading (CPU-bound)\nthreads = [threading.Thread(target=cpu_task, args=(10_000_000,)) for _ in range(4)]\nfor t in threads: t.start()\nfor t in threads: t.join()\n\n# 방식 B: multiprocessing (CPU-bound)\nwith multiprocessing.Pool(4) as p:\n    p.map(cpu_task, [10_000_000]*4)\n```",
+     "options": [
+      "CPython에서 방식 A(threading)는 **GIL 때문에 실질적 CPU 병렬 실행이 제한**되어 순차 실행 대비 큰 속도 향상을 얻기 어렵다. 방식 B(multiprocessing)는 **별도 프로세스**로 각 코어에서 실제 병렬 실행되어 CPU-bound 작업에 유리하다.",
+      "방식 A(threading)가 4배 병렬로 실행되어 방식 B보다 항상 빠르다.",
+      "방식 A와 방식 B는 CPython에서 CPU-bound 작업에서 동일한 성능을 낸다.",
+      "방식 B는 스레드가 아니므로 병렬성이 없다."
+     ],
+     "answer": 0,
+     "explanation_md": "**정답 ①** — CPython의 GIL은 **동시에 단 한 스레드만** 파이썬 바이트코드 실행 → CPU-bound에서 threading은 병렬 이득 제한. multiprocessing은 **별도 프로세스**(각자 인터프리터/GIL 별개)로 각 코어에서 실제 병렬. **함정 키워드**: \"threading 4배 빠름·threading=multiprocessing 동성능·multiprocessing 병렬성 없음\"은 GIL 회피 실무 정반대."
+    },
+    {
+     "n": 17,
+     "source": "유사 기출: 2025년 2회 5과목 — 위협 모델링(STRIDE · DREAD · PASTA) 정형 패턴",
+     "stem_md": "**위협 모델링(Threat Modeling) · STRIDE · DREAD · PASTA · Attack Tree**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**STRIDE**(Microsoft) — **Spoofing(위장) · Tampering(변조) · Repudiation(부인) · Information Disclosure(정보 노출) · Denial of Service(서비스 거부) · Elevation of Privilege(권한 상승)** 6대 위협 분류. 각 자산·데이터 흐름에 대해 6가지 관점으로 위협을 열거.",
+      "**DREAD** — **Damage · Reproducibility · Exploitability · Affected users · Discoverability** 5개 축을 점수화해 위협의 상대적 심각도를 산정하는 위험 평가 프레임워크(단, 주관성 논란으로 최신 실무에서는 축소 사용).",
+      "**PASTA · Attack Tree** — **PASTA**(Process for Attack Simulation and Threat Analysis)는 7단계 리스크 중심 방법론. **Attack Tree**는 목표를 루트로 두고 하위 공격 경로를 트리로 분해해 시각화하는 고전적 기법. **LINDDUN**은 프라이버시 위협 모델링용.",
+      "**STRIDE는 5대 위협 분류**이며(Spoofing 제외), **DREAD는 위협 열거 기법이지 위험 평가와 무관**하고, **PASTA는 1단계 단순 프로세스**이며, **Attack Tree · LINDDUN은 존재하지 않는 개념**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — STRIDE는 **6대 위협**(Spoofing 포함). DREAD는 **위험 평가**(5축 점수) — 위협 열거는 STRIDE. PASTA는 **7단계 리스크 중심 방법론**(1단계 아님). Attack Tree/LINDDUN은 **실제 존재하는 방법론**. ④는 네 사실 4중 뒤바꾸기. **함정 키워드**: \"STRIDE 5대·DREAD 열거·PASTA 1단계·Attack Tree/LINDDUN 없음\"은 위협 모델링 4대 프레임워크 정반대."
+    },
+    {
+     "n": 18,
+     "source": "유사 기출: 2025년 3회 5과목 — 공급망 보안(SLSA · Sigstore · in-toto) 정형 패턴",
+     "stem_md": "**소프트웨어 공급망 보안(SSC · Supply Chain Security) — SLSA · Sigstore · in-toto**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**SLSA**(Supply-chain Levels for Software Artifacts) — Google 발원 오픈 프레임워크로, 빌드·아티팩트 무결성을 **레벨 1~4** 로 정의한다. 소스·빌드·의존성·프로비넌스(Provenance)에 대한 요구를 점진적으로 강화.",
+      "**Sigstore · Cosign** — 개발자가 **키리스(Keyless) 서명**(OIDC 신원 기반, Fulcio가 단기 인증서 발급, Rekor 투명성 로그)으로 아티팩트·컨테이너 이미지를 서명·검증. **재현 가능 빌드(Reproducible Build)** 와 함께 공급망 무결성의 기반.",
+      "**in-toto** — 공급망 각 단계(소스·빌드·테스트·배포)에서 **레이아웃(Layout)** 과 **링크(Link) 메타데이터** 를 서명·검증하여 어떤 단계가 누구에 의해 어떻게 수행됐는지 증명. **CNCF Graduated 프로젝트**.",
+      "**SLSA·Sigstore·in-toto는 마케팅 용어로 실제 보안 표준이 아니며**, **SLSA에는 레벨 구분이 없고**, **Sigstore는 반드시 장기 정적 키만 사용해야 하며**, **in-toto는 소스 코드 저장소 전용 도구이다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — SLSA·Sigstore·in-toto는 **실제 공급망 보안 표준**(마케팅 아님). SLSA는 **레벨 1~4** 명시. Sigstore는 **키리스 서명(OIDC·Fulcio·Rekor)** 이 핵심(장기 정적 키 반대). in-toto는 **전체 공급망 단계** 대상(소스 저장소 전용 아님). ④는 네 사실 4중 뒤바꾸기. **함정 키워드**: \"마케팅 용어·레벨 없음·정적 키 필수·소스 전용\"은 공급망 3대 표준 정반대."
+    },
+    {
+     "n": 19,
+     "source": "유사 기출: 2025년 1회 5과목 — SBOM 심화(SPDX vs CycloneDX) · 시크릿 관리 정형 패턴",
+     "stem_md": "**SBOM 심화(SPDX vs CycloneDX) · 시크릿 관리(Vault · KMS · Sealed Secrets)**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**SPDX**(ISO/IEC 5962) — Linux Foundation 표준 SBOM 형식으로 **라이선스 규정 준수**에 강점. 라이선스·저작권·의존성 관계·해시를 표현.",
+      "**CycloneDX** — OWASP 표준 SBOM 형식으로 **보안·취약점 정보 표현**에 강점. VEX(Vulnerability Exploitability eXchange)·서비스·제조·펌웨어 등 확장 프로파일 지원. **NTIA 최소 요소** 는 공급자·구성요소명·버전·고유식별자·의존성·SBOM 작성자·타임스탬프.",
+      "**Vault · KMS · Sealed Secrets · SOPS** — **HashiCorp Vault**(동적 시크릿·리스·PKI 인증)·**AWS KMS/Azure Key Vault/GCP KMS**(HSM·envelope 암호화·키 로테이션)·**Sealed Secrets**(공개키로 암호화된 시크릿을 Git에 안전 커밋)·**SOPS**(다중 KMS 후단 지원).",
+      "**SPDX·CycloneDX는 동일 회사에서 만든 사설 포맷**이며, **NTIA 최소 요소는 존재하지 않는 개념**이고, **Vault·KMS·Sealed Secrets은 모두 평문 시크릿을 Git에 그대로 저장하는 도구**이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — SPDX(Linux Foundation)·CycloneDX(OWASP)는 **서로 다른 조직 표준**. NTIA 최소 요소는 **공식 미국 상무부 지침**(존재함). Vault/KMS/Sealed Secrets는 모두 **시크릿을 안전하게 관리**하기 위한 도구(평문 Git 저장의 정반대). ④는 세 사실 3중 뒤바꾸기. **함정 키워드**: \"동일 회사·NTIA 없음·평문 Git 저장\"은 SBOM/시크릿 관리 정반대."
+    },
+    {
+     "n": 20,
+     "source": "유사 기출: 2025년 2회 5과목 — 랜섬웨어·APT 대응(Kill Chain · MITRE ATT&CK · 3-2-1 백업) 정형 패턴",
+     "stem_md": "**랜섬웨어·APT(Advanced Persistent Threat) 대응**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Cyber Kill Chain**(Lockheed Martin) — **정찰 → 무기화 → 배달 → 익스플로잇 → 설치 → C2 → 목적 달성** 7단계로 공격을 모델링. 각 단계에서 탐지·차단 대응을 매핑한다.",
+      "**MITRE ATT&CK** — 실제 공격자의 **전술(Tactic) · 기법(Technique) · 절차(TTP)** 를 매트릭스로 정리한 지식 베이스. 방어팀이 탐지 규칙·시나리오 커버리지를 점검하는 데 활용.",
+      "**랜섬웨어·APT 대응 절차** — **Preparation(대비) → Detection(탐지) → Containment(격리) → Eradication(제거) → Recovery(복구) → Lessons Learned(사후 분석)**. NIST SP 800-61 사고 대응(Incident Response) 표준.",
+      "**랜섬웨어 대응에는 Kill Chain · MITRE ATT&CK · 3-2-1 백업 원칙 모두 무관**하며, **암호화된 백업은 랜섬웨어 공격에 오히려 위험하고**, **사고 대응 단계는 존재하지 않는다**."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④** — Kill Chain·MITRE ATT&CK·3-2-1 백업·NIST 사고 대응 6단계는 모두 **랜섬웨어/APT 실무 표준**. **오프라인/불변(WORM) 백업**은 랜섬웨어 방어의 결정적 수단(위험이 아니라 필수). ④는 네 사실 4중 뒤바꾸기. **함정 키워드**: \"Kill Chain/ATT&CK/3-2-1 무관·암호화 백업 위험·IR 절차 없음\"은 랜섬웨어·APT 대응 표준 정반대."
+    }
+   ]
   }
  ]
 }
