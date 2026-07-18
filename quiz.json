@@ -11009,6 +11009,209 @@
      "explanation_md": "**정답 ④**. 연속 할당은 **외부 단편화 발생**. 연결 할당은 임의 접근 **O(n)** (연결리스트 순회). i-node는 **삼중 간접 블록**으로 대용량 지원(ext4 최대 파일 16TB). ④는 세 방식 모두 완전 왜곡.\n- ✅ 정답 근거: i-node의 다중 간접 블록 = 직접 12개 + 단일 간접(블록 포인터 하나) + 이중(포인터의 포인터) + 삼중(3중 참조) 로 4단계 확장.\n- ⚠️ 함정: \"연속=단편화 없음\", \"연결=임의 O(1)\", \"i-node 대용량 불가\" 는 3중 왜곡.\n- 🔑 암기: **연속(빠름·외부단편화)** / **연결(FAT·순차만 유리)** / **인덱스/i-node(직접+간접 3단·대용량)**."
     }
    ]
+  },
+  {
+   "day": 69,
+   "date": "2026-07-19",
+   "subject": "Phase 4 약점보강 4일차",
+   "topic": "네트워크 · OSI 7계층 · TCP/IP · 라우팅 · 서브넷 · IPv6 집중 (4과목) — 네 번째 최약점 영역 15문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2021년 1회 4과목 — OSI 7계층 정형 매칭",
+     "stem_md": "**OSI 7계층 모델**의 각 계층 기능·PDU·주요 프로토콜 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**1계층(물리, Physical)** — PDU: **Bit** · 기능: 전기·기계·기능적 신호 전송 · 장비: **리피터(Repeater) · 허브(Hub)** · 규격: RS-232, V.35.",
+      "**2계층(데이터링크, Data Link)** — PDU: **Frame** · 기능: 인접 노드 간 오류 검출·흐름 제어 · 장비: **브리지(Bridge) · 스위치(Switch)** · 프로토콜: HDLC, PPP, Ethernet(MAC).",
+      "**3계층(네트워크, Network)** — PDU: **Packet** · 기능: 경로 결정(라우팅)·논리 주소(IP) · 장비: **라우터(Router) · L3 스위치** · 프로토콜: IP, ICMP, IGMP, ARP.",
+      "**4계층(전송, Transport)** — PDU: **Frame** · 기능: 물리적 매체 접근 제어 · 장비: **리피터·허브** · 프로토콜: HDLC, MAC — 오류 검출은 이 계층에서만 수행."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. 4계층(전송)은 **PDU=Segment(TCP)/Datagram(UDP)** · 기능=**종단 간 신뢰성·흐름·혼잡 제어** · 프로토콜=**TCP/UDP** · 장비=**게이트웨이/L4 스위치**. ④는 4계층을 물리·데이터링크 기능으로 완전 왜곡.\n- ✅ 정답 근거: PDU 순서 암기 = **Bit(1) → Frame(2) → Packet(3) → Segment(4) → Data(5~7)**.\n- ⚠️ 함정: \"4계층 PDU=Frame\", \"4계층 장비=리피터\", \"4계층=MAC 오류 검출\" 은 3중 왜곡. 리피터·허브는 **1계층 전용**.\n- 🔑 암기: **PDU 순서 BFPS** — Bit·Frame·Packet·Segment. 장비 = **1리 2브 3라 4게** (리피터·브리지·라우터·게이트웨이)."
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2022년 2회 4과목 — 세션·표현·응용 계층 정형 구분",
+     "stem_md": "**OSI 7계층 중 5~7계층(세션·표현·응용)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**5계층(세션, Session)** — 응용 프로세스 간의 **대화(세션) 설정·유지·종료**를 담당하며, 동기점(Synchronization Point) 삽입으로 오류 복구 지점을 표시한다.",
+      "**6계층(표현, Presentation)** — 데이터 **형식 변환·암호화·압축·인코딩** 담당. 예: ASCII↔EBCDIC 변환, JPEG/MPEG 압축, TLS/SSL 암호화(계층 논쟁 존재).",
+      "**7계층(응용, Application)** — 사용자 응용 프로세스에 직접 인터페이스 제공. 프로토콜: **HTTP · FTP · SMTP · POP3 · IMAP · DNS · Telnet · SSH · SNMP**. 장비: **게이트웨이(Gateway)**.",
+      "**세션·표현·응용 3계층은 모두 OSI가 아닌 TCP/IP 모델에만 존재**하며, OSI는 4계층까지만 정의되어 있어 HTTP·SMTP·DNS는 OSI 모델에서 다루지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. **OSI 7계층은 모두 정의**되어 있으며, HTTP·SMTP·DNS는 **OSI 7계층(응용)** 에서 다룬다. TCP/IP 모델은 OSI의 5~7계층을 **응용 계층 하나로 통합**한 4계층 축약판.\n- ✅ 정답 근거: OSI = ISO 표준 7계층 모두 정의. TCP/IP = 실용 4계층. HTTP·SMTP는 OSI 7계층, TCP/IP 4계층의 **응용 계층** 양쪽 모두에 해당.\n- ⚠️ 함정: \"OSI는 4계층까지만\", \"5~7계층은 TCP/IP 전용\" 은 모델 자체를 오해한 함정.\n- 🔑 암기: **OSI 5=세션(대화·동기점)** / **OSI 6=표현(인코딩·암호·압축)** / **OSI 7=응용(HTTP·FTP·SMTP·DNS)**. **TLS는 5~7계층 경계**(교재 논쟁)."
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2021년 3회 4과목 — TCP vs UDP 정형 비교",
+     "stem_md": "**TCP(Transmission Control Protocol)와 UDP(User Datagram Protocol)** 의 특징 비교 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**TCP** — **연결지향(Connection-Oriented)** · 3-way 핸드셰이크(**SYN → SYN+ACK → ACK**)로 연결 설정 · 종료 시 4-way(**FIN → ACK → FIN → ACK**) · 신뢰성(재전송·순서 보장) · 흐름 제어(Sliding Window) · 혼잡 제어(Slow Start/AIMD).",
+      "**UDP** — **비연결형(Connectionless)** · 신뢰성·순서·흐름·혼잡 제어 **없음** · 헤더 오버헤드 최소 · 실시간(VoIP·스트리밍·DNS 질의·SNMP)에 적합.",
+      "**헤더 크기** — TCP 기본 **20바이트**(옵션 최대 60B) · UDP 고정 **8바이트**(발신/수신 포트 각 2B + 길이 2B + 체크섬 2B).",
+      "**UDP는 TCP보다 항상 신뢰성이 높고 재전송·순서 보장을 지원**하며, **TCP는 비연결형·헤더 8바이트**로 단순화된 프로토콜로 실시간 스트리밍에 사용된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. TCP↔UDP 특성이 완전히 뒤바뀜. **TCP=연결지향·신뢰성·헤더 20B**, **UDP=비연결·비신뢰·헤더 8B**. UDP가 신뢰성 높다는 서술 자체가 UDP 존재 이유를 부정.\n- ✅ 정답 근거: TCP는 재전송·순서 보장·흐름/혼잡 제어. UDP는 오버헤드 최소화로 실시간 전송(VoIP·게임·DNS·SNMP)에 사용.\n- ⚠️ 함정: \"UDP 신뢰성 높음\", \"TCP 헤더 8B\", \"UDP 순서 보장\" 은 3중 반전.\n- 🔑 암기: **TCP=신뢰(재전송/순서/흐름/혼잡)·20B·연결지향** / **UDP=속도(비신뢰/무순서)·8B·비연결**."
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2020년 4회 4과목 — TCP 3-way / 4-way 핸드셰이크 정형",
+     "stem_md": "TCP 연결의 **3-way 핸드셰이크(설정)와 4-way 핸드셰이크(종료)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**3-way 설정** — Client → Server: **SYN(seq=x)** → Server → Client: **SYN+ACK(seq=y, ack=x+1)** → Client → Server: **ACK(ack=y+1)** 후 데이터 전송 개시.",
+      "**4-way 종료** — 종료 요청자 → 상대: **FIN** → 상대 → 요청자: **ACK** (반쪽 종료 상태) → 상대 → 요청자: **FIN** → 요청자 → 상대: **ACK**. 요청자는 **TIME_WAIT** 상태(2MSL) 후 종료.",
+      "**상태 다이어그램** — CLOSED → LISTEN(서버) / SYN_SENT(클라이언트) → SYN_RECEIVED → ESTABLISHED. 종료 측은 FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED.",
+      "**TCP 연결 설정은 4-way(SYN → ACK → SYN → ACK), 종료는 3-way(FIN → SYN+FIN → ACK)** 로 이루어지며, **UDP도 동일한 3-way 핸드셰이크**로 연결을 설정한 뒤 데이터를 전송한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. TCP 설정은 **3-way(SYN→SYN+ACK→ACK)**, 종료는 **4-way(FIN→ACK→FIN→ACK)** 로 반쪽 종료(half-close) 지원. UDP는 **핸드셰이크 없음**(비연결형).\n- ✅ 정답 근거: 종료가 4-way인 이유 = 양방향 스트림 각각 독립 종료. TIME_WAIT 2MSL 대기 = 지연 세그먼트 소멸 보장.\n- ⚠️ 함정: \"설정 4-way, 종료 3-way\", \"UDP도 3-way\" 는 개념 정반대.\n- 🔑 암기: **설정=3(SYN·SYN+ACK·ACK)** / **종료=4(FIN·ACK·FIN·ACK)** / **UDP=핸드셰이크 없음**."
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2022년 1회 4과목 — IPv4 클래스 · 사설 IP · 특수 주소 정형",
+     "stem_md": "**IPv4 주소 체계**의 클래스·사설 IP·특수 주소 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**클래스 A** — 첫 옥텟 **0~127**(선두 비트 0) · 네트워크 비트 8 / 호스트 비트 24 · 최대 호스트 2²⁴-2 · 사설 IP **10.0.0.0/8**.",
+      "**클래스 B** — 첫 옥텟 **128~191**(선두 비트 10) · 네트워크 비트 16 / 호스트 비트 16 · 최대 호스트 2¹⁶-2 · 사설 IP **172.16.0.0/12**(172.16~172.31).",
+      "**클래스 C** — 첫 옥텟 **192~223**(선두 비트 110) · 네트워크 비트 24 / 호스트 비트 8 · 최대 호스트 2⁸-2 = **254** · 사설 IP **192.168.0.0/16**.",
+      "**클래스 A의 범위는 128~191**, **클래스 B는 192~223**, **클래스 C는 0~127**이며 **사설 IP는 존재하지 않고 모든 IPv4 주소가 공인 IP**로만 사용된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. 클래스 A/B/C 범위·사설 IP가 완전 왜곡. **A=0~127 (10.0.0.0/8)**, **B=128~191 (172.16~172.31/12)**, **C=192~223 (192.168.0.0/16)**. 공인·사설 구분은 IANA/RFC 1918로 명확히 존재.\n- ✅ 정답 근거: 사설 IP RFC 1918 = 10/8 · 172.16/12 · 192.168/16. NAT를 거쳐야만 외부 통신 가능.\n- ⚠️ 함정: \"A=128~191, B=192~223, C=0~127\" 은 클래스 순서 3중 회전. \"사설 IP 없음\"은 RFC 1918 무시.\n- 🔑 암기: **A(0~127) · B(128~191) · C(192~223) · D(224~239 멀티캐스트) · E(240~255 실험용)**. 사설 = **1t 1p 1g** (10·172.16·192.168)."
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2023년 2회 4과목 — 서브넷 마스크 · CIDR 계산 정형",
+     "stem_md": "IPv4 주소 **172.16.20.0/27** 네트워크에서 **사용 가능한 최대 호스트 수**는?",
+     "options": [
+      "14",
+      "**30**",
+      "62",
+      "126"
+     ],
+     "answer": 1,
+     "explanation_md": "**정답 ②**. **/27** = 네트워크 27비트 / 호스트 **5비트** · 사용 가능 호스트 = **2⁵ - 2 = 30**(네트워크·브로드캐스트 주소 제외). ①=/28(4비트), ③=/26(6비트), ④=/25(7비트).\n- ✅ 정답 근거: CIDR 호스트 수 공식 = **2^(32-N) - 2** (IPv4). /27 → 32-27=5 → 32-2=30.\n- ⚠️ 함정: /26(62)과 /27(30) 혼동 · -2를 빼먹거나(32) 이중으로 빼기(28) 오답.\n- 🔑 암기: **/24=254 · /25=126 · /26=62 · /27=30 · /28=14 · /29=6 · /30=2**. 표 통암기 필수."
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2021년 2회 4과목 — IPv6 128비트 정형",
+     "stem_md": "**IPv6(Internet Protocol version 6)** 의 특징 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**주소 길이 128비트** — 16비트씩 8개 필드를 콜론(:)으로 구분(예: 2001:0db8:85a3::8a2e:0370:7334). **:: 표기는 연속된 0을 한 번만 축약 가능**.",
+      "**헤더 구조 고정 40바이트** — IPv4의 가변 헤더(옵션 처리 느림)를 제거해 라우터 처리 속도 향상. 확장 헤더(Extension Header)로 옵션 처리.",
+      "**주소 유형 3종** — **유니캐스트(Unicast)** · **애니캐스트(Anycast, 가장 가까운 하나)** · **멀티캐스트(Multicast)**. **브로드캐스트는 IPv6에서 폐지**되고 멀티캐스트로 대체.",
+      "**IPv6는 주소 길이 32비트로 IPv4의 확장판**이며, **헤더는 가변(옵션 처리 느림)** · **브로드캐스트 지원** · **주소 유형은 유니캐스트만 존재**하고 IPsec은 지원하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. IPv6는 **128비트·헤더 고정 40B·주소 3종(유니/애니/멀티)·IPsec 기본 지원**. ④는 특성을 IPv4로 완전 회귀시킨 반전.\n- ✅ 정답 근거: IPv4=32비트, IPv6=128비트. IPv6 헤더 40B 고정 = 라우터 처리 가속. 브로드캐스트는 **IPv6에서 폐지**.\n- ⚠️ 함정: \"IPv6=32비트\", \"가변 헤더\", \"브로드캐스트 지원\" 은 IPv4와 뒤바꾼 3중 왜곡.\n- 🔑 암기: **IPv6 = 128비트 · 40B 고정 · 3종 주소(유니/애니/멀티) · IPsec 기본**. IPv4 = 32비트 · 가변(20~60B) · 브로드캐스트 있음."
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2022년 3회 4과목 — 라우팅 프로토콜 IGP/EGP · 알고리즘 정형",
+     "stem_md": "**라우팅 프로토콜**(RIP · OSPF · IS-IS · BGP · EIGRP)의 분류 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**RIP(Routing Information Protocol)** — **IGP** · **거리 벡터(Distance Vector)** · Bellman-Ford 알고리즘 · **hop count 최대 15**(16 = 도달 불가) · 30초 주기 광고 · 소규모 네트워크.",
+      "**OSPF(Open Shortest Path First)** — **IGP** · **링크 상태(Link State)** · **Dijkstra SPF 알고리즘** · 지역(Area) 개념으로 확장성 확보 · 변경 시 즉시 광고(triggered update).",
+      "**BGP(Border Gateway Protocol)** — **EGP**(자율 시스템 AS 간 라우팅) · **경로 벡터(Path Vector)** · TCP 179 포트 사용 · 인터넷 백본의 사실상 표준.",
+      "**RIP은 EGP·링크 상태 · Dijkstra 알고리즘**이며, **OSPF는 거리 벡터 · hop count 15 제한**, **BGP는 IGP·Bellman-Ford 알고리즘**으로 자율 시스템 내부 라우팅을 담당한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. **RIP=IGP·거리벡터·Bellman-Ford·hop 15**, **OSPF=IGP·링크상태·Dijkstra**, **BGP=EGP·경로벡터**. ④는 세 프로토콜의 분류·알고리즘을 완전 회전시킨 반전.\n- ✅ 정답 근거: IGP(내부: RIP/OSPF/IS-IS/EIGRP) vs EGP(외부 AS 간: BGP). 거리벡터 vs 링크상태 vs 경로벡터 3분류 필수 암기.\n- ⚠️ 함정: \"RIP=EGP\", \"OSPF=거리벡터\", \"BGP=IGP\" 3중 회전. hop 15는 **RIP 전용** 제한.\n- 🔑 암기: **RIP=거리벡터/hop15/Bellman-Ford** · **OSPF=링크상태/SPF/Dijkstra** · **BGP=경로벡터/AS간/TCP179**."
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2020년 3회 4과목 — 네트워크 장비 계층 매칭 정형",
+     "stem_md": "**네트워크 장비**와 **동작 OSI 계층** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**1계층(물리)** — **리피터(Repeater)** — 신호 증폭·재생 · **허브(Hub)** — 모든 포트로 브로드캐스트, 충돌 도메인 공유.",
+      "**2계층(데이터링크)** — **브리지(Bridge)** — MAC 주소 기반 세그먼트 분할 · **L2 스위치** — MAC 학습 후 특정 포트로 전달, 충돌 도메인 분리.",
+      "**3계층(네트워크)** — **라우터(Router)** — IP 주소 기반 경로 결정 · **L3 스위치** — 하드웨어 기반 고속 라우팅.",
+      "**모든 네트워크 장비는 7계층(응용)** 에서 동작하며 **리피터·허브·브리지·라우터·게이트웨이 모두 동일한 계층(응용)** 에서 데이터를 처리한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. 네트워크 장비는 계층별로 명확히 구분. **리피터/허브(1) · 브리지/L2스위치(2) · 라우터/L3스위치(3) · 게이트웨이(4~7)**. 모두 응용에서 동작은 계층 개념 자체 부정.\n- ✅ 정답 근거: 장비=계층 매칭은 정보처리기사 필기 매년 출제. \"리피터가 3계층\", \"라우터가 2계층\" 은 자주 나오는 오답.\n- ⚠️ 함정: \"모든 장비 = 7계층\" 극단 오답. 리피터=1, 라우터=3 정확히 매칭 필수.\n- 🔑 암기: **1리허 · 2브스 · 3라L3 · 4~7게** — 리피터·허브, 브리지·L2스위치, 라우터·L3스위치, 게이트웨이."
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2021년 1회 4과목 — TCP/IP 4계층 vs OSI 7계층 매핑 정형",
+     "stem_md": "**TCP/IP 4계층 모델**과 **OSI 7계층 모델**의 매핑 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**네트워크 액세스(Network Access) 계층** — OSI **1~2계층(물리·데이터링크)** 통합 · Ethernet, PPP, Wi-Fi, ARP·RARP.",
+      "**인터넷(Internet) 계층** — OSI **3계층(네트워크)** 대응 · **IP · ICMP · IGMP · ARP**(IP↔MAC 변환).",
+      "**전송(Transport) 계층** — OSI **4계층(전송)** 대응 · **TCP · UDP**.",
+      "**응용(Application) 계층** — OSI **5~7계층(세션·표현·응용)** 통합 · HTTP·FTP·SMTP·DNS 등 — **BUT 실제로는 응용 계층이 OSI 1~2계층에 대응**하고, **네트워크 액세스는 OSI 5~7계층**에 대응한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. TCP/IP 4계층↔OSI 7계층 매핑은 **네트워크 액세스(OSI 1~2) · 인터넷(OSI 3) · 전송(OSI 4) · 응용(OSI 5~7)**. ④는 매핑을 완전히 뒤집어 응용↔네트워크 액세스 교환.\n- ✅ 정답 근거: TCP/IP는 실용 축약형. 5·6·7을 하나로, 1·2를 하나로 통합. 인터넷·전송은 OSI와 1:1 대응.\n- ⚠️ 함정: \"응용=1~2계층\", \"네트워크 액세스=5~7계층\" 은 매핑 좌우 완전 반전.\n- 🔑 암기: **TCP/IP 4계층 = NA(1~2) · Internet(3) · Transport(4) · App(5~7)**."
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2023년 1회 4과목 — 응용 계층 프로토콜·포트 번호 정형",
+     "stem_md": "**응용 계층 프로토콜과 기본 포트 번호(Well-known Port)** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**HTTP — 80 / HTTPS — 443** · **FTP — 20(데이터) / 21(제어)** · **SSH — 22** · **Telnet — 23**.",
+      "**SMTP — 25**(메일 발송) · **POP3 — 110**(메일 수신 다운로드) · **IMAP — 143**(메일 수신·서버 유지) · **SMTPS — 465/587**.",
+      "**DNS — 53(UDP 기본, 512B 초과 zone transfer 시 TCP)** · **DHCP — 67(서버)/68(클라이언트) UDP** · **SNMP — 161/162 UDP** · **NTP — 123 UDP**.",
+      "**HTTP는 포트 443**, **HTTPS는 포트 80**, **FTP는 포트 25**, **SMTP는 포트 21**, **DNS는 포트 22(TCP 전용)**, **SSH는 포트 53** 으로 매칭된다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. 표준 포트 번호가 완전 왜곡. **HTTP=80·HTTPS=443·FTP=20/21·SSH=22·Telnet=23·SMTP=25·DNS=53·POP3=110·IMAP=143**. ④는 순서를 무작위 섞음.\n- ✅ 정답 근거: Well-known Port 0~1023. DNS는 **UDP 53 기본 + TCP 53(zone transfer)** 모두 사용. Day 10 문제 7의 \"DNS=53/TCP만\" 오답과 대비.\n- ⚠️ 함정: \"HTTP=443\", \"HTTPS=80\" 좌우 반전. \"SSH=53\", \"DNS=22\" 완전 무작위.\n- 🔑 암기: **20/21(FTP) · 22(SSH) · 23(Telnet) · 25(SMTP) · 53(DNS) · 80(HTTP) · 110(POP3) · 143(IMAP) · 443(HTTPS)** 순번 통암기."
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2022년 2회 4과목 — ARP·RARP·ICMP 정형",
+     "stem_md": "**보조 프로토콜(ARP · RARP · ICMP · IGMP)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**ARP(Address Resolution Protocol)** — **IP 주소 → MAC 주소** 변환 · 브로드캐스트 요청 후 대상 호스트가 유니캐스트 응답 · **캐시(arp -a)** 로 재조회 방지 · 동작 계층은 2/3계층 경계.",
+      "**RARP(Reverse ARP)** — **MAC 주소 → IP 주소** 변환 · 디스크 없는 워크스테이션(Diskless) 부팅 시 사용 · 현재는 **BOOTP · DHCP** 로 대체.",
+      "**ICMP(Internet Control Message Protocol)** — 오류 보고·진단 · **ping**(Echo Request/Reply) · **traceroute**(TTL 이용) · 동작 계층은 **3계층(네트워크)**.",
+      "**ARP는 MAC → IP 변환**, **RARP는 IP → MAC 변환**, **ICMP는 7계층(응용)** 에서 동작하며 **오류 보고가 아닌 파일 전송**을 담당하는 프로토콜이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. ARP·RARP·ICMP 정의가 완전 왜곡. **ARP=IP→MAC**, **RARP=MAC→IP**, **ICMP=3계층 오류 보고(ping/traceroute)**. ④는 ARP↔RARP 방향 반전 + ICMP 계층·기능 왜곡.\n- ✅ 정답 근거: ARP 방향 = \"IP를 알고 MAC을 구함\"(브로드캐스트 질의). ICMP는 IP 계층(3)에서 오류·진단 제어 메시지.\n- ⚠️ 함정: \"ARP=MAC→IP\", \"RARP=IP→MAC\" 3중 반전. \"ICMP=7계층/파일 전송\" 완전 무관.\n- 🔑 암기: **ARP = IP → MAC**(정방향) / **RARP = MAC → IP**(역방향) / **ICMP = 3계층 · 오류 진단**(ping/traceroute)."
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2021년 2회 4과목 — DNS · DHCP · NAT 정형",
+     "stem_md": "**인터넷 기반 서비스 프로토콜(DNS · DHCP · NAT)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**DNS(Domain Name System)** — 도메인 이름(예: www.example.com) ↔ IP 주소 매핑 · **계층 구조**(Root → TLD → Authoritative) · 레코드: **A(IPv4) · AAAA(IPv6) · CNAME · MX · NS · PTR(역방향)**.",
+      "**DHCP(Dynamic Host Configuration Protocol)** — 클라이언트에 IP·서브넷·게이트웨이·DNS **자동 할당** · 4단계 **DORA**(Discover → Offer → Request → Acknowledge) · 서버 67/클라이언트 68 UDP.",
+      "**NAT(Network Address Translation)** — 사설 IP ↔ 공인 IP 변환 · 사설 IP 부족 문제 완화 · 종류: **Static NAT · Dynamic NAT · PAT(NAPT, 포트 오버로드)** — PAT는 하나의 공인 IP에 여러 사설 IP 다중화.",
+      "**DNS는 IP↔포트 매핑**이며, **DHCP는 4단계 SYNC**(Sync→Yield→Notify→Close), **NAT은 MAC 주소 변환**을 수행하는 프로토콜로 모두 2계층(데이터링크)에서 동작한다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. DNS·DHCP·NAT 기본 정의가 완전 왜곡. **DNS=도메인↔IP**, **DHCP=DORA 4단계 IP 자동 할당**, **NAT=사설↔공인 IP 변환**. ④는 3프로토콜을 모두 뒤바꿈.\n- ✅ 정답 근거: DHCP 4단계 DORA = **D**iscover · **O**ffer · **R**equest · **A**cknowledge. NAT은 3~4계층(IP/포트).\n- ⚠️ 함정: \"DNS=IP↔포트\", \"DHCP=SYNC 4단계\", \"NAT=MAC 변환\" 은 3중 완전 왜곡.\n- 🔑 암기: **DNS = 이름 ↔ IP** / **DHCP = DORA 4단계 · UDP 67·68** / **NAT = 사설 ↔ 공인**(PAT는 포트 다중화)."
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2023년 3회 4과목 — HTTP/HTTPS · TLS/SSL 정형",
+     "stem_md": "**HTTP · HTTPS · TLS/SSL** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**HTTP** — **Stateless**(무상태) · 요청/응답 기반 · 메서드 **GET · POST · PUT · DELETE · PATCH · HEAD · OPTIONS** · 상태 코드 **1xx(정보) · 2xx(성공) · 3xx(리다이렉트) · 4xx(클라이언트 오류) · 5xx(서버 오류)**.",
+      "**HTTPS** — HTTP + **TLS/SSL** 암호화 · 기본 포트 **443** · 서버 인증(X.509 인증서) · 대칭 세션 키 교환 시 **비대칭 암호(RSA·ECDHE)** 사용 · TLS 1.3 권장(TLS 1.0/1.1 폐기).",
+      "**TLS 핸드셰이크** — Client Hello → Server Hello → 인증서 전송 → 키 교환 → Change Cipher Spec → Finished. 이후 **대칭키(AES-GCM)** 로 데이터 암호화.",
+      "**HTTPS는 암호화 없이 평문 전송**이며, **HTTP는 포트 443·TLS 필수**로 인증서 검증을 수행하고, **TLS 핸드셰이크는 5계층(세션)** 이 아닌 **1계층(물리)** 에서만 이루어진다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. HTTPS는 **HTTP + TLS · 포트 443 · 암호화 필수**. HTTP는 **포트 80 · 평문**. ④는 HTTP↔HTTPS 좌우 반전 + TLS 계층을 물리로 왜곡.\n- ✅ 정답 근거: HTTPS = HTTP over TLS/SSL. 대칭키 교환 시에만 비대칭(RSA/ECDHE) 사용, 이후 AES-GCM 대칭 암호로 데이터.\n- ⚠️ 함정: \"HTTPS=평문\", \"HTTP=443\", \"TLS=1계층\" 은 개념 3중 반전.\n- 🔑 암기: **HTTP=80·평문** / **HTTPS=443·TLS 암호화** / **TLS=5~7계층 경계(교재별)**."
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2020년 4회 4과목 — 오류 검출·흐름 제어 정형 종합",
+     "stem_md": "**네트워크 오류 검출·흐름 제어·혼잡 제어** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**오류 검출** — **패리티(Parity, 1비트) · CRC(Cyclic Redundancy Check, 다항식) · Checksum(TCP/UDP/IP)** · CRC는 순회 중복 검사로 프레임 단위 오류 검출율 매우 높음(HDLC · Ethernet 사용).",
+      "**흐름 제어(Flow Control)** — 송신자↔수신자 간 속도 조절 · **Stop-and-Wait**(단순, 낮은 활용률) · **Sliding Window**(다중 프레임 전송, TCP 사용) · 수신 윈도우(rwnd) 광고.",
+      "**혼잡 제어(Congestion Control)** — 네트워크 전체 부하 조절 · **Slow Start**(cwnd 지수 증가) · **Congestion Avoidance**(임계치 이후 선형) · **Fast Retransmit / Fast Recovery**(중복 ACK 3개 시 재전송) · **AIMD**(Additive Increase Multiplicative Decrease).",
+      "**CRC는 1비트 오류만 검출 가능**하고 **패리티가 CRC보다 검출율이 높으며**, **Sliding Window는 UDP에서 사용**, **Slow Start는 cwnd를 선형 감소**시키는 혼잡 제어 기법이다."
+     ],
+     "answer": 3,
+     "explanation_md": "**정답 ④**. CRC는 **다항식 기반 다중 비트 오류 검출**로 패리티(1비트만)보다 훨씬 강함. Sliding Window는 **TCP** 전용, UDP는 흐름/혼잡 제어 **없음**. Slow Start는 **cwnd 지수 증가**(선형은 Congestion Avoidance).\n- ✅ 정답 근거: CRC-32 표준(Ethernet/HDLC) = 32비트 다항식 나머지. Slow Start = cwnd 매 RTT마다 2배. Fast Recovery = 3중복 ACK.\n- ⚠️ 함정: \"CRC 1비트만\", \"패리티가 더 강함\", \"Sliding Window UDP\", \"Slow Start 선형 감소\" 는 4중 왜곡.\n- 🔑 암기: **오류 검출 = 패리티(1비트) < 체크섬 < CRC(다중 비트)** / **Sliding Window = TCP** / **Slow Start = cwnd 지수↑, AIMD = 선형↑ 곱셈↓**."
+    }
+   ]
   }
  ]
 }
