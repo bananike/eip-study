@@ -11212,6 +11212,209 @@
      "explanation_md": "**정답 ④**. CRC는 **다항식 기반 다중 비트 오류 검출**로 패리티(1비트만)보다 훨씬 강함. Sliding Window는 **TCP** 전용, UDP는 흐름/혼잡 제어 **없음**. Slow Start는 **cwnd 지수 증가**(선형은 Congestion Avoidance).\n- ✅ 정답 근거: CRC-32 표준(Ethernet/HDLC) = 32비트 다항식 나머지. Slow Start = cwnd 매 RTT마다 2배. Fast Recovery = 3중복 ACK.\n- ⚠️ 함정: \"CRC 1비트만\", \"패리티가 더 강함\", \"Sliding Window UDP\", \"Slow Start 선형 감소\" 는 4중 왜곡.\n- 🔑 암기: **오류 검출 = 패리티(1비트) < 체크섬 < CRC(다중 비트)** / **Sliding Window = TCP** / **Slow Start = cwnd 지수↑, AIMD = 선형↑ 곱셈↓**."
     }
    ]
+  },
+  {
+   "day": 70,
+   "date": "2026-07-20",
+   "subject": "Phase 4 약점보강 5일차",
+   "topic": "데이터베이스 · SQL · 정규화 · 트랜잭션 · 인덱스 집중 (3과목) — 다섯 번째 최약점 영역 15문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2021년 1회 3과목 — 데이터베이스 3단계 스키마 정형",
+     "stem_md": "**데이터베이스 3단계(3-Level) 스키마 구조**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**외부 스키마(External Schema · View · Sub Schema)** — 개별 사용자·응용 프로그램 관점의 논리적 구조. 하나의 개념 스키마에 대해 **여러 개의 외부 스키마**가 존재 가능. \"서브 스키마\"·\"뷰\"라고도 부른다.",
+      "**개념 스키마(Conceptual Schema · Logical Schema)** — 조직 전체(범기관적) 관점의 통합된 논리적 구조. **데이터베이스에 대해 하나만 존재**하며, 개체·관계·제약조건·무결성 규칙·접근 권한을 포함. DBA가 관리.",
+      "**내부 스키마(Internal Schema · Physical Schema)** — 물리적 저장 구조(레코드 형식·필드 크기·인덱스 유무·저장 장치의 물리 주소). 데이터 압축·암호화·인덱스 방식 등이 여기서 결정됨.",
+      "**3단계 스키마는 \"외부(물리) → 개념(하드웨어) → 내부(사용자 뷰)\" 의 순서**로 정의되며, **개념 스키마는 사용자마다 여러 개 존재**하고 **외부 스키마는 물리적 저장 구조·인덱스 배치**를 담당한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2022년 2회 3과목 — 데이터 독립성(Data Independence) 정형",
+     "stem_md": "**논리적·물리적 데이터 독립성(Data Independence)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**논리적 데이터 독립성(Logical Data Independence)** — **개념 스키마의 변경(속성 추가/삭제·개체 통합·제약 변경)** 이 있어도 **외부 스키마(뷰)·응용 프로그램은 영향 없이 유지**되도록 하는 성질. 외부/개념 간 사상(External-Conceptual Mapping)이 담당.",
+      "**물리적 데이터 독립성(Physical Data Independence)** — **내부 스키마의 변경(저장 구조·인덱스·파일 조직·저장 장치 교체)** 이 있어도 **개념 스키마·외부 스키마·응용 프로그램은 영향 없이 유지**되도록 하는 성질. 개념/내부 간 사상(Conceptual-Internal Mapping)이 담당.",
+      "**의의** — 스키마의 상위 계층은 하위 계층의 변경에 영향받지 않도록 격리되며, **하위 계층의 물리적/구조적 변화가 상위 응용에 미치는 파급 효과**를 최소화한다. 이 원칙은 DBMS의 핵심 설계 목표 중 하나.",
+      "**논리적 독립성은 저장 장치·인덱스 변경으로부터 개념 스키마를 보호**하는 성질이고, **물리적 독립성은 개념 스키마 변경으로부터 응용 프로그램을 보호**하는 성질이며, **두 독립성 모두 사용자 응용 프로그램을 직접 수정해야 유지된다**."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2020년 4회 3과목 — 관계형 데이터 모델 용어 정형",
+     "stem_md": "**관계형 데이터 모델의 기본 용어** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**릴레이션(Relation)** = 테이블(Table) · 파일(File) · 표. 하나의 개체(Entity)에 대한 데이터를 저장하는 2차원 표 형태의 구조.",
+      "**튜플(Tuple)** = 행(Row) · 레코드(Record). **카디널리티(Cardinality)** 는 릴레이션의 **튜플(행) 수**를 의미.",
+      "**속성(Attribute)** = 열(Column) · 필드(Field). **차수(Degree)** 는 릴레이션의 **속성(열) 수**를 의미. 도메인(Domain)은 속성이 가질 수 있는 값의 집합.",
+      "**카디널리티는 릴레이션의 속성(열) 수**를 뜻하고 **차수는 튜플(행) 수**를 뜻하며, **속성은 튜플의 다른 이름**이고 **도메인은 릴레이션에 저장된 모든 튜플의 개수**를 의미한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2021년 3회 3과목 — 키(Key) 종류 정형",
+     "stem_md": "**릴레이션의 키(Key) 종류** 정의 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**슈퍼키(Super Key)** — **유일성(Uniqueness)은 만족하지만 최소성(Minimality)은 보장하지 않는** 속성(또는 속성 집합). 튜플을 유일하게 식별할 수 있으나 필요 이상의 속성을 포함할 수 있음.",
+      "**후보키(Candidate Key)** — **유일성과 최소성을 모두 만족**하는 속성(집합). 여러 개 존재 가능. 그 중 하나를 기본키(Primary Key)로 선정, 나머지를 대체키(Alternate Key)로 부른다.",
+      "**기본키(Primary Key) · 외래키(Foreign Key)** — 기본키는 **NULL 불허·중복 불허(개체 무결성)** · 후보키 중 대표. 외래키는 **다른 릴레이션의 기본키를 참조**하는 속성으로 **참조 무결성**을 강제하며 NULL 허용 가능(단, 참조 대상은 반드시 존재해야 함).",
+      "**슈퍼키는 유일성·최소성을 모두 만족하는 최소 식별키**이고, **후보키는 최소성만 만족하고 유일성은 없는 키**이며, **기본키는 NULL을 반드시 허용**하고 **외래키는 다른 릴레이션의 기본키가 아닌 임의 속성**을 자유롭게 참조할 수 있다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2022년 1회 3과목 — 무결성 제약조건 정형",
+     "stem_md": "**데이터베이스 무결성(Integrity) 제약조건** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**개체 무결성(Entity Integrity)** — 릴레이션의 **기본키(Primary Key)는 NULL을 가질 수 없고, 중복될 수 없다**. 기본키 후보 속성의 유일성·존재성을 보장.",
+      "**참조 무결성(Referential Integrity)** — 외래키(FK) 값은 **참조되는 릴레이션의 기본키 값 중 하나이거나 NULL**이어야 한다. 삭제·갱신 시 CASCADE·SET NULL·SET DEFAULT·RESTRICT·NO ACTION 옵션으로 정책 지정.",
+      "**도메인 무결성(Domain Integrity)** — 속성 값이 **정의된 도메인(자료형·범위·형식·CHECK 제약·NOT NULL·DEFAULT)** 을 만족해야 한다. 예: 나이 ≥ 0, 성별 IN ('M','F'), 이메일 형식 등.",
+      "**개체 무결성은 외래키(FK)의 NULL·중복을 방지하는 제약**이고, **참조 무결성은 기본키가 반드시 도메인 CHECK 제약을 만족하도록 강제**하는 제약이며, **도메인 무결성은 다른 릴레이션의 기본키를 참조하는 제약**이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2023년 2회 3과목 — 정규화 단계 정형",
+     "stem_md": "**정규화(Normalization) 단계 판별** — 다음 릴레이션 R(**학번**, 과목코드, 성적, **교수번호**, 교수이름, 교수학과)에 대해 함수적 종속이 {학번, 과목코드} → 성적 / 과목코드 → 교수번호 / 교수번호 → 교수이름, 교수학과 일 때, 이 릴레이션이 **위배하는 최상위 정규형**은?",
+     "options": [
+      "제1정규형(1NF) — 원자값(Atomic Value) 위배",
+      "**제2정규형(2NF) — 부분 함수적 종속(Partial Dependency) 존재로 위배**",
+      "제3정규형(3NF) — 이행적 함수적 종속(Transitive Dependency) 위배",
+      "보이스-코드 정규형(BCNF) — 결정자가 후보키가 아닌 함수적 종속 존재"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2021년 2회 3과목 — 정규화 1NF~BCNF 정의 정형",
+     "stem_md": "**정규화(1NF · 2NF · 3NF · BCNF) 각 단계의 조건** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**1NF(제1정규형)** — 모든 속성이 **원자값(Atomic Value)** 만 가진다. 반복 그룹·다중 값·복합 값 없음. 관계형 모델의 최소 조건.",
+      "**2NF(제2정규형)** — 1NF를 만족하고, **부분 함수적 종속(Partial Dependency) 제거** — 즉 모든 비주요 속성이 **기본키 전체에 완전 함수적 종속**. (기본키가 단일 속성이면 2NF 자동 만족).",
+      "**3NF(제3정규형)** — 2NF를 만족하고, **이행적 함수적 종속(Transitive Dependency) 제거** — 비주요 속성 A → 비주요 속성 B 형태의 종속을 분리. **BCNF(Boyce-Codd Normal Form)** = 3NF + **모든 결정자(Determinant)가 후보키**여야 함.",
+      "**1NF는 이행적 함수적 종속 제거**, **2NF는 원자값 조건**, **3NF는 부분 함수적 종속 제거**, **BCNF는 다중 값 종속 제거(=4NF와 동일)** 로 정의되며, **2NF는 기본키가 단일 속성인 경우 자동으로 위배**된다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2020년 3회 3과목 — SQL 분류 DDL/DML/DCL/TCL 정형",
+     "stem_md": "**SQL 명령어의 4대 분류(DDL · DML · DCL · TCL)** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**DDL(Data Definition Language)** — 스키마·테이블·인덱스·뷰·시퀀스 등 객체의 **정의·변경·삭제**. **CREATE · ALTER · DROP · TRUNCATE · RENAME**. 자동 커밋(Auto-Commit)되어 롤백 불가.",
+      "**DML(Data Manipulation Language)** — 튜플의 **조회·삽입·수정·삭제**. **SELECT · INSERT · UPDATE · DELETE · MERGE**. 트랜잭션 대상이므로 COMMIT 전까지 롤백 가능.",
+      "**DCL(Data Control Language)** — 사용자 **권한 부여·회수**. **GRANT · REVOKE · DENY**. 접근 제어·보안 관리 담당.",
+      "**TCL(Transaction Control Language)** — **CREATE · ALTER · DROP**. 트랜잭션의 시작·종료·저장점 관리는 DDL이 담당하며, **COMMIT · ROLLBACK · SAVEPOINT는 DML의 하위 분류**로 정의된다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2022년 3회 3과목 — DELETE vs TRUNCATE vs DROP 정형",
+     "stem_md": "**DELETE · TRUNCATE · DROP 세 명령어**의 차이에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**DELETE (DML)** — WHERE 절로 **선택적 행 삭제 가능**. 트랜잭션 로그에 각 행이 기록되어 **ROLLBACK 가능** · 트리거 발동 · AUTO_INCREMENT 시퀀스 유지. 대량 삭제 시 느림.",
+      "**TRUNCATE (DDL)** — **테이블의 모든 행을 일괄 삭제**(WHERE 불가). 로그 최소 기록으로 **DELETE보다 훨씬 빠름** · **AUTO_INCREMENT 초기화** · 트리거 미발동 · **ROLLBACK 불가**(자동 커밋).",
+      "**DROP (DDL)** — **테이블 자체(구조 + 데이터 + 제약·인덱스·트리거)를 삭제**. 이후 해당 테이블에 대한 SELECT/INSERT 불가 · **ROLLBACK 불가**(자동 커밋). 스키마 자체를 제거하는 명령.",
+      "**DELETE는 DDL로 롤백 불가·테이블 구조까지 삭제**하며, **TRUNCATE는 DML로 WHERE 절이 필수**이고 **AUTO_INCREMENT는 유지**되며, **DROP은 DML로 트리거를 발동하며 트랜잭션 로그에 각 행을 기록**한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2021년 1회 3과목 — SELECT · GROUP BY · HAVING · JOIN 정형",
+     "stem_md": "아래 SQL 실행 결과에 관한 설명 중 **가장 옳지 않은 것**은?\n\n```sql\nSELECT   dept_id, AVG(salary) AS avg_sal, COUNT(*) AS cnt\nFROM     employee\nWHERE    hire_date >= '2020-01-01'\nGROUP BY dept_id\nHAVING   AVG(salary) >= 4000000\nORDER BY avg_sal DESC;\n```",
+     "options": [
+      "**WHERE 절**은 그룹화(GROUP BY) **전에 개별 행 필터** — 2020-01-01 이후 입사자만 통과. **집계 함수는 WHERE에 사용 불가**(HAVING에서만 사용).",
+      "**GROUP BY dept_id**는 부서별 그룹을 형성. SELECT 절의 **비집계 컬럼(dept_id)** 은 반드시 GROUP BY에 포함되어야 함(표준 SQL).",
+      "**HAVING 절**은 그룹화 **후 그룹별 필터** — 평균 급여가 400만 원 이상인 부서만 통과. 집계 함수(AVG/COUNT/SUM/MAX/MIN)를 사용 가능.",
+      "**WHERE는 그룹화 후 필터**로 집계 함수 AVG/COUNT를 자유롭게 사용 가능하고, **HAVING은 그룹화 전 개별 행 필터**로 집계 함수를 사용할 수 없으며, **GROUP BY의 dept_id는 SELECT 절에 없어도 무방**하다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2023년 1회 3과목 — INNER · OUTER · CROSS JOIN 정형",
+     "stem_md": "**SQL JOIN 종류(INNER · LEFT OUTER · RIGHT OUTER · FULL OUTER · CROSS · SELF)** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**INNER JOIN** — 두 테이블에서 **조인 조건을 만족하는 행만** 결과에 포함. 조건을 만족하지 않는 행은 결과에서 제외.",
+      "**LEFT OUTER JOIN** — **왼쪽 테이블의 모든 행**을 유지하고, 오른쪽에 매칭되지 않는 열은 NULL로 채움. **RIGHT OUTER JOIN**은 반대(오른쪽 전체 유지). **FULL OUTER JOIN**은 양쪽 모두 유지(어느 쪽이든 매칭 없으면 NULL).",
+      "**CROSS JOIN(Cartesian Product)** — 두 테이블의 **모든 조합(m × n)** 을 결과로 반환. 조인 조건 없음. **SELF JOIN**은 같은 테이블끼리 별칭(alias) 을 통해 조인(계층 데이터·직속 상사 등).",
+      "**INNER JOIN은 왼쪽 테이블의 모든 행을 유지하며 오른쪽 매칭 없으면 NULL로 채우는 조인**이고, **LEFT OUTER JOIN은 조인 조건을 만족하는 행만 반환하는 조인**이며, **CROSS JOIN은 반드시 ON 절이 있어야 하고 결과 행 수는 m+n**이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2020년 2회 3과목 — 트랜잭션 ACID 4속성 정형",
+     "stem_md": "**트랜잭션(Transaction)의 4대 속성 ACID** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**원자성(Atomicity)** — 트랜잭션의 모든 연산이 **완전히 수행되거나(All) 전혀 수행되지 않아야(Nothing)** 함. 부분 완료 상태 금지. COMMIT/ROLLBACK으로 보장.",
+      "**일관성(Consistency)** — 트랜잭션 수행 **전과 후의 데이터베이스가 일관된(무결성 제약을 만족하는) 상태**를 유지해야 함. 계좌 이체 전·후 총액 불변 등.",
+      "**격리성(Isolation)** — **동시에 수행되는 여러 트랜잭션이 서로 간섭하지 않도록 격리**되어야 함. 격리 수준(Isolation Level)으로 강도 조절 · 병행제어(Locking·2PL·MVCC)로 구현.",
+      "**원자성은 부분 완료를 허용**하고, **일관성은 트랜잭션 종료 후 반드시 새로운 무결성 제약을 위반한 상태**여야 하며, **격리성은 트랜잭션들이 서로 자유롭게 간섭하도록 허용**하고, **지속성(Durability)은 COMMIT 후 시스템 장애 시 변경사항이 소실되는 것을 허용**하는 성질이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2022년 1회 3과목 — 격리수준과 이상 현상 정형",
+     "stem_md": "**트랜잭션 격리 수준(Isolation Level)과 이상 현상(Anomaly)** 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**READ UNCOMMITTED (Level 0)** — 다른 트랜잭션의 **커밋되지 않은 변경도 읽음**. **Dirty Read · Non-Repeatable Read · Phantom Read** 모두 발생 가능. 성능 최고, 정확성 최저.",
+      "**READ COMMITTED (Level 1)** — 커밋된 데이터만 읽음(Oracle·PostgreSQL 기본). **Dirty Read 방지** · Non-Repeatable Read·Phantom Read 발생 가능.",
+      "**REPEATABLE READ (Level 2)** — 트랜잭션 내에서 동일 행을 여러 번 읽어도 값이 동일(MySQL 기본). **Dirty Read · Non-Repeatable Read 방지** · Phantom Read 발생 가능. **SERIALIZABLE (Level 3)** — 트랜잭션을 순차 실행한 것과 동일한 결과 보장. **모든 이상 현상 방지** · 성능 최저.",
+      "**READ UNCOMMITTED는 모든 이상 현상을 방지**하는 최고 격리 수준이고, **SERIALIZABLE은 Dirty Read만 허용**하는 최저 격리 수준이며, **Dirty Read는 자신이 방금 UPDATE한 값을 다시 못 읽는 현상**이고 **Phantom Read는 같은 트랜잭션에서 같은 값이 두 번 다르게 조회되는 현상**이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2021년 3회 3과목 — 병행제어 2PL · 회복 REDO/UNDO 정형",
+     "stem_md": "**병행 제어(2PL) · 회복 기법(REDO/UNDO)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**2단계 로킹 프로토콜(2PL, Two-Phase Locking)** — **확장 단계(Growing Phase)** 에서는 락을 획득만 가능(해제 불가), **축소 단계(Shrinking Phase)** 에서는 락을 해제만 가능(획득 불가). 직렬 가능성(Serializability)을 보장하지만 **교착상태(Deadlock)** 발생 가능.",
+      "**로킹 단위(Granularity)** — DB > 파일 > 릴레이션 > 튜플 > 속성 순으로 세밀해짐. **단위가 클수록 병행성↓·오버헤드↓** / **단위가 작을수록 병행성↑·오버헤드↑**.",
+      "**회복(Recovery) — REDO/UNDO** — **REDO(재실행)** = 커밋된 트랜잭션의 변경을 로그로 다시 반영(장애 후 최신 상태 복원), **UNDO(취소)** = 커밋되지 않은 트랜잭션의 변경을 로그의 이전 이미지(Before Image)로 되돌림. **즉시 갱신** = 로그 후 실제 반영(REDO+UNDO 필요), **지연 갱신** = COMMIT 후 반영(UNDO 불필요, REDO만).",
+      "**2PL의 확장 단계에서는 락 해제만 가능**하고 **축소 단계에서는 락 획득만 가능**하며, **REDO는 커밋되지 않은 트랜잭션을 이전 상태로 되돌리는 연산**이고 **UNDO는 커밋된 트랜잭션을 재실행하는 연산**이며, **지연 갱신은 REDO/UNDO가 모두 필요**하고 **즉시 갱신은 어느 쪽도 불필요**하다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2023년 2회 3과목 — 인덱스 B-tree vs Hash · 클러스터드 정형",
+     "stem_md": "**데이터베이스 인덱스(Index)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**B-tree 인덱스** — 균형 잡힌 다진 트리 구조. **정렬된 상태 유지** → **등가(=) · 범위(BETWEEN/<//>) · 정렬(ORDER BY) · LIKE 접두어 검색** 모두 효율적. 검색·삽입·삭제 모두 O(log N). 대부분의 RDBMS 기본 인덱스.",
+      "**Hash 인덱스** — 해시 함수로 키의 저장 위치를 직접 계산. **등가(=) 검색은 평균 O(1)** 로 매우 빠르나, **범위 검색·정렬·부분 일치 불가**(해시는 순서를 유지하지 않음). 메모리 기반(예: PostgreSQL HASH·Memory 엔진)에서 주로 사용.",
+      "**클러스터드(Clustered) vs 논클러스터드(Non-Clustered) 인덱스** — 클러스터드는 **테이블 데이터의 물리적 순서 자체가 인덱스 키 순서**(테이블당 1개 · 리프에 실제 행). 논클러스터드는 별도 인덱스 구조에 **RID(Row Identifier)/PK를 저장**하여 실제 행 위치를 참조(여러 개 가능). **커버링 인덱스** = 쿼리가 필요로 하는 모든 컬럼을 인덱스 자체에 포함해 테이블 접근 없이 처리.",
+      "**B-tree 인덱스는 등가 검색만 가능**하고 **범위 검색·정렬은 불가능**하며, **Hash 인덱스는 범위·정렬·LIKE 검색에 가장 효율적**이고, **클러스터드 인덱스는 테이블당 여러 개 생성 가능**하며 **논클러스터드는 테이블당 1개만 가능**하다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    }
+   ]
   }
  ]
 }
