@@ -11415,6 +11415,209 @@
      "explanation_md": ""
     }
    ]
+  },
+  {
+   "day": 71,
+   "date": "2026-07-21",
+   "subject": "Phase 4 약점보강 6일차",
+   "topic": "소프트웨어 공학 방법론·프로젝트 관리 집중 (5과목) — 여섯 번째 최약점 영역 15문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2021년 1회 5과목 — 폭포수(Waterfall) 모델 정형",
+     "stem_md": "**폭포수(Waterfall) 모델**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**선형 순차 모델(Linear Sequential Model)** 로, 각 단계(**타당성 조사 → 요구 분석 → 설계 → 구현 → 시험 → 유지보수**)를 완료 후 다음 단계로 진행하며 위 단계로의 되돌아감(피드백)을 원칙적으로 제한한다.",
+      "각 단계 종료 시점에 **문서(산출물)** 를 완성해 승인 절차를 거치며, 요구사항이 **초기에 명확하게 정의**된 프로젝트·소규모 하드웨어 개발·안전이 중요한 임베디드에 적합하다.",
+      "단점으로 **초기 요구사항 오류가 후반에 발견되면 수정 비용이 기하급수적으로 증가**하며, **동작하는 소프트웨어가 프로젝트 후반부에야 확인** 가능하고, **변화에 대한 대응력이 낮다**.",
+      "폭포수 모델은 **위험 분석을 4단계로 반복**하며 **프로토타입을 지속적으로 정제**하는 **위험 주도(Risk-driven)** 접근법으로, **요구사항이 불명확한 대형 프로젝트**에 가장 적합하고 **역방향 피드백**을 원칙적으로 장려한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2022년 2회 5과목 — 프로토타입(Prototype) vs 나선형(Spiral) 정형",
+     "stem_md": "**프로토타입 모델**과 **나선형 모델**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**프로토타입 모델** — 사용자의 요구사항을 명확히 하기 위해 **시제품(prototype)** 을 만들어 사용자와 함께 검증·수정하는 모델. **사용자 요구 확정 후 폐기(throwaway prototyping)** 하거나 **점진 확장(evolutionary prototyping)** 하는 두 방식이 있다.",
+      "**나선형 모델(Spiral Model, Boehm 1988)** — **계획 → 위험 분석 → 개발 → 고객 평가**의 4단계를 나선형으로 반복하며, **위험 관리(Risk Management)** 를 핵심 축으로 두어 **대규모·고위험 프로젝트**에 적합하다.",
+      "**나선형은 반복(iteration)마다 프로토타입을 만들어 위험을 조기 식별**하고, 사용자 평가를 통해 다음 나선(spiral)의 범위·목표를 재설정한다. 반복 횟수·비용 관리가 어렵다는 단점이 있다.",
+      "프로토타입 모델은 **위험 분석을 4단계로 매 회 반복**하는 **위험 주도** 모델이고, **나선형 모델은 시제품 없이 문서만 순차 완성**하는 **폭포수의 별칭**이며 사용자 평가를 원칙적으로 배제한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2020년 3회 5과목 — V-모델 검증 vs 확인 정형",
+     "stem_md": "**V-모델(V-Model)** 과 **검증(Verification) · 확인(Validation)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**V-모델** — 폭포수 모델을 개선하여 **개발 단계(왼쪽 하강선)** 와 **시험 단계(오른쪽 상승선)** 를 **V자 형태로 대응**시킨 모델. 요구 분석 ↔ 인수 시험, 시스템 설계 ↔ 시스템 시험, 상세 설계 ↔ 통합 시험, 코딩 ↔ 단위 시험이 각각 짝을 이룬다.",
+      "**검증(Verification)** — **\"제품을 올바르게 만들고 있는가(Are we building the product right?)\"**. 명세서·설계서 대비 산출물의 일치성을 확인하는 **개발자·정적 관점**의 활동(코드 리뷰·인스펙션·워크스루·정적 분석).",
+      "**확인(Validation)** — **\"올바른 제품을 만들고 있는가(Are we building the right product?)\"**. 사용자의 실제 요구·업무 목적 충족 여부를 확인하는 **사용자·동적 관점**의 활동(사용자 인수 시험·베타 테스트·필드 시험).",
+      "**V-모델의 오른쪽 시험은 왼쪽 개발 단계와 무관하게 무작위 순서로 진행**하며, **검증(Verification)은 사용자의 요구 충족 여부**를, **확인(Validation)은 개발자의 명세서 일치 여부**를 확인하는 활동으로 정의된다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2023년 1회 5과목 — 애자일(Agile) 4가치 정형",
+     "stem_md": "**애자일 선언문(Agile Manifesto, 2001)** 의 **4가지 핵심 가치**에 관한 설명 중 **가장 옳은 것**은?",
+     "options": [
+      "**공정과 도구**보다 **개인과 상호작용**을, **포괄적인 문서**보다 **작동하는 소프트웨어**를, **계약 협상**보다 **고객과의 협력**을, **계획을 따르기**보다 **변화에 대응하기**를 더 가치 있게 여긴다.",
+      "**개인과 상호작용**보다 **공정과 도구**를, **작동하는 소프트웨어**보다 **포괄적인 문서**를, **고객과의 협력**보다 **계약 협상**을, **변화에 대응하기**보다 **계획을 따르기**를 더 가치 있게 여긴다.",
+      "애자일 4가치는 **초기 요구사항의 완전한 확정**과 **문서 우선주의**를 강조하며, 사용자와의 협력 없이 **개발팀 내부 결정**만으로 프로젝트를 진행할 것을 권장한다.",
+      "애자일 4가치의 우측 항목(공정·도구·문서·계약·계획)은 **가치가 없다**는 의미이며, 좌측 항목만 사용해야 한다는 **극단적 배타 원칙**을 규정한다."
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2021년 2회 5과목 — XP(eXtreme Programming) 5가치·12실천 정형",
+     "stem_md": "**XP(eXtreme Programming, Kent Beck)** 의 **5가지 핵심 가치**와 **12가지 실천 방법**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**5가치** — **의사소통(Communication) · 단순성(Simplicity) · 피드백(Feedback) · 용기(Courage) · 존중(Respect)**. 초기 4가지에 2004년 2판에서 **존중**이 추가되었다.",
+      "**핵심 실천 방법** — **짝 프로그래밍(Pair Programming) · 테스트 주도 개발(TDD) · 지속적 통합(CI) · 리팩터링(Refactoring) · 소규모 릴리즈(Small Release) · 계획 게임(Planning Game) · 공동 소유(Collective Ownership) · 온-사이트 고객(On-Site Customer) · 40시간 근무(Sustainable Pace)** 등 12개.",
+      "**짝 프로그래밍** — 두 명이 하나의 컴퓨터 앞에서 **드라이버(코드 작성)** 와 **내비게이터(리뷰·전략)** 역할을 교대하며 즉시 코드 리뷰·지식 공유 효과를 얻는 방법.",
+      "XP의 5가치는 **문서화(Documentation) · 계획 준수(Plan-following) · 개인 소유(Individual Ownership) · 위험 회피(Risk Aversion) · 계층화(Hierarchy)** 이며, 짝 프로그래밍·TDD·CI는 XP가 아닌 **스크럼(Scrum)의 12실천 방법**이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2022년 3회 5과목 — 스크럼(Scrum) 프레임워크 정형",
+     "stem_md": "**스크럼(Scrum)** 프레임워크의 **3역할 · 5이벤트 · 3산출물**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**3역할** — **제품 책임자(Product Owner, PO)** = 제품 백로그 우선순위·가치 관리 / **스크럼 마스터(Scrum Master, SM)** = 스크럼 프로세스 촉진·장애 제거 / **개발 팀(Development Team)** = 스프린트 목표 달성·자기 조직화.",
+      "**5이벤트** — **스프린트(Sprint, 1~4주) · 스프린트 계획(Sprint Planning) · 일일 스크럼(Daily Scrum, 15분) · 스프린트 리뷰(Sprint Review) · 스프린트 회고(Sprint Retrospective)**. 모두 **타임박스(time-box)** 로 제한된다.",
+      "**3산출물** — **제품 백로그(Product Backlog·전체 요구사항 우선순위 목록) · 스프린트 백로그(Sprint Backlog·해당 스프린트 작업 목록) · 증분(Increment·스프린트 종료 시 완성된 잠재 배포 가능 제품)**.",
+      "**스크럼의 스크럼 마스터(SM)** 는 **팀에 작업을 지시·통제하는 관리자 역할**을 수행하며, **일일 스크럼**은 **1시간 이상 상세 상태 보고**를 원칙으로 하고, **스프린트 기간은 6개월~1년 이상**으로 설정하는 것이 표준이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2020년 2회 5과목 — CBD(Component Based Development) 정형",
+     "stem_md": "**CBD(Component Based Development, 컴포넌트 기반 개발 방법론)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**재사용 가능한 컴포넌트(component)** — 독립적으로 배포·조립할 수 있는 소프트웨어 단위 — 를 **조립(assembly)** 하여 시스템을 개발하는 방법론으로, **개발 생산성·품질·유지보수성**을 동시에 높이는 것을 목표로 한다.",
+      "컴포넌트는 **인터페이스(interface)** 를 통해서만 외부와 상호작용하며, **내부 구현은 캡슐화(encapsulation)** 되어 있어 대체·확장이 용이하다. 대표 표준은 **EJB(Enterprise JavaBeans) · CORBA · COM/DCOM · .NET Assembly**.",
+      "CBD의 특징 — **재사용성·독립성·이식성·상호운용성** — 은 컴포넌트 간 **표준 인터페이스**와 **인터페이스 명세(IDL 등)** 에 의해 보장되며, 개발 프로세스는 **컴포넌트 식별 → 컴포넌트 설계 → 컴포넌트 구현·검증 → 컴포넌트 통합** 순으로 진행된다.",
+      "CBD는 **컴포넌트 재사용을 금지**하고 매번 **처음부터 절차지향(procedural)** 으로 새롭게 개발하는 방법론이며, **인터페이스·캡슐화 개념이 없고** 개발 생산성·품질과는 무관한 **하드웨어 조립 전용 방법론**이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2021년 3회 5과목 — CMMI 5단계 성숙도 정형",
+     "stem_md": "**CMMI(Capability Maturity Model Integration)** 의 **5단계 성숙도(Maturity Level)** 순서로 **옳은 것**은?",
+     "options": [
+      "**초기(Initial, 1) → 관리(Managed, 2) → 정의(Defined, 3) → 정량적 관리(Quantitatively Managed, 4) → 최적화(Optimizing, 5)**",
+      "**초기(Initial, 1) → 정의(Defined, 2) → 관리(Managed, 3) → 최적화(Optimizing, 4) → 정량적 관리(Quantitatively Managed, 5)**",
+      "**정의(Defined, 1) → 초기(Initial, 2) → 정량적 관리(Quantitatively Managed, 3) → 관리(Managed, 4) → 최적화(Optimizing, 5)**",
+      "**관리(Managed, 1) → 최적화(Optimizing, 2) → 정의(Defined, 3) → 초기(Initial, 4) → 정량적 관리(Quantitatively Managed, 5)**"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2022년 1회 5과목 — SPICE(ISO/IEC 15504) 6단계 정형",
+     "stem_md": "**SPICE(Software Process Improvement and Capability dEtermination, ISO/IEC 15504)** 의 **6단계 능력 수준(Capability Level)** 순서로 **옳은 것**은?",
+     "options": [
+      "**0.불완전(Incomplete) → 1.수행(Performed) → 2.관리(Managed) → 3.확립(Established) → 4.예측(Predictable) → 5.최적화(Optimizing)**",
+      "**1.초기(Initial) → 2.관리(Managed) → 3.정의(Defined) → 4.정량적 관리(Quantitatively Managed) → 5.최적화(Optimizing) → 6.완전(Complete)**",
+      "**1.수행(Performed) → 2.불완전(Incomplete) → 3.확립(Established) → 4.관리(Managed) → 5.최적화(Optimizing) → 6.예측(Predictable)**",
+      "**1.최적화(Optimizing) → 2.예측(Predictable) → 3.확립(Established) → 4.관리(Managed) → 5.수행(Performed) → 6.불완전(Incomplete)**"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2023년 2회 5과목 — LOC 3점 추정 공식 계산형",
+     "stem_md": "어떤 소프트웨어 모듈의 **LOC(Line Of Code) 3점 추정치**가 다음과 같다.\n\n> **낙관치(a) = 2,000 LOC · 기대치(m) = 5,000 LOC · 비관치(b) = 8,000 LOC**\n\n**LOC 기법의 3점 추정(Beta 분포)** 공식 **`(a + 4m + b) / 6`** 을 적용하여 계산한 **예측 LOC**로 **옳은 것**은?",
+     "options": [
+      "**약 4,500 LOC**",
+      "**약 5,000 LOC**",
+      "**약 5,500 LOC**",
+      "**약 6,000 LOC**"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2020년 4회 5과목 — COCOMO 3유형 정형",
+     "stem_md": "**COCOMO(COnstructive COst MOdel, Boehm 1981)** 의 **3가지 프로젝트 유형** 분류 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Organic(조직형·단순형)** — **5만 LOC(50 KDSI) 이하**의 소규모·단순 프로젝트. 사무 처리·과학 계산·소규모 인력. 개발 노력(PM) = **2.4 × (KDSI)^1.05**.",
+      "**Semi-detached(준분리형·중간형)** — **5만~30만 LOC** 규모의 중간 프로젝트. 트랜잭션 처리·DBMS·컴파일러. 개발 노력(PM) = **3.0 × (KDSI)^1.12**.",
+      "**Embedded(임베디드형·내장형)** — **30만 LOC 초과** 대규모·복잡한 실시간 시스템(운영체제·항공/미사일/실시간 통제). 개발 노력(PM) = **3.6 × (KDSI)^1.20**. 지수·상수가 세 유형 중 가장 크다.",
+      "COCOMO의 3유형은 **Organic(30만 LOC 초과·대규모)·Semi-detached(5만 LOC 이하·소규모)·Embedded(중간 규모)** 로 분류되며, 지수 상수의 크기 순서는 **Organic > Semi-detached > Embedded** 로 소규모일수록 노력 지수가 크다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2021년 1회 5과목 — 비용 산정 기법 분류 정형",
+     "stem_md": "**소프트웨어 비용 산정 기법**의 분류와 대표 기법 매칭 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**하향식 산정(Top-down)** — **전문가 판단(Expert Judgement) · 델파이(Delphi) 기법** 등 프로젝트 전체를 개괄적으로 추정 후 세부 항목으로 분할하는 방식. **델파이 기법**은 익명 전문가 다수의 설문을 **반복(iteration)** 하여 합의를 도출한다.",
+      "**상향식 산정(Bottom-up)** — **LOC(Line Of Code)·FP(Function Point)·COCOMO** 등 세부 항목(모듈·기능)의 비용을 추정 후 합산하는 방식. **LOC** 는 코드 라인 수 기반 3점 추정, **FP** 는 기능 관점(입출력·조회·파일·인터페이스 5요소)의 가중치 기반이다.",
+      "**수학적 산정 모형** — **COCOMO(Boehm·회귀 모델) · Putnam(Rayleigh-Norden 곡선·SLIM 도구) · FP(Albrecht·ESTIMACS/CHECKPOINT 도구)** 등 통계·수학 모델 기반. Putnam의 노력 곡선은 프로젝트 수명 주기에 걸쳐 Rayleigh 분포를 따른다.",
+      "**델파이(Delphi) 기법**은 **한 명의 최고 전문가가 단독 판단**하여 즉시 결정하는 기법이며, **FP(Function Point)** 는 코드 라인 수만을 계산하여 **LOC와 완전히 동일**하고, **Putnam 모델**은 회귀 분석 기반의 **COCOMO의 별칭**이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2022년 2회 5과목 — PERT vs CPM 정형",
+     "stem_md": "**PERT(Program Evaluation and Review Technique)** 와 **CPM(Critical Path Method)** 의 비교 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**PERT** — **확률적(probabilistic)** 일정 추정 기법. 각 작업의 소요 시간을 **낙관치(a)·기대치(m)·비관치(b)** 의 **3점 추정** 으로 산정하고, 기대 시간 = **(a + 4m + b) / 6** 로 계산한다. **연구·개발·신제품 프로젝트**처럼 소요 시간이 불확실한 경우에 적합.",
+      "**CPM** — **확정적(deterministic)** 일정 추정 기법. 각 작업의 소요 시간을 단일 값으로 산정하고 **임계 경로(Critical Path)** 를 계산한다. **건설·플랜트·반복 경험이 있는 프로젝트**처럼 소요 시간이 확실한 경우에 적합.",
+      "**임계 경로(Critical Path)** = 프로젝트 시작에서 종료까지의 **가장 긴(longest) 경로** = 프로젝트 최소 완료 기간. 임계 경로 상의 활동은 **여유 시간(Slack·Float) = 0** 이며 지연 시 프로젝트 전체가 지연된다.",
+      "PERT는 **확정적** 기법으로 소요 시간을 단일 값으로 산정하며, CPM은 **확률적** 3점 추정을 사용하고, **임계 경로**는 프로젝트에서 **가장 짧은(shortest) 경로**를 의미하며 이 경로의 지연은 프로젝트 전체에 영향을 주지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2023년 3회 5과목 — Gantt 차트·프로젝트 관리 정형",
+     "stem_md": "**Gantt 차트**와 **소프트웨어 프로젝트 관리(SPM, Software Project Management)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Gantt 차트(Henry Gantt, 1917)** — 프로젝트의 각 작업(task)을 **가로 막대(bar)** 로 표현하여 **일정(시작·종료)·기간·진행률**을 시각적으로 나타내는 도구. 작업 간 **의존성 표현이 약한 것**이 단점.",
+      "**PERT/CPM 네트워크 다이어그램**은 작업 간 **선후 관계(의존성)** 를 노드·화살표로 명시하고 **임계 경로**를 계산할 수 있지만, **일정 진행률의 시각적 확인**은 Gantt 차트가 더 직관적이다.",
+      "**소프트웨어 프로젝트 관리 3P** — **People(인력)·Problem(문제 정의·범위)·Process(프로세스·방법론)**. 세 요소의 균형이 프로젝트 성공의 핵심 요건이며, Brooks의 법칙(\"지연 프로젝트에 인력 추가 시 더 지연\")이 대표 원칙.",
+      "Gantt 차트는 **작업 간 의존성·임계 경로를 자동 계산**하는 **확률적 네트워크 기법**이며, PERT/CPM은 **막대 그래프**로 일정을 표현할 뿐 임계 경로 개념이 없다. 프로젝트 3P는 **Program·Product·Process** 로 인력 요소는 포함되지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2024년 1회 5과목 — 임계 경로(Critical Path) 손추적 계산형",
+     "stem_md": "다음 프로젝트 네트워크에서 각 작업의 소요 기간(일)이 아래와 같을 때, **임계 경로(Critical Path)** 와 **최소 프로젝트 완료 기간**으로 **옳은 것**은?\n\n> 시작(S) → A(3일) → B(5일) → E(4일) → 종료(F)\n> 시작(S) → A(3일) → C(2일) → D(6일) → E(4일) → 종료(F)\n> 시작(S) → A(3일) → C(2일) → G(7일) → 종료(F)",
+     "options": [
+      "임계 경로: **S–A–B–E–F** · 최소 완료 기간: **12일**",
+      "임계 경로: **S–A–C–D–E–F** · 최소 완료 기간: **15일**",
+      "임계 경로: **S–A–C–G–F** · 최소 완료 기간: **12일**",
+      "임계 경로: **S–A–B–E–F** · 최소 완료 기간: **9일**"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    }
+   ]
   }
  ]
 }
