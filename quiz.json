@@ -11618,6 +11618,209 @@
      "explanation_md": ""
     }
    ]
+  },
+  {
+   "day": 72,
+   "date": "2026-07-22",
+   "subject": "Phase 4 약점보강 7일차",
+   "topic": "신기술 · 클라우드 · 빅데이터 · IoT · 인공지능 집중 (5과목) — 일곱 번째 최약점 영역 15문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "유사 기출: 2021년 2회 5과목 — 클라우드 서비스 모델 IaaS/PaaS/SaaS 정형",
+     "stem_md": "**클라우드 컴퓨팅 서비스 모델(NIST SP 800-145)** 3층에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**IaaS(Infrastructure as a Service)** — CPU·메모리·스토리지·네트워크 등 **가상화된 인프라 자원**을 제공. 사용자는 **OS·미들웨어·런타임·애플리케이션**을 모두 직접 관리한다. 대표: **AWS EC2·GCP Compute Engine·Azure VM**.",
+      "**PaaS(Platform as a Service)** — 애플리케이션 개발·실행 **플랫폼(OS·런타임·미들웨어·DB)** 을 제공. 사용자는 **애플리케이션과 데이터**만 관리하고 인프라·플랫폼은 사업자가 관리. 대표: **Google App Engine·Heroku·AWS Elastic Beanstalk**.",
+      "**SaaS(Software as a Service)** — 완성된 **소프트웨어(애플리케이션)** 를 웹 브라우저 등을 통해 **구독형(subscription)** 으로 제공. 사용자는 **애플리케이션 사용만** 하고 그 외 모든 계층은 사업자가 관리. 대표: **Gmail·Salesforce·Office 365**.",
+      "**IaaS는 완성 SW를 제공**하여 사용자가 관리할 것이 전혀 없고, **PaaS는 하드웨어만** 제공하여 사용자가 **OS부터 앱까지 모두** 관리하며, **SaaS는 인프라만** 제공하여 사용자가 플랫폼·앱을 직접 구축·관리하는 서비스 모델이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 2,
+     "source": "유사 기출: 2022년 1회 5과목 — NIST 클라우드 5특성·4배포 모델 정형",
+     "stem_md": "NIST 정의에 따른 **클라우드 컴퓨팅의 5가지 필수 특성**과 **4가지 배포 모델**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**5가지 필수 특성** — **On-demand self-service(주문형 셀프서비스)·Broad network access(광대역 네트워크 접근)·Resource pooling(자원 풀링·멀티 테넌트)·Rapid elasticity(신속한 탄력성)·Measured service(측정 가능한 서비스·종량제 과금)**.",
+      "**Public Cloud(공용)** — 일반 대중에게 개방된 클라우드(AWS·Azure·GCP). **Private Cloud(전용)** — 단일 조직 전용 클라우드로 보안·통제 우위. 조직 내부 또는 3자 호스팅.",
+      "**Hybrid Cloud(하이브리드)** — Public + Private 결합으로 **워크로드 이동성** 확보 · **Community Cloud(공동체)** — 공통 관심사·규제를 가진 여러 조직이 공유(예: 정부·의료·금융 컨소시엄).",
+      "NIST 5특성에는 **지속적 물리 백업·하드웨어 완전 소유·오프라인 전용 접근** 이 포함되며, 4배포 모델은 **Public 하나**만 표준으로 인정하고 Private/Hybrid/Community는 클라우드로 분류되지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 3,
+     "source": "유사 기출: 2023년 1회 5과목 — 컨테이너 vs 가상머신·도커·쿠버네티스 정형",
+     "stem_md": "**컨테이너(Container)·도커(Docker)·쿠버네티스(Kubernetes)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**컨테이너** — 애플리케이션과 그 실행에 필요한 라이브러리·설정을 하나의 **격리된 프로세스**로 패키징하는 기술. **호스트 OS 커널을 공유**하여 가상머신보다 경량·빠른 시작·높은 자원 효율.",
+      "**가상머신(VM)** — 하이퍼바이저(Hypervisor·Type 1 VMware ESXi/Xen·Type 2 VirtualBox/VMware Workstation) 위에서 **완전한 게스트 OS**를 실행. 강력한 격리·이식성이 장점이나 무겁고 느림.",
+      "**도커(Docker)** — 컨테이너 표준 플랫폼(2013). **이미지(Image·불변 스냅샷)·컨테이너(실행 인스턴스)·레지스트리(Registry·Docker Hub)** 3요소. **쿠버네티스(K8s)** — Google 개발 컨테이너 **오케스트레이션** 플랫폼(배포·확장·롤아웃/롤백·자가 치유).",
+      "컨테이너는 각 인스턴스마다 **완전한 게스트 OS를 별도로 부팅**하므로 **VM보다 무겁고 느리며**, 쿠버네티스는 **단일 서버 컨테이너 실행 도구**로 오케스트레이션과는 무관하다. 도커는 **가상머신 하이퍼바이저의 별칭**이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 4,
+     "source": "유사 기출: 2020년 4회 5과목 — 빅데이터 5V·Hadoop 생태계 정형",
+     "stem_md": "**빅데이터(Big Data)의 5V** 와 **Hadoop 생태계** 구성 요소에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**빅데이터 5V** — **Volume(양)·Velocity(속도)·Variety(다양성)·Veracity(정확성·신뢰성)·Value(가치)**. 초기 3V(Volume·Velocity·Variety, Gartner 2001)에서 IBM이 Veracity, 이후 Value가 추가되어 5V로 확립.",
+      "**HDFS(Hadoop Distributed File System)** — 대용량 파일을 여러 노드에 **블록 단위(기본 128MB)** 로 분산 저장. **네임노드(NameNode·메타데이터)** 와 **데이터노드(DataNode·실데이터)** 로 구성.",
+      "**MapReduce** — Google이 제안한 분산 처리 프로그래밍 모델(2004). **Map(키-값 매핑) → Shuffle → Reduce(집계)** 3단계. **YARN** — Hadoop 2.x부터 도입된 **자원 관리(Resource Management)** 계층으로 다양한 프레임워크(Spark·Tez·Flink) 실행을 지원.",
+      "빅데이터 5V는 **Volume·Verification·Visualization·Validation·Version**으로 구성되며, HDFS는 자원 관리 계층이고 YARN이 분산 파일 시스템이며, MapReduce는 **실시간 스트리밍 처리 전용** 프레임워크로 배치 처리와는 무관하다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 5,
+     "source": "유사 기출: 2022년 3회 5과목 — Spark vs Hadoop MapReduce 정형",
+     "stem_md": "**Apache Spark** 와 **Hadoop MapReduce** 의 비교 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Spark** — UC Berkeley AMPLab에서 개발(2009)·Apache 최상위 프로젝트(2014). **인메모리(in-memory) 처리** 기반으로 반복 연산에서 MapReduce 대비 **최대 100배 빠른** 성능. **RDD(Resilient Distributed Dataset)** 와 **DAG(Directed Acyclic Graph) 실행 엔진** 이 핵심.",
+      "**Spark의 주요 컴포넌트** — **Spark Core·Spark SQL(구조화 데이터)·Spark Streaming(스트리밍)·MLlib(머신러닝 라이브러리)·GraphX(그래프 처리)**. 다양한 워크로드를 단일 엔진에서 처리하는 통합 플랫폼.",
+      "**MapReduce** — 매 단계 중간 결과를 **HDFS(디스크)에 기록**하여 **I/O 오버헤드가 큼**. 배치 처리에 강점이나 반복 알고리즘(머신러닝·그래프)에서 Spark 대비 성능이 크게 뒤짐.",
+      "Spark는 **완전한 디스크 기반** 처리 엔진으로 MapReduce보다 느리며, MapReduce는 **RDD와 DAG를 사용하는 인메모리 엔진**으로 실시간 스트리밍이 표준이다. Spark의 MLlib은 존재하지 않으며 머신러닝은 Spark에서 지원하지 않는다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 6,
+     "source": "유사 기출: 2021년 3회 5과목 — IoT 무선 통신 프로토콜 정형",
+     "stem_md": "**IoT 무선 통신 프로토콜**에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**Zigbee** — **IEEE 802.15.4** 기반 저전력 근거리(수십 m) 무선 통신. **Mesh 네트워크** 지원, 홈 오토메이션·산업 자동화에 사용. 데이터 속도 250 kbps 수준.",
+      "**NB-IoT(Narrowband IoT)** — 3GPP Rel-13 표준의 **LPWAN(저전력 광역)** 셀룰러 IoT. **면허 대역** 사용, 수 km~수십 km 커버리지, 저속·저전력, 스마트 미터·자산 추적 등.",
+      "**LoRa(Long Range)** — **비면허 대역(ISM)** 을 사용하는 LPWAN. 수 km 수준 커버리지·매우 낮은 전력·저속. LoRaWAN 프로토콜로 스타(star) 토폴로지 구성. 자체 게이트웨이 구축 가능.",
+      "**Zigbee**는 **셀룰러 면허 대역**을 사용하는 광역(수십 km) LPWAN이고, **NB-IoT**는 **IEEE 802.15.4 기반 근거리(수십 m) Mesh** 프로토콜이며, **LoRa**는 **Bluetooth 표준의 별칭**으로 10 m 이내에서만 동작한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 7,
+     "source": "유사 기출: 2020년 3회 5과목 — BLE/RFID/NFC/Beacon 근거리 통신 정형",
+     "stem_md": "**BLE·RFID·NFC·Beacon** 등 근거리 무선 통신 기술에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**BLE(Bluetooth Low Energy)** — Bluetooth 4.0부터 도입된 저전력 프로파일. 통신 거리 약 10 m, 저전력·소용량 데이터에 최적. 웨어러블·IoT 센서·비콘 등에 활용.",
+      "**RFID(Radio Frequency IDentification)** — **태그(Tag)** 와 **리더(Reader)** 간 전파 통신. **수동형(Passive·리더 전력 활용)·능동형(Active·자체 배터리)** 구분. 주파수 대역별 사거리 상이(LF 수 cm~UHF 수 m).",
+      "**NFC(Near Field Communication)** — **13.56 MHz** 대역, 통신 거리 **약 10 cm 이내** 근접 통신. 결제(Apple Pay·Samsung Pay)·전자 태그·기기 페어링에 활용. RFID의 파생 표준.",
+      "**Beacon** — RFID/NFC 기반의 **원거리 셀룰러 통신** 기술이며 **10 km 이상** 커버리지를 갖는다. **NFC** 는 **수백 m 이상 원거리 통신**용이며, **BLE**는 **와이파이(Wi-Fi)의 상위 계층 프로토콜**로 IP 통신을 제공한다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 8,
+     "source": "유사 기출: 2023년 2회 5과목 — 5G 3특성·Edge/Fog Computing 정형",
+     "stem_md": "**5G의 3대 특성**과 **Edge/Fog Computing** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**eMBB(enhanced Mobile Broadband)** — 초고속·초광대역(최대 20 Gbps 다운링크). 4K/8K 스트리밍·VR/AR 등 대용량 미디어에 활용.",
+      "**URLLC(Ultra-Reliable Low-Latency Communication)** — 초저지연(**1 ms 수준**)·초신뢰(99.999%). 자율 주행·원격 수술·산업 자동화 등 미션 크리티컬 응용.",
+      "**mMTC(massive Machine Type Communication)** — 초연결(1 km²당 100만 디바이스 수준)·저전력. 대규모 IoT 센서 네트워크·스마트 시티에 활용. **Edge Computing** = 데이터를 **단말 근처(엣지)** 에서 처리 · **Fog Computing** = 엣지와 클라우드 사이 **중간 계층** 에서 분산 처리.",
+      "5G 3특성은 **저속·고지연·소연결** 이 핵심이며, **Edge Computing은 원격 데이터 센터에서 중앙집중식** 처리, **Fog Computing은 단말 자체에서 처리** 하고, **Cloud Computing은 엣지 디바이스 내부에서만** 동작하는 완전 로컬 방식이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 9,
+     "source": "유사 기출: 2021년 1회 5과목 — 머신러닝 3유형 정형",
+     "stem_md": "**머신러닝(Machine Learning)의 3가지 학습 유형** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**지도 학습(Supervised Learning)** — **입력(feature)과 정답 레이블(label)** 을 함께 제공하여 학습. **분류(Classification·이산 레이블)** 와 **회귀(Regression·연속 값)** 로 구분. 대표: 결정 트리·SVM·랜덤 포레스트·로지스틱 회귀.",
+      "**비지도 학습(Unsupervised Learning)** — **레이블 없이** 데이터의 내재 구조·패턴을 학습. **군집화(Clustering·K-means·DBSCAN)** 와 **차원 축소(PCA·t-SNE)** 가 대표. 이상 탐지·연관 규칙 마이닝 등에 활용.",
+      "**강화 학습(Reinforcement Learning)** — **에이전트(agent)** 가 **환경(environment)** 과 상호작용하며 **보상(reward)** 을 최대화하는 **정책(policy)** 을 학습. **MDP(마르코프 결정 과정)** 기반, Q-learning·DQN·정책 경사법. 알파고·자율 주행에 활용.",
+      "지도 학습은 **레이블 없이 군집만** 수행하고, 비지도 학습은 **정답 레이블을 반드시 요구**하는 분류 기법이며, 강화 학습은 **에이전트·보상 개념 없이 정적 데이터셋만** 사용하는 방법으로 세 유형의 개념이 서로 뒤바뀐 것이 표준이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 10,
+     "source": "유사 기출: 2022년 2회 5과목 — CNN/RNN/GAN/Transformer 정형",
+     "stem_md": "**딥러닝(Deep Learning) 대표 신경망 구조** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**CNN(Convolutional Neural Network)** — 이미지 처리에 특화된 신경망. **합성곱(Convolution)·풀링(Pooling)·완전연결(Fully Connected)** 층 구조. 국소 수용장·가중치 공유·이동 불변성. LeNet·AlexNet·VGG·ResNet 등.",
+      "**RNN(Recurrent Neural Network)/LSTM/GRU** — **순차 데이터(시계열·자연어)** 에 특화. 은닉 상태(hidden state)를 시간축을 따라 전달. LSTM·GRU는 장기 의존성 학습을 위해 게이트(gate) 도입. 언어 모델·음성 인식에 활용.",
+      "**GAN(Generative Adversarial Network)** — Goodfellow(2014). **생성자(Generator)** 와 **판별자(Discriminator)** 두 신경망이 **적대적(adversarial)** 으로 경쟁하며 학습. 이미지 생성·스타일 변환·데이터 증강에 활용. **Transformer** — Attention 메커니즘 기반(2017), BERT·GPT·T5의 근간.",
+      "CNN은 **순차 데이터 전용 순환 신경망**이며, RNN은 **이미지 합성곱 신경망**이고, GAN은 **단일 신경망 지도 학습**이며, Transformer는 **합성곱 층으로만 구성된 이미지 처리 전용** 아키텍처로 서로의 정의가 뒤바뀐 것이 표준이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 11,
+     "source": "유사 기출: 2023년 3회 5과목 — 딥러닝 vs 머신러닝 정형",
+     "stem_md": "**딥러닝(Deep Learning)** 과 **머신러닝(Machine Learning)** 의 관계·차이에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**머신러닝은 인공지능의 부분집합**이고 **딥러닝은 머신러닝의 부분집합**이다. 딥러닝은 **다층(은닉층 3개 이상)** 신경망을 사용하는 머신러닝 기법의 하나.",
+      "전통적 머신러닝은 **특징 추출(feature engineering)** 을 사람이 수동으로 설계해야 하는 반면, 딥러닝은 **원시 데이터에서 계층적 특징을 자동으로 학습**한다.",
+      "딥러닝은 **대량의 데이터·고성능 GPU/TPU·긴 학습 시간**이 필요한 반면, 전통적 머신러닝은 소규모 데이터로도 효과적이며 학습 시간·자원 요구가 상대적으로 적다.",
+      "딥러닝은 **머신러닝의 상위 개념·완전히 별개 분야**이며, **특징을 반드시 사람이 수동 설계**해야 하고, **소량의 데이터·CPU만으로도 최고 성능**을 내며, **인공지능 분야에 포함되지 않는** 독립 학문이다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 12,
+     "source": "유사 기출: 2020년 2회 5과목 — 블록체인 합의 알고리즘 정형",
+     "stem_md": "**블록체인(Blockchain)의 합의 알고리즘(Consensus Algorithm)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**PoW(Proof of Work·작업 증명)** — **비트코인**의 합의 방식. 해시 퍼즐을 먼저 푸는 노드가 블록을 생성. 보안·탈중앙성은 강하나 **막대한 전력 소비·낮은 처리량(7 TPS 수준)** 이 단점.",
+      "**PoS(Proof of Stake·지분 증명)** — 보유 코인(지분) 비율에 비례하여 블록 생성 권한을 부여. 전력 소비가 매우 적음. **이더리움 2.0(Merge, 2022)** 이 PoW → PoS 전환. **DPoS(위임 지분 증명)** — 소수 대표 노드에 위임(EOS 등).",
+      "**PBFT(Practical Byzantine Fault Tolerance)** — 사전 정의된 노드 간 다수결(2/3+1) 합의. 프라이빗/컨소시엄 블록체인(하이퍼레저 등)에 사용. 노드 수가 커지면 성능 저하.",
+      "**PoW는 지분 비율로 블록 생성**하는 에너지 절약 방식이고, **PoS는 해시 퍼즐을 푸는 작업 증명**으로 비트코인의 방식이며, **이더리움 2.0은 PoS에서 PoW로 전환**되어 에너지 소비가 대폭 증가한 것으로 정리된다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 13,
+     "source": "유사 기출: 2021년 2회 5과목 — AR/VR/MR/XR·메타버스 정형",
+     "stem_md": "**AR·VR·MR·XR** 과 **메타버스(Metaverse)** 에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**VR(Virtual Reality·가상현실)** — 사용자를 **완전한 가상 환경**에 몰입시키는 기술(HMD 필수). 현실 세계 시야 완전 차단. Oculus Quest·PSVR 등.",
+      "**AR(Augmented Reality·증강현실)** — **현실 세계 위에 가상 객체를 겹쳐서** 표시(스마트폰·AR 글래스). 포켓몬 GO·구글 렌즈·애플 ARKit·구글 ARCore.",
+      "**MR(Mixed Reality·혼합현실)** — 현실과 가상 객체가 **실시간 상호작용**하는 확장 개념. **XR(eXtended Reality·확장현실)** = **AR + VR + MR** 을 아우르는 **상위 통칭**. **메타버스**는 XR·아바타·경제 활동이 결합된 3D 가상 세계.",
+      "**VR은 현실 세계 위에 가상 객체를 겹치는** 증강현실 기술이고, **AR은 완전한 몰입형 가상 환경**이며, **XR은 AR과 VR을 배제한 별개 개념**이다. **메타버스**는 텍스트 기반 채팅 서비스의 별칭으로 3D·XR과 무관하다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 14,
+     "source": "유사 기출: 2022년 1회 5과목 — 디지털 트윈·CPS·RPA 정형",
+     "stem_md": "**디지털 트윈(Digital Twin)** · **CPS(Cyber-Physical System)** · **RPA(Robotic Process Automation)** 등 신기술에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**디지털 트윈** — 물리적 자산·프로세스·시스템을 **디지털 공간에 실시간 복제**한 가상 모델. 센서·IoT 데이터를 실시간 반영하여 시뮬레이션·예측·최적화에 활용. 제조·항공·스마트 시티에 확산.",
+      "**CPS(Cyber-Physical System·사이버 물리 시스템)** — **물리 세계(센서·액추에이터)** 와 **사이버 세계(컴퓨팅·네트워크)** 를 긴밀히 통합한 시스템. 인더스트리 4.0의 핵심 개념·디지털 트윈의 상위 프레임워크.",
+      "**RPA(Robotic Process Automation)** — 사람이 반복하는 **규칙 기반 사무 업무**(데이터 입력·복사·검증)를 소프트웨어 로봇이 자동화. UiPath·Blue Prism·Automation Anywhere가 대표 도구. 물리 로봇과는 무관.",
+      "**디지털 트윈**은 **물리 대상 없이 오직 가상 환경만 존재**하는 폐쇄형 시뮬레이션이며, **CPS는 사이버 계층 없이 물리 하드웨어만** 다루는 시스템이고, **RPA는 물리 산업용 로봇 제어 전용** 시스템으로 사무 자동화와는 무관하다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 15,
+     "source": "유사 기출: 2024년 1회 5과목 — 양자 컴퓨팅·양자 암호(BB84)·6G 정형",
+     "stem_md": "**양자 컴퓨팅(Quantum Computing)** · **양자 암호(Quantum Cryptography)** · **6G** 등 미래 기술에 관한 설명 중 **가장 옳지 않은 것**은?",
+     "options": [
+      "**큐비트(qubit)** — 양자 컴퓨팅의 정보 최소 단위. 고전 비트(0 또는 1)와 달리 **중첩(superposition·0과 1의 확률적 결합)** 상태를 가질 수 있어 병렬 계산 가능. **얽힘(entanglement)** — 큐비트 간 상호 연관 상태.",
+      "**양자 우월성(Quantum Supremacy)** — 양자 컴퓨터가 고전 컴퓨터로는 사실상 풀 수 없는 문제를 푸는 것. **Shor 알고리즘**(소인수분해)·**Grover 알고리즘**(탐색)이 대표 양자 알고리즘. RSA 같은 공개키 암호를 이론적으로 파훼 가능.",
+      "**BB84** — Bennett·Brassard(1984)가 제안한 **양자 키 분배(QKD, Quantum Key Distribution) 프로토콜**. 양자 상태 측정 시 붕괴 원리를 이용해 도청 여부를 감지. **6G** — 2030년 상용화 목표, 테라헤르츠(THz) 대역·초저지연·AI 네이티브·위성 통합.",
+      "**큐비트는 오직 0과 1의 두 값만** 갖는 고전 비트와 동일하고, **BB84는 대칭키 블록 암호 알고리즘**이며, **양자 컴퓨터는 RSA를 절대 파훼할 수 없다**. **6G는 5G보다 저속·고지연**을 특징으로 하여 IoT 축소에 활용된다."
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    }
+   ]
   }
  ]
 }
