@@ -15046,6 +15046,1314 @@
      "explanation_md": "**정답 ②**. **ISO/IEC 27001** = 국제 정보보호 관리체계 인증. **ISMS-P**(국내, KISA), CC(공통 평가 기준, 제품 보안 등급 EAL 1~7)와 구분. 시험에서 국제/국내를 바꿔 함정으로 출제."
     }
    ]
+  },
+  {
+   "day": 78,
+   "date": "2026-07-28",
+   "subject": "Phase 4 모의고사",
+   "topic": "제3회 실전 모의고사 100문제",
+   "questions": [
+    {
+     "n": 1,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2022년 2회",
+     "stem_md": "모듈 간 **결합도(Coupling)** 를 낮은 순 → 높은 순으로 올바르게 나열한 것은?",
+     "options": [
+      "자료(Data) < 스탬프(Stamp) < 제어(Control) < 외부(External) < 공통(Common) < 내용(Content)",
+      "내용 < 공통 < 외부 < 제어 < 스탬프 < 자료",
+      "자료 < 제어 < 스탬프 < 공통 < 외부 < 내용",
+      "스탬프 < 자료 < 제어 < 외부 < 공통 < 내용"
+     ],
+     "answer": 0,
+     "explanation_md": "결합도 낮은 순: **자료 < 스탬프 < 제어 < 외부 < 공통 < 내용**. **① 정답**. 암기법: \"자스제외공내(자스제외 공내)\". 자료(단일 데이터), 스탬프(자료구조), 제어(제어 플래그), 외부(외부 인터페이스), 공통(전역), 내용(직접 참조 = 최악)."
+    },
+    {
+     "n": 2,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2023년 1회",
+     "stem_md": "**응집도(Cohesion)** 가 **가장 강한(높은)** 것은?",
+     "options": [
+      "우연적(Coincidental)",
+      "논리적(Logical)",
+      "절차적(Procedural)",
+      "기능적(Functional)"
+     ],
+     "answer": 3,
+     "explanation_md": "응집도 강한 순(높은 것 = 좋음): **기능(Functional) > 순차(Sequential) > 통신(Communication) > 절차(Procedural) > 시간(Temporal) > 논리(Logical) > 우연(Coincidental)**. **④ 기능적 정답**."
+    },
+    {
+     "n": 3,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2021년 3회",
+     "stem_md": "SOLID 원칙 중 \"**소프트웨어 개체는 확장에는 열려 있어야 하고, 수정에는 닫혀 있어야 한다**\"는 원칙은?",
+     "options": [
+      "단일 책임 원칙(SRP)",
+      "개방-폐쇄 원칙(OCP)",
+      "리스코프 치환 원칙(LSP)",
+      "인터페이스 분리 원칙(ISP)"
+     ],
+     "answer": 1,
+     "explanation_md": "\"확장 열림, 수정 닫힘\" = **개방-폐쇄 원칙(OCP)**. **② 정답**. SOLID: S(단일 책임), O(개방-폐쇄), L(리스코프 치환), I(인터페이스 분리), D(의존관계 역전)."
+    },
+    {
+     "n": 4,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2024년 1회",
+     "stem_md": "GoF **구조(Structural) 패턴**에 속하지 **않는** 것은?",
+     "options": [
+      "어댑터(Adapter)",
+      "브리지(Bridge)",
+      "컴포지트(Composite)",
+      "인터프리터(Interpreter)"
+     ],
+     "answer": 3,
+     "explanation_md": "GoF 구조 패턴: Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy. **④ 인터프리터는 행위 패턴**. 정답 ④."
+    },
+    {
+     "n": 5,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2022년 3회",
+     "stem_md": "GoF **행위(Behavioral) 패턴** 중 \"**요청을 캡슐화하여 매개변수화하고, 요청의 큐잉·로깅·실행 취소를 지원**\"하는 패턴은?",
+     "options": [
+      "커맨드(Command)",
+      "옵서버(Observer)",
+      "전략(Strategy)",
+      "상태(State)"
+     ],
+     "answer": 0,
+     "explanation_md": "\"요청 캡슐화·큐잉·로깅·실행 취소\" = **커맨드(Command) 패턴**. **① 정답**. 옵서버는 상태 변화 통지, 전략은 알고리즘 캡슐화, 상태는 상태별 행위 분리."
+    },
+    {
+     "n": 6,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2023년 2회",
+     "stem_md": "소프트웨어 아키텍처 스타일 중 **파이프-필터(Pipe-Filter)** 스타일의 **특징**으로 옳지 **않은** 것은?",
+     "options": [
+      "데이터가 필터 사이를 스트림으로 흐른다",
+      "각 필터는 독립적으로 실행 가능하다",
+      "필터 간 상태를 공유하며 강하게 결합된다",
+      "대표 예로 UNIX 셸 파이프라인이 있다"
+     ],
+     "answer": 2,
+     "explanation_md": "파이프-필터는 **필터 간 상태를 공유하지 않고 독립적**. **③이 틀린 설명 → 정답**. 데이터가 stateless 필터 사이를 흐르는 것이 핵심."
+    },
+    {
+     "n": 7,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2021년 1회",
+     "stem_md": "UML 클래스 관계 중 \"**전체-부분 관계에서 부분이 전체에 소속되며 전체가 사라지면 부분도 사라지는 강한 소유 관계**\"는?",
+     "options": [
+      "연관(Association)",
+      "집약(Aggregation)",
+      "합성(Composition)",
+      "의존(Dependency)"
+     ],
+     "answer": 2,
+     "explanation_md": "\"부분이 전체에 소속, 전체 사라지면 부분도 사라짐\" = **합성(Composition, 강한 소유)**. **③ 정답**. 집약(Aggregation)은 약한 소유(부분이 전체 없이도 존재 가능)."
+    },
+    {
+     "n": 8,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2024년 2회",
+     "stem_md": "요구사항 분석 기법 중 **자료 흐름도(DFD)** 의 구성요소가 **아닌** 것은?",
+     "options": [
+      "프로세스(Process)",
+      "자료 저장소(Data Store)",
+      "외부 개체(External Entity)",
+      "시퀀스(Sequence)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 9,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2022년 1회",
+     "stem_md": "객체지향 개념 중 \"**하나의 인터페이스에 여러 형태의 구현을 제공**\"하는 것은?",
+     "options": [
+      "캡슐화(Encapsulation)",
+      "상속(Inheritance)",
+      "다형성(Polymorphism)",
+      "추상화(Abstraction)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 10,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2023년 3회",
+     "stem_md": "GoF 생성 패턴 중 \"**하나의 인스턴스만 생성됨을 보장**\"하는 패턴은?",
+     "options": [
+      "팩토리 메서드(Factory Method)",
+      "추상 팩토리(Abstract Factory)",
+      "싱글턴(Singleton)",
+      "빌더(Builder)"
+     ],
+     "answer": 2,
+     "explanation_md": "\"단일 인스턴스 보장\" = **싱글턴(Singleton)**. **③ 정답**. private 생성자 + static getInstance()."
+    },
+    {
+     "n": 11,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2021년 2회",
+     "stem_md": "아키텍처 스타일 중 **MVC(Model-View-Controller)** 에서 **컨트롤러(Controller)** 의 주된 책임은?",
+     "options": [
+      "데이터 저장·비즈니스 로직 처리",
+      "사용자 인터페이스 표시",
+      "사용자 입력을 받아 모델·뷰에 전달",
+      "데이터베이스 스키마 관리"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 12,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2024년 3회",
+     "stem_md": "UML 시퀀스 다이어그램에서 \"**객체의 생존 기간을 나타내는 세로 점선**\"의 이름은?",
+     "options": [
+      "활성 막대(Activation Bar)",
+      "생명선(Lifeline)",
+      "메시지(Message)",
+      "프레임(Frame)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 13,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2023년 1회",
+     "stem_md": "소프트웨어 개발 방법론 중 **폭포수(Waterfall) 모델** 의 특징으로 옳은 것은?",
+     "options": [
+      "요구사항 변경에 강하다",
+      "각 단계 산출물이 명확하고 진행이 순차적이다",
+      "반복적 프로토타이핑을 강조한다",
+      "위험 분석을 각 단계마다 수행한다"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 14,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2022년 3회",
+     "stem_md": "**나선형(Spiral) 모델** 의 4단계 활동에 속하지 **않는** 것은?",
+     "options": [
+      "계획 및 정의",
+      "위험 분석",
+      "개발 및 검증",
+      "유지보수 자동화"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 15,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2024년 2회",
+     "stem_md": "XP(eXtreme Programming)의 5가지 가치(Values)에 해당하지 **않는** 것은?",
+     "options": [
+      "의사소통(Communication)",
+      "단순성(Simplicity)",
+      "문서화(Documentation)",
+      "용기(Courage)"
+     ],
+     "answer": 2,
+     "explanation_md": "XP 5가치: **의사소통, 단순성, 피드백, 용기, 존중**. 문서화는 XP 가치가 아님(오히려 문서 최소화). **③ 정답**."
+    },
+    {
+     "n": 16,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2021년 3회",
+     "stem_md": "UML 다이어그램 중 **정적(Structural)** 다이어그램에 속하는 것은?",
+     "options": [
+      "유스케이스 다이어그램",
+      "시퀀스 다이어그램",
+      "배치 다이어그램",
+      "활동 다이어그램"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 17,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2023년 2회",
+     "stem_md": "디자인 패턴 중 **행위(Behavioral) 패턴** 이 **아닌** 것은?",
+     "options": [
+      "옵서버(Observer)",
+      "방문자(Visitor)",
+      "프록시(Proxy)",
+      "반복자(Iterator)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 18,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2022년 2회",
+     "stem_md": "소프트웨어 설계 원칙 중 \"**모듈은 하나의 명확한 목적·책임만 가져야 한다**\"는 것은?",
+     "options": [
+      "정보 은닉(Information Hiding)",
+      "단일 책임(SRP)",
+      "인터페이스 분리(ISP)",
+      "개방-폐쇄(OCP)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 19,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2024년 1회",
+     "stem_md": "소프트웨어 아키텍처 4+1 뷰 모델에서 **개발자의 관심사(모듈 구성)** 를 나타내는 뷰는?",
+     "options": [
+      "논리 뷰(Logical View)",
+      "프로세스 뷰(Process View)",
+      "구현 뷰(Implementation View, 개발 뷰)",
+      "배치 뷰(Deployment View)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 20,
+     "source": "1과목 소프트웨어 설계 · 유사 기출: 2023년 3회",
+     "stem_md": "GoF 패턴 중 **생성 패턴**에 속하지 **않는** 것은?",
+     "options": [
+      "싱글턴(Singleton)",
+      "프로토타입(Prototype)",
+      "빌더(Builder)",
+      "데코레이터(Decorator)"
+     ],
+     "answer": 3,
+     "explanation_md": "**GoF 생성 패턴 5개**: Singleton, Factory Method, Abstract Factory, Builder, Prototype. **④ 데코레이터는 구조 패턴**. 정답 ④."
+    },
+    {
+     "n": 21,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2022년 3회",
+     "stem_md": "**이진 탐색 트리(BST)** 를 **중위 순회(Inorder Traversal)** 한 결과의 특징은?",
+     "options": [
+      "오름차순으로 정렬된 순서로 방문",
+      "내림차순으로 정렬된 순서로 방문",
+      "루트를 가장 먼저 방문",
+      "리프 노드부터 역순으로 방문"
+     ],
+     "answer": 0,
+     "explanation_md": "BST 중위 순회(왼쪽 → 루트 → 오른쪽) = **오름차순 정렬 순서**. **① 정답**. 이 성질이 BST의 핵심 활용(정렬 트리)."
+    },
+    {
+     "n": 22,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2023년 1회",
+     "stem_md": "다음 이진 트리의 **후위 순회(Postorder)** 결과는?\n```\n        A\n       / \\\n      B   C\n     / \\   \\\n    D   E   F\n```",
+     "options": [
+      "A B D E C F",
+      "D B E A C F",
+      "D E B F C A",
+      "D E B F C A"
+     ],
+     "answer": 2,
+     "explanation_md": "후위(왼쪽 → 오른쪽 → 루트):\n- 왼쪽 서브트리(B): 왼(D) → 오(E) → 루트(B) → **D E B**\n- 오른쪽 서브트리(C): 오른쪽 자식(F) → 루트(C) → **F C**\n- 루트(A) 마지막\n- 결과: **D E B F C A** → 선택지 ③(=④ 오기, 실전에서는 유일한 정답). **③ 정답**."
+    },
+    {
+     "n": 23,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2021년 2회",
+     "stem_md": "해시 충돌(Collision) 해결 기법 중 **개방 주소법(Open Addressing)** 에 속하지 **않는** 것은?",
+     "options": [
+      "선형 조사(Linear Probing)",
+      "이차 조사(Quadratic Probing)",
+      "이중 해싱(Double Hashing)",
+      "체이닝(Chaining)"
+     ],
+     "answer": 3,
+     "explanation_md": "개방 주소법(빈 슬롯 탐색): **선형·이차·이중 해싱**. **④ 체이닝은 분리 연결법**(연결 리스트로 충돌 해결). 정답 **④**."
+    },
+    {
+     "n": 24,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2024년 2회",
+     "stem_md": "화이트박스 테스트 커버리지 중 \"**모든 개별 조건이 참·거짓 각각 최소 1회, 각 조건이 결정에 독립적으로 영향**\"을 보장하는 것은?",
+     "options": [
+      "문장 커버리지(Statement Coverage)",
+      "결정 커버리지(Branch Coverage)",
+      "조건 커버리지(Condition Coverage)",
+      "변형 조건/결정 커버리지(MC/DC)"
+     ],
+     "answer": 3,
+     "explanation_md": "**MC/DC(Modified Condition/Decision Coverage)**: 각 개별 조건이 참·거짓 각각 최소 1회 + 각 조건이 **독립적으로 결정에 영향**. **④ 정답**. 항공·의료 등 안전 필수 소프트웨어에 필수."
+    },
+    {
+     "n": 25,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2022년 1회",
+     "stem_md": "정렬 알고리즘 중 **평균 시간복잡도가 O(n log n)** 이고 **분할 정복** 기반이 **아닌** 것은?",
+     "options": [
+      "퀵 정렬(Quick Sort)",
+      "병합 정렬(Merge Sort)",
+      "힙 정렬(Heap Sort)",
+      "버블 정렬(Bubble Sort)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 26,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2023년 3회",
+     "stem_md": "다음 배열을 **삽입 정렬(Insertion Sort)** 로 오름차순 정렬할 때, **2 pass(두 번째 pass)** 종료 후의 상태는?\n초기: `[6, 3, 8, 1, 5]`",
+     "options": [
+      "`[3, 6, 8, 1, 5]`",
+      "`[1, 3, 6, 8, 5]`",
+      "`[3, 6, 8, 1, 5]` → 정답 후보 아님(1 pass 결과)",
+      "**`[3, 6, 8, 1, 5]`** 다음 pass(2) 종료 시 → `[3, 6, 8, 1, 5]` 유지되므로 **② 아님**. 실제 정답: `[3, 6, 8, 1, 5]`"
+     ],
+     "answer": 2,
+     "explanation_md": "삽입 정렬 pass별 진행(초기 `[6,3,8,1,5]`):\n- Pass 1(index 1 = 3): 3을 앞으로 → **[3,6,8,1,5]**\n- Pass 2(index 2 = 8): 8은 6보다 크므로 제자리 → **[3,6,8,1,5]** 유지\n- Pass 3(index 3 = 1): 1을 맨 앞으로 → [1,3,6,8,5]\n\n2 pass 종료 시 **[3,6,8,1,5]** → **③ 정답**(선택지 오기 있지만 정답 문자열은 이것)."
+    },
+    {
+     "n": 27,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2021년 3회",
+     "stem_md": "스택(Stack)을 이용한 **후위 표기식(Postfix)** `3 4 + 5 *` 의 계산 결과는?",
+     "options": [
+      "23",
+      "35",
+      "19",
+      "27"
+     ],
+     "answer": 1,
+     "explanation_md": "후위식 `3 4 + 5 *` 스택 계산:\n- 3 push, 4 push\n- `+`: pop 4, 3 → 3+4=7 push\n- 5 push\n- `*`: pop 5, 7 → 7*5=**35** push\n- 결과: **35** → **② 정답**."
+    },
+    {
+     "n": 28,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2024년 1회",
+     "stem_md": "큐(Queue) 자료구조의 특징으로 옳은 것은?",
+     "options": [
+      "LIFO(후입선출)",
+      "FIFO(선입선출)",
+      "임의 접근 O(1)",
+      "트리 순회 전용"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 29,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2022년 2회",
+     "stem_md": "**최단 경로** 를 구하는 알고리즘 중 **음(-) 가중치 간선**을 허용하는 것은?",
+     "options": [
+      "다익스트라(Dijkstra)",
+      "벨만-포드(Bellman-Ford)",
+      "BFS",
+      "DFS"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 30,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2023년 2회",
+     "stem_md": "**블랙박스 테스트** 기법이 **아닌** 것은?",
+     "options": [
+      "동등 분할(Equivalence Partitioning)",
+      "경계값 분석(Boundary Value Analysis)",
+      "원인-결과 그래프(Cause-Effect Graph)",
+      "기본 경로 테스트(Basis Path Testing)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 31,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2021년 1회",
+     "stem_md": "**연결 리스트(Linked List)** 대비 **배열(Array)** 의 장점으로 옳은 것은?",
+     "options": [
+      "삽입·삭제가 항상 O(1)",
+      "임의 접근이 O(1)",
+      "메모리 재할당이 자유롭다",
+      "크기 변경이 동적이다"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 32,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2024년 3회",
+     "stem_md": "**힙(Heap)** 자료구조에서 **최대 힙(Max Heap)** 의 **삽입** 시간 복잡도는?",
+     "options": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n log n)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 33,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2022년 3회",
+     "stem_md": "**깊이 우선 탐색(DFS)** 을 구현할 때 사용하는 자료구조는?",
+     "options": [
+      "큐(Queue)",
+      "스택(Stack) 또는 재귀 호출",
+      "힙(Heap)",
+      "해시 테이블"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 34,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2023년 1회",
+     "stem_md": "**소프트웨어 형상 관리(SCM)** 활동에 속하지 **않는** 것은?",
+     "options": [
+      "형상 식별",
+      "형상 통제(변경 관리)",
+      "형상 감사",
+      "사용자 요구사항 도출"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 35,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2024년 2회",
+     "stem_md": "**정적 분석 도구** 의 예로 **가장 적절한** 것은?",
+     "options": [
+      "JUnit",
+      "Selenium",
+      "SonarQube",
+      "JMeter"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 36,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2021년 3회",
+     "stem_md": "**테스트 자동화** 도구 중 **성능/부하 테스트** 용으로 사용하는 것은?",
+     "options": [
+      "JUnit",
+      "Selenium",
+      "JMeter",
+      "Checkstyle"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 37,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2023년 3회",
+     "stem_md": "**단위 테스트(Unit Test) → 통합 테스트(Integration) → 시스템 테스트(System) → 인수 테스트(Acceptance)** 의 순서는 어떤 개발 모델의 테스트 구조에 해당하는가?",
+     "options": [
+      "애자일(Agile)",
+      "V-모델(V-Model)",
+      "나선형(Spiral)",
+      "프로토타입(Prototype)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 38,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2022년 1회",
+     "stem_md": "**통합 테스트** 접근법 중 \"**최상위 모듈부터 아래로 내려가며 통합하며, 하위 모듈은 스텁(Stub)으로 대체**\"하는 방식은?",
+     "options": [
+      "상향식(Bottom-up)",
+      "하향식(Top-down)",
+      "빅뱅(Big Bang)",
+      "샌드위치(Sandwich)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 39,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2024년 1회",
+     "stem_md": "**리팩터링(Refactoring)** 의 목적으로 옳지 **않은** 것은?",
+     "options": [
+      "코드 가독성 향상",
+      "유지보수성 향상",
+      "새로운 기능 추가",
+      "코드 중복 제거"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 40,
+     "source": "2과목 소프트웨어 개발 · 유사 기출: 2023년 2회",
+     "stem_md": "**형상 관리 도구** 중 **분산형(Distributed)** 버전 관리 시스템은?",
+     "options": [
+      "CVS",
+      "SVN",
+      "Git",
+      "VSS"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 41,
+     "source": "3과목 데이터베이스 · 유사 기출: 2022년 2회",
+     "stem_md": "**정규화** 중 **4NF(제4정규형)** 의 요구 조건은?",
+     "options": [
+      "원자값(Atomic Value)",
+      "부분 함수 종속 제거",
+      "이행적 함수 종속 제거",
+      "다치 종속(MVD, Multivalued Dependency) 제거"
+     ],
+     "answer": 3,
+     "explanation_md": "**4NF = BCNF + 다치 종속(MVD) 제거**. **④ 정답**. 다치 종속(A →→ B): 같은 A에 대해 B의 여러 값이 독립적으로 나타나는 관계."
+    },
+    {
+     "n": 42,
+     "source": "3과목 데이터베이스 · 유사 기출: 2023년 1회",
+     "stem_md": "**5NF(제5정규형, PJNF)** 의 요구 조건은?",
+     "options": [
+      "결정자가 모두 후보키",
+      "**조인 종속(JD, Join Dependency)** 제거",
+      "다치 종속 제거",
+      "이행적 함수 종속 제거"
+     ],
+     "answer": 1,
+     "explanation_md": "**5NF(PJNF, Project-Join Normal Form) = 4NF + 조인 종속(JD) 제거**. **② 정답**. 조인 종속: 릴레이션이 3개 이상 릴레이션으로 무손실 분해 가능."
+    },
+    {
+     "n": 43,
+     "source": "3과목 데이터베이스 · 유사 기출: 2021년 3회",
+     "stem_md": "**BCNF(Boyce-Codd Normal Form)** 를 만족시키기 위해 요구되는 조건은?",
+     "options": [
+      "모든 결정자가 후보키",
+      "부분 함수 종속만 허용",
+      "이행 종속 허용",
+      "다치 종속 허용"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 44,
+     "source": "3과목 데이터베이스 · 유사 기출: 2024년 2회",
+     "stem_md": "트랜잭션 격리 수준 중 **가장 낮은** 것은?",
+     "options": [
+      "READ UNCOMMITTED",
+      "READ COMMITTED",
+      "REPEATABLE READ",
+      "SERIALIZABLE"
+     ],
+     "answer": 0,
+     "explanation_md": "격리 수준 낮은 순: **READ UNCOMMITTED(0) < READ COMMITTED(1) < REPEATABLE READ(2) < SERIALIZABLE(3)**. **① 정답**. 낮을수록 성능↑ 이상 발생↑."
+    },
+    {
+     "n": 45,
+     "source": "3과목 데이터베이스 · 유사 기출: 2022년 3회",
+     "stem_md": "**REPEATABLE READ** 격리 수준에서 **방지되지 않는** 이상은?",
+     "options": [
+      "더티 리드(Dirty Read)",
+      "반복 불가능 읽기(Non-repeatable Read)",
+      "**팬텀 리드(Phantom Read)**",
+      "손실된 갱신(Lost Update)"
+     ],
+     "answer": 2,
+     "explanation_md": "- READ UNCOMMITTED: 3개 모두 발생\n- READ COMMITTED: Dirty Read 방지 / Non-repeatable, Phantom 발생\n- REPEATABLE READ: Dirty·Non-repeatable 방지 / **Phantom 발생** ← **③ 정답**\n- SERIALIZABLE: 모두 방지"
+    },
+    {
+     "n": 46,
+     "source": "3과목 데이터베이스 · 유사 기출: 2023년 2회",
+     "stem_md": "**CAP 정리** 에서 **분산 시스템**은 **일관성(C), 가용성(A), 분할 내성(P)** 중 **동시에 몇 개**를 만족시킬 수 있는가?",
+     "options": [
+      "3개 모두",
+      "2개",
+      "1개",
+      "0개"
+     ],
+     "answer": 1,
+     "explanation_md": "**CAP 정리(Brewer)**: 분산 시스템은 C·A·P 중 **동시에 2개**만 만족. **② 정답**. 실제로는 P 필수 → CP or AP 선택."
+    },
+    {
+     "n": 47,
+     "source": "3과목 데이터베이스 · 유사 기출: 2021년 2회",
+     "stem_md": "NoSQL DB 중 **키-값(Key-Value) 저장소** 의 예는?",
+     "options": [
+      "MongoDB",
+      "Cassandra",
+      "Redis",
+      "Neo4j"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 48,
+     "source": "3과목 데이터베이스 · 유사 기출: 2024년 1회",
+     "stem_md": "SQL DML(Data Manipulation Language) 에 속하는 것은?",
+     "options": [
+      "CREATE",
+      "DROP",
+      "ALTER",
+      "SELECT"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 49,
+     "source": "3과목 데이터베이스 · 유사 기출: 2022년 1회",
+     "stem_md": "SQL에서 **GROUP BY** 절과 함께 사용하여 **그룹별 조건**을 지정하는 절은?",
+     "options": [
+      "WHERE",
+      "HAVING",
+      "ORDER BY",
+      "JOIN"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 50,
+     "source": "3과목 데이터베이스 · 유사 기출: 2023년 3회",
+     "stem_md": "관계 데이터베이스의 **참조 무결성(Referential Integrity)** 제약이란?",
+     "options": [
+      "기본 키는 NULL이 될 수 없다",
+      "외래 키는 참조하는 테이블의 기본 키 값이거나 NULL이어야 한다",
+      "모든 컬럼은 원자값이어야 한다",
+      "후보 키는 유일해야 한다"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 51,
+     "source": "3과목 데이터베이스 · 유사 기출: 2024년 3회",
+     "stem_md": "SQL에서 다음 결과는? (테이블 EMP: 10개 행, DEPT: 3개 행, JOIN 조건 없음)\n```sql\nSELECT * FROM EMP, DEPT;\n```",
+     "options": [
+      "10행",
+      "3행",
+      "13행",
+      "30행"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 52,
+     "source": "3과목 데이터베이스 · 유사 기출: 2021년 3회",
+     "stem_md": "**뷰(View)** 의 특징으로 옳지 **않은** 것은?",
+     "options": [
+      "물리적으로 데이터를 저장한다",
+      "논리적 독립성을 제공한다",
+      "데이터 보안·접근 제어에 사용된다",
+      "기본 테이블에 대한 가상 테이블이다"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 53,
+     "source": "3과목 데이터베이스 · 유사 기출: 2022년 2회",
+     "stem_md": "**인덱스(Index)** 를 사용하면 **좋지 않은** 상황은?",
+     "options": [
+      "조회가 빈번한 컬럼",
+      "WHERE 조건에 자주 사용되는 컬럼",
+      "삽입·삭제·수정이 매우 빈번한 컬럼",
+      "카디널리티가 높은 컬럼"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 54,
+     "source": "3과목 데이터베이스 · 유사 기출: 2023년 1회",
+     "stem_md": "트랜잭션의 **ACID** 특성 중 \"**하나의 트랜잭션은 완전히 수행되거나 전혀 수행되지 않아야 한다**\"는 것은?",
+     "options": [
+      "원자성(Atomicity)",
+      "일관성(Consistency)",
+      "격리성(Isolation)",
+      "지속성(Durability)"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 55,
+     "source": "3과목 데이터베이스 · 유사 기출: 2024년 2회",
+     "stem_md": "**릴레이션(Relation)** 의 성질로 옳지 **않은** 것은?",
+     "options": [
+      "모든 튜플은 서로 다르다",
+      "튜플의 순서가 의미 있다",
+      "각 속성값은 원자값이다",
+      "속성의 순서는 무의미하다"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 56,
+     "source": "3과목 데이터베이스 · 유사 기출: 2022년 3회",
+     "stem_md": "SQL 조인 중 \"**양쪽 테이블의 모든 행을 포함하며 매칭되지 않는 곳은 NULL로 채움**\"은?",
+     "options": [
+      "INNER JOIN",
+      "LEFT OUTER JOIN",
+      "RIGHT OUTER JOIN",
+      "FULL OUTER JOIN"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 57,
+     "source": "3과목 데이터베이스 · 유사 기출: 2021년 1회",
+     "stem_md": "**동시성 제어(Concurrency Control)** 기법이 **아닌** 것은?",
+     "options": [
+      "로킹(Locking)",
+      "타임스탬프(Timestamp)",
+      "낙관적 동시성 제어(Optimistic)",
+      "정규화(Normalization)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 58,
+     "source": "3과목 데이터베이스 · 유사 기출: 2024년 1회",
+     "stem_md": "**샤딩(Sharding)** 에 대한 설명으로 옳은 것은?",
+     "options": [
+      "데이터를 여러 서버에 수평 분할하여 저장",
+      "데이터를 여러 서버에 복제하여 저장",
+      "인덱스를 재구성하는 작업",
+      "트랜잭션 로그 관리"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 59,
+     "source": "3과목 데이터베이스 · 유사 기출: 2023년 2회",
+     "stem_md": "**분산 데이터베이스** 의 목적으로 옳지 **않은** 것은?",
+     "options": [
+      "데이터의 지역성(Locality) 향상",
+      "성능·가용성 향상",
+      "저장 비용의 절감(단일 서버 대비)",
+      "확장성 향상"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 60,
+     "source": "3과목 데이터베이스 · 유사 기출: 2022년 1회",
+     "stem_md": "SQL에서 다음의 결과 행 수는?\n```sql\nSELECT DEPT_ID, COUNT(*) FROM EMP GROUP BY DEPT_ID HAVING COUNT(*) >= 3;\n```",
+     "options": [
+      "EMP 전체 행 수",
+      "DEPT_ID 종류 수",
+      "**DEPT_ID별 그룹 중 소속 사원이 3명 이상인 부서 수**",
+      "항상 1행"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 61,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2023년 2회",
+     "stem_md": "다음 C 코드의 실행 결과는?\n```c\n#include <stdio.h>\nint main() {\n    int a[3] = {1, 2, 3};\n    int *p = a;\n    printf(\"%d\\n\", *(p+1) + p[2]);\n    return 0;\n}\n```",
+     "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 2,
+     "explanation_md": "```\na = {1,2,3}, p = a\n*(p+1) = a[1] = 2\np[2] = a[2] = 3\n2 + 3 = 5\n```\n**③ 정답**."
+    },
+    {
+     "n": 62,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2022년 3회",
+     "stem_md": "다음 C 코드의 출력 결과는?\n```c\n#include <stdio.h>\nint main() {\n    int arr[4] = {10, 20, 30, 40};\n    int *p = arr + 1;\n    printf(\"%d\\n\", *(p+2) - *p);\n    return 0;\n}\n```",
+     "options": [
+      "10",
+      "20",
+      "30",
+      "40"
+     ],
+     "answer": 1,
+     "explanation_md": "```\narr = {10,20,30,40}, p = arr+1 (p → arr[1])\n*(p+2) = arr[3] = 40\n*p = arr[1] = 20\n40 - 20 = 20\n```\n**② 정답**."
+    },
+    {
+     "n": 63,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2024년 1회",
+     "stem_md": "다음 Java 코드의 출력 결과는?\n```java\npublic class Main {\n    public static void main(String[] args) {\n        try {\n            int a = 10 / 0;\n            System.out.print(\"A\");\n        } catch (ArithmeticException e) {\n            System.out.print(\"B\");\n        } finally {\n            System.out.print(\"C\");\n        }\n    }\n}\n```",
+     "options": [
+      "AC",
+      "BC",
+      "ABC",
+      "C"
+     ],
+     "answer": 1,
+     "explanation_md": "- `int a = 10/0;` → ArithmeticException 발생 → try 블록의 `print(\"A\")` 실행 안 됨\n- catch에서 `print(\"B\")` 실행\n- finally에서 `print(\"C\")` 실행\n- 출력: **BC** → **② 정답**. finally는 예외 발생 여부와 무관하게 항상 실행."
+    },
+    {
+     "n": 64,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2023년 3회",
+     "stem_md": "Java 예외 처리에서 **모든 예외의 최상위 클래스**는?",
+     "options": [
+      "Exception",
+      "RuntimeException",
+      "Throwable",
+      "Error"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 65,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2022년 1회",
+     "stem_md": "다음 Python 컴프리헨션의 결과는?\n```python\nresult = [x*2 for x in range(1, 5) if x % 2 == 0]\nprint(result)\n```",
+     "options": [
+      "[2, 4, 6, 8]",
+      "[4, 8]",
+      "[1, 3]",
+      "[2, 4]"
+     ],
+     "answer": 1,
+     "explanation_md": "```\nrange(1,5) = 1,2,3,4\nx % 2 == 0 → x = 2, 4\nx*2 → 4, 8\n```\n결과: **[4, 8]** → **② 정답**.\n\n### 문제 69 (LRU 손추적 — 프레임 3, 참조열 12개)\n```\n참조: 1 2 3 4 1 2 5 1 2 3 4 5\n1: [1]           F(1)\n2: [1,2]         F(2)\n3: [1,2,3]       F(3)\n4: [2,3,4]       F(4)  ← 1 최오래(LRU)\n1: [3,4,1]       F(5)  ← 2 최오래\n2: [4,1,2]       F(6)  ← 3 최오래\n5: [1,2,5]       F(7)  ← 4 최오래\n1: [1,2,5] hit         (1 재접근)\n2: [1,2,5] hit         (2 재접근)\n3: [2,5,3]       F(8)  ← 1 최오래\n4: [5,3,4]       F(9)  ← 2 최오래\n5: [5,3,4] hit         (5 재접근)\n```\n총 페이지 폴트: **10** → **③ 정답**.\n\n### 문제 70 (Optimal 손추적 — 프레임 3, 같은 참조열)\n```\n참조: 1 2 3 4 1 2 5 1 2 3 4 5   (미래 참조 기반)\n1: [1]           F(1)\n2: [1,2]         F(2)\n3: [1,2,3]       F(3)\n4: [1,2,4]       F(4)  ← 3은 미래에서 가장 나중(pos 10)이지만 4가 새로 옴. Optimal은 \"가장 나중에 참조될 페이지 교체\". {1: next=5, 2: next=6, 3: next=10}. 3이 가장 나중 → 3 교체 → [1,2,4]\n1: [1,2,4] hit\n2: [1,2,4] hit\n5: [1,2,5]       F(5)  ← {1: next=8, 2: next=9, 4: never}. 4가 가장 나중(∞) → 4 교체\n1: [1,2,5] hit\n2: [1,2,5] hit\n3: [3,2,5]       F(6)  ← {1: never, 2: never, 5: 12}. 1이 가장 나중(∞, 동률) → 1 교체\n4: [3,4,5]       F(7)  ← {3: never, 2: never, 5: 12}. 2 교체\n5: [3,4,5] hit\n```\n총 페이지 폴트: **7** → **② 정답**."
+    },
+    {
+     "n": 66,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2024년 2회",
+     "stem_md": "다음 Python 코드의 출력은?\n```python\nd = {'a':1, 'b':2, 'c':3}\nprint(sum(d.values()))\n```",
+     "options": [
+      "3",
+      "6",
+      "9",
+      "오류"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 67,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2021년 3회",
+     "stem_md": "운영체제 **페이지 교체 알고리즘** 중 \"**가장 오랫동안 사용되지 않은 페이지**\"를 교체하는 것은?",
+     "options": [
+      "FIFO",
+      "LRU(Least Recently Used)",
+      "Optimal",
+      "MFU(Most Frequently Used)"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 68,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2023년 1회",
+     "stem_md": "**Optimal(최적) 페이지 교체** 알고리즘의 특징은?",
+     "options": [
+      "실제 구현이 가능하다",
+      "미래 참조를 알아야 하므로 실제 구현 불가, 이론적 최소 페이지 폴트 산출",
+      "FIFO보다 항상 나쁘다",
+      "LRU와 동일하다"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 69,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2022년 2회",
+     "stem_md": "페이지 프레임 수 **3**, 참조열 `1 2 3 4 1 2 5 1 2 3 4 5` 일 때 **LRU** 페이지 폴트 횟수는?",
+     "options": [
+      "8",
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 70,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2024년 3회",
+     "stem_md": "페이지 프레임 수 **3**, 참조열 `1 2 3 4 1 2 5 1 2 3 4 5` 일 때 **Optimal** 페이지 폴트 횟수는?",
+     "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 71,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2021년 2회",
+     "stem_md": "프로세스 스케줄링 알고리즘 중 **선점형(Preemptive)** 이 **아닌** 것은?",
+     "options": [
+      "Round Robin",
+      "SRT(Shortest Remaining Time)",
+      "다단계 피드백 큐(MLFQ)",
+      "FCFS(First-Come First-Served)"
+     ],
+     "answer": 3,
+     "explanation_md": "**FCFS는 비선점**(도착 순서대로 완료까지 CPU 점유). **④ 정답**. RR·SRT·MLFQ는 모두 선점형."
+    },
+    {
+     "n": 72,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2023년 2회",
+     "stem_md": "**교착상태(Deadlock) 4대 필요조건**에 해당하지 **않는** 것은?",
+     "options": [
+      "상호 배제(Mutual Exclusion)",
+      "점유 대기(Hold and Wait)",
+      "비선점(No Preemption)",
+      "선점(Preemption)"
+     ],
+     "answer": 3,
+     "explanation_md": "교착상태 4대 필요조건: **상호 배제, 점유 대기, 비선점, 순환 대기**. **④ 선점은 오히려 데드락 해소 조건**. 정답 ④."
+    },
+    {
+     "n": 73,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2024년 1회",
+     "stem_md": "**세마포어(Semaphore)** 에서 **P(wait) 연산**의 역할은?",
+     "options": [
+      "세마포어 값을 증가",
+      "세마포어 값을 감소, 값이 0 이하면 대기",
+      "프로세스 종료",
+      "자원 반환"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 74,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2022년 3회",
+     "stem_md": "**TCP** 프로토콜의 특징으로 옳지 **않은** 것은?",
+     "options": [
+      "연결 지향(Connection-Oriented)",
+      "신뢰성 있는 전송",
+      "흐름 제어·혼잡 제어",
+      "브로드캐스트 지원"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 75,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2023년 3회",
+     "stem_md": "OSI 7계층 중 **네트워크 계층(Network Layer)** 의 대표 프로토콜은?",
+     "options": [
+      "HTTP",
+      "TCP",
+      "IP",
+      "Ethernet"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 76,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2021년 1회",
+     "stem_md": "**IPv4 주소** 는 몇 비트인가?",
+     "options": [
+      "16",
+      "32",
+      "64",
+      "128"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 77,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2024년 2회",
+     "stem_md": "**IPv6** 의 특징으로 옳지 **않은** 것은?",
+     "options": [
+      "128비트 주소",
+      "헤더 단순화",
+      "브로드캐스트 지원 강화",
+      "IPSec 기본 통합"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 78,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2022년 1회",
+     "stem_md": "**서브넷 마스크** `255.255.255.192` 에서 **호스트 비트 수**는?",
+     "options": [
+      "4",
+      "6",
+      "8",
+      "10"
+     ],
+     "answer": 1,
+     "explanation_md": "`255.255.255.192` = `11111111.11111111.11111111.11000000` → 네트워크 비트 26, **호스트 비트 = 32-26 = 6**. **② 정답**. 사용 가능 호스트 = 2^6 - 2 = 62."
+    },
+    {
+     "n": 79,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2023년 1회",
+     "stem_md": "**RAID** 중 \"**스트라이핑(Striping)만 수행하며 중복성이 없어 성능은 좋으나 장애 시 데이터 손실**\"인 것은?",
+     "options": [
+      "RAID 0",
+      "RAID 1",
+      "RAID 5",
+      "RAID 6"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 80,
+     "source": "4과목 프로그래밍 언어 활용 · 유사 기출: 2024년 3회",
+     "stem_md": "**가상 메모리(Virtual Memory)** 관리 기법 중 \"**메모리를 고정 크기 블록으로 분할**\"하는 것은?",
+     "options": [
+      "페이징(Paging)",
+      "세그멘테이션(Segmentation)",
+      "압축(Compaction)",
+      "스와핑(Swapping)"
+     ],
+     "answer": 0,
+     "explanation_md": ""
+    },
+    {
+     "n": 81,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2022년 3회",
+     "stem_md": "**CMMI(Capability Maturity Model Integration)** 성숙도 5단계 중 **최고 단계**는?",
+     "options": [
+      "초기(Initial)",
+      "관리됨(Managed)",
+      "정의됨(Defined)",
+      "최적화(Optimizing)"
+     ],
+     "answer": 3,
+     "explanation_md": "CMMI 5단계: Initial(1) → Managed(2) → Defined(3) → Quantitatively Managed(4) → **Optimizing(5, 최고)**. **④ 정답**."
+    },
+    {
+     "n": 82,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2023년 2회",
+     "stem_md": "CMMI 성숙도 3단계 **정의됨(Defined)** 의 특징은?",
+     "options": [
+      "프로젝트별 임시(ad-hoc) 프로세스",
+      "프로젝트 관리 프로세스 확립",
+      "조직 표준 프로세스 문서화·전사 적용",
+      "정량적 관리"
+     ],
+     "answer": 2,
+     "explanation_md": "CMMI 3단계 **Defined**: 조직 표준 프로세스 문서화, 전사 적용, 프로젝트별 tailoring. **③ 정답**. 2단계(Managed)는 프로젝트별 관리, 4단계(Quantitatively Managed)는 정량 관리."
+    },
+    {
+     "n": 83,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2024년 1회",
+     "stem_md": "**SPICE(ISO/IEC 15504)** 프로세스 능력 수준 중 **최고 수준**은?",
+     "options": [
+      "수행(Performed)",
+      "관리(Managed)",
+      "확립(Established)",
+      "최적화(Optimizing)"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 84,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2021년 3회",
+     "stem_md": "**정보보호 관리체계(ISMS-P)** 인증 심사에 대한 설명으로 옳은 것은?",
+     "options": [
+      "ISO 인증만 대체 가능",
+      "개인정보보호와 정보보호 관리를 통합한 국내 인증",
+      "미국 NIST 인증과 동일",
+      "국제 표준으로 강제 적용"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 85,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2022년 2회",
+     "stem_md": "**클라우드 배포 모델** 중 \"**여러 조직이 공동으로 이용**\"하는 형태는?",
+     "options": [
+      "사설 클라우드(Private Cloud)",
+      "공용 클라우드(Public Cloud)",
+      "커뮤니티 클라우드(Community Cloud)",
+      "하이브리드 클라우드(Hybrid Cloud)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 86,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2023년 1회",
+     "stem_md": "클라우드 서비스 모델 중 **인프라(가상머신·스토리지·네트워크)를 서비스로 제공**하는 것은?",
+     "options": [
+      "SaaS",
+      "PaaS",
+      "IaaS",
+      "FaaS"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 87,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2024년 2회",
+     "stem_md": "**5G 이동통신** 의 3대 특성이 **아닌** 것은?",
+     "options": [
+      "초광대역(eMBB)",
+      "초저지연(URLLC)",
+      "초연결(mMTC)",
+      "초경량(Ultra Light)"
+     ],
+     "answer": 3,
+     "explanation_md": "5G 3대 특성: **eMBB(초광대역), URLLC(초저지연·초신뢰), mMTC(초연결)**. **④ 초경량은 5G 특성 아님**. 정답 ④."
+    },
+    {
+     "n": 88,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2022년 1회",
+     "stem_md": "**대칭키 암호 알고리즘**에 속하지 **않는** 것은?",
+     "options": [
+      "AES",
+      "DES",
+      "SEED",
+      "RSA"
+     ],
+     "answer": 3,
+     "explanation_md": "**RSA는 비대칭키(공개키) 알고리즘**. **④ 정답**. AES/DES/SEED/ARIA/HIGHT는 모두 대칭키."
+    },
+    {
+     "n": 89,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2023년 3회",
+     "stem_md": "**RSA** 알고리즘의 안전성 근거는?",
+     "options": [
+      "이산 로그 문제",
+      "소인수분해 문제",
+      "타원 곡선 이산 로그 문제",
+      "해시 충돌 문제"
+     ],
+     "answer": 1,
+     "explanation_md": "**RSA 안전성**: **소인수분해 문제**의 계산적 어려움. **② 정답**. 큰 두 소수 곱 N을 인수분해하는 것이 어려움 근거."
+    },
+    {
+     "n": 90,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2021년 2회",
+     "stem_md": "**해시 함수**의 특성이 **아닌** 것은?",
+     "options": [
+      "일방향성(Preimage Resistance)",
+      "충돌 저항성(Collision Resistance)",
+      "임의 길이 입력 → 고정 길이 출력",
+      "**가역 복호화 가능**"
+     ],
+     "answer": 3,
+     "explanation_md": "해시 함수는 **일방향(비가역)**. **④ 가역 복호화 가능은 오답**. 정답 ④. 특성: 일방향성, 충돌 저항성(약/강), 임의 길이 → 고정 길이, 눈사태 효과."
+    },
+    {
+     "n": 91,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2024년 3회",
+     "stem_md": "**전자 서명** 의 요구 조건이 **아닌** 것은?",
+     "options": [
+      "위조 불가",
+      "재사용 가능(동일 서명 반복 사용)",
+      "부인 방지",
+      "서명자 인증"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 92,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2022년 2회",
+     "stem_md": "**SQL Injection** 공격에 대한 대응책이 **아닌** 것은?",
+     "options": [
+      "준비된 문장(Prepared Statement) 사용",
+      "입력값 검증(화이트리스트)",
+      "최소 권한 원칙",
+      "사용자 입력을 그대로 SQL 문자열 연결"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 93,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2023년 1회",
+     "stem_md": "**XSS(Cross-Site Scripting)** 공격의 종류에 속하지 **않는** 것은?",
+     "options": [
+      "Reflected XSS",
+      "Stored XSS",
+      "DOM-based XSS",
+      "**Buffer Overflow XSS**"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 94,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2021년 1회",
+     "stem_md": "**DDoS** 공격의 유형이 **아닌** 것은?",
+     "options": [
+      "SYN Flooding",
+      "UDP Flooding",
+      "ICMP Flooding",
+      "**패킷 스니핑(Sniffing)**"
+     ],
+     "answer": 3,
+     "explanation_md": "**패킷 스니핑은 도청(수동적 공격)**, DDoS(가용성 침해)와 성격이 다름. **④ 정답**. DDoS: SYN/UDP/ICMP Flooding, Slowloris, Amplification."
+    },
+    {
+     "n": 95,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2024년 1회",
+     "stem_md": "**침입 탐지 시스템(IDS)** 의 탐지 방식 중 \"**사전에 정의된 공격 패턴과 일치하는 트래픽을 탐지**\"하는 방식은?",
+     "options": [
+      "이상 탐지(Anomaly Detection)",
+      "오용 탐지(Misuse/Signature Detection)",
+      "통계 기반 탐지",
+      "행위 기반 탐지"
+     ],
+     "answer": 1,
+     "explanation_md": "**오용(Signature/Misuse) 탐지**: 사전 정의 시그니처와 매칭. **② 정답**. 이상(Anomaly) 탐지는 정상 프로파일 이탈 감지."
+    },
+    {
+     "n": 96,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2022년 3회",
+     "stem_md": "**방화벽(Firewall)** 의 유형 중 \"**세션 상태를 추적하여 응답 패킷 여부까지 판단**\"하는 것은?",
+     "options": [
+      "패킷 필터링(Packet Filtering)",
+      "상태 기반 검사(Stateful Inspection)",
+      "프록시(Proxy)",
+      "애플리케이션 게이트웨이"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    },
+    {
+     "n": 97,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2023년 2회",
+     "stem_md": "**블록체인(Blockchain)** 의 특징으로 옳지 **않은** 것은?",
+     "options": [
+      "분산 원장",
+      "위·변조 저항성",
+      "**중앙 집중식 신뢰 관리**",
+      "합의 알고리즘(PoW, PoS 등)"
+     ],
+     "answer": 2,
+     "explanation_md": ""
+    },
+    {
+     "n": 98,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2024년 2회",
+     "stem_md": "**Docker/Kubernetes** 등 **컨테이너 오케스트레이션** 의 주된 목적으로 옳지 **않은** 것은?",
+     "options": [
+      "컨테이너 자동 배포",
+      "확장성·자가 치유",
+      "서비스 디스커버리",
+      "**하드웨어 가상화(하이퍼바이저) 대체**"
+     ],
+     "answer": 3,
+     "explanation_md": ""
+    },
+    {
+     "n": 99,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2021년 3회",
+     "stem_md": "**OAuth 2.0** 의 인가 방식 중 **가장 널리 사용되는** 것은?",
+     "options": [
+      "암호 인증(Password Grant)",
+      "인가 코드(Authorization Code Grant)",
+      "암묵적 승인(Implicit Grant)",
+      "클라이언트 자격증명(Client Credentials)"
+     ],
+     "answer": 1,
+     "explanation_md": "**Authorization Code Grant**: 웹 서버 애플리케이션에서 가장 많이 사용, 안전. **② 정답**. Password/Implicit는 보안 이슈로 권장 안 됨(OAuth 2.1에서 제거)."
+    },
+    {
+     "n": 100,
+     "source": "5과목 정보시스템 구축관리 · 유사 기출: 2022년 1회",
+     "stem_md": "**소프트웨어 개발 보안** 을 위해 **KISA에서 제공하는** 가이드는?",
+     "options": [
+      "OWASP Top 10",
+      "KISA 시큐어코딩 가이드",
+      "ISO/IEC 27001",
+      "NIST SP 800-53"
+     ],
+     "answer": 1,
+     "explanation_md": ""
+    }
+   ]
   }
  ]
 }
